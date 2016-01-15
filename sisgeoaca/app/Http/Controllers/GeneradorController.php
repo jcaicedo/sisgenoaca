@@ -16,4 +16,9 @@ class GeneradorController extends Controller
     }
 
 
+    function registro(){
+
+    }
+
+
 }

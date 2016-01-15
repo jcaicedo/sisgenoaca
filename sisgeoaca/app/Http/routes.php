@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 
 Route::get('/generador', ['uses' => 'GeneradorController@index', 'as' => 'generador']);
-
+Route::post('registro',['uses'=>'GeneradorController@registro','as'=>'registro']);
 /*
 |--------------------------------------------------------------------------
 | Application Routes
