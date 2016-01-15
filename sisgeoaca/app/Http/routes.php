@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/prueba', function () {
-    return view('prueba');
-});
+
+
+Route::get('/generador', ['uses' => 'GeneradorController@index', 'as' => 'generador']);
 
 /*
 |--------------------------------------------------------------------------
