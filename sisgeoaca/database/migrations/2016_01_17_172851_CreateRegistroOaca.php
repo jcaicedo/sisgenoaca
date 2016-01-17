@@ -17,7 +17,7 @@ class CreateRegistroOaca extends Migration
             $table->increments('id');
             $table->string('nombreoaca')->required();
             $table->string('areaconocimiento')->required();
-            $table->string('subareacnocimiento')->required();
+            $table->string('subareaconocimiento')->required();
             $table->string('idioma')->required();
             $table->string('origen')->required();
             $table->string('objetivogeneral')->required();
