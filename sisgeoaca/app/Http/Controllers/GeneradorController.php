@@ -16,7 +16,10 @@ class GeneradorController extends Controller
     }
 
 
-    function registro(){
+    public function registro(Request $request){
+
+
+
 
     }
 
