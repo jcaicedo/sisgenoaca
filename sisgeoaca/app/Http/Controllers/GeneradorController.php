@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\RegistroOaca;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,6 +19,10 @@ class GeneradorController extends Controller
 
     public function registro(Request $request){
 
+            $oaca =new RegistroOaca();
+            $oaca->create($request->all());
+
+            return response()->json(['respuesta'=>'ok']);
 
 
 

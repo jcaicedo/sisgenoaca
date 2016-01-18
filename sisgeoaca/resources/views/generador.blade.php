@@ -12,7 +12,7 @@
             <div class="col col-md-6 col-md-offset-3">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        {!! Form::open(['route'=>'registro','method'=>'post']) !!}
+                        {!! Form::open(['route'=>'registroaca','method'=>'post']) !!}
 
                         <h3>Datos de Identificación</h3>
                         <br>
@@ -37,13 +37,8 @@
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('lugar_origen', 'Lugar de Origen') !!}
-                            {!! Form::text('lugar_origen',null,['class'=>'form-control','required'=>'required']) !!}
-                        </div>
-
-                        <div class="form-group">
-                            {!! Form::label('fecha_creacion', 'Fecha de Creacion') !!}
-                            {!! Form::date('fecha_creacion',null,['class'=>'form-control','required'=>'required']) !!}
+                            {!! Form::label('origen', 'Lugar de Origen') !!}
+                            {!! Form::text('origen',null,['class'=>'form-control','required'=>'required']) !!}
                         </div>
 
                         <br>
@@ -55,13 +50,13 @@
                         <br>
 
                         <div class="form-group">
-                            {!! Form::label('obj_gen','Objetivo General') !!}
-                            {!! Form::text('obj_gen',null,['class'=>'form-control','required','required']) !!}
+                            {!! Form::label('objetivogeneral','Objetivo General') !!}
+                            {!! Form::text('objetivogeneral',null,['class'=>'form-control','required','required']) !!}
                         </div>
 
                         <div class="form-group">
-                            {!! Form::label('obj_espcifico','Objetivo Especifico') !!}
-                            {!! Form::text('obj_especifico',null,['class'=>'form-control','required','required']) !!}
+                            {!! Form::label('objetivoespecifico','Objetivo Especifico') !!}
+                            {!! Form::text('objetivoespecifico',null,['class'=>'form-control','required','required']) !!}
                         </div>
 
                         <div class="form-group">
@@ -74,6 +69,9 @@
                             {!! Form::text('audiencia',null,['class'=>'form-control','required','required']) !!}
                         </div>
 
+                        <div class="form-group">
+                            {!! Form::submit('Siguiente',['class'=>'btn btn-success']) !!}
+                        </div>
 
                         {!! Form::close() !!}
 

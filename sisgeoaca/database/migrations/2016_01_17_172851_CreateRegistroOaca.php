@@ -24,7 +24,7 @@ class CreateRegistroOaca extends Migration
             $table->string('objetivoespecifico')->required();
             $table->string('contexto')->required();
             $table->string('audiencia')->required();
-            $table->timestamp('fecha_creacion');
+            $table->timestamps();
 
 
         });
