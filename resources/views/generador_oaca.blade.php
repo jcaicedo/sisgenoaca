@@ -24,11 +24,26 @@
                 <div class="modal-header">
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <h4 class="modal-title" id="myModalLabel">Nuevo Contenido</h4>
                 </div>
 
                 <div class="modal-body">
-                    <p>Body del Modal</p>
+
+                    <form action="">
+                        <div class="form-group">
+                            <label for="titulo" class="control-label">Titulo</label>
+                            <input type="text" class="form-control" id="recipient-titulo">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="text" class="control-label">Contenido</label>
+                            <textarea class="form-control" id="text-content"></textarea>
+                        </div>
+
+
+                    </form>
+                    
+                    
                 </div>
 
                 <div class="modal-footer">
@@ -36,9 +51,17 @@
                     <button class="btn btn-primary" type="button">Save changes</button>
                 </div>
 
+
+
             </div>
         </div>
 
     </div>
+
+
+
+
+
+
 
     @endsection
