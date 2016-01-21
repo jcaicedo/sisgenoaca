@@ -11,20 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 
-Route::get('/generador', ['uses' => 'GeneradorController@index', 'as' => 'generador']);
 
-Route::post('registroaca',['uses'=>'GeneradorController@registro','as'=>'registroaca']);
 
-Route::get('/oaca', function(){
 
-    return view('generador_oaca');
-});
+
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -36,6 +32,22 @@ Route::get('/oaca', function(){
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
+
+
+Route::group(['prefix'=>'app','middleware' => ['web']],function(){
+
+    Route::group(['prefix'=>'oaca'],function(){
+
+        Route::get('registro',['as'=>'registro','uses' => 'GeneradorController@form_register']);
+        Route::post('registro',['as'=>'registro','uses'=>'GeneradorController@registro']);
+
+        Route::get('objetivos',['as'=>'create','uses'=>'GeneradorController@objetivos']);
+
+
+
+    });
+
+
+
+
 });

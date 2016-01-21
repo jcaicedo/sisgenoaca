@@ -13,9 +13,13 @@ class GeneradorController extends Controller
 
 
     function index(){
-        return view('generador');
+
     }
 
+    function form_register(){
+
+        return view('oaca.registro');
+    }
 
     public function registro(Request $request){
 
@@ -26,6 +30,11 @@ class GeneradorController extends Controller
 
 
 
+    }
+
+
+    public function objetivos(){
+        return view('oaca.objetivos');
     }
 
 
