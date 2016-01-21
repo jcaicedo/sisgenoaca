@@ -18,7 +18,7 @@ class GeneradorController extends Controller
 
     function form_register(){
 
-        return view('oaca.registro');
+        return view('oaca.registro.create');
     }
 
     public function registro(Request $request){

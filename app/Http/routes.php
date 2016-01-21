@@ -39,7 +39,8 @@ Route::group(['prefix'=>'app','middleware' => ['web']],function(){
     Route::group(['prefix'=>'oaca'],function(){
 
         Route::get('registro',['as'=>'registro','uses' => 'GeneradorController@form_register']);
-        Route::post('registro',['as'=>'registro','uses'=>'GeneradorController@registro']);
+        Route::get('registro/create',['as'=>'registro','uses' => 'GeneradorController@form_register']);
+        Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
 
         Route::get('objetivos',['as'=>'create','uses'=>'GeneradorController@objetivos']);
 
