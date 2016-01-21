@@ -63,7 +63,7 @@
                     </div>
 
                     <br>
-                    
+
                     <h4 class="box-title">Aspectos Pedagógicos</h4>
                     <h4 class="box-title">Intencionalidad de Aprendizaje</h4>
                     <br>
