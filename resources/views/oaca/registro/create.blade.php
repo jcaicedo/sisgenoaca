@@ -22,12 +22,74 @@
                     <br>
 
                     <!--Content Form-->
-               <div class="form-group">
-                   {!! Form::label('nombreoaca', 'Nombre del OACA',['class'=>'col-sm-2 control-label']) !!}
+              <div class="form-group">
+                   {!! Form::label(null, 'Sistema de Identificación',['class'=>'col-sm-2 control-label']) !!}
                    <div class="col-sm-10">
-                   {!! Form::text('nombreoaca',null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Nombre']) !!}
+                   {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Nombre']) !!}
                    </div>
                </div>
+
+               <div class="form-group">
+                   {!! Form::label(null, 'Código de Identificación',['class'=>'col-sm-2 control-label']) !!}
+                   <div class="col-sm-10">
+                   {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Nombre']) !!}
+                   </div>
+               </div>
+
+
+               <div class="form-group">
+                   {!! Form::label(null, 'Título',['class'=>'col-sm-2 control-label']) !!}
+                   <div class="col-sm-10">
+                   {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Divida del título y el subtitulo con ":" (espacio dos puntos']) !!}
+                   </div>
+               </div>
+
+               <div class="form-group">
+                   {!! Form::label(null, 'Descripción',['class'=>'col-sm-2 control-label']) !!}
+
+                   <div class="col-sm-10">
+                       {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Breve descripción']) !!}
+                   </div>
+
+               </div>
+
+                <div class="form-group">
+                    {!! Form::label('null','Palabras Clave',['class'=>'col-sm-2 control-label']) !!}
+
+                    <div class="col-sm-10">
+                        {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Palabra Clave','id'=>'objetivoInput']) !!}
+                        {!! Form::button('Agregar',['class'=>'btn btn-primary','id'=>'btn-agregar']) !!}
+                        <div class="box-body">
+                            <ul class="lista" id="lista">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+               <div class="form-group">
+                   {!! Form::label(null, 'Versión',['class'=>'col-sm-2 control-label']) !!}
+
+                   <div class="col-sm-10">
+                       {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
+                   </div>
+
+               </div>
+
+               <div class="form-group">
+                   {!! Form::label(null, 'Estado',['class'=>'col-sm-2 control-label']) !!}
+
+                   <div class="col-sm-10">
+                       {!! Form::select(null,['Borrador','Final','Revisión','No Disponible'],['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
+                   </div>
+
+               </div>
+
+
+
+
+
+
                <div class="form-group">
                    {!! Form::label('areaconocimiento', 'Area de Conocimiento',['class'=>'col-sm-2 control-label']) !!}
 
