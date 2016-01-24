@@ -67,6 +67,12 @@
                     </div>
                 </div>
 
+                                                                                                                                                        {{--CICLO DE VIDA--}}
+
+
+                    <br>
+                    <h4 class="box-title">Ciclo de Vida</h4>
+                    <br>
                <div class="form-group">
                    {!! Form::label(null, 'Versión',['class'=>'col-sm-2 control-label']) !!}
 
@@ -80,97 +86,120 @@
                    {!! Form::label(null, 'Estado',['class'=>'col-sm-2 control-label']) !!}
 
                    <div class="col-sm-10">
-                       {!! Form::select(null,['Borrador','Final','Revisión','No Disponible'],['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
+                       {!! Form::select(null,['B'=>'Borrador','F'=>'Final','R'=>'Revisión','N'=>'No Disponible'],'R',['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
                    </div>
 
                </div>
+<div class="container">
+    <div class="content">
+        <div class="box">
+            <br>
+            <div class="form-group">
+                {!! Form::label(null, 'Tipo de Contribución',['class'=>'col-sm-2 control-label']) !!}
+
+                <div class="col-sm-10">
+                    {!! Form::select(null,['A'=>'autor','R'=>'revisor','D'=>'desconocido','I'=>'Iniciador','T'=>'Terminador','E'=>'Editor','Es'=>'Escritor'],'Es',['class'=>'form-control','required'=>'required','placeholder'=>'Autor del contenido']) !!}
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-3">
+                    {!! Form::label(null,'Nombre') !!}
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+
+                </div>
+                <div class="col-sm-3">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+
+                </div>
+                <div class="col-sm-3">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+
+                </div>
+                <div class="col-sm-3">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+
+                </div>
+
+            </div>
+
+
+
+            <br>
+
+
+        </div>
+
+    </div>
+</div>
 
 
 
 
 
 
-               <div class="form-group">
-                   {!! Form::label('areaconocimiento', 'Area de Conocimiento',['class'=>'col-sm-2 control-label']) !!}
-
-                   <div class="col-sm-10">
-                       {!! Form::text('areaconocimiento',null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Area de Conocimiento']) !!}
-                   </div>
-
-               </div>
                     <div class="form-group">
-                        {!! Form::label('subareaconocimiento', 'Sub-Area de Conocimiento',['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label(null, 'Organización',['class'=>'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::text('subareaconocimiento',null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Area de Conocimiento']) !!}
+                            {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Organización de los autores asociados al contenido']) !!}
                         </div>
+
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('idioma', 'Idioma',['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label(null, 'Fecha',['class'=>'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::text('idioma',null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Idioma']) !!}
-
+                            {!! Form::date(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Fecha del Contenido educativo']) !!}
                         </div>
 
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('origen', 'Lugar de Origen',['class'=>'col-sm-2 control-label']) !!}
+                                                                                                                                                           {{--DERECHOS DE AUTOR--}}
 
-                        <div class="col-sm-10">
-                            {!! Form::text('origen',null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Lugar de Origen']) !!}
-                        </div>
-                    </div>
 
                     <br>
-
-                    <h4 class="box-title">Aspectos Pedagógicos</h4>
-                    <h4 class="box-title">Intencionalidad de Aprendizaje</h4>
+                    <h4 class="box-title">Derechos</h4>
                     <br>
 
-
                     <div class="form-group">
-                        {!! Form::label('objetivogeneral','Objetivo General',['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label(null, 'Coste',['class'=>'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::text('objetivogeneral',null,['class'=>'form-control','required','required','placeholder'=>'Ingrese Objetivo General']) !!}
+
+                            {!! Form::select(null,['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
                         </div>
 
                     </div>
 
+
                     <div class="form-group">
-                        {!! Form::label('null','Objetivos Especificos',['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label(null, 'Derechos de Autor y otras Restricciones',['class'=>'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Objetivo Especifico','id'=>'objetivoInput']) !!}
-                            {!! Form::button('Agregar',['class'=>'btn btn-primary','id'=>'btn-agregar']) !!}
-                            <div class="box-body">
-                                <ul class="lista" id="lista">
 
-                                </ul>
-                            </div>
+                            {!! Form::select(null,['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
                         </div>
+
                     </div>
 
                     <div class="form-group">
-                        {!! Form::label('contexto','Contexto',['class'=>'col-sm-2 control-label']) !!}
+                        {!! Form::label(null, 'Descripción de los derechos de Autor',['class'=>'col-sm-2 control-label']) !!}
 
                         <div class="col-sm-10">
-                            {!! Form::text('contexto',null,['class'=>'form-control','required','required','placeholder'=>'Ingrese Contexto']) !!}
+                            {!! Form::textarea(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Descripción del estado de los derechos de autor del contenido']) !!}
                         </div>
 
                     </div>
 
-                    <div class="form-group">
-                        {!! Form::label('audiencia','Audiencia',['class'=>'col-sm-2 control-label']) !!}
 
-                        <div class="col-sm-6">
-                            {!! Form::text('audiencia',null,['class'=>'form-control','required','required','placeholder'=>'Especifique Audiencia']) !!}
-                        </div>
-
-                    </div>
+                </div>
 
                     <div class="form-group">
                         {!! Form::submit('Siguiente',['class'=>'btn btn-info pull-right']) !!}
