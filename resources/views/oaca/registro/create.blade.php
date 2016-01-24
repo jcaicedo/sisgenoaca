@@ -106,23 +106,24 @@
             <div class="form-group">
                 <div class="col-sm-3">
                     {!! Form::label(null,'Nombre') !!}
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Nombre']) !!}
 
                 </div>
                 <div class="col-sm-3">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    {!! Form::label(null,'Apellido') !!}
+                    {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Apellido']) !!}
 
                 </div>
                 <div class="col-sm-3">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
 
+                    {!! Form::label(null,'Correo') !!}
+                    {!! Form::email(null,null,['class'=>'form-control','placeholder'=>'Ingrese Correo']) !!}
                 </div>
                 <div class="col-sm-3">
-                    <label for="exampleInputEmail1">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+
+                    {!! Form::label(null,'Organización') !!}
+                    {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Organización']) !!}
+
 
                 </div>
 
