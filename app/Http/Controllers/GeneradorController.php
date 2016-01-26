@@ -33,8 +33,8 @@ class GeneradorController extends Controller
     }
 
 
-    public function objetivos(){
-        return view('oaca.objetivos');
+    public function view_objetos_create(){
+        return view('oaca.objetos.create');
     }
 
 
