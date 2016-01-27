@@ -1,0 +1,30 @@
+.wrap {
+    margin: auto;
+    max-width: 800px;
+    width: 90%;
+}
+
+
+/*Titulos Contenido*/
+
+.contenido .lista{
+    list-style: none;
+}
+
+.contenido .lista li {
+
+    border-bottom: 1px solid #B6B6B6;
+
+}
+
+.contenido .lista li a{
+
+    color: #212121;
+    display: block;
+    padding: 20px 0;
+    text-decoration: none;
+
+}
+.tareas .lista li a:hover {
+    text-decoration: line-through;
+}

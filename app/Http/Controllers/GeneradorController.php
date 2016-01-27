@@ -37,5 +37,9 @@ class GeneradorController extends Controller
         return view('oaca.objetos.create');
     }
 
+    public function create_objetos(Request $request){
+        return response()->json(['respuesta'=>'objeto contenido creado']);
+    }
+
 
 }

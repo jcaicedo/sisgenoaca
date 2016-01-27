@@ -256,7 +256,9 @@
                                 </div>
 
                             </div>
+                            {{--/.col-sm-10--}}
                         </div>
+                        {{--/.form-group--}}
 
 
 
@@ -293,6 +295,74 @@
                              {{--/.col-sm-10--}}
                          </div>
                          {{--/.form-group--}}
+
+
+
+                         <div class="form-group">
+                               {!! Form::label(null,'Contexto',['class'=>'col-sm-2 control-label']) !!}
+                               <div class="col-sm-10">
+                                   <div class="checkbox">
+
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Educación Infantil
+                                       </label>
+                                   </div>
+                                   <div class="checkbox">
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Educación Primaria
+                                       </label>
+                                   </div>
+                                   <div class="checkbox">
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Educación Secundaria
+                                       </label>
+                                   </div>
+                                   <div class="checkbox">
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Bachillerato
+                                       </label>
+                                   </div>
+                                   <div class="checkbox">
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Formación Profesional
+                                       </label>
+                                   </div>
+                                   <div class="checkbox">
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Estudios Universitarios
+                                       </label>
+                                   </div>
+                                   <div class="checkbox">
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Postgrados
+                                       </label>
+                                   </div>
+                                   <div class="checkbox">
+                                       <label>
+                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           Formación de Empresas
+                                       </label>
+                                   </div>
+                               </div>
+                               {{--/.col-sm-10--}}
+                         </div>
+                           {{--/.form-group--}}
+
+                           <div class="form-group">
+                               {!! Form::label(null, 'Rango Típico de Edad',['class'=>'col-sm-2 control-label']) !!}
+                               <div class="col-sm-10">
+                                   {!! Form::number(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Edad de los destinatarios ']) !!}
+                               </div>
+                               {{--/.col-sm-10--}}
+                           </div>
+                           {{--/.form-group    --}}
 
                </div>
                {{--/.box.box-body--}}

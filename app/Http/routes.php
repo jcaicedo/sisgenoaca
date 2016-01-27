@@ -42,7 +42,15 @@ Route::group(['prefix'=>'app','middleware' => ['web']],function(){
         Route::get('registro/create',['as'=>'registro','uses' => 'GeneradorController@form_register']);
         Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
 
-        Route::get('objetos/create',['as'=>'objetos','uses'=>'GeneradorController@view_objetos_create']);
+
+
+        Route::group(['prefix'=>'objetos'],function(){
+
+            Route::get('create',['as'=>'create','uses'=>'GeneradorController@view_objetos_create']);
+            Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
+
+        });
+
 
 
 
