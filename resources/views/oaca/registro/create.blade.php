@@ -15,7 +15,7 @@
 
                <!--Inicio de Registor-->
 
-                {!!Form::open(['route'=>'registro','method'=>'post','class'=>'form-horizontal','id'=>'form_registro'])  !!}
+                {!!Form::open(['class'=>'form-horizontal','id'=>'form_registro'])  !!}
 
                <br>
 
@@ -43,9 +43,9 @@
                         {{--/.form-group--}}
 
                         <div class="form-group">
-                                 {!! Form::label(null, 'Título',['class'=>'col-sm-2 control-label']) !!}
+                                 {!! Form::label('title', 'Título',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Divida del título y el subtitulo con ":" (espacio dos puntos']) !!}
+                                {!! Form::text('title',null,['class'=>'form-control','required'=>'required','placeholder'=>'Divida del título y el subtitulo con ":" (espacio dos puntos)']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
@@ -74,7 +74,7 @@
                                 {!! Form::label('key_word','Palabras Clave',['class'=>'col-sm-2 control-label']) !!}
 
                             <div class="col-sm-10">
-                                {!! Form::text('key_word',null,['class'=>'form-control','placeholder'=>'Ingrese Palabra Clave','id'=>'objetivoInput']) !!}
+                                {!! Form::text('key_word',null,['class'=>'form-control','placeholder'=>'Ingrese Palabras Claves','id'=>'objetivoInput']) !!}
                                         <br>
                                 {!! Form::button('Agregar',['class'=>'btn btn-default','id'=>'btn-agregar']) !!}
                             <div class="box-body">
@@ -363,9 +363,9 @@
                            {{--/.form-group--}}
 
                            <div class="form-group">
-                               {!! Form::label(null, 'Rango Típico de Edad',['class'=>'col-sm-2 control-label']) !!}
+                               {!! Form::label('age_range', 'Rango Típico de Edad',['class'=>'col-sm-2 control-label']) !!}
                                <div class="col-sm-10">
-                                   {!! Form::number(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Edad de los destinatarios ']) !!}
+                                   {!! Form::number('age_range',null,['class'=>'form-control','required'=>'required','placeholder'=>'Edad de los destinatarios ']) !!}
                                </div>
                                {{--/.col-sm-10--}}
                            </div>

@@ -37,6 +37,8 @@
 <script src="/vendor/AdminLTE/dist/js/demo.js"></script>
 <script src="/assets/js/objetivos.js" ></script>
 <script src="/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="/vendor/jquery-validation/src/additional/lettersonly.js"></script>
+<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" ></script>
 <script src="/assets/js/registro.js" ></script>
 
 </body>
