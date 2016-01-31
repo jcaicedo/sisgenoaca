@@ -15,28 +15,28 @@
 
                <!--Inicio de Registor-->
 
-                {!!Form::open(['route'=>'registro','method'=>'post','class'=>'form-horizontal'])  !!}
+                {!!Form::open(['route'=>'registro','method'=>'post','class'=>'form-horizontal','id'=>'form_registro'])  !!}
 
                <br>
 
-                <div class="box box-body">
+                <div class="box box-body" id="general_form">
                         <div class="box-header with-border">
                             <h4 class="box-title" >Aspectos Generales</h4>
                         </div>
                     <br>
                         <div class="form-group">
-                                {!! Form::label(null, 'Sistema de Identificación',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('sistema', 'Sistema de Identificación',['class'=>'col-sm-2 control-label']) !!}
                              <div class="col-sm-10">
-                                {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Nombre']) !!}
+                                {!! Form::text('sistema',null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Sistema de Identificacion']) !!}
                              </div>
                             {{--/.col-sm-10--}}
                          </div>
                         {{--/.form-group--}}
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Código de Identificación',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('user_code', 'Código de Identificación',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Nombre']) !!}
+                                {!! Form::text('user_code',null,['class'=>'form-control','required'=>'required','placeholder'=>'Ingrese Código de Identificación']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
@@ -62,21 +62,21 @@
                      {{--/.form-group--}}
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Descripción',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('description', 'Descripción',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::textarea(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Breve descripción']) !!}
+                                {!! Form::textarea('description',null,['class'=>'form-control','required'=>'required','placeholder'=>'Breve descripción']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
                         {{--/.form-group    --}}
 
                         <div class="form-group">
-                                {!! Form::label('null','Palabras Clave',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('key_word','Palabras Clave',['class'=>'col-sm-2 control-label']) !!}
 
                             <div class="col-sm-10">
-                                {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Palabra Clave','id'=>'objetivoInput']) !!}
+                                {!! Form::text('key_word',null,['class'=>'form-control','placeholder'=>'Ingrese Palabra Clave','id'=>'objetivoInput']) !!}
                                         <br>
-                                {!! Form::button('Agregar',['class'=>'btn btn-primary','id'=>'btn-agregar']) !!}
+                                {!! Form::button('Agregar',['class'=>'btn btn-default','id'=>'btn-agregar']) !!}
                             <div class="box-body">
                                 <ul class="lista" id="lista">
                                     {{--Contenido de las palabras claves agregadas--}}
@@ -89,30 +89,34 @@
                         </div>
                         {{--/.form-group--}}
 
+
+                        {!! Form::button('Siguiente',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'btn_general']) !!}
+
+
                 </div>
                {{--/.box--}}
 
                                                                                                     {{--CICLO DE VIDA--}}
 
-               <div class="box box-body">
+               <div class="box box-body" id="ciclo_vida">
 
                    <div class="box-header with-border">
                        <h4 class="box-title" >Ciclo De Vida</h4>
                    </div>
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Versión',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('version', 'Versión',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
+                                {!! Form::text('version',null,['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                          </div>
                         {{--/.form-group--}}
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Estado',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('status', 'Estado',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::select(null,['B'=>'Borrador','F'=>'Final','R'=>'Revisión','N'=>'No Disponible'],'R',['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
+                                {!! Form::select('status',['B'=>'Borrador','F'=>'Final','R'=>'Revisión','N'=>'No Disponible'],'R',['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
                             </div>
                             {{--/.COL-SM-10--}}
                         </div>
@@ -135,9 +139,9 @@
                             </div>
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Tipo de Contribución',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('contribution_type', 'Tipo de Contribución',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::select(null,['A'=>'autor','R'=>'revisor','D'=>'desconocido','I'=>'Iniciador','T'=>'Terminador','E'=>'Editor','Es'=>'Escritor'],'Es',['class'=>'form-control','required'=>'required','placeholder'=>'Autor del contenido']) !!}
+                                {!! Form::select('contribution_type',['A'=>'autor','R'=>'revisor','D'=>'desconocido','I'=>'Iniciador','T'=>'Terminador','E'=>'Editor','Es'=>'Escritor'],'Es',['class'=>'form-control','required'=>'required','placeholder'=>'Autor del contenido']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
@@ -146,26 +150,26 @@
                         <div class="form-group">
 
                             <div class="col-sm-3">
-                                {!! Form::label(null,'Nombre') !!}
-                                {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Nombre']) !!}
+                                {!! Form::label('contri_name','Nombre') !!}
+                                {!! Form::text('contri_name',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre']) !!}
                             </div>
                             {{--/.col-sm-3--}}
 
                             <div class="col-sm-3">
-                                {!! Form::label(null,'Apellido') !!}
-                                {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Apellido']) !!}
+                                {!! Form::label('contri_lastname','Apellido') !!}
+                                {!! Form::text('contri_lastname',null,['class'=>'form-control','placeholder'=>'Ingrese Apellido']) !!}
                             </div>
                             {{--/.col-sm-3--}}
 
                             <div class="col-sm-3">
-                                {!! Form::label(null,'Correo') !!}
-                                {!! Form::email(null,null,['class'=>'form-control','placeholder'=>'Ingrese Correo']) !!}
+                                {!! Form::label('contri_email','Correo') !!}
+                                {!! Form::email('contri_email',null,['class'=>'form-control','placeholder'=>'Ingrese Correo']) !!}
                             </div>
                             {{--/.col-sm-3--}}
 
                             <div class="col-sm-3">
-                                {!! Form::label(null,'Organización') !!}
-                                {!! Form::text(null,null,['class'=>'form-control','placeholder'=>'Ingrese Organización']) !!}
+                                {!! Form::label('contri_organization','Organización') !!}
+                                {!! Form::text('contri_organization',null,['class'=>'form-control','placeholder'=>'Ingrese Organización']) !!}
                             </div>
                             {{--/.col-sm-3--}}
 
@@ -181,27 +185,30 @@
 
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Organización',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('organization', 'Organización',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                             {!! Form::text(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Organización de los autores asociados al contenido']) !!}
+                             {!! Form::text('organization',null,['class'=>'form-control','required'=>'required','placeholder'=>'Organización de los autores asociados al contenido']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
                         {{--/.form-group--}}
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Fecha',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('date_create', 'Fecha',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::date(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Fecha del Contenido educativo']) !!}
+                                {!! Form::date('date_create',null,['class'=>'form-control','required'=>'required','placeholder'=>'Fecha del Contenido educativo']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
                         {{--/.form-group--}}
                         <br>
+                   {!! Form::button('Siguiente',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'btn_ciclo_vida']) !!}
                 </div>
                {{--/.box--}}
+
+
                                                                                                         {{--EDUCATIVO--}}
-               <div class="box box-body">
+               <div class="box box-body" id="educativo">
 
                    <div class="box-header with-border">
                        <h4 class="box-title" >Educativo</h4>
@@ -209,7 +216,7 @@
 
 
                         <div class="form-group">
-                                 {!! Form::label(null,'Recursos de Aprendizaje',['class'=>'col-sm-2 control-label']) !!}
+                                 {!! Form::label('learning_resource','Recursos de Aprendizaje',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
                                 <div class="checkbox">
 
@@ -363,7 +370,7 @@
                                {{--/.col-sm-10--}}
                            </div>
                            {{--/.form-group    --}}
-
+                   {!! Form::button('Siguiente',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'btn_educativo']) !!}
                </div>
                {{--/.box.box-body--}}
 
@@ -373,7 +380,7 @@
                                                                                   {{--DERECHOS DE AUTOR--}}
 
 
-               <div class="box box-body">
+               <div class="box box-body" id="derecho_autor">
 
                    <div class="box-header with-border">
                        <h4 class="box-title" >Derechos</h4>
@@ -381,48 +388,49 @@
 
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Coste',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('cost', 'Coste',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::select(null,['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
+                                {!! Form::select('cost',['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
                         {{--/.form-group--}}
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Derechos de Autor y otras Restricciones',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('copyright', 'Derechos de Autor y otras Restricciones',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::select(null,['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
+                                {!! Form::select('copyright',['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
                             </div>
                         </div>
 
                         <div class="form-group">
-                                {!! Form::label(null, 'Descripción de los derechos de Autor',['class'=>'col-sm-2 control-label']) !!}
+                                {!! Form::label('copyright_description', 'Descripción de los derechos de Autor',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::textarea(null,null,['class'=>'form-control','required'=>'required','placeholder'=>'Descripción del estado de los derechos de autor del contenido']) !!}
+                                {!! Form::textarea('copyright_description',null,['class'=>'form-control','required'=>'required','placeholder'=>'Descripción del estado de los derechos de autor del contenido']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
                         {{--/.form-group--}}
                         <br>
 
+                   {!! Form::submit('Finalizar',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'registrar']) !!}
                </div>
-                {{--/.box--}}
+                {{--/.box box-body--}}
 
-                        <div class="container form-group">
-                            <div class="row">
+                        {{--<div class="container form-group">--}}
+                            {{--<div class="row">--}}
 
 
-                            <div class="col-sm-4">
-                                {!! Form::submit('Cancelar',['class'=>'btn btn-danger pull-right']) !!}
-                            </div>
-                           <div class="col-sm-4">
-                               {!! Form::submit('Registrar',['class'=>'btn btn-primary pull-right']) !!}
-                           </div>
-                            </div>
-                        </div>
+                            {{--<div class="col-sm-4">--}}
+                                {{--{!! Form::submit('Cancelar',['class'=>'btn btn-danger pull-right']) !!}--}}
+                            {{--</div>--}}
+                           {{--<div class="col-sm-4">--}}
+                               {{--{!! Form::submit('Registrar',['class'=>'btn btn-primary pull-right']) !!}--}}
+                           {{--</div>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
                         {{--/.form-group--}}
-               <br>
+               {{--<br>--}}
 
 
                     <!--End Content Form-->
