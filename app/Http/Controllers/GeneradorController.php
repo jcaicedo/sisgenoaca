@@ -23,12 +23,13 @@ class GeneradorController extends Controller
 
     public function registro(Request $request){
 
-$data=Input::all();
-        if(Request::ajax()){
-            return response()->json(['respuesta'=>'ok']);
-        }
+        $data = $request->input('data'); //se debe guardar $data en la BD y no el json.
 
+        //$json = json_decode($data); // aqui se convierte en json
 
+        //dd($json);
+
+        dd($request->input('data'));
 
 
 
