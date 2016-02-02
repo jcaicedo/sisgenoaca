@@ -23,10 +23,12 @@ class GeneradorController extends Controller
 
     public function registro(Request $request){
 
-            $oaca =new RegistroOaca();
-            $oaca->create($request->all());
-
+$data=Input::all();
+        if(Request::ajax()){
             return response()->json(['respuesta'=>'ok']);
+        }
+
+
 
 
 

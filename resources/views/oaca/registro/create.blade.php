@@ -271,7 +271,7 @@
 
 
                          <div class="form-group">
-                                         {!! Form::label(null,'Rol de los destinatarios',['class'=>'col-sm-2 control-label']) !!}
+                                         {!! Form::label('rol_receptor','Rol de los destinatarios',['class'=>'col-sm-2 control-label']) !!}
                              <div class="col-sm-10">
                                   <div class="checkbox">
 
@@ -306,7 +306,7 @@
 
 
                          <div class="form-group">
-                               {!! Form::label(null,'Contexto',['class'=>'col-sm-2 control-label']) !!}
+                               {!! Form::label('contexto','Contexto',['class'=>'col-sm-2 control-label']) !!}
                                <div class="col-sm-10">
                                    <div class="checkbox">
 
@@ -445,6 +445,8 @@
        {{--/.row--}}
    </div>
    {{--/.container--}}
+
+       <div id="results"></div>
    </section>
     {{--/.content--}}
 

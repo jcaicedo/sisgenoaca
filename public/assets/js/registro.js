@@ -128,8 +128,26 @@ $("#btn_educativo").click(function(e){
         if(isValid){
            //var json_data= $('#form_registro').serializeObject();
            // $.post('/app/oaca/registro/create',$('#form_registro').serializeObject());
-            console.log($('#form_registro').serializeObject());
-            $.post("/app/oaca/registro/create",2);
+           // console.log($('#form_registro').serializeArray());
+            var $param = $('#form_registro').serializeArray();
+            $.each($param, function(i, field){
+                $("#results").append(field.name + ":" + field.value + " ");
+            });
+
+            $.ajax({
+               type:"post",
+                url:'/app/oaca/registro/create',
+                data:JSON.stringify($param),
+                dataType:"json",
+                success: function(data){
+                    return data;
+                },
+                error:function(){
+                    alert('ERROR');
+                }
+
+            },'json');
+
         } });
 
 
