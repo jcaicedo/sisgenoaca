@@ -78,7 +78,7 @@
                                         <br>
                                 {!! Form::button('Agregar',['class'=>'btn btn-default','id'=>'btn-agregar']) !!}
                             <div class="box-body">
-                                <ul class="lista" id="lista">
+                                <ul class="lista" id="lista" name="key_word">
                                     {{--Contenido de las palabras claves agregadas--}}
                                 </ul>
                                 {{--/.lista--}}

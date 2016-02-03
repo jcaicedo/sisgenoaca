@@ -25,11 +25,13 @@ class GeneradorController extends Controller
 
         $data = $request->input('data'); //se debe guardar $data en la BD y no el json.
 
-        //$json = json_decode($data); // aqui se convierte en json
+        $json = json_decode($data); // aqui se convierte en json
 
-        //dd($json);
+//        dd($json);
 
-        dd($request->input('data'));
+        return response()->json(['name' => 'Abigail']);
+
+        //dd($request->input('data'));
 
 
 

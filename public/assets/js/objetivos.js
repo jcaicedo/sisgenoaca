@@ -12,11 +12,13 @@
 
         var objetivoEspecifico = objetivoInput.value,
             nuevoObjeticoEspecifico = document.createElement("li"),
+            nuevoinput = document.createElement("input"),
             contenido = document.createTextNode(objetivoEspecifico);
 
+            nuevoinput.value = objetivoEspecifico
         //Agregando objetivo a li
 
-        nuevoObjeticoEspecifico.appendChild(contenido);
+        nuevoObjeticoEspecifico.appendChild(nuevoinput);
 
         lista.appendChild(nuevoObjeticoEspecifico);
 
