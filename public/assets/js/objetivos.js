@@ -1,5 +1,5 @@
 (function(){
-
+var idinput = 0;
     var lista =document.getElementById("lista"),
         objetivoInput=document.getElementById("objetivoInput"),
         btnNuevoObjetivo = document.getElementById("btn-agregar");
@@ -17,13 +17,14 @@
 
             nuevoinput.value = objetivoEspecifico
         //Agregando objetivo a li
-
+nuevoinput.setAttribute('form','form_registro');
+nuevoinput.setAttribute('name','input['+idinput+']');
         nuevoObjeticoEspecifico.appendChild(nuevoinput);
 
         lista.appendChild(nuevoObjeticoEspecifico);
 
         objetivoInput.value="";
-
+        idinput ++;
     };
 
     //Evento Agregar objetivo
