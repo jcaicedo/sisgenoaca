@@ -130,15 +130,18 @@
                         <div class="box">
 
 
+    
+
                             <div class="box-header with-border">
                                 <h3 class="box-title">Colaboradores</h3>
 
                                 <div class="box-tools pull-right">
 
-                                    <button type="button" class="btn btn-box-tool">
+                                    <button type="button" class="btn btn-box-tool" id="btn-add-contri">
                                         <i class="fa fa-plus"></i></button>
                                 </div>
                             </div>
+                            <br>
 
                         <div class="form-group">
                                 {!! Form::label('contribution_type', 'Tipo de Contribución',['class'=>'col-sm-2 control-label']) !!}
@@ -149,7 +152,7 @@
                         </div>
                         {{--/.form-group    --}}
 
-                        <div class="form-group">
+                        <div class="form-group section_contri">
 
                             <div class="col-sm-3">
                                 {!! Form::label('contri_name','Nombre') !!}
@@ -177,6 +180,7 @@
 
                         </div>
                         {{--/.form-group--}}
+
                         <br>
                         </div>
                         {{--/.box    --}}

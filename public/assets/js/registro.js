@@ -1,9 +1,19 @@
 $(document).ready(function(){
 
+/*Agregar nuevas palabras claves*/
+
+var lastKeyWord = "objetivoInput",
+count =1;
+    $(document).on("click","#btn-agregar",function(event){
+        
+        $(".nuevo_palabras").last().after('<div class="form-group nuevo_palabras" id="words_key'+count+'"><label  class="col-sm-2 control-label">Palabra Clave</label><div class="col-sm-10"><input class="form-control" id="word_key_'+count+'" name="word_key"/></div></div>');
+        count ++;
+        event.preventDefault();
+    });
 
 
 
-
+/*Validación de formulario*/
 $("#btn_general").click(function(e){
     e.preventDefault();
     var isValid = $("#form_registro").valid();
@@ -126,28 +136,10 @@ $("#btn_educativo").click(function(e){
         e.preventDefault();
         var isValid = $("#form_registro").valid();
         if(isValid){
-           //var json_data= $('#form_registro').serializeObject();
-           // $.post('/app/oaca/registro/create',$('#form_registro').serializeObject());
-           // console.log($('#form_registro').serializeArray());
             var $param = $('#form_registro').serializeObject();
 
            console.log($param);
 
-         /*   $.ajax({
-               type:"post",
-                url:'/app/oaca/registro/create',
-                data: {
-                    _token: $("[name='_token']").val(),
-                    data: JSON.stringify($param)
-                },
-                success: function(data){
-                    return data;
-                },
-                error:function(){
-                    console.log('ERROR');
-                }
-
-            },'json');*/
     $.ajax({
         url:'/app/oaca/registro/create',
         type:'POST',
@@ -166,7 +158,7 @@ $("#btn_educativo").click(function(e){
 
         } });
 
-
+/*Fin validación formulario*/
 
 
 
