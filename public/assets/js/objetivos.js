@@ -1,37 +1,15 @@
 (function(){
-var idinput = 0;
-    var lista =document.getElementById("lista"),
-        objetivoInput=document.getElementById("objetivoInput"),
-        btnNuevoObjetivo = document.getElementById("btn-agregar");
 
-
-
-    //Funcion agregar tarea
-
-    var agregarObjetivoEspecifico = function(){
-
-        var objetivoEspecifico = objetivoInput.value,
-            nuevoObjeticoEspecifico = document.createElement("li"),
-            nuevoinput = document.createElement("input"),
-            contenido = document.createTextNode(objetivoEspecifico);
-
-            nuevoinput.value = objetivoEspecifico
-        //Agregando objetivo a li
-nuevoinput.setAttribute('form','form_registro');
-nuevoinput.setAttribute('name','input['+idinput+']');
-        nuevoObjeticoEspecifico.appendChild(nuevoinput);
-
-        lista.appendChild(nuevoObjeticoEspecifico);
-
-        objetivoInput.value="";
-        idinput ++;
-    };
-
-    //Evento Agregar objetivo
-
-    btnNuevoObjetivo.addEventListener("click",agregarObjetivoEspecifico);
-
+var lastKeyWord = "objetivoInput",
+count =1;
+    $(document).on("click","#btn-agregar",function(event){
+        
+        $(".nuevo_palabras").last().after('<div class="form-group nuevo_palabras" id="words_key'+count+'"><label  class="col-sm-2 control-label">Palabra Clave</label><div class="col-sm-10"><input class="form-control" id="word_key_'+count+'" name="word_key"/></div></div>');
+        count ++;
+        event.preventDefault();
+    });
 
 
 
 }());
+

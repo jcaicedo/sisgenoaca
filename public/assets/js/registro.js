@@ -32,10 +32,10 @@ $("#btn_educativo").click(function(e){
             description:{
               minlength:15
             },
-            key_word:{
-            required:true
+             word_key:{
+           required:true
 
-            },
+           },
 
             contri_name:{
                 required:true
@@ -68,7 +68,7 @@ $("#btn_educativo").click(function(e){
                 required:"Debe agregar una descripción",
                 minlength:"la descripción debe ser mayor a 15 caracteres"
             },
-            key_word:{
+            word_key:{
                 required:"Debe ingresar al menos una palabra clave"
             },
             version:{
@@ -131,9 +131,9 @@ $("#btn_educativo").click(function(e){
            // console.log($('#form_registro').serializeArray());
             var $param = $('#form_registro').serializeObject();
 
-            console.log($param);
+           console.log($param);
 
-            $.ajax({
+         /*   $.ajax({
                type:"post",
                 url:'/app/oaca/registro/create',
                 data: {
@@ -147,7 +147,22 @@ $("#btn_educativo").click(function(e){
                     console.log('ERROR');
                 }
 
-            },'json');
+            },'json');*/
+    $.ajax({
+        url:'/app/oaca/registro/create',
+        type:'POST',
+        data:{
+            _token: $("[name='_token']").val(),
+            data: $param
+        },
+        success:function(){return $param;},
+        error:function(){
+            console.log('ERROR');
+
+        }
+
+
+    },'json');
 
         } });
 

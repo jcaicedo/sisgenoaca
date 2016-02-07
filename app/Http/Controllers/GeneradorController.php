@@ -27,9 +27,8 @@ class GeneradorController extends Controller
 
         //$json = json_decode($data); // aqui se convierte en json
 
-//        dd($json);
-
         //return response()->json(['name' => 'Abigail']);
+        
 
         dd($request->input('data'));
 

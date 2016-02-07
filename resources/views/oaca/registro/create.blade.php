@@ -70,33 +70,35 @@
                         </div>
                         {{--/.form-group    --}}
 
-                        <div class="form-group">
-                                {!! Form::label('key_word','Palabras Clave',['class'=>'col-sm-2 control-label']) !!}
+                
+                <div>
+                        <div class="form-group nuevo_palabras">
+   
+                                {!! Form::label('word_key','Palabra Clave',['class'=>'col-sm-2 control-label']) !!}
 
-                            <div class="col-sm-10">
-                                {!! Form::text('key_word',null,['class'=>'form-control','placeholder'=>'Ingrese Palabras Claves','id'=>'objetivoInput']) !!}
-                                        <br>
-                                {!! Form::button('Agregar',['class'=>'btn btn-default','id'=>'btn-agregar']) !!}
-                            <div class="box-body">
-                                <ul class="lista" id="lista" name="key_word" form="form_registro" >
-                                    {{--Contenido de las palabras claves agregadas--}}
-                                </ul>
-                                {{--/.lista--}}
-                            </div>
-                            {{--/.box-body--}}
+                            <div class="col-sm-10" id="inputs" >
+
+                                {!! Form::text('word_key',null,['class'=>'form-control','placeholder'=>'Ingrese Palabras Claves','id'=>'objetivoInput']) !!}
+
+                       
                             </div>
                             {{--/.col-sm-10--}}
+                            
+                                
                         </div>
                         {{--/.form-group--}}
 
-
+                                {!! Form::button('Agregar',['class'=>'btn btn-default col-md-offset-2','id'=>'btn-agregar']) !!}
+                            
+                        </div>
+                        <br>
                         {!! Form::button('Siguiente',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'btn_general']) !!}
 
 
                 </div>
                {{--/.box--}}
 
-                                                                                                    {{--CICLO DE VIDA--}}
+                                                                                                 {{--CICLO DE VIDA--}}
 
                <div class="box box-body" id="ciclo_vida">
 
