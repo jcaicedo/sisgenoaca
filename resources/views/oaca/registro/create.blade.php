@@ -15,7 +15,7 @@
 
                <!--Inicio de Registor-->
 
-                {!!Form::open(['class'=>'form-horizontal','id'=>'form_registro'])  !!}
+                {!!Form::open(['class'=>'form-horizontal','id'=>'form_registro','enctype'=>'application/json'])  !!}
 
                <br>
 
@@ -143,16 +143,19 @@
                             </div>
                             <br>
 
-                        <div class="form-group">
+<div class="section_contri">
+    
+
+                        <div class="form-group ">
                                 {!! Form::label('contribution_type', 'Tipo de Contribución',['class'=>'col-sm-2 control-label']) !!}
                             <div class="col-sm-10">
-                                {!! Form::select('contribution_type',['A'=>'autor','R'=>'revisor','D'=>'desconocido','I'=>'Iniciador','T'=>'Terminador','E'=>'Editor','Es'=>'Escritor'],'Es',['class'=>'form-control','required'=>'required','placeholder'=>'Autor del contenido']) !!}
+                                {!! Form::select('contri_type',['A'=>'autor','R'=>'revisor','D'=>'desconocido','I'=>'Iniciador','T'=>'Terminador','E'=>'Editor','Es'=>'Escritor'],'Es',['class'=>'form-control','required'=>'required','placeholder'=>'Autor del contenido']) !!}
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
                         {{--/.form-group    --}}
 
-                        <div class="form-group section_contri">
+                        <div class="form-group">
 
                             <div class="col-sm-3">
                                 {!! Form::label('contri_name','Nombre') !!}
@@ -161,8 +164,8 @@
                             {{--/.col-sm-3--}}
 
                             <div class="col-sm-3">
-                                {!! Form::label('contri_lastname','Apellido') !!}
-                                {!! Form::text('contri_lastname',null,['class'=>'form-control','placeholder'=>'Ingrese Apellido']) !!}
+                                {!! Form::label('contri_las_tname','Apellido') !!}
+                                {!! Form::text('contri_last_name',null,['class'=>'form-control','placeholder'=>'Ingrese Apellido']) !!}
                             </div>
                             {{--/.col-sm-3--}}
 
@@ -180,7 +183,7 @@
 
                         </div>
                         {{--/.form-group--}}
-
+</div>
                         <br>
                         </div>
                         {{--/.box    --}}
@@ -227,43 +230,43 @@
                                 <div class="checkbox">
 
                                     <label>
-                                        {!! Form::checkbox('name', 'value', false) !!}
+                                        {!! Form::checkbox('recurso_aprendizaje', 'evaluacion_prueba', false) !!}
                                         Evaluación y pruebas de material
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        {!! Form::checkbox('name', 'value', false) !!}
+                                        {!! Form::checkbox('recurso_aprendizaje', 'tarea_cerrada', false) !!}
                                         Tarea Cerrada
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        {!! Form::checkbox('name', 'value', false) !!}
+                                        {!! Form::checkbox('recurso_aprendizaje', 'tarea_abierta', false) !!}
                                         Tarea Abierta
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        {!! Form::checkbox('name', 'value', false) !!}
+                                        {!! Form::checkbox('recurso_aprendizaje', 'material_investigacion', false) !!}
                                         Material de Investigación
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        {!! Form::checkbox('name', 'value', false) !!}
+                                        {!! Form::checkbox('recurso_aprendizaje', 'manual', false) !!}
                                         Manual
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        {!! Form::checkbox('name', 'value', false) !!}
+                                        {!! Form::checkbox('recurso_aprendizaje', 'fuente_informacion', false) !!}
                                         Fuente de Información
                                     </label>
                                 </div>
                                 <div class="checkbox">
                                     <label>
-                                        {!! Form::checkbox('name', 'value', false) !!}
+                                        {!! Form::checkbox('recurso_aprendizaje', 'herramienta', false) !!}
                                         Herramienta
                                     </label>
                                 </div>
@@ -282,25 +285,25 @@
                                   <div class="checkbox">
 
                                       <label>
-                                         {!! Form::checkbox('name', 'value', false) !!}
+                                         {!! Form::checkbox('rol_receptor', 'estudiante', false) !!}
                                              Estudiante
                                       </label>
                                  </div>
                                 <div class="checkbox">
                                      <label>
-                                      {!! Form::checkbox('name', 'value', false) !!}
+                                      {!! Form::checkbox('rol_receptor', 'profesor', false) !!}
                                           Profesor
                                      </label>
                                  </div>
                                  <div class="checkbox">
                                      <label>
-                                       {!! Form::checkbox('name', 'value', false) !!}
+                                       {!! Form::checkbox('rol_receptor', 'autor', false) !!}
                                           Autor
                                      </label>
                                  </div>
                                 <div class="checkbox">
                                      <label>
-                                       {!! Form::checkbox('name', 'value', false) !!}
+                                       {!! Form::checkbox('rol_receptor', 'gerente', false) !!}
                                           Gerente
                                     </label>
                                  </div>
@@ -317,49 +320,49 @@
                                    <div class="checkbox">
 
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'educacion_infantil', false) !!}
                                            Educación Infantil
                                        </label>
                                    </div>
                                    <div class="checkbox">
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'educacion_primaria', false) !!}
                                            Educación Primaria
                                        </label>
                                    </div>
                                    <div class="checkbox">
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'educacion_secundaria', false) !!}
                                            Educación Secundaria
                                        </label>
                                    </div>
                                    <div class="checkbox">
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'bachillerato', false) !!}
                                            Bachillerato
                                        </label>
                                    </div>
                                    <div class="checkbox">
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'formacion_profesional', false) !!}
                                            Formación Profesional
                                        </label>
                                    </div>
                                    <div class="checkbox">
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'estudios_universitarios', false) !!}
                                            Estudios Universitarios
                                        </label>
                                    </div>
                                    <div class="checkbox">
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'postgrados', false) !!}
                                            Postgrados
                                        </label>
                                    </div>
                                    <div class="checkbox">
                                        <label>
-                                           {!! Form::checkbox('name', 'value', false) !!}
+                                           {!! Form::checkbox('contexto', 'value', false) !!}
                                            Formación de Empresas
                                        </label>
                                    </div>

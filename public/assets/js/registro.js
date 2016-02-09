@@ -17,7 +17,11 @@ count =1;
 $("#btn_general").click(function(e){
     e.preventDefault();
     var isValid = $("#form_registro").valid();
-    if(isValid) {$('#general_form').hide(); $('#ciclo_vida').show();}});
+    if(isValid) {
+        
+
+        $('#general_form').hide(); 
+        $('#ciclo_vida').show();}});
 
 
 $("#btn_ciclo_vida").click(function(e){
@@ -137,19 +141,21 @@ $("#btn_educativo").click(function(e){
         var isValid = $("#form_registro").valid();
         if(isValid){
             var $param = $('#form_registro').serializeObject();
+            //var $param2= parseJSON($param);
 
            console.log($param);
 
     $.ajax({
-        url:'/app/oaca/registro/create',
+        url:'http://sisgenoaca.app/app/oaca/registro/create',
         type:'POST',
         data:{
             _token: $("[name='_token']").val(),
             data: $param
         },
-        success:function(){return $param;},
+        success:function(){console.log(arguments);},
         error:function(){
             console.log('ERROR');
+            console.log(arguments);
 
         }
 
