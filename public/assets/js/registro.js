@@ -43,12 +43,26 @@ $("#btn_educativo").click(function(e){
         //    return true;
         //},
         rules:{
+            identificador:{
+                required:true
+            },
+            title:{
+                required:true
+            },
+            idioma:{
+                required:true
+            },
+
             description:{
-              minlength:15
+              minlength:15,
+              required:true
             },
              word_key:{
-           required:true
+             required:true
 
+           },
+           version:{
+            required:true
            },
 
             contri_name:{
@@ -69,6 +83,13 @@ $("#btn_educativo").click(function(e){
             }
         },
         messages:{
+            title:{
+                required:"Debe ingresar un título"
+            },
+            identificador:{
+                required:"Debe ingresar un Identificador"
+            },
+
             sistema:{
                 required:"Debe ingresar un Sistema de Identificación"
             },

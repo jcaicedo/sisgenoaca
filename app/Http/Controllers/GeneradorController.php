@@ -21,16 +21,16 @@ class GeneradorController extends Controller
         return view('oaca.registro.create');
     }
 
-    public function registro(Request $request){
+    public function registro(){
 
         //$data = $request->input('data'); //se debe guardar $data en la BD y no el json.
 
         //$json = json_decode($data); // aqui se convierte en json
-
-        return response()->json(['name' => 'Abigail']);
-        
-
         //dd($request->input('data'));
+        if(Request::ajax()) {
+      $data = Input::all();
+      print_r($data);die;
+    }
 
 
 
