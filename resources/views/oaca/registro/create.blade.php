@@ -177,7 +177,7 @@
             <h4 class="box-title" >Educativo</h4>
           </div>
           <div class="form-group">
-            <label for="form_registro" name="learning_resource" class="col-sm-2 control-label">Recursos de Aprendizaje</label>
+            <label for="form_registro" name="learning_resource" class="col-sm-2 control-label">Recursos de Aprendizaje <span style="color: red;" >*</span></label>
             <div class="col-sm-10">
               <div class="checkbox">
                 <label>
@@ -226,7 +226,7 @@
           </div>
           {{--/.form-group--}}
           <div class="form-group">
-            <label for="form_registro" class="col-sm-2 control-label">Rol de los Destinatarios</label>
+            <label for="form_registro" class="col-sm-2 control-label">Rol de los Destinatarios </label>
             <div class="col-sm-10">
               <div class="checkbox">
                 <label>
@@ -349,7 +349,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="form_registro" name="copyright_description" class="col-sm-2 control-label">Descripción de los derechos de Autor <span style="color: red;"></span> </label>
+            <label for="form_registro" name="copyright_description" class="col-sm-2 control-label">Descripción de los derechos de Autor <span style="color: red;">*</span> </label>
             <div class="col-sm-10">
               <textarea name="copyright_description" id="copyright_description" cols="30" rows="10" class="form-control"></textarea>
             </div>
