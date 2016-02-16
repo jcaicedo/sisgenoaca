@@ -77,6 +77,9 @@ $("#btn_educativo").click(function(e){
             contri_organization:{
                 required:true
             },
+            age_range:{
+                required:true
+            },
             copyright_description:{
                 required:true,
                 minlength:15

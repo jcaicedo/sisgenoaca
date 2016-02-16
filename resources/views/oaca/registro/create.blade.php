@@ -53,7 +53,7 @@
             <label for="form_registro" class="col-sm-2 control-label" name="description">Descripción <span>*</span></label>
             
             <div class="col-sm-10">
-              <textarea name="description" form="form_registro" class="form-control"></textarea>
+              <textarea name="description" id="description" class="form-control" cols="30" rows="10"></textarea>
             </div>
             {{--/.col-sm-10--}}
           </div>
@@ -177,47 +177,47 @@
             <h4 class="box-title" >Educativo</h4>
           </div>
           <div class="form-group">
-            {!! Form::label('learning_resource','Recursos de Aprendizaje*',['class'=>'col-sm-2 control-label']) !!}
+            <label for="form_registro" name="learning_resource" class="col-sm-2 control-label">Recursos de Aprendizaje</label>
             <div class="col-sm-10">
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('recurso_aprendizaje', 'evaluacion_prueba', false) !!}
+                  <input type="checkbox" name="recurso_aprendizaje" value="evaluacion_prueba">
                   Evaluación y pruebas de material
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('recurso_aprendizaje', 'tarea_cerrada', false) !!}
+                  <input type="checkbox" name="recurso_aprendizaje" value="tarea_cerrada">
                   Tarea Cerrada
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('recurso_aprendizaje', 'tarea_abierta', false) !!}
+                  <input type="checkbox" name="recurso_aprendizaje" value="tarea_abierta">
                   Tarea Abierta
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('recurso_aprendizaje', 'material_investigacion', false) !!}
+                  <input type="checkbox" name="recurso_aprendizaje" value="material_investigacion">
                   Material de Investigación
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('recurso_aprendizaje', 'manual', false) !!}
+                  <input type="checkbox" name="recurso_aprendizaje" value="manual">
                   Manual
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('recurso_aprendizaje', 'fuente_informacion', false) !!}
+                  <input type="checkbox" name="recurso_aprendizaje" value="fuente_informacion">
                   Fuente de Información
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('recurso_aprendizaje', 'herramienta', false) !!}
+                  <input type="checkbox" name="recurso_aprendizaje" value="herramienta">
                   Herramienta
                 </label>
               </div>
@@ -226,29 +226,29 @@
           </div>
           {{--/.form-group--}}
           <div class="form-group">
-            {!! Form::label('rol_receptor','Rol de los destinatarios',['class'=>'col-sm-2 control-label']) !!}
+            <label for="form_registro" class="col-sm-2 control-label">Rol de los Destinatarios</label>
             <div class="col-sm-10">
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('rol_receptor', 'estudiante', false) !!}
+                  <input type="checkbox" name="rol_receptor" value="estudiante" >
                   Estudiante
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('rol_receptor', 'profesor', false) !!}
+                <input type="checkbox" name="rol_receptor" value="profesor" >
                   Profesor
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('rol_receptor', 'autor', false) !!}
+                <input type="checkbox" name="rol_receptor" value="autor" >
                   Autor
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('rol_receptor', 'gerente', false) !!}
+                  <input type="checkbox" name="rol_receptor" value="gerente" >
                   Gerente
                 </label>
               </div>
@@ -257,53 +257,53 @@
           </div>
           {{--/.form-group--}}
           <div class="form-group">
-            {!! Form::label('contexto','Contexto*',['class'=>'col-sm-2 control-label']) !!}
+            <label for="form_registro" class="col-sm-2 control-label" >Contexto <span style="color: red;">*</span></label>
             <div class="col-sm-10">
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'educacion_infantil', false) !!}
+                  <input type="checkbox" name="contexto" value="educacion_infantil">
                   Educación Infantil
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'educacion_primaria', false) !!}
+                <input type="checkbox" name="contexto" value="educacion_primaria">
                   Educación Primaria
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'educacion_secundaria', false) !!}
+                 <input type="checkbox" name="contexto" value="educacion_secundaria">
                   Educación Secundaria
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'bachillerato', false) !!}
+                  <input type="checkbox" name="contexto" value="bachillerato">
                   Bachillerato
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'formacion_profesional', false) !!}
+                  <input type="checkbox" name="contexto" value="formacion_profesional">
                   Formación Profesional
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'estudios_universitarios', false) !!}
+                  <input type="checkbox" name="contexto" value="estudios_universitarios">
                   Estudios Universitarios
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'postgrados', false) !!}
+                  <input type="checkbox" name="contexto" value="postgrados">
                   Postgrados
                 </label>
               </div>
               <div class="checkbox">
                 <label>
-                  {!! Form::checkbox('contexto', 'value', false) !!}
+                  <input type="checkbox" name="contexto" value="formacion_empresa">
                   Formación de Empresas
                 </label>
               </div>
@@ -312,14 +312,14 @@
           </div>
           {{--/.form-group--}}
           <div class="form-group">
-            {!! Form::label('age_range', 'Rango Típico de Edad',['class'=>'col-sm-2 control-label']) !!}
+            <label for="form_registro" name="age_range" class="col-sm-2 control-label">Rango Típico de Edad</label>
             <div class="col-sm-10">
-              {!! Form::number('age_range',null,['class'=>'form-control','required'=>'required','placeholder'=>'Edad de los destinatarios ']) !!}
+              <input type="number" class="form-control" name="age_range" id="age_range" placeholder="Edad de los destinatarios">
             </div>
             {{--/.col-sm-10--}}
           </div>
           {{--/.form-group    --}}
-          {!! Form::button('Siguiente',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'btn_educativo']) !!}
+          <button type="button" class="btn btn-primary" style="margin: 0 auto; width: 200px;" id="btn_educativo" >Siguiente</button>
         </div>
         {{--/.box.box-body--}}
         {{--DERECHOS DE AUTOR--}}
@@ -328,23 +328,30 @@
             <h4 class="box-title" >Derechos</h4>
           </div>
           <div class="form-group">
-            {!! Form::label('cost', 'Coste*',['class'=>'col-sm-2 control-label']) !!}
+            <label for="form_registro" name="cost" class="col-sm-2 control-label">Coste <span style="color: red;">*</span></label>
             <div class="col-sm-10">
-              {!! Form::select('cost',['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
+              <select name="cost" id="" class="form-control">
+                <option name="cost" value="no">No</option>
+                <option name="cost" value="si" default>Si</option>
+
+              </select>
             </div>
             {{--/.col-sm-10--}}
           </div>
           {{--/.form-group--}}
           <div class="form-group">
-            {!! Form::label('copyright', 'Derechos de Autor y otras Restricciones*',['class'=>'col-sm-2 control-label']) !!}
+            <label for="form_registro" class="col-sm-2 control-label">Derechos de Autor y otras Restricciones <span style="color: red;">*</span></label>
             <div class="col-sm-10">
-              {!! Form::select('copyright',['N'=>'no','S'=>'si'],'S',['class'=>'form-control','required'=>'required']) !!}
+              <select name="copyright" id="" class="form-control">
+                <option name="copyright" value="no">No</option>
+                <option name="copyright" value="si" default>Si</option>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            {!! Form::label('copyright_description', 'Descripción de los derechos de Autor*',['class'=>'col-sm-2 control-label']) !!}
+            <label for="form_registro" name="copyright_description" class="col-sm-2 control-label">Descripción de los derechos de Autor <span style="color: red;"></span> </label>
             <div class="col-sm-10">
-              {!! Form::textarea('copyright_description',null,['class'=>'form-control','required'=>'required','placeholder'=>'Descripción del estado de los derechos de autor del contenido']) !!}
+              <textarea name="copyright_description" id="copyright_description" cols="30" rows="10" class="form-control"></textarea>
             </div>
             {{--/.col-sm-10--}}
           </div>
