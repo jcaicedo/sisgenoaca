@@ -10,7 +10,9 @@
         </div>
         <!--/.box-header-->
         <!--Inicio de Registor-->
-        {!!Form::open(['class'=>'form-horizontal','id'=>'form_registro','enctype'=>'application/json'])  !!}
+<!--         {!!Form::open(['class'=>'form-horizontal','id'=>'form_registro','enctype'=>'application/json'])  !!} -->
+
+         <form action="#" method="post" class="form-horizontal" id="form_registro">
         <br>
         <div class="box box-body" id="general_form">
           <div class="box-header with-border">
@@ -357,7 +359,10 @@
           </div>
           {{--/.form-group--}}
           <br>
-          {!! Form::submit('Finalizar',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'registrar']) !!}
+
+
+          <button type="submit" class="btn btn-primary" style="margin: 0 auto; width: 200px;" id="registrar">Finalizar</button>
+
         </div>
         {{--/.box box-body--}}
         {{--<div class="container form-group">--}}
@@ -375,7 +380,8 @@
         <!--End Content Form-->
       </div>
       {{--/.box.box-primary--}}
-      {!! Form::close() !!}
+      <!-- {!! Form::close() !!} -->
+      </form>
       <!--Fin Registro-->
     </div>
     {{--/.row--}}
