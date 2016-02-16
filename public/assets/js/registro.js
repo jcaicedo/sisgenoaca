@@ -68,7 +68,7 @@ $("#btn_educativo").click(function(e){
             contri_name:{
                 required:true
             },
-            contri_lastname:{
+            contri_last_name:{
                 required:true
             },
             contri_email:{

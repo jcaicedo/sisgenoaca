@@ -8,4 +8,4 @@ display: none;
     box-shadow: #a94442;!important;
 }
 
-.form-group label span{ color: red; }
+.form-group label span, .form-group .col-sm-3 label span { color: red; }
