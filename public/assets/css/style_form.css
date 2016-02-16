@@ -7,3 +7,5 @@ display: none;
     border-color: #a94442 !important;
     box-shadow: #a94442;!important;
 }
+
+.form-group label span{ color: red; }

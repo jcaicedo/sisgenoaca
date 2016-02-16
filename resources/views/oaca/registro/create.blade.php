@@ -24,11 +24,9 @@
                         </div>
                     <br>
                         <div class="form-group">
-                               <!-- {!! Form::label('identificador', 'Identificador',['class'=>'col-sm-2 control-label']) !!} -->
-                               <label for="form_registro" class="col-sm-2 control-label">Identificador <span style="color: red;">*</span></label>
+                               <label for="form_registro" class="col-sm-2 control-label">Identificador <span>*</span></label>
     
                              <div class="col-sm-10">
-<!--                                 {!! Form::text('identificador',null,['class'=>'form-control','required'=>'required','placeholder'=>'Indique identificador']) !!} -->
                                     <input type="text" name="identificador" class="form-control" placeholder="Indique identificador" id="identificador">
                              </div>
                             {{--/.col-sm-10--}}
@@ -37,11 +35,10 @@
 
 
                         <div class="form-group">
-<!--                                  {!! Form::label('title', 'Título*',['class'=>'col-sm-2 control-label']) !!} -->
-                                        <label for="form_registro" name="title" class="col-sm-2 control-label">Título <span style="color:red;">*</span></label>
+               
+                                        <label for="form_registro" name="title" class="col-sm-2 control-label">Título <span>*</span></label>
                                         
                             <div class="col-sm-10">
-                               <!--  {!! Form::text('title',null,['class'=>'form-control','required'=>'required','placeholder'=>'Divida del título y el subtitulo con ":" (espacio dos puntos)']) !!} -->
                                <input type="text" class="form-control" placeholder="Divida del título y el subtitulo con ":"(espacio dos puntos)" id="title" name="title">
                             </div>
                             {{--/.col-sm-10--}}
@@ -50,11 +47,10 @@
 
 
                       <div class="form-group">
-<!--                                  {!! Form::label(null, 'Idioma*',['class'=>'col-sm-2 control-label']) !!} -->
-                                        <label for="form_registro" class="col-sm-2 control-label">Idioma <span style="color:red;">*</span></label>
+
+                                        <label for="form_registro" class="col-sm-2 control-label">Idioma <span>*</span></label>
                                         
                           <div class="col-sm-10">
-                                <!-- {!! Form::select(null,['E'=>'English','Es'=>'Español','O'=>'Otro'],'Es',['class'=>'form-control','required'=>'required']) !!} -->
                                 <select name="idioma" class="form-control" required>
                                     <option value="ingles">Ingles</option>
                                     <option value="español" default>Español</option>
@@ -66,12 +62,9 @@
                      {{--/.form-group--}}
 
                         <div class="form-group">
-                                <!-- {!! Form::label('description', 'Descripción*',['class'=>'col-sm-2 control-label']) !!} -->
-                                <label for="form_registro" class="col-sm-2 control-label" name="description">Descripción <span style="color:red;">*</span></label>
+                                <label for="form_registro" class="col-sm-2 control-label" name="description">Descripción <span>*</span></label>
                                 
                             <div class="col-sm-10">
-                                <!-- {!! Form::textarea('description',null,['class'=>'form-control','required'=>'required','placeholder'=>'Breve descripción']) !!} -->
-                                <!-- <input type="textarea" class="form-control" placeholder="Breve Descripción" id="description" name="description" > -->
                                 <textarea name="description" form="form_registro" class="form-control"></textarea>
                             </div>
                             {{--/.col-sm-10--}}
@@ -82,12 +75,9 @@
                 <div>
                         <div class="form-group nuevo_palabras">
    
-                                <!-- {!! Form::label('word_key','Palabra Clave*',['class'=>'col-sm-2 control-label']) !!} -->
-                                <label for="form_registro" name="word_key" class="col-sm-2 control-label">Palabra Clave <span style="color:red;">*</span></label>
+                                <label for="form_registro" name="word_key" class="col-sm-2 control-label">Palabra Clave <span>*</span></label>
 
                             <div class="col-sm-10" id="inputs" >
-
-                                <!-- {!! Form::text('word_key',null,['class'=>'form-control','placeholder'=>'Ingrese Palabras Claves','id'=>'objetivoInput']) !!} -->
                                 <input type="text" name="word_key" id="word_key" class="form-control" placeholder="Ingrese Palabras Claves">
 
                        
@@ -97,13 +87,10 @@
                                 
                         </div>
                         {{--/.form-group--}}
-
-                                <!-- {!! Form::button('Agregar',['class'=>'btn btn-default col-md-offset-2','id'=>'btn-agregar']) !!} -->
                                 <button type="button" class="btn btn-default col-md-offset-2" id="btn-agregar">Agregar</button>
                             
                         </div>
                         <br>
-                        <!-- {!! Form::button('Siguiente',['class'=>'btn btn-primary','style'=>'margin: 0 auto;width: 200px;', 'id'=>'btn_general']) !!} -->
                         <button type="button" class="btn btn-primary" style="margin: 0 auto; width: 200px" id="btn_general">Siguiente</button>
 
 
@@ -119,11 +106,9 @@
                    </div>
 <br>
                         <div class="form-group">
-                                <!-- {!! Form::label('version', 'Versión*',['class'=>'col-sm-2 control-label']) !!} -->
-                                <label for="form_registro" class="col-sm-2 control-label" name="version"> Versión <span style="color:red;">*</span></label>
+                                <label for="form_registro" class="col-sm-2 control-label" name="version"> Versión <span>*</span></label>
                                 
                             <div class="col-sm-10">
-                                <!-- {!! Form::text('version',null,['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!} -->
                                 <input type="text" name="version" class="form-control" id="version" placeholder="Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)">
 
                             </div>
@@ -132,9 +117,18 @@
                         {{--/.form-group--}}
 
                         <div class="form-group">
-                                {!! Form::label('status', 'Estado',['class'=>'col-sm-2 control-label']) !!}
+                                <label for="form_registro" name="status" class="col-sm-2 control-label">Estado</label>
                             <div class="col-sm-10">
-                                {!! Form::select('status',['B'=>'Borrador','F'=>'Final','R'=>'Revisión','N'=>'No Disponible'],'R',['class'=>'form-control','required'=>'required','placeholder'=>'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)']) !!}
+                                <select name="status" id="status" class="form-control">
+                                    <option value="borrador">Borrado</option>
+                                    <option value="final">Final</option>
+                                    <option value="revision">Revision</option>
+                                    <option value="nodisponible">No disponible</option>
+                                </select>
+        
+
+
+
                             </div>
                             {{--/.COL-SM-10--}}
                         </div>
@@ -145,11 +139,8 @@
                         <div class="content">
                         <div class="box">
 
-
-    
-
                             <div class="box-header with-border">
-                                <h3 class="box-title">Colaboradores*</h3>
+                                <h3 class="box-title">Colaboradores <span style="color: red;">*</span></h3>
 
                                 <div class="box-tools pull-right">
 
@@ -163,9 +154,20 @@
     
 
                         <div class="form-group ">
-                                {!! Form::label('contribution_type', 'Tipo de Contribución',['class'=>'col-sm-2 control-label']) !!}
+                                <label for="form_registro" name="contribution_type" class="col-sm-2 control-label">Tipo de Contribución</label>
                             <div class="col-sm-10">
-                                {!! Form::select('contri_type',['A'=>'autor','R'=>'revisor','D'=>'desconocido','I'=>'Iniciador','T'=>'Terminador','E'=>'Editor','Es'=>'Escritor'],'Es',['class'=>'form-control','required'=>'required','placeholder'=>'Autor del contenido']) !!}
+                                <select name="contri_type" id="" class="form-control">
+                                    <option value="autor">Autor</option>
+                                    <option value="revisor">Revisor</option>
+                                    <option value="desconocido">Desconocido</option>
+                                    <option value="indicador">Indicador</option>
+                                    <option value="terminador">Terminador</option>
+                                    <option value="editor">Editor</option>
+                                    <option value="escritor">Escritor</option>
+
+                                </select>
+
+
                             </div>
                             {{--/.col-sm-10--}}
                         </div>
@@ -174,20 +176,21 @@
                         <div class="form-group">
 
                             <div class="col-sm-3">
-                                {!! Form::label('contri_name','Nombre*') !!}
-                                {!! Form::text('contri_name',null,['class'=>'form-control','placeholder'=>'Ingrese Nombre']) !!}
+                                <label for="form_registro">Nombre <span style="color: red;">*</span></label>
+                                <input type="text" name="contri_name" id="" class="form-control" placeholder="Ingrese Nombre">
                             </div>
                             {{--/.col-sm-3--}}
 
                             <div class="col-sm-3">
-                                {!! Form::label('contri_las_tname','Apellido*') !!}
-                                {!! Form::text('contri_last_name',null,['class'=>'form-control','placeholder'=>'Ingrese Apellido']) !!}
+                                <label for="form_registro">Apellido<span style="color: red;">*</span></label>
+                                <input type="text" name="contri_last_name" class="form-control" placeholder="Ingrese apellido">
                             </div>
                             {{--/.col-sm-3--}}
 
                             <div class="col-sm-3">
-                                {!! Form::label('contri_email','Correo*') !!}
-                                {!! Form::email('contri_email',null,['class'=>'form-control','placeholder'=>'Ingrese Correo']) !!}
+                                <label for="form_registro">Correo <span style="color: red;"></span></label>
+                                <input type="email" class="form-control" placeholder="Ingrese Correo" name="contri_email">
+
                             </div>
                             {{--/.col-sm-3--}}
 
