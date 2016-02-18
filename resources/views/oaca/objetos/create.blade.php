@@ -3,57 +3,34 @@
 @section('title','Create Objeto')
 @section('content')
 
-<script type="text/javascript">
-	
-$(document).ready(function(){
-                   $('#myModal').delay(3500).fadeIn("slow");
-               
-});
-</script>
 
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="container-fluid">
+<div class="container">
 	<div class="row">
-		<div class="col-sm-4">
+		<div class="col-md-6" style="left: 10px">
 			<div class="box box-primary">
 				<div class="box-header with-border">
 					<h2 class="box-title">Contenido</h2>
 				</div>
 
-				{!! Form::open(['url'=>'app/oaca/objetos/create','method'=>'post','class'=>'form-vertical']) !!}
+				<form action="#" method="post" class="form-vertical" id="form_temario">
+		
+		
+
+
 
 					<div class="box box-body">
 						<div class="form-group">
-							{!! Form::label(null,'Agregar Titulo') !!}
+							<label for="form_temario">Agregar Titulo</label>
+							
 						<div>
 									<div class="col-sm-11">
-										{!! Form::text(null,null,['class'=>'form-control']) !!}
+										<input type="text" class="form-control" name="title" id="title">
 									</div>
 							{{----/.col-sm-11----}}
 									<div class="col-sm-1">
 										<div class="box-tools pull-right">
-											<button type="button" class="btn btn-box-tool">
+											<button type="button" class="btn btn-box-tool" id="btn-add-title">
 												<i class="fa fa-plus">
 												</i>
 												{{----/.fa fa-plus----}}
@@ -69,7 +46,9 @@ $(document).ready(function(){
 						{{----./form-group----}}
 					</div>
 				{{----/.box box-body----}}
-				{!! Form::close() !!}
+						</form>
+
+						{{-- /.form --}}
 
 				<div class="box box-body">
 
