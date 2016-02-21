@@ -10,7 +10,7 @@
 		<div class="col-md-6" style="left: 10px">
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h2 class="box-title">Contenido</h2>
+					<h2 class="box-title">Contenido</h2> <button type="button"> Agregar Título</button>
 				</div>
 
 				<form action="#" method="post" class="form-vertical" id="form_temario">
