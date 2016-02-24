@@ -3,14 +3,6 @@
 @section('title','Create Objeto')
 @section('content')
 
-<script type="text/javascript">
-	
-$(document).ready(function(){
-                   $('#myModal').delay(3500).fadeIn("slow");
-               
-});
-</script>
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
