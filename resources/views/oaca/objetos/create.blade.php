@@ -5,63 +5,45 @@
 
 
 
-<div class="container">
+<div class="container-fluid">
 	<div class="row">
 		<div class="col-md-6" style="left: 10px">
 			<div class="box box-primary">
 				<div class="box-header with-border">
-					<h2 class="box-title">Contenido</h2> <button type="button"> Agregar Título</button>
+					<h2 class="box-title">Contenido</h2> <button type="button" id="add-title"> Agregar Título</button>
 				</div>
 
 				<form action="#" method="post" class="form-vertical" id="form_temario">
-		
-		
-
-
-
-					<div class="box box-body">
-						<div class="form-group">
-							<label for="form_temario">Agregar Titulo</label>
-							
-						<div>
-									<div class="col-sm-11">
-										<input type="text" class="form-control" name="title" id="title">
-									</div>
-							{{----/.col-sm-11----}}
-									<div class="col-sm-1">
-										<div class="box-tools pull-right">
-											<button type="button" class="btn btn-box-tool" id="btn-add-title">
-												<i class="fa fa-plus">
-												</i>
-												{{----/.fa fa-plus----}}
-											</button>
-											{{----/.btn btn-box-tool----}}
-										</div>
-										{{----/.box-tools pull-right----}}
-									</div>
-							{{----/.col-sm-1----}}
-							</div>
-							{{----/.div--/--}}
+					
+					<div class="form-group title-content">
+						
+						<div class="col-sm-11">
+							<input class="form-control">
 						</div>
-						{{----./form-group----}}
+
+						<div class="col-sm-1">
+							<button type="button" class="btn btn-box-tool" id="btn-add-contri">
+                    <i class="fa fa-plus"></i>
+                </button>
+						</div>
+
+						<div class="col-md-7">
+						<br>
+						<input class="form-control">
+						<br>
+						<input class="form-control">
+						<br>
+						<input class="form-control">
 					</div>
-				{{----/.box box-body----}}
-						</form>
+
+
+					</div>
+				
+				</form>
 
 						{{-- /.form --}}
 
-				<div class="box box-body">
-
-					<div class="contenido">
-						<div class="wrap">
-							<ul class="contenido" id="contenido">
-								<li><a href="#">1 Lorem ipsum dolor sit amet.</a></li>
-								<li><a href="#">2 Lorem ipsum dolor sit amet.</a></li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
+				
 
 			</div>
 			{{----/.box box-primary----}}

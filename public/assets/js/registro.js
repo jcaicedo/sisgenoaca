@@ -12,6 +12,9 @@ count =1;
     });
 
 
+    
+
+
 
 /*Validación de formulario*/
 $("#btn_general").click(function(e){
