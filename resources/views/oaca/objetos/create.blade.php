@@ -16,9 +16,9 @@
 				<form action="#" method="post" class="form-vertical" id="form_temario" enctype='application/json'>
 					
 					<div class="form-group  box box-body">
-						<div class="title-content" id="subtcontentplus1">
+						<div class="title-content" name="contenedor" id="subtcontentplus1">
 						<div class="col-sm-11">
-							<input type="text" class="form-control" id="titulo" name="titulo">
+							<input type="text" class="form-control ptitulo" id="titulo" name="titulo">
 						</div>
 
 						<div class="col-sm-1">
@@ -35,7 +35,7 @@
 				</div>
 
 					</div>
- <button type="button" id="fin_obj" class="btn btn-primary" style="margin: 0 auto; width: 200px;" >Finalizar</button>
+ <button type="button" id="fin_obj" onclick="" class="btn btn-primary" style="margin: 0 auto; width: 200px;" >Finalizar</button>
 
 				</form>
 
