@@ -22,35 +22,42 @@ $("div#subtcontent"+idContent+" #subinput"+idContent+"").last().append('<input t
 
 $(document).on("click","#fin_obj",function(e){
 
-jsonObj = [];
+   jsonObj = [];
 
-$("div[name=contenedor]").each(function(){
-	var titulo=$("input[name=titulo]").val();
+    $("div[name=contenedor]").each(function(){
 
+        var titulo= $(this).find("input[name=titulo]").val();
 
-	//var titulo = $(this).val();
-	console.log(titulo);
-
-console.log("hola");
-	item = {};
-	item['title']=titulo;
-
-	$("input[name=subtitulo]").each(function(){
-
-		item['titulo']={};
-		item['titulo']['subtitulo']=$(this).val();
-	});
+        var objTitulo = {};
+        objTitulo['titulo'] = titulo;
+        objTitulo['subtitulos'] = [];
 
 
-	jsonObj.push(item);
+        $(this).find("input[name=subtitulo]").each(function(){
 
-});
+            objTitulo['subtitulos'].push($(this).val());
+        });
 
-jsonString = JSON.stringify(jsonObj);
-console.log("aqui"+jsonString);
+
+        jsonObj.push(objTitulo);
+
+    });
+
+    jsonString = JSON.stringify(jsonObj);
+    console.log("aqui"+jsonString);
+
 
 
 });
+
+
+  /*  $("#fin_obj").click(function(e){
+        e.preventDefault();
+        
+            var $param = $('#form_registro').serializeObject();
+            //var $param2= parseJSON($param);
+            console.log($param);
+ });*/
 
 
 

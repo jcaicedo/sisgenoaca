@@ -35,7 +35,7 @@
 				</div>
 
 					</div>
- <button type="button" id="fin_obj" onclick="" class="btn btn-primary" style="margin: 0 auto; width: 200px;" >Finalizar</button>
+ 					<button type="button" id="fin_obj" onclick="" class="btn btn-primary" style="margin: 0 auto; width: 200px;" >Finalizar</button>
 
 				</form>
 
