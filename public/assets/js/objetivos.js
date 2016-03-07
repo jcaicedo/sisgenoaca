@@ -68,9 +68,11 @@ $.ajax({
     data:{ obj: jsonObj },
       success:function(data){
         console.log(data);
+                         window.location.replace("/app/oaca/registro");
     },
     error: function (data) {
                 console.log('Error:', data);
+
             }
   
 

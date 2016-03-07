@@ -44,15 +44,17 @@ class GeneradorController extends Controller
     public function create_objetos(Request $request){
 
         $content= new Content;
-
+  $confirmacion = array(
+            'status' => 'success',
+            'msg' => 'Setting created successfully',
+        );
 if($request->ajax()){
     $data=$request->input('obj');
 
     $response = json_encode($data);
     $content->contenido=$response;
     $content->save();
-    dd($response);
-    return $response;
+    return response()->json($confirmacion);
 }else{
     return 'no';
 }
