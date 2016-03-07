@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\RegistroOaca;
+use App\Content;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,14 +24,13 @@ class GeneradorController extends Controller
 
     public function registro(){
 
-        //$data = $request->input('data'); //se debe guardar $data en la BD y no el json.
+        $data = $request->input('data'); //se debe guardar $data en la BD y no el json.
 
-        //$json = json_decode($data); // aqui se convierte en json
-        //dd($request->input('data'));
-        if(Request::ajax()) {
-      $data = Input::all();
-      print_r($data);die;
-    }
+        $json = json_decode($data); // aqui se convierte en json
+        dd($request->input('data'));
+//      $data = Input::all();
+  //    print_r($data);die;
+    //}
 
 
 
@@ -42,7 +42,21 @@ class GeneradorController extends Controller
     }
 
     public function create_objetos(Request $request){
-        return response()->json(['respuesta'=>'objeto contenido creado']);
+
+        $content= new Content;
+
+if($request->ajax()){
+    $data=$request->input('obj');
+
+    $response = json_encode($data);
+    $content->contenido=$response;
+    $content->save();
+    dd($response);
+    return $response;
+}else{
+    return 'no';
+}
+    
     }
 
 

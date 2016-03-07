@@ -5,6 +5,7 @@
     <title>SISGENOACA | @yield('title')</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
+
     {{--Bootstrap--}}
 
     <link rel="stylesheet" href="/vendor/AdminLTE/bootstrap/css/bootstrap.min.css" />
@@ -27,8 +28,9 @@
 @yield('content')
 
 
-
-<script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
+<!--<script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.1.4.min.js"></script>-->
+{!! Html::script('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js') !!}
 <script src="/vendor/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 <script src="/vendor/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 <script src="/vendor/AdminLTE/plugins/fastclick/fastclick.js"></script>

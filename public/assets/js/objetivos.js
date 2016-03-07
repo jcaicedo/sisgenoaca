@@ -22,6 +22,7 @@ $("div#subtcontent"+idContent+" #subinput"+idContent+"").last().append('<input t
 
 $(document).on("click","#fin_obj",function(e){
 
+
    jsonObj = [];
 
     $("div[name=contenedor]").each(function(){
@@ -44,7 +45,36 @@ $(document).on("click","#fin_obj",function(e){
     });
 
     jsonString = JSON.stringify(jsonObj);
-    console.log("aqui"+jsonString);
+    //console.log("aqui"+jsonString);
+
+
+    $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
+
+console.log(jsonObj);
+
+$.ajax({
+    url: 'http://sisgenoaca.app/app/oaca/objetos/create',
+    type: "POST",
+    beforeSend:function(xhr){
+        var token =$('meta[name="csrf_token"]').attr('content');
+        if(token){
+             return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+        }
+    },
+    data:{ obj: jsonObj },
+      success:function(data){
+        console.log(data);
+    },
+    error: function (data) {
+                console.log('Error:', data);
+            }
+  
+
+});
 
 
 

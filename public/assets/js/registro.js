@@ -171,7 +171,11 @@ $("#btn_educativo").click(function(e){
             //var $param2= parseJSON($param);
 
            console.log($param);
-
+ $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        });
     $.ajax({
         url:'http://sisgenoaca.app/app/oaca/registro/create',
         type:'POST',
