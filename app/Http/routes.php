@@ -60,3 +60,5 @@ Route::group(['prefix'=>'app','middleware' => ['web']],function(){
 
 
 });
+
+Route::resource('usuario','UserController');
