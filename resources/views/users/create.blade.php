@@ -9,14 +9,14 @@
 					<h1 class="box-title">Registro de Usuario</h1>
 				</div>
 				<!-- /.box-header -->
-				<form action="#" method="post" class="form-horizontal" id="registro_usuario">
+				<form action="http://sisgenoaca.app/usuario/registro/nuevo"  method="post" class="form-horizontal" id="registro_usuario">
 					
-					<div class="box box-body">
+					<div class="box-body">
 						
 						<div class="form-group">
 							<label for="registro_usuario" class="col-sm-2 control-label">Nombre</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="name" placeholder="Nombre Completo">
+								<input type="text" class="form-control" name="first_name" id="first_name" placeholder="Nombre Completo">
 							</div>
 
 						</div>
@@ -24,27 +24,48 @@
 						<div class="form-group">
 							<label for="registro_usuario" class="col-sm-2 control-label">Apellidos</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="last_name" placeholder="Apellidos">
+								<input type="text" class="form-control" name="last_name" id="last_name" placeholder="Apellidos">
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="registro_usuario" class="col-sm-2 control-label">Correo</label>
 							<div class="col-sm-10">
-								<input type="email" class="form-control" id="email" placeholder="dd'@'dddd.com">
+								<input type="email" class="form-control" name="email" id="email" placeholder="dd'@'dddd.com">
 							</div>
 						</div>
+						<div class="form-group">
+								<label for="registro_usuario" class="col-sm-2 control-label">Contraseña</label>
+								<div class="col-sm-10">
+									<input type="password" class="form-control" id="password" placeholder="Introduzca Contraseña"></input>
+								</div>
+						</div>
+
+							<div class="form-group">
+
+								<label for="registro_usuario" class="col-sm-2 control-label">Tipo de Usuario</label>
+								<div class="col-sm-10">
+								<select class="form-control">
+									<option name="rol" value="estudiante">Estudiante</option>
+									<option name="rol" value="profesor">Profesor</option>
+								</select>
+								</div>
+							</div>
+
 
 						<div class="form-group">
 							<label for="registro_usuario" class="col-sm-2 control-label">Institución</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" id="institucion">
+								<input type="text" class="form-control" name="institucion" id="institucion" placeholder="Universidad Central">
 							</div>
 						</div>
 
+
 					</div>
 
-
+					<div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
 
 				</form>
 

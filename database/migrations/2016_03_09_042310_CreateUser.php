@@ -20,7 +20,7 @@ class CreateUser extends Migration
             $table->string('email')->unique()->required();
             $table->string('password')->required();
             $table->enum('rol',['admin','estudiante','profesor'])->default('profesor');
-            $table->string('organization')->required();
+            $table->string('institucion')->required();
             $table->timestamps();
         });
     }
