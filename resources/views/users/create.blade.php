@@ -9,7 +9,7 @@
 					<h1 class="box-title">Registro de Usuario</h1>
 				</div>
 				<!-- /.box-header -->
-				<form action="http://sisgenoaca.app/usuario/registro/nuevo"  method="post" class="form-horizontal" id="registro_usuario">
+				<form action="#"  method="post" class="form-horizontal" id="registro_usuario">
 					
 					<div class="box-body">
 						
@@ -37,7 +37,7 @@
 						<div class="form-group">
 								<label for="registro_usuario" class="col-sm-2 control-label">Contraseña</label>
 								<div class="col-sm-10">
-									<input type="password" class="form-control" id="password" placeholder="Introduzca Contraseña"></input>
+									<input type="password" name="password" class="form-control" id="password" placeholder="Introduzca Contraseña"></input>
 								</div>
 						</div>
 
@@ -64,7 +64,7 @@
 					</div>
 
 					<div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="register_user" class="btn btn-primary">Submit</button>
               </div>
 
 				</form>
@@ -75,5 +75,6 @@
 			<!--/.box-primary -->
 		</div>
 	</div>
+
 </section>
 @endsection

@@ -42,6 +42,7 @@
 <script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" ></script>
 <script src="/assets/js/registro.js" ></script>
 <script src="/assets/js/objetivos.js" ></script>
+<script src="/assets/js/user_create.js"></script>
 
 </body>
 </html>

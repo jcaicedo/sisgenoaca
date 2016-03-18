@@ -16,7 +16,21 @@ class UserController extends Controller
 
 public function registerUser(Request $request){
 
-    User::create([
+    $confirmacion = array(
+        'status' => 'success',
+        'msg' => 'Setting created successfully',
+    );
+    $usuario = new User;
+
+    $usuario->first_name = $request->first_name;
+    $usuario->last_name= $request->last_name;
+        $usuario->email = $request->email;
+        $usuario->password=$request->password;
+        $usuario->institucion = $request->institucion;
+    $usuario->save();
+return $confirmacion;
+
+/*    User::create([
         'first_name'=>$request['first_name'],
         'last_name'=>$request['last_name'],
         'email'=>$request['email'],
@@ -24,6 +38,8 @@ public function registerUser(Request $request){
         'institucion'=>$request['institucion']
     ]);
 
+
+    return "Usuario Registrado";*/
 }
 	
 }

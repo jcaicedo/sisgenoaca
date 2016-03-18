@@ -62,4 +62,4 @@ Route::group(['prefix'=>'app','middleware' => ['web']],function(){
 });
 
 Route::get('usuario/registro/',['uses'=>'UserController@index']);
-Route::post('usuario/registro/nuevo',['uses'=>'UserController@registerUser']);
+Route::post('usuario/registro/',['uses'=>'UserController@registerUser']);
