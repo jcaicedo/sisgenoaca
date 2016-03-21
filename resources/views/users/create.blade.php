@@ -45,9 +45,9 @@
 
 								<label for="registro_usuario" class="col-sm-2 control-label">Tipo de Usuario</label>
 								<div class="col-sm-10">
-								<select class="form-control">
-									<option name="rol" value="estudiante">Estudiante</option>
-									<option name="rol" value="profesor">Profesor</option>
+								<select name="rol" class="form-control">
+									<option value="estudiante">Estudiante</option>
+									<option value="profesor" default>Profesor</option>
 								</select>
 								</div>
 							</div>
@@ -64,7 +64,7 @@
 					</div>
 
 					<div class="box-footer">
-                <button type="submit" id="register_user" class="btn btn-primary">Submit</button>
+                <button type="button" id="register_user" class="btn btn-primary">Submit</button>
               </div>
 
 				</form>

@@ -1,25 +1,79 @@
 $(document).ready(function(){
 
 
+//Validacion de formulario
+//
+        $("#registro_usuario").validate({
 
-/*    $(document).on("click","#register_user",function(e){
 
-        $postData = $(this).serialize();
+                rules:{
+                    first_name:{
+                        required:true
+                    },
+                    last_name:{
+                        required:true
+                    },
+                    email:{
+                        required:true
+                    },
+                    rol:{
+                        required:true
+                    },
+                    password:{
+                        required:true
+                    },
+                    institucion:{
+                        required:true
+                    }
 
-     console.log( $( this ).serialize() );
+                },
+                messages:{
+                    first_name:{
+                        required:"Debe Ingresar Nombre"
+                    },
+                    last_name:{
+                        required:"Debe Ingresar Apellido"
+                    },
+                    email:{
+                        required:"Debe Ingresar Email"
+                    },
+                    password:{
+                        required:"Debe Ingresar una Contraseña"
+                    },
+                    institucion:{
+                        required:"Debe Indica Institución"
+                    }
 
-    });*/
+                }
 
-    //$( "#registro_usuario" ).on( "submit", function( event ) {
-    //    event.preventDefault();
-    //    $postData = $(this).serializeArray();
-    //    console.log( $postData[first_name]);
-    //});
+        });
 
-    $('#registro_usuario').submit(function() {
-       postData = $('#registro_usuario').serializeObject();
+        $.validator.setDefaults({
+
+            errorClass: 'help-block',
+            highlight:function(element){
+                $(element)
+                .addClass('.error');
+            },
+            unhighlight:function(element){
+                $(element)
+                .removeClass('.error');
+            }
+        });
+
+
+
+        $("#register_user").click(function(e){
+
+            e.preventDefault();
+
+            var isValid = $("#registro_usuario").valid();
+
+            if(isValid){
+
+         postData = $('#registro_usuario').serializeObject();
         console.log(postData.first_name);
-
+        jsonString = JSON.stringify(postData);
 
         $.ajax({
             url: 'http://sisgenoaca.app/usuario/registro/',
@@ -33,7 +87,7 @@ $(document).ready(function(){
             data:{ obj: postData },
             success:function(data){
                 console.log(data);
-                window.location.replace("/app/oaca/registro");
+                //window.location.replace("/app/oaca/registro");
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -42,6 +96,10 @@ $(document).ready(function(){
 
 
         });
+            }
+
+
+ 
 
     });
 

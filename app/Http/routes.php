@@ -62,4 +62,7 @@ Route::group(['prefix'=>'app','middleware' => ['web']],function(){
 });
 
 Route::get('usuario/registro/',['uses'=>'UserController@index']);
-Route::post('usuario/registro/',['uses'=>'UserController@registerUser']);
+Route::post('usuario/registro/',['uses'=>'UserController@createUser']);
+Route::get('usuario/admin',['uses'=>'UserController@viewAdmin']);
+
+Route::resource('log','LogController');

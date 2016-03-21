@@ -18,6 +18,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/assets/css/style_form.css">
+      <!-- iCheck -->
+  <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/square/blue.css">
 
     <script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -43,6 +45,8 @@
 <script src="/assets/js/registro.js" ></script>
 <script src="/assets/js/objetivos.js" ></script>
 <script src="/assets/js/user_create.js"></script>
+<!-- iCheck -->
+<script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 
 </body>
 </html>

@@ -1,45 +1,67 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Users;
+use Hash;
 
 class UserController extends Controller
 {
-    public function index(){
-    return view('users.create');
+
+public function index(){
+
+return view('users.create');
 }
 
-public function registerUser(Request $request){
 
-    $confirmacion = array(
-        'status' => 'success',
-        'msg' => 'Setting created successfully',
-    );
-    $usuario = new User;
 
-    $usuario->first_name = $request->first_name;
-    $usuario->last_name= $request->last_name;
-        $usuario->email = $request->email;
-        $usuario->password=$request->password;
-        $usuario->institucion = $request->institucion;
-    $usuario->save();
+public function createUser(Request $request){
+
+$data=$request->input('obj');
+//dd($data['first_name']);
+
+$confirmacion = array(
+'status' => 'success',
+'msg' => 'Setting created successfully',
+);
+
+if($request->ajax()){
+
+$user = new Users;
+
+$user->first_name=$data['first_name'];
+$user->last_name=$data['last_name'];
+$user->email=$data['email'];
+$user->password=Hash::make($data['password']);
+$user->rol=$data['rol'];
+$user->institucion=$data['institucion'];
+
+
+
+$user->save();
+
+
+
 return $confirmacion;
 
-/*    User::create([
-        'first_name'=>$request['first_name'],
-        'last_name'=>$request['last_name'],
-        'email'=>$request['email'],
-        'password'=>bcrypt($request['password']),
-        'institucion'=>$request['institucion']
-    ]);
 
 
-    return "Usuario Registrado";*/
+
+}else{
+
+return 'no';
+
 }
-	
+
+
+
+
+}
+
+
+public function viewAdmin (){
+	return view('layouts.admin');
+}
+    
 }
