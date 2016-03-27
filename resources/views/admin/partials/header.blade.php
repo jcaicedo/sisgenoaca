@@ -1,7 +1,7 @@
 <header class="main-header">
 	
 	<a class="logo" href="">
-		<span class="logo-mini"> <b>SISGENOACA</b> </span>
+		<span class="logo-mini"> <b>SIS</b> </span>
 		<span class="logo-lg"> <b>SISGENOACA</b> </span>
 	</a>
 	<nav class="navbar navbar-static-top" role="navigation">

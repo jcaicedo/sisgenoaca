@@ -13,7 +13,7 @@ function index(){
 }
 
 function form_register(){
-return view('oaca.registro.create');
+return view('admin.oaca.registro');
 }
 
 public function registro(){
