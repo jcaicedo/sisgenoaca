@@ -61,7 +61,7 @@ return 'no';
 
 
 public function viewAdmin (){
-	return view('layouts.admin');
+	return view('admin.layouts.default');
 }
     
 }
