@@ -3,7 +3,7 @@
 <head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>BlueFire | @yield('title')</title>
+		<title>SISGENOACA | @yield('title')</title>
 		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<link rel="stylesheet" href="/vendor/AdminLTE/bootstrap/css/bootstrap.min.css" />
@@ -49,6 +49,8 @@
 		<script src="/vendor/AdminLTE/dist/js/app.min.js"></script>
 		<script src="/vendor/AdminLTE/dist/js/demo.js"></script>
 		<script src="/assets/js/registro.js" ></script>
+		<script src="/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script src="/vendor/jquery-validation/src/additional/lettersonly.js"></script>
 		@stack('scripts')
 
 </body>
