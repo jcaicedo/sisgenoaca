@@ -1,6 +1,6 @@
 #ciclo_vida, #educativo, #derecho_autor
 {
-/*display: none;*/
+display: none;
 }
 
 .error{
@@ -9,3 +9,7 @@
 }
 
 .form-group label span, .form-group .col-sm-3 label span { color: red; }
+
+input, textarea, select {
+	margin-bottom: 15px;
+}

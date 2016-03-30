@@ -17,6 +17,7 @@ count =1;
 
 
 /*Validación de formulario*/
+
 $("#btn_general").click(function(e){
     e.preventDefault();
     var isValid = $("#form_registro").valid();

@@ -81,6 +81,8 @@
           <button type="button" class="btn btn-primary" style="margin: 0 auto; width: 200px" id="btn_general">Siguiente</button>
         </div>
         {{--/.box--}}
+
+        
         {{--CICLO DE VIDA--}}
         <div class="box box-body" id="ciclo_vida">
           <div class="box-header with-border">
