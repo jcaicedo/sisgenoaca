@@ -168,33 +168,34 @@ $("#btn_educativo").click(function(e){
         e.preventDefault();
         var isValid = $("#form_registro").valid();
         if(isValid){
-            var $param = $('#form_registro').serializeObject();
-            //var $param2= parseJSON($param);
+            postData = $('#form_registro').serializeObject();
+            console.log(postData);
 
-           console.log($param);
- $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-            }
-        });
+
     $.ajax({
         url:'http://sisgenoaca.app/app/oaca/registro/create',
         type:'POST',
-        data:{
-            _token: $("[name='_token']").val(),
-            data: $param
+        beforeSend:function(xhr){
+            var token=$('meta[name="csrf_token"]').attr('content');
+            if(token){
+                return xhr.setRequestHeader('X-CSRF-TOKEN',token);
+            }
+
         },
-        success:function(){console.log(arguments);},
-        error:function(){
-            console.log('ERROR');
-            console.log(arguments);
+        data:{
+            data:{obj:postData}
+        },
+        success:function(data){console.log(data);},
+        error:function(data){
+            console.log('ERROR',$data);
 
         }
 
 
-    },'json');
+    });
 
-        } });
+        }
+         });
 
 /*Fin validación formulario*/
 

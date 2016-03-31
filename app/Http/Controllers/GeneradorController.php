@@ -16,15 +16,25 @@ function form_register(){
 return view('admin.oaca.registro');
 }
 
-public function registro(){
+public function registro(Request $request){
 
-$data = $request->input('data'); //se debe guardar $data en la BD y no el json.
-$json = json_decode($data); // aqui se convierte en json
+$data=$request->input('obj');
 
-dd($request->input('data'));
-//      $data = Input::all();
-//    print_r($data);die;
-//}
+if($request->ajax()){
+
+
+
+
+return 'si';
+
+
+
+
+}else{
+
+return 'no';
+
+}
 }
 
 public function view_objetos_create(){

@@ -15,7 +15,7 @@
         
         <form action="#" method="post" id="form_registro" role="form">
           
-          {{ csrf_field() }}
+   
           <div class="box box-primary" id="general_form">
             <div class="box-header with-border">
               <h3 class="box-title">Aspectos Generales</h3>
