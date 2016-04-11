@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 /*Agregar nuevas palabras claves*/
 
-var lastKeyWord = "objetivoInput",
+var lastKeyWord = "objetivoInput";
 count =1;
     $(document).on("click","#btn-agregar",function(event){
         
@@ -173,7 +173,7 @@ $("#btn_educativo").click(function(e){
 
 
     $.ajax({
-        url:'http://sisgenoaca.app/app/oaca/registro/create',
+        url:'http://sisgenoaca.app/admin/oaca/registro/create',
         type:'POST',
         beforeSend:function(xhr){
             var token=$('meta[name="csrf_token"]').attr('content');
@@ -185,7 +185,11 @@ $("#btn_educativo").click(function(e){
         data:{
             data:{obj:postData}
         },
-        success:function(data){console.log(data);},
+        success:function(data){
+
+            console.log(data);
+             window.location.replace("/admin/oaca/objetos/create");
+        },
         error:function(data){
             console.log('ERROR',$data);
 

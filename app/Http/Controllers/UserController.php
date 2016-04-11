@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Users;
+use App\User;
 use Hash;
 
 class UserController extends Controller
@@ -28,7 +28,7 @@ $confirmacion = array(
 
 if($request->ajax()){
 
-$user = new Users;
+$user = new User;
 
 $user->first_name=$data['first_name'];
 $user->last_name=$data['last_name'];

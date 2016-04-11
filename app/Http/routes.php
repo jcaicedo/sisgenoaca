@@ -34,7 +34,7 @@
 
 
 
-Route::group(['prefix'=>'app','middleware' => ['web']],function(){
+Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['web']],function(){
 
     Route::group(['prefix'=>'oaca'],function(){
 
@@ -46,7 +46,7 @@ Route::group(['prefix'=>'app','middleware' => ['web']],function(){
 
         Route::group(['prefix'=>'objetos'],function(){
 
-            Route::get('create',['as'=>'create','uses'=>'GeneradorController@view_objetos_create']);
+            Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
             Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
 
         });
