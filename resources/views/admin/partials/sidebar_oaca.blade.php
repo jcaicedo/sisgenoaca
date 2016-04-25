@@ -32,17 +32,17 @@
 
 			<li class="header">NAVEGACIÓN</li>
 
-			<li class="active">
-				<a href="{{url('admin')}}">
+			<li id="title" class="active">
+				<a>
 				<i class="fa fa-home"></i>
-				<span>{{trans('menu.createoaca')}}</span>
+				<span >{{trans('menu.createoaca')}}</span>
 
 				</a>
 
 					
 			</li>
 
-			<li>
+			<li id="textarea">
 				<a href="{{url('admin')}}">
 				<i class="fa fa-book"></i>
 				<span>{{trans('menu.listaroaca')}}</span>
