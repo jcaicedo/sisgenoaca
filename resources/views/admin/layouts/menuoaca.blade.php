@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="/vendor/AdminLTE/dist/css/AdminLTE.min.css" />
 		<link rel="stylesheet" href="/vendor/AdminLTE/dist/css/skins/_all-skins.min.css" />
   <link rel="stylesheet" href="/vendor/jquery-ui-1.11.4.custom/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style_objeto_create.css">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
