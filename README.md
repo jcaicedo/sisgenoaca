@@ -1,2 +1,0 @@
-# sisgeoaca
-tesis/sisgeoaca
