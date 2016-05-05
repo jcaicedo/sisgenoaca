@@ -32,7 +32,7 @@
 
 			<li class="header">NAVEGACIÓN</li>
 
-			<li id="title" class="active">
+			<li id="title" data-element-option="title"  class="option" value="title" >
 				<a>
 				<i class="fa fa-home"></i>
 				<span >{{trans('menu.createoaca')}}</span>
@@ -42,7 +42,7 @@
 					
 			</li>
 
-			<li id="textarea">
+			<li id="textarea"  data-element-option="textarea" class="option">
 				<a href="{{url('admin')}}">
 				<i class="fa fa-book"></i>
 				<span>{{trans('menu.listaroaca')}}</span>

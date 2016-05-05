@@ -40,23 +40,51 @@
     });
 
     $(".content").droppable({
+      accept: '.option',
     	drop:function(event,ui){
 
+            var opt = ui.draggable.find('.option').val();
 
+            console.log(opt);
+
+          
         $("<label></label>").text("Ingrese Titulo").appendTo( this );
-    		$( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
+        $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
+          
+
+
     	}
 
     });
 
     /*Agregar extarea*/
 
-    $("#textarea").draggable({
-      appendTo:"body",
-      helper:"clone"
+
+
+   
+        /*Agregar Titulo*/
+
+  /*  $( "#title" ).draggable({
+      appendTo: "body",
+      helper: "clone"
     });
 
-    
+    $(".content").droppable({
+      drop:function(event,ui){
+
+
+        $("<label></label>").text("Ingrese Titulo").appendTo( this );
+        $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
+      }
+
+    });
+
+    /*Agregar extarea*/
+
+    /*$("#textarea").draggable({
+      appendTo:"body",
+      helper:"clone"
+    });*/
 
 	});
 
