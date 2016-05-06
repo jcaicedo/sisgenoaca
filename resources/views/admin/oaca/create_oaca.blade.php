@@ -34,22 +34,32 @@
 
     /*Agregar Titulo*/
 
-    $( "#title" ).draggable({
+    $( "#title, #textarea" ).draggable({
       appendTo: "body",
       helper: "clone"
     });
+
 
     $(".content").droppable({
       accept: '.option',
     	drop:function(event,ui){
 
-            var opt = ui.draggable.find('.option').val();
+            var opt = ui.draggable.data('element-option');
 
-            console.log(opt);
+            // console.log(ui.draggable.data('element-option'));
 
-          
-        $("<label></label>").text("Ingrese Titulo").appendTo( this );
-        $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
+          switch(opt){
+            case 'title':
+              $("<label></label>").text("Ingrese Titulo").appendTo( this );
+              $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
+              break;
+            case 'textarea':
+              $("<label></label>").text("Ingrese Titulo").appendTo( this );
+              $( "<button></button>" ).addClass("btn btn-success").text( ui.draggable.text() ).appendTo( this );
+              break;
+
+          }
+        
           
 
 
@@ -64,22 +74,11 @@
    
         /*Agregar Titulo*/
 
-  /*  $( "#title" ).draggable({
-      appendTo: "body",
-      helper: "clone"
-    });
-
-    $(".content").droppable({
-      drop:function(event,ui){
+ 
 
 
-        $("<label></label>").text("Ingrese Titulo").appendTo( this );
-        $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
-      }
 
-    });
-
-    /*Agregar extarea*/
+    /*Agregar extarea
 
     /*$("#textarea").draggable({
       appendTo:"body",
