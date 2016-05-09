@@ -66,7 +66,8 @@
 	$(function(){
 
     var valor = $(".cesar").html();
-    console.log(valor);
+    var count=5;
+
 
  CKEDITOR.replace('editor1');
     /*Agregar Titulo*/
@@ -92,9 +93,10 @@
               break;
             case 'textarea':
            
-              $(valor).css("display", "block").attr('id', 'editor2').appendTo( this );
-              CKEDITOR.replace('editor2');
-
+              $(valor).css("display", "block").attr('id', 'editor'+count).appendTo( this );
+              CKEDITOR.replace('editor'+count);
+              count++;
+              console.log(count);
               break;
 
           }
