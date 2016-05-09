@@ -47,6 +47,9 @@
 		<script src="/vendor/AdminLTE/dist/js/app.min.js"></script>
 		<script src="/vendor/AdminLTE/dist/js/demo.js"></script>
   <script src="/vendor/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+  <!-- CK Editor -->
+<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
+
 		@stack('scripts')
 </body>
 </html>
