@@ -17,5 +17,6 @@ return [
 
     'textarea' => 'Textarea',
     'title' => 'Titulo',
+    'uploadimage' => 'Cargar Imagen',
 	
 ];
