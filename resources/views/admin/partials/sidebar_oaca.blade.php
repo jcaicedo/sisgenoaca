@@ -30,7 +30,7 @@
 		<ul class="sidebar-menu">
 			
 
-			<li class="header">NAVEGACIÓN</li>
+			<li class="header">{{trans('menu.optionspanel')}}</li>
 
 			<li id="title" data-element-option="title"  class="option" value="title" >
 				<a href="">
