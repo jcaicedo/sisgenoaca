@@ -34,8 +34,8 @@
 
 			<li id="title" data-element-option="title"  class="option" value="title" >
 				<a>
-				<i class="fa fa-home"></i>
-				<span >{{trans('menu.createoaca')}}</span>
+				<i class="fa fa-edit"></i>
+				<span >{{trans('menu.title')}}</span>
 
 				</a>
 
@@ -44,8 +44,8 @@
 
 			<li id="textarea"  data-element-option="textarea" class="option">
 				<a href="{{url('admin')}}">
-				<i class="fa fa-book"></i>
-				<span>{{trans('menu.listaroaca')}}</span>
+				<i class="fa fa-file-text-o"></i>
+				<span>{{trans('menu.textarea')}}</span>
 				</a>
 
 			</li>

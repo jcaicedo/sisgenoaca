@@ -14,5 +14,8 @@ return [
 	'listaroaca' => 'Listar OACAs',
 	'configuracion'  => 'Configuración',
 	'logout'    => 'Logout',
+
+    'textarea' => 'Textarea',
+    'title' => 'Titulo',
 	
 ];

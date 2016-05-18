@@ -5,7 +5,7 @@
 <div class="content-wrapper">
 <div class="content">
   
-      <div class="row cesar" style="display: none;">
+      <div class="row textarea" style="display: none;">
         <div class="col-md-12">
           <div class="box box-info">
             <div class="box-header">
@@ -24,7 +24,7 @@
             <!-- /.box-header -->
             <div class="box-body pad">
               <form>
-                    <textarea class="editor1" id="editor1" name="editor1" rows="10" cols="80">
+                    <textarea class="editor0" id="editor0" name="editor1" rows="10" cols="80">
                                             This is my textarea to be replaced with CKEditor.
                     </textarea>
               </form>
@@ -52,6 +52,11 @@
   display: inline;
 }
 
+.textarea
+{
+  margin: 21px 0 !important;
+}
+
 
 
 }
@@ -65,8 +70,8 @@
 <script>
 	$(function(){
 
-    var valor = $(".cesar").html();
-    var count=5;
+    var textarea = $(".textarea").html();
+    var count=1;
 
 
  CKEDITOR.replace('editor1');
@@ -93,7 +98,7 @@
               break;
             case 'textarea':
            
-              $(valor).css("display", "block").attr('id', 'editor'+count).appendTo( this );
+              $(textarea).css({"display":"block","margin":"35px 0px !important"}).attr('id', 'editor'+count).appendTo( this );
               CKEDITOR.replace('editor'+count);
               count++;
               console.log(count);
