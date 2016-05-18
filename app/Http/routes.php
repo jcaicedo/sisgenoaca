@@ -41,6 +41,7 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['web']],fu
         Route::get('registro',['as'=>'registro','uses' => 'GeneradorController@form_register']);
         Route::get('registro/create',['as'=>'registro','uses' => 'GeneradorController@form_register']);
         Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
+        Route::get('pruebas',['as'=>'pruebas','uses'=>'GeneradorController@pruebas']);
 
 
 
@@ -65,3 +66,5 @@ Route::post('usuario/registro/',['uses'=>'UserController@createUser']);
 Route::get('usuario/admin',['uses'=>'UserController@viewAdmin']);
 
 Route::resource('log','LogController');
+
+Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);

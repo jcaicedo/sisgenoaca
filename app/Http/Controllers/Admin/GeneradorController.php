@@ -70,4 +70,9 @@ return 'no';
 }
 
 }
+
+function pruebas(){
+	return view('pruebas.prueba');
+}
+
 }

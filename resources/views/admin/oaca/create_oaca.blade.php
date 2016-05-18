@@ -5,6 +5,19 @@
 <div class="content-wrapper">
 <div class="content">
   
+  <form action="" method="post" role="form" enctype="multipart/form-data">
+            {{csrf_field()}}
+    
+      <!-- modulo de Titulo -->
+  
+
+      <div class="form-group titulo nomostrar" style="display: none;">
+      <label for="">Ingrese Titulo</label>
+      <input type="text" class="form-control"> 
+      </div>
+      
+
+      <!-- modulo de texarea -->
       <div class="row textarea" style="display: none;">
         <div class="col-md-12">
           <div class="box box-info">
@@ -23,11 +36,11 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body pad">
-              <form>
+              
                     <textarea class="editor0" id="editor0" name="editor1" rows="10" cols="80">
                                             This is my textarea to be replaced with CKEditor.
                     </textarea>
-              </form>
+              
             </div>
           </div>
           <!-- /.box -->
@@ -36,6 +49,17 @@
         <!-- /.col-->
       </div>
       <!-- ./row -->
+
+
+        <div class="col-sm-12 uploadimage" style="display: none; margin:0px;">
+          <label for="image">Imagen</label>
+          <input type="file" name="image"/>
+        </div>
+    
+
+</form>
+
+
 
 </div>
 
@@ -48,20 +72,11 @@
 
 @push('styles')
 <style>
-.mostrar{
-  display: inline;
-}
 
-.textarea
-{
-  margin: 21px 0 !important;
-}
+  .mostrar{display: inline;}
+  .nomostrar{display: none !important;}
 
-
-
-}
 </style>
-
 
 @endpush
 
@@ -71,13 +86,16 @@
 	$(function(){
 
     var textarea = $(".textarea").html();
+    var uploadimage = $(".uploadimage").html();
+    var title = $(".titulo").html();
+    console.log(uploadimage);
     var count=1;
 
 
  CKEDITOR.replace('editor1');
     /*Agregar Titulo*/
 
-    $( "#title, #textarea" ).draggable({
+    $( "#title, #textarea, #uploadimage" ).draggable({
       appendTo: "body",
       helper: "clone"
     });
@@ -93,8 +111,9 @@
 
           switch(opt){
             case 'title':
-              $("<label></label>").text("Ingrese Titulo").appendTo( this );
-              $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
+              $(title).css({"display":"block"}).appendTo(this);
+              // $("<label></label>").text("Ingrese Titulo").appendTo( this );
+              // $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
               break;
             case 'textarea':
            
@@ -103,6 +122,10 @@
               count++;
               console.log(count);
               break;
+
+            case 'uploadimage':
+              $(uploadimage).css({"display":"block","margin":"35px 0px !important"}).appendTo(this);
+            break;
 
           }
         

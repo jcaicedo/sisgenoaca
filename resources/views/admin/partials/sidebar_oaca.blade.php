@@ -33,7 +33,7 @@
 			<li class="header">NAVEGACIÓN</li>
 
 			<li id="title" data-element-option="title"  class="option" value="title" >
-				<a>
+				<a href="">
 				<i class="fa fa-edit"></i>
 				<span >{{trans('menu.title')}}</span>
 
@@ -49,12 +49,11 @@
 				</a>
 
 			</li>
-			<li>
-				<a href="{{url('admin')}}">
-				<i class="fa fa-book"></i>
-				<span>{{trans('menu.configuracion')}}</span>
+			<li id="uploadimage" data-element-option="uploadimage" class="option">
+				<a href="">
+					<i class="fa fa-file-image-o"></i>
+					<span>{{trans('menu.uploadimage')}}</span>
 				</a>
-
 			</li>
 
 
