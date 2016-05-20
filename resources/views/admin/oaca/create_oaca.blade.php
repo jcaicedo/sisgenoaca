@@ -15,45 +15,18 @@
       <label for="">Ingrese Titulo</label>
       <input type="text" class="form-control"> 
       </div>
+
+     <!--  modulo textarea -->
       
-
-      <!-- modulo de texarea -->
-      <div class="row textarea" style="display: none;">
-        <div class="col-md-12">
-          <div class="box box-info">
-            <div class="box-header">
-              <h3 class="box-title">CK Editor
-                <small>Advanced and full of features</small>
-              </h3>
-              <!-- tools box -->
-              <div class="pull-right box-tools">
-                <button type="button" class="btn btn-info btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                  <i class="fa fa-minus"></i></button>
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-                  <i class="fa fa-times"></i></button>
-              </div>
-              <!-- /. tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body pad">
-              
-                    <textarea class="editor0" id="editor0" name="editor1" rows="10" cols="80">
-                                            This is my textarea to be replaced with CKEditor.
-                    </textarea>
-              
-            </div>
-          </div>
-          <!-- /.box -->
-
-        </div>
-        <!-- /.col-->
-      </div>
-      <!-- ./row -->
+     <div class="form-group textarea nomostrar">
+       <label >Texto</label>
+        <textarea class="form-control" rows="7"></textarea>
+     </div>
 
 
-        <div class="col-sm-12 uploadimage" style="display: none; margin:0px;">
+        <div class="form-group uploadimage nomostrar">
           <label for="image">Imagen</label>
-          <input type="file" name="image"/>
+          <input class="form-control" type="file" name="image"/>
         </div>
     
 
@@ -70,16 +43,15 @@
 
 @endsection
 
+
 @push('styles')
 <style>
 
-  .mostrar{display: inline;}
-  .nomostrar{display: none !important;}
+.nomostrar{display:none;}
 
 </style>
 
 @endpush
-
 
 @push('scripts')
 <script>
@@ -92,7 +64,7 @@
     var count=1;
 
 
- CKEDITOR.replace('editor1');
+/* CKEDITOR.replace('editor1');*/
     /*Agregar Titulo*/
 
     $( "#title, #textarea, #uploadimage" ).draggable({
@@ -112,15 +84,12 @@
           switch(opt){
             case 'title':
               $(title).css({"display":"block"}).appendTo(this);
-              // $("<label></label>").text("Ingrese Titulo").appendTo( this );
-              // $( "<input></input>" ).addClass("form-control").text( ui.draggable.text() ).appendTo( this );
+
               break;
             case 'textarea':
            
-              $(textarea).css({"display":"block","margin":"35px 0px !important"}).attr('id', 'editor'+count).appendTo( this );
-              CKEDITOR.replace('editor'+count);
-              count++;
-              console.log(count);
+              $(textarea).attr('id', 'editor'+count).appendTo( this );
+
               break;
 
             case 'uploadimage':
@@ -147,3 +116,4 @@
 
 </script>
 @endpush
+
