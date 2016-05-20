@@ -3,44 +3,38 @@
 @section('content')
 
 <div class="content-wrapper">
-<button class="btn btn-success">Preview
-</button>
-
+<div class="content">
   
   <form action="" method="post" role="form" enctype="multipart/form-data">
             {{csrf_field()}}
     
       <!-- modulo de Titulo -->
-  <div class="content">
+  
 
       <div class="form-group titulo nomostrar" style="display: none;">
       <label for="">Ingrese Titulo</label>
       <input type="text" class="form-control"> 
       </div>
 
-<!-- modulo textarea -->
-
-      <div class="form-group textarea nomostrar">
-        <label for="textarea">Area de Texto</label>
-        <textarea name="" id=""  rows="3" class="form-control"></textarea>
-      </div>
+     <!--  modulo textarea -->
       
+     <div class="form-group textarea nomostrar">
+       <label >Texto</label>
+        <textarea class="form-control" rows="7"></textarea>
+     </div>
 
 
-    
-        <div class="form-group uploadimage" style="display: none; margin:0px;">
-       
+        <div class="form-group uploadimage nomostrar">
           <label for="image">Imagen</label>
-          <input type="file" name="image" class="form-control"/>
-         
+          <input class="form-control" type="file" name="image"/>
         </div>
     
-</div>
+
 </form>
 
 
 
-
+</div>
 
 </div>
 
@@ -49,16 +43,15 @@
 
 @endsection
 
+
 @push('styles')
 <style>
 
-  .mostrar {display: inline;}
-  .nomostrar {display: none !important;}
+.nomostrar{display:none;}
 
 </style>
 
 @endpush
-
 
 @push('scripts')
 <script>
@@ -67,13 +60,11 @@
     var textarea = $(".textarea").html();
     var uploadimage = $(".uploadimage").html();
     var title = $(".titulo").html();
-    console.log(textarea);
+    console.log(uploadimage);
     var count=1;
 
 
-
-
- 
+/* CKEDITOR.replace('editor1');*/
     /*Agregar Titulo*/
 
     $( "#title, #textarea, #uploadimage" ).draggable({
@@ -93,17 +84,16 @@
           switch(opt){
             case 'title':
               $(title).css({"display":"block"}).appendTo(this);
-              
+
               break;
             case 'textarea':
            
-              $(textarea).css({"display":"block"}).appendTo(this);
+              $(textarea).attr('id', 'editor'+count).appendTo( this );
 
               break;
 
             case 'uploadimage':
-              $(uploadimage).css({"display":"block","margin":"35px 0px !important"}).appendTo(this).find('input').attr('image', '2');
-              
+              $(uploadimage).css({"display":"block","margin":"35px 0px !important"}).appendTo(this);
             break;
 
           }
@@ -126,3 +116,4 @@
 
 </script>
 @endpush
+
