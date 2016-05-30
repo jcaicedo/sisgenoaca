@@ -43,7 +43,7 @@
 			</li>
 
 			<li id="textarea"  data-element-option="textarea" class="option">
-				<a href="{{url('admin')}}">
+				<a href="">
 				<i class="fa fa-file-text-o"></i>
 				<span>{{trans('menu.textarea')}}</span>
 				</a>

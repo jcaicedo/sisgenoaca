@@ -14,6 +14,7 @@ return [
     */
    
     'createOaca' => 'Create Oaca',
+    'process'    => 'Procesar',
 
 
 ];

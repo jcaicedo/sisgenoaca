@@ -3,15 +3,16 @@
 @section('content')
 
 <div class="content-wrapper">
+  <form action="" method="post" role="form" id="form-create-oaca" enctype="multipart/form-data">
 <div class="content">
   
-  <form action="" method="post" role="form" enctype="multipart/form-data">
+
             {{csrf_field()}}
     
       <!-- modulo de Titulo -->
   
 
-      <div class="form-group titulo nomostrar" style="display: none;">
+      <div class="form-group titulo nomostrar">
       <label for="">Ingrese Titulo</label>
       <input type="text" class="form-control"> 
       </div>
@@ -28,13 +29,22 @@
           <label for="image">Imagen</label>
           <input class="form-control" type="file" name="image"/>
         </div>
-    
 
-</form>
+        <div class="box-footer" style="margin-bottom:35px;">
+        
+        <div style="margin:0;background-color:transparent;text-align:center;">
+           <button type="submit" class="btn btn-primary" style="margin: 0 auto; width: 200px; align:center;" id="create-oaca">{{trans('admin.process')}}</button>
+        </div>
+              
+             
+        </div>
+
+
 
 
 
 </div>
+</form>
 
 </div>
 
@@ -48,6 +58,7 @@
 <style>
 
 .nomostrar{display:none;}
+.mostrar{display: block;}
 
 </style>
 
@@ -57,15 +68,10 @@
 <script>
 	$(function(){
 
-    var textarea = $(".textarea").html();
-    var uploadimage = $(".uploadimage").html();
-    var title = $(".titulo").html();
-    console.log(uploadimage);
-    var count=1;
-
-
-/* CKEDITOR.replace('editor1');*/
-    /*Agregar Titulo*/
+    // var textarea = $(".textarea").html();
+   
+    // var title = $(".titulo").html();
+    var count=0;
 
     $( "#title, #textarea, #uploadimage" ).draggable({
       appendTo: "body",
@@ -83,18 +89,26 @@
 
           switch(opt){
             case 'title':
-              $(title).css({"display":"block"}).appendTo(this);
+              var title = $(".titulo").first().clone();
+              $(title).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"});
+        /*      $(title).last().find('input').attr({"data-element":"title","data-position":count,"name":"title"});*/
+              count ++;
 
               break;
             case 'textarea':
-           
-              $(textarea).attr('id', 'editor'+count).appendTo( this );
+              var textarea = $(".textarea").first().clone();
+              $(textarea).toggleClass("nomostrar mostrar").appendTo( this ).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"});
+              count ++;
 
               break;
 
             case 'uploadimage':
-              $(uploadimage).css({"display":"block","margin":"35px 0px !important"}).appendTo(this);
-            break;
+              var uploadimage = $("div.uploadimage").first().clone();
+              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'id':'image-'+count,"name":"imagen"});
+              count ++;
+              
+              break;
+
 
           }
         
@@ -110,10 +124,21 @@
 	});
 
 
+    $("#create-oaca").click(function(e){
+        e.preventDefault();
+       
+          console.log('hola');
+          postData = $('#form-create-oaca').serializeObject();
+            console.log(postData);
 
+ 
+
+        });
+        
    
 
 
 </script>
+<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" ></script>
 @endpush
 
