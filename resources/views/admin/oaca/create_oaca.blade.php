@@ -33,7 +33,7 @@
         <div class="box-footer" style="margin-bottom:35px;">
         
         <div style="margin:0;background-color:transparent;text-align:center;">
-           <button type="submit" class="btn btn-primary" style="margin: 0 auto; width: 200px; align:center;" id="create-oaca">{{trans('admin.process')}}</button>
+           <button type="button" class="btn btn-primary" style="margin: 0 auto; width: 200px; align:center;" id="create-oaca">{{trans('admin.process')}}</button>
         </div>
               
              
@@ -127,11 +127,19 @@
     $("#create-oaca").click(function(e){
         e.preventDefault();
        
-          console.log('hola');
-          postData = $('#form-create-oaca').serializeObject();
-            console.log(postData);
+       $("form-create-oaca").find("input,textarea").each(function(){
 
- 
+
+          var $me = $(this);
+          var campo = $me.data("element");
+
+          console.log($me);
+
+
+       }).first(":visible").focus();
+       
+        
+    
 
         });
         
