@@ -11,7 +11,7 @@
     
       <!-- modulo de Titulo -->
   
-
+<input type="hidden" name="elementos" value="" id="hidden_elementos">
       <div class="form-group titulo nomostrar">
       <label for="">Ingrese Titulo</label>
       <input type="text" class="form-control"> 
@@ -68,6 +68,9 @@
 <script>
 	$(function(){
 
+    var elements = new Array();
+  
+
     // var textarea = $(".textarea").html();
    
     // var title = $(".titulo").html();
@@ -92,12 +95,19 @@
               var title = $(".titulo").first().clone();
               $(title).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"});
         /*      $(title).last().find('input').attr({"data-element":"title","data-position":count,"name":"title"});*/
+              elements[count]="titulo";
+              $("#hidden_elementos").val(elements);
+              console.log($("#hidden_elementos").val())
+              console.log(elements);
               count ++;
 
               break;
             case 'textarea':
               var textarea = $(".textarea").first().clone();
               $(textarea).toggleClass("nomostrar mostrar").appendTo( this ).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"});
+             elements[count]="textarea";
+             $("#hidden_elementos").val(elements);
+              console.log($("#hidden_elementos").val())
               count ++;
 
               break;
@@ -105,6 +115,9 @@
             case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
               $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'id':'image-'+count,"name":"imagen"});
+            elements[count]="image";
+            $("#hidden_elementos").val(elements);
+             console.log($("#hidden_elementos").val())
               count ++;
               
               break;
@@ -127,6 +140,16 @@
     $("#create-oaca").click(function(e){
         e.preventDefault();
        
+       var elementos;
+       var prueba = [1,2,3,4,5,6];
+       elementos = $("#hidden_elementos").val();
+       var traingIds = elementos.split(',');
+       console.log(traingIds);
+      traingIds.splice(2,1);
+       console.log(traingIds);
+    
+       
+
        $("form-create-oaca").find("input,textarea").each(function(){
 
 
