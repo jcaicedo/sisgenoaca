@@ -7,7 +7,7 @@
 <div class="content">
   
 
-            {{csrf_field()}}
+           {{--  {{csrf_field()}} --}}
     
       <!-- modulo de Titulo -->
   
@@ -150,10 +150,11 @@
        console.log(traingIds);
        
        postData = $('#form-create-oaca').serializeObject();
+       console.log(postData);
 
 
        $.ajax({
-        url:'http://sisgenoaca.app/admin/oaca/registro/create',
+        url:'http://sisgenoaca.app/admin/oaca/objetos/create',
         type:'POST',
         beforeSend: function(xhr){
           var token=$('meta[name="csrf_token"]').attr('content');
@@ -162,7 +163,13 @@
 
         },
         data:{data:{obj:postData}},
-        success:function(data){}
+        success:function(data){
+
+          console.log(data);
+        },
+        error:function(data){
+            console.log('ERROR',data);
+        }
 
 
        });

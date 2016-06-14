@@ -43,32 +43,25 @@ return view('admin.oaca.create_oaca');
 }
 
 public function create_objetos(Request $request){
-
-$content= new Content;
-
-$confirmacion = array(
-'status' => 'success',
-'msg' => 'Setting created successfully',
-);
-
-if($request->ajax()){
+	
 
 $data=$request->input('obj');
 
-$response = json_encode($data);
+if($request->ajax()){
 
-$content->contenido=$response;
 
-$content->save();
 
-return response()->json($confirmacion);
+
+return 'si';
+
+
+
 
 }else{
 
 return 'no';
 
 }
-
 }
 
 function pruebas(){

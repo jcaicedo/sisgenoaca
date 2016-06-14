@@ -191,7 +191,7 @@ $("#btn_educativo").click(function(e){
              window.location.replace("/admin/oaca/objetos/create");
         },
         error:function(data){
-            console.log('ERROR',$data);
+            console.log('ERROR'+data);
 
         }
 
