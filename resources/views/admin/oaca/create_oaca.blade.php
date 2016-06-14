@@ -141,26 +141,31 @@
         e.preventDefault();
        
        var elementos;
-       var prueba = [1,2,3,4,5,6];
+
        elementos = $("#hidden_elementos").val();
+       
        var traingIds = elementos.split(',');
        console.log(traingIds);
       traingIds.splice(2,1);
        console.log(traingIds);
-    
        
-
-       $("form-create-oaca").find("input,textarea").each(function(){
-
-
-          var $me = $(this);
-          var campo = $me.data("element");
-
-          console.log($me);
+       postData = $('#form-create-oaca').serializeObject();
 
 
-       }).first(":visible").focus();
-       
+       $.ajax({
+        url:'http://sisgenoaca.app/admin/oaca/registro/create',
+        type:'POST',
+        beforeSend: function(xhr){
+          var token=$('meta[name="csrf_token"]').attr('content');
+            if(token){
+                return xhr.setRequestHeader('X-CSRF-TOKEN',token);}
+
+        },
+        data:{data:{obj:postData}},
+        success:function(data){}
+
+
+       });
         
     
 
