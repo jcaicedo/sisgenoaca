@@ -188,7 +188,7 @@ $("#btn_educativo").click(function(e){
         success:function(data){
 
             console.log(data);
-             window.location.replace("/admin/oaca/objetos/create");
+             //window.location.replace("/admin/oaca/objetos/create");
         },
         error:function(data){
             console.log('ERROR'+data);

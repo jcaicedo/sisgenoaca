@@ -2,13 +2,15 @@
 @section('title',trans('admin.createOaca'))
 @section('content')
 
+
 <div class="content-wrapper">
-  <form action="" method="post" role="form" id="form-create-oaca" enctype="multipart/form-data">
+  <form action="#" method="post" role="form" id="form-create-oaca" enctype="multipart/form-data">
 <div class="content">
   
 
-           {{--  {{csrf_field()}} --}}
-    
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
       <!-- modulo de Titulo -->
   
 <input type="hidden" name="elementos" value="" id="hidden_elementos">
@@ -33,7 +35,7 @@
         <div class="box-footer" style="margin-bottom:35px;">
         
         <div style="margin:0;background-color:transparent;text-align:center;">
-           <button type="button" class="btn btn-primary" style="margin: 0 auto; width: 200px; align:center;" id="create-oaca">{{trans('admin.process')}}</button>
+           <button type="submit" class="btn btn-primary" style="margin: 0 auto; width: 200px; align:center;" id="create-oaca">{{trans('admin.process')}}</button>
         </div>
               
              
@@ -156,19 +158,18 @@
        $.ajax({
         url:'http://sisgenoaca.app/admin/oaca/objetos/create',
         type:'POST',
-        beforeSend: function(xhr){
-          var token=$('meta[name="csrf_token"]').attr('content');
-            if(token){
-                return xhr.setRequestHeader('X-CSRF-TOKEN',token);}
-
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         },
-        data:{data:{obj:postData}},
+        data:{
+          data:{obj:postData}
+        },
         success:function(data){
 
           console.log(data);
         },
         error:function(data){
-            console.log('ERROR',data);
+            console.log('ERROR'+data);
         }
 
 

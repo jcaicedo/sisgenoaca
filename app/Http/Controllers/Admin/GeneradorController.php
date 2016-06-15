@@ -45,7 +45,7 @@ return view('admin.oaca.create_oaca');
 public function create_objetos(Request $request){
 	
 
-$data=$request->input('obj');
+$objeto=$request->input('obj');
 
 if($request->ajax()){
 
