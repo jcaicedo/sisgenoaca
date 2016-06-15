@@ -35,7 +35,8 @@
         <div class="box-footer" style="margin-bottom:35px;">
         
         <div style="margin:0;background-color:transparent;text-align:center;">
-           <button type="submit" class="btn btn-primary" style="margin: 0 auto; width: 200px; align:center;" id="create-oaca">{{trans('admin.process')}}</button>
+           <button type="submit" class="btn btn-success btn-proccess" id="create-oaca">{{trans('admin.process')}}</button>
+           <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">PreView</button>
         </div>
               
              
@@ -47,8 +48,15 @@
 
 </div>
 </form>
-
+<div class="content-preview">
+  
+   <div style="margin:0;background-color:transparent;text-align:center;">
+        
+           <button type="button" class="btn btn-primary btn-proccess" id="preview">PreView</button>
+        </div>
 </div>
+</div>
+
 
 
 
@@ -61,13 +69,16 @@
 
 .nomostrar{display:none;}
 .mostrar{display: block;}
+.btn-proccess{margin:0 auto; width: 200px;align:left;}
+.content-preview{display: none;}
 
 </style>
 
 @endpush
 
 @push('scripts')
-<script>
+<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+<script> 
 	$(function(){
 
     var elements = new Array();
@@ -138,6 +149,8 @@
 
 	});
 
+
+   
 
     $("#create-oaca").click(function(e){
         e.preventDefault();

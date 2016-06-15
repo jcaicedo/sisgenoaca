@@ -52,7 +52,7 @@ if($request->ajax()){
 
 
 
-return 'si';
+return $objeto;
 
 
 
@@ -63,6 +63,8 @@ return 'no';
 
 }
 }
+
+
 
 function pruebas(){
 	return view('pruebas.prueba');
