@@ -66,8 +66,32 @@ return 'no';
 
 
 
-function pruebas(){
-	return view('pruebas.prueba');
+function preview(Request $request){
+	
+	$namebackground=false;
+
+
+if($request->ajax()){
+
+if($request->hasFile('image')){
+			$filebackground = $request->file('image');
+			$namebackground = $filebackground->getClientOriginalName();
+			$public_path = public_path();		
+			$url = $public_path.'/imgs';
+			$filebackground->move($url, $namebackground);
+}
+
+
+return $namebackground;
+
+
+
+
+}else{
+
+return 'no';
+
+}
 }
 
 }

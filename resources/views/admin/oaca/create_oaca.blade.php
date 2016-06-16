@@ -110,9 +110,9 @@
         /*      $(title).last().find('input').attr({"data-element":"title","data-position":count,"name":"title"});*/
               elements[count]="titulo";
               $("#hidden_elementos").val(elements);
-              console.log($("#hidden_elementos").val())
-              console.log(elements);
-              count ++;
+/*              console.log($("#hidden_elementos").val())
+*//*              console.log(elements);
+*/              count ++;
 
               break;
             case 'textarea':
@@ -120,8 +120,8 @@
               $(textarea).toggleClass("nomostrar mostrar").appendTo( this ).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"});
              elements[count]="textarea";
              $("#hidden_elementos").val(elements);
-              console.log($("#hidden_elementos").val())
-              count ++;
+/*              console.log($("#hidden_elementos").val())
+*/              count ++;
 
               break;
 
@@ -130,8 +130,8 @@
               $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'id':'image-'+count,"name":"imagen"});
             elements[count]="image";
             $("#hidden_elementos").val(elements);
-             console.log($("#hidden_elementos").val())
-              count ++;
+/*             console.log($("#hidden_elementos").val())
+*/              count ++;
               
               break;
 
@@ -160,13 +160,13 @@
        elementos = $("#hidden_elementos").val();
        
        var traingIds = elementos.split(',');
-       console.log(traingIds);
-      traingIds.splice(2,1);
+/*       console.log(traingIds);
+*/      traingIds.splice(2,1);
        console.log(traingIds);
        
        postData = $('#form-create-oaca').serializeObject();
-       console.log(postData);
-
+/*       console.log(postData);
+*/
 
        $.ajax({
         url:'http://sisgenoaca.app/admin/oaca/objetos/create',
@@ -179,8 +179,8 @@
         },
         success:function(data){
 
-          console.log(data);
-        },
+/*          console.log(data);
+*/        },
         error:function(data){
             console.log('ERROR'+data);
         }

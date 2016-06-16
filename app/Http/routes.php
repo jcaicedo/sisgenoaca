@@ -41,12 +41,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['web']],fu
         Route::get('registro',['as'=>'registro','uses' => 'GeneradorController@form_register']);
         Route::get('registro/create',['as'=>'registro','uses' => 'GeneradorController@form_register']);
         Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
-        Route::get('pruebas',['as'=>'pruebas','uses'=>'GeneradorController@pruebas']);
+       
 
 
 
         Route::group(['prefix'=>'objetos'],function(){
-
+ 			Route::post('create/preview',['as'=>'create/preview','uses'=>'GeneradorController@preview']);
             Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
             Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
 
