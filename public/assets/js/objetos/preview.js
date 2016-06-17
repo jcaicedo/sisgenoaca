@@ -23,7 +23,19 @@
 
       });
 
+//upload image
 
+// <input type="file" id="image-url" name="image" />
+// var file=$(‘#image-url');
+// if(file.val()!=""){//Preview web site
+//         if (file[0].files && file[0].files[0]) {
+//           var reader = new FileReader();
+//           reader.onload = function (e) {
+//             $('.image-src-'+currentBanner, '#banners-'+currentLocation).attr('src', e.target.result);
+//           }
+//           reader.readAsDataURL(file[0].files[0]);
+//         }
+//       }
 
 
 
