@@ -47,7 +47,18 @@ public function create_objetos(Request $request){
 
 $objeto=$request->input('obj');
 
-if($request->ajax()){
+if($request->hasFile('image')){
+
+			$filebackground = $request->file('image');
+			$namebackground = $filebackground->getClientOriginalName();
+			$public_path = public_path();		
+			$url = $public_path.'/assets/imgs';
+			
+			$filebackground->move($url, $namebackground);
+			dd($url);
+}
+
+/*if($request->ajax()){
 
 
 
@@ -61,7 +72,7 @@ return $objeto;
 
 return 'no';
 
-}
+}*/
 }
 
 
@@ -70,28 +81,29 @@ function preview(Request $request){
 	
 	$namebackground=false;
 
-
-if($request->ajax()){
+$objeto=$request->input('obj');
 
 if($request->hasFile('image')){
+
 			$filebackground = $request->file('image');
 			$namebackground = $filebackground->getClientOriginalName();
 			$public_path = public_path();		
-			$url = $public_path.'/imgs';
+			$url = $public_path.'/assets/imgs';
+			dd($url);
 			$filebackground->move($url, $namebackground);
+			return 'si';
 }
 
 
-return $namebackground;
 
 
 
 
-}else{
 
-return 'no';
 
-}
+return $request->input('obj');
+
+
 }
 
 }

@@ -4,12 +4,13 @@
 
 
 <div class="content-wrapper">
-  <form action="#" method="post" role="form" id="form-create-oaca" enctype="multipart/form-data">
+  <form action="" method="post" role="form" id="form-create-oaca" enctype="multipart/form-data">
 <div class="content">
   
 
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    {{csrf_field()}}
 
       <!-- modulo de Titulo -->
   
@@ -25,11 +26,11 @@
        <label >Texto</label>
         <textarea class="form-control" rows="7"></textarea>
      </div>
-
+    
 
         <div class="form-group uploadimage nomostrar">
           <label for="image">Imagen</label>
-          <input class="form-control" type="file" name="image"/>
+          <input class="form-control" type="file" />
         </div>
 
         <div class="box-footer" style="margin-bottom:35px;">
@@ -127,7 +128,7 @@
 
             case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
-              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'id':'image-'+count,"name":"imagen"});
+              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'id':'image-'+count,"name":"image"});
             elements[count]="image";
             $("#hidden_elementos").val(elements);
 /*             console.log($("#hidden_elementos").val())
