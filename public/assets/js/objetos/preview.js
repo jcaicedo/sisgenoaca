@@ -3,26 +3,10 @@
 
       var postData = $('#form-create-oaca').serializeArray();
       var postDataObject = $('#form-create-oaca').serializeObject();
-
-      $.ajax({
-        url:'http://sisgenoaca.app/admin/oaca/objetos/create/preview',
-        type:'POST',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data:{
-          data:{obj:postDataObject}
-        },
-        success:function(data){
-
-          console.log(data);
-        },
-        error:function(data){
-            console.log('ERROR'+data);
-        }
-
-      });
-
+      console.log(postDataObject);
+console.log(postData);
+      
+ 
 //upload image
 
 // <input type="file" id="image-url" name="image" />
@@ -39,21 +23,24 @@
 
 
 
-      var elementos = postData[0].value.split(',');
+/*      var elementos = postData[0].value.split(',');
      
-    console.log(elementos[1]); 
+    console.log(elementos[1]); */
 
-      /* $elementos = postData['elementos'].split(',');
+  /*     var elementos = postData[1]['elementos'].split(',');*/
+  var elementos = postData[1].value.split(',');
 
-      console.log(postData);*/
+
 
        $("#form-create-oaca").hide();
-       $(".content-preview").show();
+       $(".preview").show();
 
 for(i=1;i<postData.length;i++){
   
   var element = elementos [i-1];
-  var value = postData[i].value;
+  var value = postData[(i+1)].value;
+
+  console.log(value);
    
   switch(element){
 
@@ -69,6 +56,12 @@ for(i=1;i<postData.length;i++){
      
      break;
 
+     case 'image':
+
+
+
+     break;
+
   }
 }
     
@@ -77,8 +70,8 @@ for(i=1;i<postData.length;i++){
 
     $('#preview').click(function(e){
       e.preventDefault();
-
+$(".content-preview").html("");
        $("#form-create-oaca").show();
-       $(".content-preview").hide();
+       $(".preview").hide();
 
     });

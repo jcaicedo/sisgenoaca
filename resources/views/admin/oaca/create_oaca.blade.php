@@ -49,11 +49,20 @@
 
 </div>
 </form>
-<div class="content-preview">
-  
-   <div style="margin:0;background-color:transparent;text-align:center;">
+
+
+<div class="preview">
+  <div class="box-footer" style="margin-bottom:35px;">
+    <div style="margin:0;background-color:transparent;text-align:center;">
         
            <button type="button" class="btn btn-primary btn-proccess" id="preview">PreView</button>
+        </div>
+  </div>
+   
+
+
+        <div class="content-preview">
+          
         </div>
 </div>
 </div>
@@ -71,7 +80,7 @@
 .nomostrar{display:none;}
 .mostrar{display: block;}
 .btn-proccess{margin:0 auto; width: 200px;align:left;}
-.content-preview{display: none;}
+.preview{display: none;}
 
 </style>
 
