@@ -13,7 +13,11 @@
     {{csrf_field()}}
 
       <!-- modulo de Titulo -->
-  
+ 
+
+
+     <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea>
+
 <input type="hidden" name="elementos" value="" id="hidden_elementos">
       <div class="form-group titulo nomostrar">
       <label for="">Ingrese Titulo</label>
@@ -82,13 +86,30 @@
 .btn-proccess{margin:0 auto; width: 200px;align:left;}
 .preview{display: none;}
 
-</style>
+.jqte-test {
+  display:block;
+  margin:0 0 10px;
+  padding:6px;
+  width:95%;
+  background:#FFF;
+  border:#AAA 1px solid;
+  font-size:13px;
+}
+textarea.jqte-test, div.jqte-test, span.jqte-test {
+  min-height:100px;
+}
 
+</style>
+<link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
 @endpush
 
 @push('scripts')
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 <script> 
+
+$(".jqte-test").jqte({"status" : true});
+
 	$(function(){
 
     var elements = new Array();
@@ -160,52 +181,12 @@
 	});
 
 
-   
 
-    $("#create-oaca").click(function(e){
-        e.preventDefault();
-       
-       var elementos;
-
-       elementos = $("#hidden_elementos").val();
-       
-       var traingIds = elementos.split(',');
-/*       console.log(traingIds);
-*/      traingIds.splice(2,1);
-       console.log(traingIds);
-       
-       postData = $('#form-create-oaca').serializeObject();
-/*       console.log(postData);
-*/
-
-       $.ajax({
-        url:'http://sisgenoaca.app/admin/oaca/objetos/create',
-        type:'POST',
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        data:{
-          data:{obj:postData}
-        },
-        success:function(data){
-
-/*          console.log(data);
-*/        },
-        error:function(data){
-            console.log('ERROR'+data);
-        }
-
-
-       });
-        
-    
-
-        });
-        
    
 
 
 </script>
 <script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" ></script>
+
 @endpush
 
