@@ -33,7 +33,7 @@
 			<li class="header">{{trans('menu.optionspanel')}}</li>
 
 			<li id="title" data-element-option="title"  class="option" value="title" >
-				<a href="">
+				<a href="#">
 				<i class="fa fa-edit"></i>
 				<span >{{trans('menu.title')}}</span>
 
@@ -43,14 +43,14 @@
 			</li>
 
 			<li id="textarea"  data-element-option="textarea" class="option">
-				<a href="">
+				<a href="#">
 				<i class="fa fa-file-text-o"></i>
 				<span>{{trans('menu.textarea')}}</span>
 				</a>
 
 			</li>
 			<li id="uploadimage" data-element-option="uploadimage" class="option">
-				<a href="">
+				<a href="#">
 					<i class="fa fa-file-image-o"></i>
 					<span>{{trans('menu.uploadimage')}}</span>
 				</a>

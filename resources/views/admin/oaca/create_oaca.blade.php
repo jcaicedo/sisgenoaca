@@ -16,7 +16,7 @@
  
 
 
-     <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea>
+    <!--  <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea> -->
 
 <input type="hidden" name="elementos" value="" id="hidden_elementos">
       <div class="form-group titulo nomostrar">

@@ -2,11 +2,16 @@
       e.preventDefault();
 
       var postData = $('#form-create-oaca').serializeArray();
+      var Data = $('#form-create-oaca').serialize();
       var postDataObject = $('#form-create-oaca').serializeObject();
-      console.log(postDataObject);
-console.log(postData);
-      
- 
+      console.log(postData);
+
+     
+
+    var formData = new FormData($(this)[0]);
+
+    console.log(formData);
+
 //upload image
 
 // <input type="file" id="image-url" name="image" />
@@ -38,7 +43,7 @@ console.log(postData);
 for(i=1;i<postData.length;i++){
   
   var element = elementos [i-1];
-  var value = postData[(i+1)].value;
+  var value = postData[i+1].value;
 
   console.log(value);
    
@@ -58,6 +63,7 @@ for(i=1;i<postData.length;i++){
 
      case 'image':
 
+     $(".content-preview").append('<img src="" alt="'+value+'" height="42" width="42">')
 
 
      break;
