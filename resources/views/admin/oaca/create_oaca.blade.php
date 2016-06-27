@@ -162,7 +162,7 @@ $(".jqte-test").jqte({"status" : true});
 
             case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
-              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"}).after("<a>hola</a>");
+              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'image-'+count}).after("<input type='hidden' name='image' value='image-"+count+"'>");
               
               
               
