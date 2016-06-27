@@ -37,7 +37,7 @@
         <div class="form-group uploadimage nomostrar">
           <label for="image">Imagen</label>
           <input class="form-control" type="file" />
-        
+          
 
         </div>
 
@@ -162,7 +162,8 @@ $(".jqte-test").jqte({"status" : true});
 
             case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
-              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"});
+              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"}).after("<a>hola</a>");
+              
               
               
             elements[count]="image";
