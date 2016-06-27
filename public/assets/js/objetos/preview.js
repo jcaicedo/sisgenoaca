@@ -10,7 +10,7 @@
 
     var formData = new FormData($(this)[0]);
 
-    console.log(formData);
+    console.log(postData);
 
 //upload image
 
@@ -40,10 +40,12 @@
        $("#form-create-oaca").hide();
        $(".preview").show();
 
+       var uno = 1;
+
 for(i=1;i<postData.length;i++){
   
   var element = elementos [i-1];
-  var value = postData[i+1].value;
+  var value = postData[i+uno].value;
 
   console.log(value);
    

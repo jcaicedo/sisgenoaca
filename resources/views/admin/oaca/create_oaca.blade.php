@@ -18,7 +18,8 @@
 
     <!--  <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea> -->
 
-<input type="hidden" name="elementos" value="" id="hidden_elementos">
+      <input type="hidden" name="elementos" value="" id="hidden_elementos">
+
       <div class="form-group titulo nomostrar">
       <label for="">Ingrese Titulo</label>
       <input type="text" class="form-control"> 
@@ -31,10 +32,13 @@
         <textarea class="form-control" rows="7"></textarea>
      </div>
     
+    <!--modulo image-->
 
         <div class="form-group uploadimage nomostrar">
           <label for="image">Imagen</label>
           <input class="form-control" type="file" />
+        
+
         </div>
 
         <div class="box-footer" style="margin-bottom:35px;">
@@ -158,7 +162,9 @@ $(".jqte-test").jqte({"status" : true});
 
             case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
-              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'id':'image-'+count,"name":"image"});
+              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"});
+              
+              
             elements[count]="image";
             $("#hidden_elementos").val(elements);
 /*             console.log($("#hidden_elementos").val())
