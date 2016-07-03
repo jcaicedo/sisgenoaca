@@ -5,50 +5,50 @@
 
 <div class="content-wrapper">
   <form action="" method="post" role="form" id="form-create-oaca" enctype="multipart/form-data">
-  <div class="box-footer" style="margin-bottom:35px;">
-        
-        <div style="margin:0;background-color:transparent;text-align:center;">
-           <button type="submit" class="btn btn-success btn-proccess" id="create-oaca">{{trans('admin.process')}}</button>
-           <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">PreView</button>
-        </div>
-              
-             
-        </div>
-<div class="content sortable">
-  
+    <div class="box-footer" style="margin-bottom:35px;">
+      
+      <div style="margin:0;background-color:transparent;text-align:center;">
+       <button type="submit" class="btn btn-success btn-proccess" id="create-oaca">{{trans('admin.process')}}</button>
+       <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">PreView</button>
+     </div>
+     
+     
+   </div>
+   <div class="content sortable">
+    
 
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{csrf_field()}}
 
-      <!-- modulo de Titulo -->
- 
+    <!-- modulo de Titulo -->
+    
 
 
     <!--  <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea> -->
 
-      <input type="hidden" name="elementos" value="" id="hidden_elementos">
+    <input type="hidden" name="elementos" value="" id="hidden_elementos">
 
-      <div class="form-group titulo nomostrar mark_background">
+    <div class="form-group titulo nomostrar mark_background">
       <label for="">Ingrese Titulo</label>
       <input type="text" class="form-control"> 
-      </div>
+    </div>
 
-     <!--  modulo textarea -->
-      
-     <div class="form-group textarea nomostrar mark_background">
-       <label >Texto</label>
-        <textarea class="form-control" rows="7"></textarea>
-     </div>
+    <!--  modulo textarea -->
     
-    <!--modulo image-->
+    <div class="form-group textarea nomostrar mark_background">
+     <label >Texto</label>
+     <textarea class="form-control" rows="7"></textarea>
+   </div>
+   
+   <!--modulo image-->
 
-        <div class="form-group uploadimage nomostrar mark_background">
-          <label for="image">Imagen</label>
-          <input class="form-control" type="file" />          
-        </div>
+   <div class="form-group uploadimage nomostrar mark_background">
+    <label for="image">Imagen</label>
+    <input class="form-control" type="file" />          
+  </div>
 
-        
+  
 
 
 
@@ -62,16 +62,16 @@
 <div class="preview">
   <div class="box-footer" style="margin-bottom:35px;">
     <div style="margin:0;background-color:transparent;text-align:center;">
-        
-           <button type="button" class="btn btn-primary btn-proccess" id="preview">PreView</button>
-        </div>
-  </div>
-   
+      
+     <button type="button" class="btn btn-primary btn-proccess" id="preview">PreView</button>
+   </div>
+ </div>
+ 
 
 
-        <div class="content-preview">
-          
-        </div>
+ <div class="content-preview">
+  
+ </div>
 </div>
 </div>
 
@@ -85,24 +85,24 @@
 @push('styles')
 <style>
 
-.nomostrar{display:none;}
-.mostrar{display: block;}
-.btn-proccess{margin:0 auto; width: 200px;align:left;}
-.preview{display: none;}
-.mark_background{background: #BAC8C8}
+  .nomostrar{display:none;}
+  .mostrar{display: block;}
+  .btn-proccess{margin:0 auto; width: 200px;align:left;}
+  .preview{display: none;}
+  .mark_background{background: #BAC8C8}
 
-.jqte-test {
-  display:block;
-  margin:0 0 10px;
-  padding:6px;
-  width:95%;
-  background:#FFF;
-  border:#AAA 1px solid;
-  font-size:13px;
-}
-textarea.jqte-test, div.jqte-test, span.jqte-test {
-  min-height:100px;
-}
+  .jqte-test {
+    display:block;
+    margin:0 0 10px;
+    padding:6px;
+    width:95%;
+    background:#FFF;
+    border:#AAA 1px solid;
+    font-size:13px;
+  }
+  textarea.jqte-test, div.jqte-test, span.jqte-test {
+    min-height:100px;
+  }
 
 </style>
 <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
@@ -113,15 +113,15 @@ textarea.jqte-test, div.jqte-test, span.jqte-test {
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 <script> 
 
-$(".jqte-test").jqte({"status" : true});
+  $(".jqte-test").jqte({"status" : true});
 
-	$(function(){
+  $(function(){
 
     var elements = new Array();
-  
+    
 
     // var textarea = $(".textarea").html();
-   
+    
     // var title = $(".titulo").html();
     var count=0;
 
@@ -133,60 +133,60 @@ $(".jqte-test").jqte({"status" : true});
 
     $(".content").droppable({
       accept: '.option',
-    	drop:function(event,ui){
+      drop:function(event,ui){
 
-            var opt = ui.draggable.data('element-option');
+        var opt = ui.draggable.data('element-option');
 
             // console.log(ui.draggable.data('element-option'));
 
-          switch(opt){
-            case 'title':
+            switch(opt){
+              case 'title':
               var title = $(".titulo").first().clone();
               $(title).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"}).addClass("myinput");
-        /*      $(title).last().find('input').attr({"data-element":"title","data-position":count,"name":"title"});*/
+              /*      $(title).last().find('input').attr({"data-element":"title","data-position":count,"name":"title"});*/
               elements[count]="title";
               $("#hidden_elementos").val(elements);
 /*              console.log($("#hidden_elementos").val())
 *//*              console.log(elements);
 */              count ++;
 
-              break;
-            case 'textarea':
-              var textarea = $(".textarea").first().clone();
-              $(textarea).toggleClass("nomostrar mostrar").appendTo( this ).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"}).addClass("myinput");
-             elements[count]="textarea";
-             $("#hidden_elementos").val(elements);
+break;
+case 'textarea':
+var textarea = $(".textarea").first().clone();
+$(textarea).toggleClass("nomostrar mostrar").appendTo( this ).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"}).addClass("myinput");
+elements[count]="textarea";
+$("#hidden_elementos").val(elements);
 /*              console.log($("#hidden_elementos").val())
 */              count ++;
 
-              break;
+break;
 
-            case 'uploadimage':
-              var uploadimage = $("div.uploadimage").first().clone();
-              $(uploadimage).toggleClass("nomostrar mostrar").addClass("draggable3").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'image-'+count}).addClass("myinput").after("<input type='hidden' name='image' value='image-"+count+"'>");
-              
-              
-              
-            elements[count]="image";
-            $("#hidden_elementos").val(elements);
+case 'uploadimage':
+var uploadimage = $("div.uploadimage").first().clone();
+$(uploadimage).toggleClass("nomostrar mostrar").addClass("draggable3").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'image-'+count}).addClass("myinput").after("<input type='hidden' name='image' value='image-"+count+"'>");
+
+
+
+elements[count]="image";
+$("#hidden_elementos").val(elements);
 /*             console.log($("#hidden_elementos").val())
 */              count ++;
-              
-              break;
+
+break;
 
 
-          }
-        
-          
-
-
-    	}
-
-    });
+}
 
 
 
-	});
+
+}
+
+});
+
+
+
+  });
 
 
 
