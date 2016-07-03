@@ -84,3 +84,4 @@
 $( ".sortable:not(div.box-footer)" ).sortable({
   revert: true
 });
+
