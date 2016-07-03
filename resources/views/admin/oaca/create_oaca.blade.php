@@ -5,7 +5,16 @@
 
 <div class="content-wrapper">
   <form action="" method="post" role="form" id="form-create-oaca" enctype="multipart/form-data">
-<div class="content">
+  <div class="box-footer" style="margin-bottom:35px;">
+        
+        <div style="margin:0;background-color:transparent;text-align:center;">
+           <button type="submit" class="btn btn-success btn-proccess" id="create-oaca">{{trans('admin.process')}}</button>
+           <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">PreView</button>
+        </div>
+              
+             
+        </div>
+<div class="content sortable">
   
 
 
@@ -20,42 +29,33 @@
 
       <input type="hidden" name="elementos" value="" id="hidden_elementos">
 
-      <div class="form-group titulo nomostrar">
+      <div class="form-group titulo nomostrar mark_background">
       <label for="">Ingrese Titulo</label>
       <input type="text" class="form-control"> 
       </div>
 
      <!--  modulo textarea -->
       
-     <div class="form-group textarea nomostrar">
+     <div class="form-group textarea nomostrar mark_background">
        <label >Texto</label>
         <textarea class="form-control" rows="7"></textarea>
      </div>
     
     <!--modulo image-->
 
-        <div class="form-group uploadimage nomostrar">
+        <div class="form-group uploadimage nomostrar mark_background">
           <label for="image">Imagen</label>
-          <input class="form-control" type="file" />
-          
-
+          <input class="form-control" type="file" />          
         </div>
 
-        <div class="box-footer" style="margin-bottom:35px;">
         
-        <div style="margin:0;background-color:transparent;text-align:center;">
-           <button type="submit" class="btn btn-success btn-proccess" id="create-oaca">{{trans('admin.process')}}</button>
-           <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">PreView</button>
-        </div>
-              
-             
-        </div>
 
 
 
 
 
 </div>
+
 </form>
 
 
@@ -89,6 +89,7 @@
 .mostrar{display: block;}
 .btn-proccess{margin:0 auto; width: 200px;align:left;}
 .preview{display: none;}
+.mark_background{background: #BAC8C8}
 
 .jqte-test {
   display:block;
@@ -141,9 +142,9 @@ $(".jqte-test").jqte({"status" : true});
           switch(opt){
             case 'title':
               var title = $(".titulo").first().clone();
-              $(title).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"});
+              $(title).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"}).addClass("myinput");
         /*      $(title).last().find('input').attr({"data-element":"title","data-position":count,"name":"title"});*/
-              elements[count]="titulo";
+              elements[count]="title";
               $("#hidden_elementos").val(elements);
 /*              console.log($("#hidden_elementos").val())
 *//*              console.log(elements);
@@ -152,7 +153,7 @@ $(".jqte-test").jqte({"status" : true});
               break;
             case 'textarea':
               var textarea = $(".textarea").first().clone();
-              $(textarea).toggleClass("nomostrar mostrar").appendTo( this ).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"});
+              $(textarea).toggleClass("nomostrar mostrar").appendTo( this ).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"}).addClass("myinput");
              elements[count]="textarea";
              $("#hidden_elementos").val(elements);
 /*              console.log($("#hidden_elementos").val())
@@ -162,7 +163,7 @@ $(".jqte-test").jqte({"status" : true});
 
             case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
-              $(uploadimage).toggleClass("nomostrar mostrar").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'image-'+count}).after("<input type='hidden' name='image' value='image-"+count+"'>");
+              $(uploadimage).toggleClass("nomostrar mostrar").addClass("draggable3").appendTo(this).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'image-'+count}).addClass("myinput").after("<input type='hidden' name='image' value='image-"+count+"'>");
               
               
               
@@ -189,11 +190,12 @@ $(".jqte-test").jqte({"status" : true});
 
 
 
-   
+  
 
 
 </script>
-<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" ></script>
+<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
+</script>
 
 @endpush
 

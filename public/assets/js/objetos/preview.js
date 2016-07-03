@@ -1,9 +1,24 @@
  $("#preview-oaca").click(function(e){
       e.preventDefault();
+      var myElements = [];
+      $("#form-create-oaca .myinput").each(function(index){
+
+          console.log($(this).data("element"));
+          myElements.push($(this).data("element"));
+          
+
+
+      });
+
+      console.log(myElements);
+      $("#hidden_elementos").val(myElements);
+
+
 
       var postData = $('#form-create-oaca').serializeArray();
       var Data = $('#form-create-oaca').serialize();
       var postDataObject = $('#form-create-oaca').serializeObject();
+      console.log("postData");
       console.log(postData);
 
      
@@ -40,18 +55,18 @@
        $("#form-create-oaca").hide();
        $(".preview").show();
 
-       var uno = 1;
+    numImage = 0;
 
 for(i=1;i<postData.length;i++){
   
   var element = elementos [i-1];
-  var value = postData[i+uno].value;
+  var value = postData[i+1].value;
 
-  console.log(value);
+  
    
   switch(element){
 
-    case 'titulo':
+    case 'title':
 
      $(".content-preview").append('<h2>'+value+'</h2>');
      
@@ -65,7 +80,12 @@ for(i=1;i<postData.length;i++){
 
      case 'image':
 
-     $(".content-preview").append('<img src="" alt="'+value+'" height="42" width="42">')
+        $(".content-preview").append('<img src="" alt="'+value+'" id="loadimage'+numImage+'" height="100" width="100">')
+        
+         $("#"+value).html(function(){
+           readImage(this,numImage);
+            numImage ++;
+         });
 
 
      break;
@@ -78,8 +98,29 @@ for(i=1;i<postData.length;i++){
 
     $('#preview').click(function(e){
       e.preventDefault();
-$(".content-preview").html("");
-       $("#form-create-oaca").show();
-       $(".preview").hide();
+          $(".content-preview").html("");
+          $("#form-create-oaca").show();
+          $(".preview").hide();
 
+    });
+
+function readImage (input, id) 
+{
+
+
+    if(input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e){
+            $('#loadimage'+id).attr('src', e.target.result);
+
+        }
+              reader.readAsDataURL(input.files[0]);
+    }
+}
+
+
+
+$( ".sortable:not(div.box-footer)" ).sortable({
+      revert: true
     });
