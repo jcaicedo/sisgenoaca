@@ -80,6 +80,22 @@
             </label>
 
           </div>
+          <div class="btn-group" role="group" data-toggle="buttons">
+
+            <label class="btn btn-default acitve">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked="">
+              <i class="fa fa-align-left"></i>
+            </label>
+            <label class="btn btn-default acitve">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked="">
+              <i class="fa fa-align-center"></i>
+            </label>
+            <label class="btn btn-default acitve">
+              <input type="radio" name="options" id="option1" autocomplete="off" checked="">
+              <i class="fa fa-align-right"></i>
+            </label>
+          </div>
+
         </div>
         <textarea  class="form-control" rows="7"></textarea>
       </div>
