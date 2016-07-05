@@ -14,7 +14,7 @@
 
 
    </div>
-   <div class="content sortable content-elements-delete">
+   <div class="content sortable">
 
 
 
@@ -52,7 +52,7 @@
 
     <!--  modulo textarea -->
 
-    <div class="textarea nomostrar">
+    <div class="textarea nomostrar ">
 
       <div class="box">
         <div class="box-header with-border">
@@ -61,21 +61,38 @@
             <button type="button" class="btn btn-box-tool">
               <i class="fa fa-minus"></i>
             </button>
+            <button  type="button" class="btn btn-box-tool">
+             <i class="fa  fa-paint-brush"></i>
+           </button>
+         </div>
+       </div>
+       <div class=" box-body">
+        <div class=" options-textarea">
+          <div class=" btn-group" role="group" data-toggle="buttons">
+            <label class="btn btn-default ">
+              <input type="checkbox" class="bold-btn" ><b>B</b>
+            </label>
+            <label class="btn btn-default ">
+              <input type="checkbox" class="italic-btn" ><i>I</i>
+            </label>
+            <label class="btn btn-default ">
+              <input type="checkbox" class="under-btn" ><u>U</u>
+            </label>
+
           </div>
         </div>
-        <div class=" box-body">
-         <textarea class="form-control" rows="7"></textarea>
-       </div>
-     </div>
+        <textarea  class="form-control" rows="7"></textarea>
+      </div>
+    </div>
 
-   </div>
-
+  </div>
 
 
-   <!--modulo image-->
+
+  <!--modulo image-->
 
 
-   <div class="uploadimage nomostrar">
+  <div class="uploadimage nomostrar">
 
     <div class="box">
       <div class="box-header with-border">
@@ -150,20 +167,27 @@
     min-height:100px;
   }
 
+  .options-textarea{
+    padding-bottom: 10px;
+  }
+
 </style>
 <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
 @endpush
 
 @push('scripts')
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+<script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 <script> 
 
-  $(".jqte-test").jqte({"status" : true});
+  $(document).ready(function(){
 
-  $(function(){
+    $(".jqte-test").jqte({"status" : true});
 
-    var elements = new Array();
+    $(function(){
+
+      var elements = new Array();
 
 
     // var textarea = $(".textarea").html();
@@ -200,8 +224,11 @@
               case 'textarea':
               var textarea = $(".textarea").first().clone();
               $(textarea).removeClass("nomostrar").addClass("remove-div-"+count).appendTo( this );
-              $(".remove-div-"+count).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea-'+count,"name":"textarea"}).addClass("myinput");
+              $(".remove-div-"+count).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
               $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+              $(".remove-div-"+count).find('input.bold-btn').attr({"data-textareainput":"textarea"+count});
+              $(".remove-div-"+count).find('input.italic-btn').attr({"data-textareainput":"textarea"+count});
+              $(".remove-div-"+count).find('input.under-btn').attr({"data-textareainput":"textarea"+count});
 
               elements[count]="textarea";
               $("#hidden_elementos").val(elements);
@@ -235,13 +262,17 @@
 
   });
 
-  $(".content-elements-delete").on('click','button.remove-div',function (e){
+    $("#form-create-oaca").on('click','button.remove-div',function (e){
 
-    var divDelete = $(this).data('parent');
+      var divDelete = $(this).data('parent');
 
-    $("."+divDelete).remove();
+      $("."+divDelete).remove();
+
+    });
 
   });
+
+
 
   
 
