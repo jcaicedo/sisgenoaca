@@ -38,7 +38,7 @@
           <h3 class="box-title">Titulo</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool">
-              <i class="fa fa-minus"></i>
+              <i class="fa fa-close"></i>
             </button>
           </div>
         </div>
@@ -59,7 +59,7 @@
           <h3 class="box-title">Textarea</h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool">
-              <i class="fa fa-minus"></i>
+              <i class="fa  fa-close"></i>
             </button>
             <button  type="button" class="btn btn-box-tool">
              <i class="fa  fa-paint-brush"></i>
@@ -115,7 +115,7 @@
         <h3 class="box-title">Image</h3>
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool">
-            <i class="fa fa-minus"></i>
+            <i class="fa fa-close"></i>
           </button>
         </div>
       </div>
@@ -127,13 +127,32 @@
  </div>
 
 
+ {{-- Editor --}}
+{{--  <div class="box">
+  <div class="box-header">
+    <h3 class="box-title">Bootstrap WYSIHTML5
+      <small>Simple and fast</small>
+    </h3>
+    <!-- tools box -->
+    <div class="pull-right box-tools">
+      <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+        <i class="fa fa-minus"></i></button>
+        <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
+          <i class="fa fa-times"></i></button>
+        </div>
+        <!-- /. tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body pad">
+        <form>
+          <textarea class="textarea textarea-new" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+        </form>
+      </div>
+    </div>
+    --}}
+    
 
-
-
-
-
-
-</div>
+  </div>
 
 </form>
 
@@ -189,15 +208,21 @@
 
 </style>
 <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/summernote/0.8.1/summernote.css">
 @endpush
 
 @push('scripts')
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/summernote/0.8.1/summernote.js"></script>
+<script type="text/javascript" src="/vendor/vue-html-editor/demo/demo.all.js"></script>
 <script> 
 
   $(document).ready(function(){
+
+    $(".textarea-new").wysihtml5();
+
 
     $(".jqte-test").jqte({"status" : true});
 
@@ -257,6 +282,7 @@
               $(uploadimage).removeClass("nomostrar").addClass("remove-div-"+count).appendTo(this)
 
               $(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'image-'+count}).addClass("myinput").after("<input type='hidden' name='image' value='image-"+count+"'>");
+              $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
 
               elements[count]="image";
               $("#hidden_elementos").val(elements);
@@ -286,7 +312,10 @@
 
     });
 
-  });
+
+
+
+  }); /*enddocumentReady*/
 
 
 
