@@ -243,9 +243,9 @@ $(document).ready(function(){
                 plugins: [
                 'advlist autolink lists link image charmap print preview anchor',
                 'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table contextmenu paste code'
+                'insertdatetime media table contextmenu paste code textcolor colorpicker'
                 ],
-                toolbar:'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |',
+                toolbar:'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | forecolor backcolor| bullist numlist outdent indent |',
                 content_css: [
                 '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
                 '//www.tinymce.com/css/codepen.min.css'
@@ -295,6 +295,7 @@ $("#form-create-oaca").on('click','button.remove-div',function (e){
   $("."+divDelete).remove();
 
 });
+
 
 
 
