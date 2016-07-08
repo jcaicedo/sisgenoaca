@@ -183,7 +183,6 @@ textarea.jqte-test, div.jqte-test, span.jqte-test {
 
 @push('scripts')
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
-<script></script>
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
@@ -239,7 +238,23 @@ $(document).ready(function(){
               $(textarea).removeClass("nomostrar").addClass("remove-div-"+count).appendTo( this );
               $(".remove-div-"+count).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
               $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-              tinymce.init({ selector:'#textarea'+count });
+              tinymce.init({ 
+                selector:'#textarea'+count,
+                plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+                ],
+                toolbar:'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent |',
+                content_css: [
+                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                '//www.tinymce.com/css/codepen.min.css'
+                ]
+
+              });
+
+
+
               elements[count]="textarea";
               $("#hidden_elementos").val(elements);
               count ++;
