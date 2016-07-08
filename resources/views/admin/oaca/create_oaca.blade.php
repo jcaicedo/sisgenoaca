@@ -67,36 +67,6 @@
          </div>
        </div>
        <div class=" box-body">
-        <div class=" options-textarea">
-          <div class=" btn-group" role="group" data-toggle="buttons">
-            <label class="btn btn-default ">
-              <input type="checkbox" class="bold-btn" ><b>B</b>
-            </label>
-            <label class="btn btn-default ">
-              <input type="checkbox" class="italic-btn" ><i>I</i>
-            </label>
-            <label class="btn btn-default ">
-              <input type="checkbox" class="under-btn" ><u>U</u>
-            </label>
-
-          </div>
-          <div class="btn-group" role="group" data-toggle="buttons">
-
-            <label class="btn btn-default acitve">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked="">
-              <i class="fa fa-align-left"></i>
-            </label>
-            <label class="btn btn-default acitve">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked="">
-              <i class="fa fa-align-center"></i>
-            </label>
-            <label class="btn btn-default acitve">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked="">
-              <i class="fa fa-align-right"></i>
-            </label>
-          </div>
-
-        </div>
         <textarea  class="form-control" rows="7"></textarea>
       </div>
     </div>
@@ -183,28 +153,28 @@
 @push('styles')
 <style>
 
-  .nomostrar{display:none;}
-  .mostrar{display: block;}
-  .btn-proccess{margin:0 auto; width: 200px;align:left;}
-  .preview{display: none;}
-  .mark_background{background: #88AAAA}
+.nomostrar{display:none;}
+.mostrar{display: block;}
+.btn-proccess{margin:0 auto; width: 200px;align:left;}
+.preview{display: none;}
+.mark_background{background: #88AAAA}
 
-  .jqte-test {
-    display:block;
-    margin:0 0 10px;
-    padding:6px;
-    width:95%;
-    background:#FFF;
-    border:#AAA 1px solid;
-    font-size:13px;
-  }
-  textarea.jqte-test, div.jqte-test, span.jqte-test {
-    min-height:100px;
-  }
+.jqte-test {
+  display:block;
+  margin:0 0 10px;
+  padding:6px;
+  width:95%;
+  background:#FFF;
+  border:#AAA 1px solid;
+  font-size:13px;
+}
+textarea.jqte-test, div.jqte-test, span.jqte-test {
+  min-height:100px;
+}
 
-  .options-textarea{
-    padding-bottom: 10px;
-  }
+.options-textarea{
+  padding-bottom: 10px;
+}
 
 </style>
 <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
@@ -212,6 +182,8 @@
 @endpush
 
 @push('scripts')
+<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script></script>
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
@@ -219,16 +191,16 @@
 <script type="text/javascript" src="/vendor/vue-html-editor/demo/demo.all.js"></script>
 <script> 
 
-  $(document).ready(function(){
+$(document).ready(function(){
 
-    $(".textarea-new").wysihtml5();
+  $(".textarea-new").wysihtml5();
 
 
-    $(".jqte-test").jqte({"status" : true});
+  $(".jqte-test").jqte({"status" : true});
 
-    $(function(){
+  $(function(){
 
-      var elements = new Array();
+    var elements = new Array();
 
 
     // var textarea = $(".textarea").html();
@@ -267,10 +239,7 @@
               $(textarea).removeClass("nomostrar").addClass("remove-div-"+count).appendTo( this );
               $(".remove-div-"+count).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
               $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-              $(".remove-div-"+count).find('input.bold-btn').attr({"data-textareainput":"textarea"+count});
-              $(".remove-div-"+count).find('input.italic-btn').attr({"data-textareainput":"textarea"+count});
-              $(".remove-div-"+count).find('input.under-btn').attr({"data-textareainput":"textarea"+count});
-
+              tinymce.init({ selector:'#textarea'+count });
               elements[count]="textarea";
               $("#hidden_elementos").val(elements);
               count ++;
@@ -302,24 +271,24 @@
 
 
 
-  });
+});
 
-    $("#form-create-oaca").on('click','button.remove-div',function (e){
+$("#form-create-oaca").on('click','button.remove-div',function (e){
 
-      var divDelete = $(this).data('parent');
+  var divDelete = $(this).data('parent');
 
-      $("."+divDelete).remove();
+  $("."+divDelete).remove();
 
-    });
-
-
-
-
-  }); /*enddocumentReady*/
+});
 
 
 
-  
+
+}); /*enddocumentReady*/
+
+
+
+
 
 
 </script>
