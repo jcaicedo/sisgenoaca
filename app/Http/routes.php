@@ -34,7 +34,7 @@
 
 
 
-Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['web']],function(){
+Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['web','auth']],function(){
 
     Route::group(['prefix'=>'oaca'],function(){
 
@@ -70,3 +70,8 @@ Route::get('usuario/admin',['uses'=>'UserController@viewAdmin']);
 Route::resource('log','LogController');
 
 Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+});
