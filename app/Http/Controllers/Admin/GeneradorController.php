@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 class GeneradorController extends Controller
 {
 
+
+
 	function index(){
 	}
 

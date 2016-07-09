@@ -24,13 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('admin.oaca.create_oaca');
     }
 
     public function getLogout()
     {
-     $this->auth->logout();
-     Session::flush();
-     return redirect('/home');
- }
+       $this->auth->logout();
+       Session::flush();
+       return redirect('/admin/oaca/objetos/create');
+   }
 }
