@@ -111,7 +111,7 @@
 					
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<img src="http://sisgenoaca.app/assets/imgs/image_profile.jpg" class="user-image" alt="User Image">
-						<span class="hidden-xs">Julio Caicedo</span>
+						<span class="hidden-xs">{{ Auth::user()->name }}</span>
 					</a>
 					
 					<ul class="dropdown-menu">
