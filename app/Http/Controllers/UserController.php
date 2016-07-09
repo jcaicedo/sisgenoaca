@@ -3,65 +3,65 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
+use App\Users;
 use Hash;
 
-class UserController extends Controller
+class UsersController extends Controller
 {
 
-public function index(){
+	public function index(){
 
-return view('users.create');
-}
+		return view('users.create');
+	}
 
 
 
-public function createUser(Request $request){
+	public function createUser(Request $request){
 
-$data=$request->input('obj');
+		$data=$request->input('obj');
 //dd($data['first_name']);
 
-$confirmacion = array(
-'status' => 'success',
-'msg' => 'Setting created successfully',
-);
+		$confirmacion = array(
+			'status' => 'success',
+			'msg' => 'Setting created successfully',
+			);
 
-if($request->ajax()){
+		if($request->ajax()){
 
-$user = new User;
+			$user = new User;
 
-$user->first_name=$data['first_name'];
-$user->last_name=$data['last_name'];
-$user->email=$data['email'];
-$user->password=Hash::make($data['password']);
-$user->rol=$data['rol'];
-$user->institucion=$data['institucion'];
-
-
-
-$user->save();
+			$user->first_name=$data['first_name'];
+			$user->last_name=$data['last_name'];
+			$user->email=$data['email'];
+			$user->password=Hash::make($data['password']);
+			$user->rol=$data['rol'];
+			$user->institucion=$data['institucion'];
 
 
 
-return $confirmacion;
+			$user->save();
 
 
 
-
-}else{
-
-return 'no';
-
-}
+			return $confirmacion;
 
 
 
 
-}
+		}else{
+
+			return 'no';
+
+		}
 
 
-public function viewAdmin (){
-	return view('admin.layouts.default');
-}
-    
+
+
+	}
+
+
+	public function viewAdmin (){
+		return view('admin.layouts.default');
+	}
+	
 }

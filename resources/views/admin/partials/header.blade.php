@@ -31,8 +31,8 @@
 											<img src="http://sisgenoaca.app/assets/imgs/image_profile.jpg" alt="User Image" class="img-circle">
 										</div>
 										<h4>
-										Support Team
-										<small> <i class="fa fa-clock-o"></i> 5 mins </small>
+											Support Team
+											<small> <i class="fa fa-clock-o"></i> 5 mins </small>
 										</h4>
 										<p>Why not buy a new awesome theme?</p>
 									</a>
@@ -85,9 +85,9 @@
 									<a href="#">
 										
 										<h3>
-										
-										Design some buttons
-										<small class="pull-right">20%</small>
+											
+											Design some buttons
+											<small class="pull-right">20%</small>
 										</h3>
 										<div class="progress xs">
 											
@@ -143,7 +143,7 @@
 								<a href="#" class="btn btn-default btn-flat">Profile</a>
 							</div>
 							<div class="pull-right">
-								<a href="#" class="btn btn-default btn-flat">Sign out</a>
+								<a href="{{ url('/logout') }}" class="btn btn-default btn-flat">Sign out</a>
 							</div>
 						</li>
 						

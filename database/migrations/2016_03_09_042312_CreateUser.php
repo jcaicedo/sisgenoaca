@@ -15,12 +15,11 @@ class CreateUser extends Migration
         Schema::create('users',function (Blueprint $table){
 
             $table->increments('id');
-            $table->string('first_name')->required();
-            $table->string('last_name')->required();
-            $table->string('email')->unique()->required();
-            $table->string('password')->required();
-            $table->enum('rol',['admin','estudiante','profesor'])->default('profesor');
-            $table->string('institucion')->required();
+            $table->string('name');
+            $table->string('username');
+            $table->string('email')->unique();
+            $table->string('password',60);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

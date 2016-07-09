@@ -41,12 +41,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['web','aut
         Route::get('registro',['as'=>'registro','uses' => 'GeneradorController@form_register']);
         Route::get('registro/create',['as'=>'registro','uses' => 'GeneradorController@form_register']);
         Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
-       
+        
 
 
 
         Route::group(['prefix'=>'objetos'],function(){
- 			Route::post('create/preview',['as'=>'create/preview','uses'=>'GeneradorController@preview']);
+            Route::post('create/preview',['as'=>'create/preview','uses'=>'GeneradorController@preview']);
             Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
             Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
 
@@ -70,7 +70,9 @@ Route::get('usuario/admin',['uses'=>'UserController@viewAdmin']);
 Route::resource('log','LogController');
 
 Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);
+
 Route::group(['middleware' => 'web'], function () {
+    
     Route::auth();
 
     Route::get('/home', 'HomeController@index');

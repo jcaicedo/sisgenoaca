@@ -178,7 +178,7 @@ textarea.jqte-test, div.jqte-test, span.jqte-test {
 
 </style>
 <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/summernote/0.8.1/summernote.css">
+
 @endpush
 
 @push('scripts')
@@ -186,8 +186,7 @@ textarea.jqte-test, div.jqte-test, span.jqte-test {
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="https://cdn.bootcss.com/summernote/0.8.1/summernote.js"></script>
-<script type="text/javascript" src="/vendor/vue-html-editor/demo/demo.all.js"></script>
+
 <script> 
 
 $(document).ready(function(){
