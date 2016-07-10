@@ -52,7 +52,7 @@
 
     <!--  modulo textarea -->
 
-    <div class="textarea nomostrar ">
+    <div class="textarea nomostrar  ">
 
       <div class="box">
         <div class="box-header with-border">
@@ -67,18 +67,17 @@
          </div>
        </div>
        <div class=" box-body">
-        <textarea  class="form-control" rows="7"></textarea>
-      </div>
-    </div>
+         <textarea type="hidden" class="form-control" rows="7"></textarea>
+       </div>
+     </div>
 
-  </div>
-
-
-
-  <!--modulo image-->
+   </div>
 
 
-  <div class="uploadimage nomostrar">
+   <!--modulo image-->
+
+
+   <div class="uploadimage nomostrar">
 
     <div class="box">
       <div class="box-header with-border">
@@ -153,28 +152,16 @@
 @push('styles')
 <style>
 
-.nomostrar{display:none;}
-.mostrar{display: block;}
-.btn-proccess{margin:0 auto; width: 200px;align:left;}
-.preview{display: none;}
-.mark_background{background: #88AAAA}
+  .nomostrar{display:none;}
+  .mostrar{display: block;}
+  .btn-proccess{margin:0 auto; width: 200px;align:left;}
+  .preview{display: none;}
+  .mark_background{background: #88AAAA}
 
-.jqte-test {
-  display:block;
-  margin:0 0 10px;
-  padding:6px;
-  width:95%;
-  background:#FFF;
-  border:#AAA 1px solid;
-  font-size:13px;
-}
-textarea.jqte-test, div.jqte-test, span.jqte-test {
-  min-height:100px;
-}
 
-.options-textarea{
-  padding-bottom: 10px;
-}
+  .options-textarea{
+    padding-bottom: 10px;
+  }
 
 </style>
 <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
@@ -189,16 +176,12 @@ textarea.jqte-test, div.jqte-test, span.jqte-test {
 
 <script> 
 
-$(document).ready(function(){
-
-  $(".textarea-new").wysihtml5();
+  $(document).ready(function(){
 
 
-  $(".jqte-test").jqte({"status" : true});
+    $(function(){
 
-  $(function(){
-
-    var elements = new Array();
+      var elements = new Array();
 
 
     // var textarea = $(".textarea").html();
@@ -285,21 +268,21 @@ $(document).ready(function(){
 
 
 
-});
+  });
 
-$("#form-create-oaca").on('click','button.remove-div',function (e){
+    $("#form-create-oaca").on('click','button.remove-div',function (e){
 
-  var divDelete = $(this).data('parent');
+      var divDelete = $(this).data('parent');
 
-  $("."+divDelete).remove();
+      $("."+divDelete).remove();
 
-});
-
-
+    });
 
 
 
-}); /*enddocumentReady*/
+
+
+  }); /*enddocumentReady*/
 
 
 

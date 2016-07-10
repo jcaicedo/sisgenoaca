@@ -85,3 +85,10 @@ $( ".sortable:not(div.box-footer)" ).sortable({
   revert: true
 });
 
+/*
+  $("#mybutton").click(function(e){
+      var content = tinymce.get("mitextarea").getContent();
+
+      console.log(content);
+
+    });*/
