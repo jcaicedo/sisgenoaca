@@ -194,6 +194,8 @@
 @push('scripts')
 {{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script> --}}
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+
+
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
@@ -326,21 +328,23 @@ $("#form-create-oaca").on('click','button.remove-div',function (e){
 var textareaID;
 
 $( ".sortable:not(div.box-footer)" ).sortable({
-  vertical:true,
+  axis: 'y',
+  opacity: 0.5,
+  tolerance: 'pointer',
   start: function(event, ui){
     /*$(ui.item).find('textarea').data('element');*/
 
-    textareaID = $(ui.item).find('.mce-edit-area iframe').data('id');
-    console.log(textareaID);
+    textareaID = $(ui.item).find('.mce-edit-area textarea').attr('id');
+    console.log($(ui.item).find('.mce-edit-area').attr('id'));
     try{
-      tinymce.execCommand('mceRemoveControl',false,textareaID);
+      tinyMCE.execCommand('mceRemoveControl',false,textareaID);
     }catch(e){}
 
 
   },
   stop: function(event,ui){
     try{
-     tinymce.execCommand('mceAddControl',false,textareaID);
+     tinyMCE.execCommand('mceAddControl',false,textareaID);
      console.log(textareaID);
    }catch(e){}
  }
