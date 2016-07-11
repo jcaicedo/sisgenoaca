@@ -52,7 +52,7 @@
 
     <!--  modulo textarea -->
 
-    <div class="textarea nomostrar  ">
+{{--     <div class="textarea nomostrar  ">
 
       <div class="box">
         <div class="box-header with-border">
@@ -71,32 +71,53 @@
        </div>
      </div>
 
-   </div>
+   </div> --}}
 
-
-   <!--modulo image-->
-
-
-   <div class="uploadimage nomostrar">
+   <div class="textareaclone nomostrar  ">
 
     <div class="box">
       <div class="box-header with-border">
-        <h3 class="box-title">Image</h3>
+        <h3 class="box-title">Textarea</h3>
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool">
-            <i class="fa fa-close"></i>
+            <i class="fa  fa-close"></i>
           </button>
-        </div>
-      </div>
-      <div class=" box-body">
-       <input class="form-control" type="file" />
+          <button  type="button" class="btn btn-box-tool">
+           <i class="fa  fa-paint-brush"></i>
+         </button>
+       </div>
+     </div>
+     <div class="box-body edit-textarea">
+       <textarea class="form-control" rows="7"></textarea>
      </div>
    </div>
 
  </div>
 
 
- {{-- Editor --}}
+ <!--modulo image-->
+
+
+ <div class="uploadimage nomostrar">
+
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Image</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool">
+          <i class="fa fa-close"></i>
+        </button>
+      </div>
+    </div>
+    <div class=" box-body">
+     <input class="form-control" type="file" />
+   </div>
+ </div>
+
+</div>
+
+
+{{-- Editor --}}
 {{--  <div class="box">
   <div class="box-header">
     <h3 class="box-title">Bootstrap WYSIHTML5
@@ -164,11 +185,14 @@
   }
 
 </style>
-<link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css">
+{{-- <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css"> --}}
+
+{{-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet"> --}}
 
 @endpush
 
 @push('scripts')
+{{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script> --}}
 <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
@@ -215,9 +239,10 @@
               count ++;
 
               break;
+
               case 'textarea':
-              var textarea = $(".textarea").first().clone();
-              $(textarea).removeClass("nomostrar").addClass("remove-div-"+count).appendTo( this );
+              var textarea = $(".textareaclone").clone();
+              $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
               $(".remove-div-"+count).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
               $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
               tinymce.init({ 
@@ -242,6 +267,26 @@
               count ++;
 
               break;
+       /*       case 'textarea':
+              var textarea = $(".textareaclone").clone();
+              $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
+              $(".remove-div-"+count).find('.textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
+              $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+
+              $('#textarea'+count).summernote({
+                height: 300,               
+                minHeight: null,             
+                maxHeight: null,             
+                focus: true  
+              });
+
+
+
+              elements[count]="textarea";
+              $("#hidden_elementos").val(elements);
+              count ++;
+
+              break;*/
 
               case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
@@ -270,19 +315,39 @@
 
   });
 
-    $("#form-create-oaca").on('click','button.remove-div',function (e){
+$("#form-create-oaca").on('click','button.remove-div',function (e){
 
-      var divDelete = $(this).data('parent');
+  var divDelete = $(this).data('parent');
 
-      $("."+divDelete).remove();
+  $("."+divDelete).remove();
 
-    });
+});
+
+var textareaID;
+
+$( ".sortable:not(div.box-footer)" ).sortable({
+  vertical:true,
+  start: function(event, ui){
+    /*$(ui.item).find('textarea').data('element');*/
+
+    textareaID = $(ui.item).find('.mce-edit-area iframe').data('id');
+    console.log(textareaID);
+    try{
+      tinymce.execCommand('mceRemoveControl',false,textareaID);
+    }catch(e){}
 
 
+  },
+  stop: function(event,ui){
+    try{
+     tinymce.execCommand('mceAddControl',false,textareaID);
+     console.log(textareaID);
+   }catch(e){}
+ }
 
+});
 
-
-  }); /*enddocumentReady*/
+}); /*enddocumentReady*/
 
 
 
