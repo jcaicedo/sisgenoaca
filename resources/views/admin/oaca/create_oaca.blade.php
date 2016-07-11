@@ -88,7 +88,7 @@
        </div>
      </div>
      <div class="box-body edit-textarea">
-      
+
      </div>
    </div>
 
@@ -274,6 +274,7 @@ $(document).ready(function(){
               $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
               $(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
               $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+              $(".remove-div"+count).find('.edit-textarea').append("<input type='hidden' name='textarea' value='textarea"+count+"'>")
 
               $('#textarea'+count).summernote({
                 height: 300,               
@@ -331,7 +332,8 @@ var content_element
 $( ".sortable:not(div.box-footer)" ).sortable({
   axis: 'y',
   opacity: 0.5,
-  tolerance: 'pointer'
+  tolerance: 'pointer',
+  handle: ".box-header"
 
 });
 
