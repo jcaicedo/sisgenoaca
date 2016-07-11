@@ -7,11 +7,11 @@
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="http://sisgenoaca.app/assets/imgs/image_profile.jpg" class="img-circle" alt="User Image">
+				<img src="{{ Auth::user()->avatar_image }}" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p>Julio Caicedo</p>
-				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+				<p>{{ Auth::user()->username }}</p>
+				{{-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> --}}
 			</div>
 		</div>
 
@@ -34,18 +34,18 @@
 
 			<li id="title" data-element-option="title"  class="option" value="title" >
 				<a href="#">
-				<i class="fa fa-edit"></i>
-				<span >{{trans('menu.title')}}</span>
+					<i class="fa fa-edit"></i>
+					<span >{{trans('menu.title')}}</span>
 
 				</a>
 
-					
+
 			</li>
 
 			<li id="textarea"  data-element-option="textarea" class="option">
 				<a href="#">
-				<i class="fa fa-file-text-o"></i>
-				<span>{{trans('menu.textarea')}}</span>
+					<i class="fa fa-file-text-o"></i>
+					<span>{{trans('menu.textarea')}}</span>
 				</a>
 
 			</li>

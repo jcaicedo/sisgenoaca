@@ -110,16 +110,16 @@
 				<li class="dropdown use user-menu">
 					
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="http://sisgenoaca.app/assets/imgs/image_profile.jpg" class="user-image" alt="User Image">
-						<span class="hidden-xs">{{ Auth::user()->name }}</span>
+						<img src="{{ Auth::user()->avatar_image }}" class="user-image" alt="User Image">
+						<span class="hidden-xs">{{ Auth::user()->username }}</span>
 					</a>
 					
 					<ul class="dropdown-menu">
 						
 						<li class="user-header">
-							<img src="http://sisgenoaca.app/assets/imgs/image_profile.jpg" class="img-circle" alt="User Image">
+							<img src="{{ Auth::user()->avatar_image }}" class="img-circle" alt="User Image">
 							<p>
-								Julio Caicedo - Administrator
+								{{ Auth::user()->name }} - Administrator
 								<small>Member since Jan. 2016</small>
 							</p>
 						</li>

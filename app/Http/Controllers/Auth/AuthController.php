@@ -53,6 +53,8 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'username' => 'max:255|unique:users',
+            'avatar_image'=> 'required',
             ]);
     }
 
@@ -64,11 +66,22 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
+        $fileImage = $data['avatar_image'];
+        $nameFileImage = $fileImage->getClientOriginalName();
+        $public_patch = public_path();
+        $url = $public_patch.'/assets/imgs/profiles';
+        $fileImage->move($url, $nameFileImage);
+
+
         return Users::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'username' => $data['username'],
+            'avatar_image'=>'/assets/imgs/profiles/'.$nameFileImage,
             ]);
+
+
     }
 
 

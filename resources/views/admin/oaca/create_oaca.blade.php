@@ -88,7 +88,7 @@
        </div>
      </div>
      <div class="box-body edit-textarea">
-       <textarea class="form-control" rows="7"></textarea>
+      
      </div>
    </div>
 
@@ -173,27 +173,27 @@
 @push('styles')
 <style>
 
-  .nomostrar{display:none;}
-  .mostrar{display: block;}
-  .btn-proccess{margin:0 auto; width: 200px;align:left;}
-  .preview{display: none;}
-  .mark_background{background: #88AAAA}
+.nomostrar{display:none;}
+.mostrar{display: block;}
+.btn-proccess{margin:0 auto; width: 200px;align:left;}
+.preview{display: none;}
+.mark_background{background: #88AAAA}
 
 
-  .options-textarea{
-    padding-bottom: 10px;
-  }
+.options-textarea{
+  padding-bottom: 10px;
+}
 
 </style>
 {{-- <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css"> --}}
 
-{{-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet"> --}}
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
 
 @endpush
 
 @push('scripts')
-{{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script> --}}
-<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+{{-- <script src="//cdn.tinymce.com/4/tinymce.min.js"></script> --}}
 
 
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
@@ -202,12 +202,12 @@
 
 <script> 
 
-  $(document).ready(function(){
+$(document).ready(function(){
 
 
-    $(function(){
+  $(function(){
 
-      var elements = new Array();
+    var elements = new Array();
 
 
     // var textarea = $(".textarea").html();
@@ -242,37 +242,37 @@
 
               break;
 
+              // case 'textarea':
+              // var textarea = $(".textareaclone").clone();
+              // $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
+              // $(".remove-div-"+count).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
+              // $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+              // tinymce.init({ 
+              //   selector:'#textarea'+count,
+              //   plugins: [
+              //   'advlist autolink lists link image charmap print preview anchor',
+              //   'searchreplace visualblocks code fullscreen',
+              //   'insertdatetime media table contextmenu paste code textcolor colorpicker'
+              //   ],
+              //   toolbar:'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | forecolor backcolor| bullist numlist outdent indent |',
+              //   content_css: [
+              //   '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+              //   '//www.tinymce.com/css/codepen.min.css'
+              //   ]
+
+              // });
+
+
+
+              // elements[count]="textarea";
+              // $("#hidden_elementos").val(elements);
+              // count ++;
+
+              // break;
               case 'textarea':
               var textarea = $(".textareaclone").clone();
               $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
-              $(".remove-div-"+count).find('textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
-              $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-              tinymce.init({ 
-                selector:'#textarea'+count,
-                plugins: [
-                'advlist autolink lists link image charmap print preview anchor',
-                'searchreplace visualblocks code fullscreen',
-                'insertdatetime media table contextmenu paste code textcolor colorpicker'
-                ],
-                toolbar:'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | forecolor backcolor| bullist numlist outdent indent |',
-                content_css: [
-                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-                '//www.tinymce.com/css/codepen.min.css'
-                ]
-
-              });
-
-
-
-              elements[count]="textarea";
-              $("#hidden_elementos").val(elements);
-              count ++;
-
-              break;
-       /*       case 'textarea':
-              var textarea = $(".textareaclone").clone();
-              $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
-              $(".remove-div-"+count).find('.textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
+              $(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
               $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
 
               $('#textarea'+count).summernote({
@@ -288,7 +288,7 @@
               $("#hidden_elementos").val(elements);
               count ++;
 
-              break;*/
+              break;
 
               case 'uploadimage':
               var uploadimage = $("div.uploadimage").first().clone();
@@ -315,7 +315,7 @@
 
 
 
-  });
+});
 
 $("#form-create-oaca").on('click','button.remove-div',function (e){
 
@@ -326,28 +326,12 @@ $("#form-create-oaca").on('click','button.remove-div',function (e){
 });
 
 var textareaID;
+var content_element
 
 $( ".sortable:not(div.box-footer)" ).sortable({
   axis: 'y',
   opacity: 0.5,
-  tolerance: 'pointer',
-  start: function(event, ui){
-    /*$(ui.item).find('textarea').data('element');*/
-
-    textareaID = $(ui.item).find('.mce-edit-area textarea').attr('id');
-    console.log($(ui.item).find('.mce-edit-area').attr('id'));
-    try{
-      tinyMCE.execCommand('mceRemoveControl',false,textareaID);
-    }catch(e){}
-
-
-  },
-  stop: function(event,ui){
-    try{
-     tinyMCE.execCommand('mceAddControl',false,textareaID);
-     console.log(textareaID);
-   }catch(e){}
- }
+  tolerance: 'pointer'
 
 });
 
