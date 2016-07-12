@@ -53,6 +53,8 @@
 </div>
 </div>
 
+<!-------------------------------------------------------------------------------->
+
 {{-- Modulos ocultos para clonar --}}
 
 {{-- Modulo Title --}}
@@ -74,32 +76,32 @@
 </div>
 
 {{-- Modulo Textarea --}}
-   <div class="textareaclone nomostrar  ">
+<div class="textareaclone nomostrar  ">
 
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title">Textarea</h3>
-        <div class="box-tools pull-right">
-          <button type="button" class="btn btn-box-tool">
-            <i class="fa  fa-close"></i>
-          </button>
-          <button  type="button" class="btn btn-box-tool">
-           <i class="fa  fa-paint-brush"></i>
-         </button>
-       </div>
-     </div>
-     <div class="box-body edit-textarea">
-
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Textarea</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool">
+          <i class="fa  fa-close"></i>
+        </button>
+        <button  type="button" class="btn btn-box-tool">
+         <i class="fa  fa-paint-brush"></i>
+       </button>
      </div>
    </div>
+   <div class="box-body edit-textarea">
 
+   </div>
  </div>
 
+</div>
 
- <!--modulo image-->
+
+<!--modulo image-->
 
 
- <div class="uploadimage nomostrar">
+<div class="uploadimage nomostrar">
 
   <div class="box">
     <div class="box-header with-border">
@@ -130,6 +132,11 @@
 .btn-proccess{margin:0 auto; width: 200px;align:left;}
 .preview{display: none;}
 .mark_background{background: #88AAAA}
+.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+.content-preview h2{
+  color: blue;
+  text-align: center;
+}
 
 
 .options-textarea{
@@ -139,12 +146,14 @@
 </style>
 {{-- <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css"> --}}
 
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet">
+{{-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.css" rel="stylesheet"> --}}
+<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
 
 @endpush
 
 @push('scripts')
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script>
+{{-- <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.1/summernote.js"></script> --}}
+<script src="/vendor/summernote/dist/summernote.js"></script>
 {{-- <script src="//cdn.tinymce.com/4/tinymce.min.js"></script> --}}
 
 
@@ -205,7 +214,8 @@ $(document).ready(function(){
                 height: 300,               
                 minHeight: null,             
                 maxHeight: null,             
-                focus: true  
+                focus: true,
+                maximumImageFileSize: 512*1024  
               });
 
 
