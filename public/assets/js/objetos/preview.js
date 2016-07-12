@@ -68,6 +68,19 @@
 
 });
 
+ $('#processit').click(function(e) {
+  /* Act on the event */
+  var token=$('[name="_token"]').val();
+  var contenido = $('.content-preview').html();
+  $.post('/admin/oaca/objetos/createoaca',{
+    content: contenido,
+    _token: token
+  }).done(function(data){
+    console.log(data);
+  });
+});
+
+
 
  function readImage (input, id) {
 
@@ -83,15 +96,3 @@
 }
 
 
-
-
-
-
-
-/*
-  $("#mybutton").click(function(e){
-      var content = tinymce.get("mitextarea").getContent();
-
-      console.log(content);
-
-    });*/

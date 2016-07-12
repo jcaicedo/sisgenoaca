@@ -50,13 +50,14 @@ Route::group(['middleware' => 'web'],function(){
 
 
 
-            Route::group(['prefix'=>'objetos'],function(){
-                Route::post('create/preview',['as'=>'create/preview','uses'=>'GeneradorController@preview']);
-                Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
-                Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
 
 
-            });
+            Route::controller('objetos','GeneradorController');
+                // Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
+                // Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
+
+
+            
 
 
 

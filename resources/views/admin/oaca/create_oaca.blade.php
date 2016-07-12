@@ -8,132 +8,141 @@
     <div class="box-footer" style="margin-bottom:35px;">
 
       <div style="margin:0;background-color:transparent;text-align:center;">
-       <button type="submit" class="btn btn-success btn-proccess" id="create-oaca">{{trans('admin.process')}}</button>
-       <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">PreView</button>
-     </div>
+        {{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
+        <a id="preview-oaca" class="btn btn-warning">
+          <i class="fa fa-eye"></i>
+          Visualizar
+        </a>
+      </div>
 
 
-   </div>
-   <div class="content sortable">
-
-
-
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{csrf_field()}}
-
+    </div>
+    <div class="content sortable">
 
 
 
-
-    <!--  <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea> -->
-
-    <input type="hidden" name="elementos" value="" id="hidden_elementos">
+      <meta name="csrf-token" content="{{ csrf_token() }}">
+      {{csrf_field()}}
 
 
 
 
-  </div>
 
-</form>
+      <!--  <textarea name="textarea" class="jqte-test"><b>My contents are from <u><span style="color:rgb(0, 148, 133);">TEXTAREA</span></u></b></textarea> -->
 
-
-<div class="preview">
-  <div class="box-footer" style="margin-bottom:35px;">
-    <div style="margin:0;background-color:transparent;text-align:center;">
-
-     <button type="button" class="btn btn-primary btn-proccess" id="preview">PreView</button>
-   </div>
- </div>
+      <input type="hidden" name="elementos" value="" id="hidden_elementos">
 
 
 
- <div class="content-preview">
 
- </div>
-</div>
-</div>
+    </div>
 
-<!-------------------------------------------------------------------------------->
+  </form>
 
-{{-- Modulos ocultos para clonar --}}
 
-{{-- Modulo Title --}}
+  <div class="preview">
+    <div class="box-footer" style="margin-bottom:35px;">
+      <div style="margin:0;background-color:transparent;text-align:center;">
 
-<div class="titulo nomostrar">
-  <div class="box">
-    <div class="box-header with-border">
-      <h3 class="box-title">Titulo</h3>
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool">
-          <i class="fa fa-close"></i>
-        </button>
+        <a class="btn btn-warning" id="preview">
+          <i class="fa fa-edit"></i>
+          Seguir Editando</a>
+
+          <a class="btn btn-success" id="processit">
+            <i class="fa fa-cogs"></i>
+            Procesar</a>
+          </div>
+        </div>
+
+
+
+        <div class="content-preview">
+
+        </div>
       </div>
     </div>
-    <div class="box-body">
-      <input type="text" class="form-control"> 
-    </div>
-  </div>
-</div>
 
-{{-- Modulo Textarea --}}
-<div class="textareaclone nomostrar  ">
+    <!-------------------------------------------------------------------------------->
 
-  <div class="box">
-    <div class="box-header with-border">
-      <h3 class="box-title">Textarea</h3>
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool">
-          <i class="fa  fa-close"></i>
-        </button>
-        <button  type="button" class="btn btn-box-tool">
-         <i class="fa  fa-paint-brush"></i>
-       </button>
-     </div>
-   </div>
-   <div class="box-body edit-textarea">
+    {{-- Modulos ocultos para clonar --}}
 
-   </div>
- </div>
+    {{-- Modulo Title --}}
 
-</div>
-
-
-<!--modulo image-->
-
-
-<div class="uploadimage nomostrar">
-
-  <div class="box">
-    <div class="box-header with-border">
-      <h3 class="box-title">Image</h3>
-      <div class="box-tools pull-right">
-        <button type="button" class="btn btn-box-tool">
-          <i class="fa fa-close"></i>
-        </button>
+    <div class="titulo nomostrar">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Titulo</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool">
+              <i class="fa fa-close"></i>
+            </button>
+          </div>
+        </div>
+        <div class="box-body">
+          <input type="text" class="form-control"> 
+        </div>
       </div>
     </div>
-    <div class=" box-body">
-     <input class="form-control" type="file" />
+
+    {{-- Modulo Textarea --}}
+    <div class="textareaclone nomostrar  ">
+
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Textarea</h3>
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool">
+              <i class="fa  fa-close"></i>
+            </button>
+            <button  type="button" class="btn btn-box-tool">
+             <i class="fa  fa-paint-brush"></i>
+           </button>
+         </div>
+       </div>
+       <div class="box-body edit-textarea">
+
+       </div>
+     </div>
+
    </div>
+
+
+   <!--modulo image-->
+
+
+   <div class="uploadimage nomostrar">
+
+    <div class="box">
+      <div class="box-header with-border">
+        <h3 class="box-title">Image</h3>
+        <div class="box-tools pull-right">
+          <button type="button" class="btn btn-box-tool">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+      </div>
+      <div class=" box-body">
+       <input class="form-control" type="file" />
+     </div>
+   </div>
+
  </div>
 
-</div>
 
 
+ @endsection
 
-@endsection
 
+ @push('styles')
+ <style>
 
-@push('styles')
-<style>
-
-.nomostrar{display:none;}
-.mostrar{display: block;}
-.btn-proccess{margin:0 auto; width: 200px;align:left;}
-.preview{display: none;}
-.mark_background{background: #88AAAA}
-.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
-.content-preview h2{
+ .nomostrar{display:none;}
+ .mostrar{display: block;}
+ .btn-proccess{margin:0 auto; width: 200px;align:left;}
+ .preview{display: none;}
+ .mark_background{background: #88AAAA}
+ .content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+ .content-preview h2{
   color: blue;
   text-align: center;
 }

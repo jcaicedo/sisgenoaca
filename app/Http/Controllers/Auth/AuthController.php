@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/admin/oaca/objetos/create';
+    protected $redirectTo = '/admin/oaca/objetos/createoaca/';
     protected $redirectAfterLogout = '/login';
 
     /**

@@ -40,13 +40,49 @@ class GeneradorController extends Controller
 		}
 	}
 
-	public function createOaca(){
+	public function getCreateoaca(){
 
 		return view('admin.oaca.create_oaca');
 	}
 
-	public function create_objetos(Request $request){
+	public function postCreateoaca(Request $request){
 		
+
+		// $objeto=$request->input('obj');
+
+		// if($request->hasFile('image')){
+
+		// 	$filebackground = $request->file('image');
+		// 	$namebackground = $filebackground->getClientOriginalName();
+		// 	$public_path = public_path();		
+		// 	$url = $public_path.'/assets/imgs';
+
+		// 	$filebackground->move($url, $namebackground);
+		// 	dd($url);
+		// }
+
+		if($request->ajax()){
+
+
+
+
+			return "hola";
+
+
+
+
+		}else{
+
+			return 'no';
+
+		}
+	}
+
+
+
+	function preview(Request $request){
+
+		$namebackground=false;
 
 		$objeto=$request->input('obj');
 
@@ -56,57 +92,21 @@ class GeneradorController extends Controller
 			$namebackground = $filebackground->getClientOriginalName();
 			$public_path = public_path();		
 			$url = $public_path.'/assets/imgs';
-			
-			$filebackground->move($url, $namebackground);
 			dd($url);
+			$filebackground->move($url, $namebackground);
+			return 'si';
 		}
 
-/*if($request->ajax()){
 
 
 
 
-return $objeto;
 
 
 
-
-}else{
-
-return 'no';
-
-}*/
-}
+		return $request->input('obj');
 
 
-
-function preview(Request $request){
-	
-	$namebackground=false;
-
-	$objeto=$request->input('obj');
-
-	if($request->hasFile('image')){
-
-		$filebackground = $request->file('image');
-		$namebackground = $filebackground->getClientOriginalName();
-		$public_path = public_path();		
-		$url = $public_path.'/assets/imgs';
-		dd($url);
-		$filebackground->move($url, $namebackground);
-		return 'si';
 	}
-
-
-
-
-
-
-
-
-	return $request->input('obj');
-
-
-}
 
 }
