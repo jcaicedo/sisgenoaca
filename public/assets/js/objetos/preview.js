@@ -19,40 +19,42 @@
   var postDataObject = $('#form-create-oaca').serializeObject();
 
   var elementos = postData[1].value.split(',');
-  console.log(postData);
+ // console.log(postData);
 
 
-  numImage = 0;
+ numImage = 0;
 
-  $.each(postData, function(index, input){
+ $.each(postData, function(index, input){
 
-    var   element = input.name;
+  var   element = input.name;
 
-    switch(element){
-      case 'title':
-      $(".content-preview").append('<h2>'+input.value+'</h2>');
-      break;
+  switch(element){
+    case 'title':
+    $(".content-preview").append('<h2>'+input.value+'</h2>');
+    break;
 
-      case 'textarea':
-      $(".content-preview").append('<p>'+input.value+'</p>');
-
-      break;
-
-      case 'image':
-      $(".content-preview").append('<img src="" alt="'+input.value+'" id="loadimage'+numImage+'" height="100" width="100">')
-
-      $("#"+input.value).html(function(){
-       readImage(this,numImage);
-       numImage ++;
-     });
-      break;
-    }
+    case 'textarea':
     console.log(input.value);
+    var content_textarea = $('#'+input.value).summernote('code');
+    $(".content-preview").append(content_textarea);
 
-  });
+    break;
 
-  $("#form-create-oaca").hide();
-  $(".preview").show();
+    case 'image':
+    $(".content-preview").append('<img src="" alt="'+input.value+'" id="loadimage'+numImage+'" height="100" width="100">')
+
+    $("#"+input.value).html(function(){
+     readImage(this,numImage);
+     numImage ++;
+   });
+    break;
+  }
+  //console.log(input.value);
+
+});
+
+ $("#form-create-oaca").hide();
+ $(".preview").show();
 
 
 });

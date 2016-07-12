@@ -30,49 +30,50 @@
     <input type="hidden" name="elementos" value="" id="hidden_elementos">
 
 
-    {{-- Modulo Title --}}
 
-    <div class="titulo nomostrar">
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Titulo</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool">
-              <i class="fa fa-close"></i>
-            </button>
-          </div>
-        </div>
-        <div class="box-body">
-          <input type="text" class="form-control"> 
-        </div>
+
+  </div>
+
+</form>
+
+
+<div class="preview">
+  <div class="box-footer" style="margin-bottom:35px;">
+    <div style="margin:0;background-color:transparent;text-align:center;">
+
+     <button type="button" class="btn btn-primary btn-proccess" id="preview">PreView</button>
+   </div>
+ </div>
+
+
+
+ <div class="content-preview">
+
+ </div>
+</div>
+</div>
+
+{{-- Modulos ocultos para clonar --}}
+
+{{-- Modulo Title --}}
+
+<div class="titulo nomostrar">
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Titulo</h3>
+      <div class="box-tools pull-right">
+        <button type="button" class="btn btn-box-tool">
+          <i class="fa fa-close"></i>
+        </button>
       </div>
     </div>
+    <div class="box-body">
+      <input type="text" class="form-control"> 
+    </div>
+  </div>
+</div>
 
-
-
-    <!--  modulo textarea -->
-
-{{--     <div class="textarea nomostrar  ">
-
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Textarea</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool">
-              <i class="fa  fa-close"></i>
-            </button>
-            <button  type="button" class="btn btn-box-tool">
-             <i class="fa  fa-paint-brush"></i>
-           </button>
-         </div>
-       </div>
-       <div class=" box-body">
-         <textarea type="hidden" class="form-control" rows="7"></textarea>
-       </div>
-     </div>
-
-   </div> --}}
-
+{{-- Modulo Textarea --}}
    <div class="textareaclone nomostrar  ">
 
     <div class="box">
@@ -117,55 +118,6 @@
 </div>
 
 
-{{-- Editor --}}
-{{--  <div class="box">
-  <div class="box-header">
-    <h3 class="box-title">Bootstrap WYSIHTML5
-      <small>Simple and fast</small>
-    </h3>
-    <!-- tools box -->
-    <div class="pull-right box-tools">
-      <button type="button" class="btn btn-default btn-sm" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-        <i class="fa fa-minus"></i></button>
-        <button type="button" class="btn btn-default btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-          <i class="fa fa-times"></i></button>
-        </div>
-        <!-- /. tools -->
-      </div>
-      <!-- /.box-header -->
-      <div class="box-body pad">
-        <form>
-          <textarea class="textarea textarea-new" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-        </form>
-      </div>
-    </div>
-    --}}
-    
-
-  </div>
-
-</form>
-
-
-<div class="preview">
-  <div class="box-footer" style="margin-bottom:35px;">
-    <div style="margin:0;background-color:transparent;text-align:center;">
-
-     <button type="button" class="btn btn-primary btn-proccess" id="preview">PreView</button>
-   </div>
- </div>
-
-
-
- <div class="content-preview">
-
- </div>
-</div>
-</div>
-
-
-
-
 
 @endsection
 
@@ -173,16 +125,16 @@
 @push('styles')
 <style>
 
-  .nomostrar{display:none;}
-  .mostrar{display: block;}
-  .btn-proccess{margin:0 auto; width: 200px;align:left;}
-  .preview{display: none;}
-  .mark_background{background: #88AAAA}
+.nomostrar{display:none;}
+.mostrar{display: block;}
+.btn-proccess{margin:0 auto; width: 200px;align:left;}
+.preview{display: none;}
+.mark_background{background: #88AAAA}
 
 
-  .options-textarea{
-    padding-bottom: 10px;
-  }
+.options-textarea{
+  padding-bottom: 10px;
+}
 
 </style>
 {{-- <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css"> --}}
@@ -202,12 +154,12 @@
 
 <script> 
 
-  $(document).ready(function(){
+$(document).ready(function(){
 
 
-    $(function(){
+  $(function(){
 
-      var elements = new Array();
+    var elements = new Array();
 
 
     // var textarea = $(".textarea").html();
@@ -289,28 +241,28 @@
 
 
 
-  });
+});
 
-    $("#form-create-oaca").on('click','button.remove-div',function (e){
+$("#form-create-oaca").on('click','button.remove-div',function (e){
 
-      var divDelete = $(this).data('parent');
+  var divDelete = $(this).data('parent');
 
-      $("."+divDelete).remove();
+  $("."+divDelete).remove();
 
-    });
+});
 
-    var textareaID;
-    var content_element
+var textareaID;
+var content_element
 
-    $( ".sortable:not(div.box-footer)" ).sortable({
-      axis: 'y',
-      opacity: 0.5,
-      tolerance: 'pointer',
-      handle: ".box-header"
+$( ".sortable:not(div.box-footer)" ).sortable({
+  axis: 'y',
+  opacity: 0.5,
+  tolerance: 'pointer',
+  handle: ".box-header"
 
-    });
+});
 
-  }); /*enddocumentReady*/
+}); /*enddocumentReady*/
 
 
 
