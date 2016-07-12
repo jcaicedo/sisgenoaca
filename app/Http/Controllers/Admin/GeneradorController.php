@@ -63,14 +63,7 @@ class GeneradorController extends Controller
 
 		if($request->ajax()){
 
-
-
-
-			return "hola";
-
-
-
-
+			return $request->input('content');
 		}else{
 
 			return 'no';
@@ -110,3 +103,5 @@ class GeneradorController extends Controller
 	}
 
 }
+
+

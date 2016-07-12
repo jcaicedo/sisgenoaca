@@ -70,14 +70,16 @@
 
  $('#processit').click(function(e) {
   /* Act on the event */
-  var token=$('[name="_token"]').val();
-  var contenido = $('.content-preview').html();
-  $.post('/admin/oaca/objetos/createoaca',{
-    content: contenido,
-    _token: token
-  }).done(function(data){
-    console.log(data);
-  });
+
+  console.log($('.content-preview').html());
+  // var token=$('[name="_token"]').val();
+  // var contenido = $('.content-preview').html();
+  // $.post('/admin/oaca/objetos/createoaca',{
+  //   content: contenido,
+  //   _token: token
+  // }).done(function(data){
+  //   console.log(data);
+  // });
 });
 
 
