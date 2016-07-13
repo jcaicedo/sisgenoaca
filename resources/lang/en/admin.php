@@ -39,6 +39,7 @@ return [
     'end'=>'Final',
     'review'=>'Revisión',
     'notavaliable'=>'No Disponible',
+    'colaborators'=>'Colaboradores',
 
 
 
