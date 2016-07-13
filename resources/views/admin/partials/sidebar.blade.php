@@ -33,26 +33,26 @@
 			<li class="header">NAVEGACIÓN</li>
 
 			<li class="active">
-				<a href="{{url('admin')}}">
-				<i class="fa fa-home"></i>
-				<span>{{trans('menu.createoaca')}}</span>
+				<a href="{{url('/admin/oaca/objetos/createoaca/')}}">
+					<i class="fa fa-home"></i>
+					<span>{{trans('menu.createoaca')}}</span>
 
 				</a>
 
-					
+				
 			</li>
 
 			<li>
 				<a href="{{url('admin')}}">
-				<i class="fa fa-book"></i>
-				<span>{{trans('menu.listaroaca')}}</span>
+					<i class="fa fa-book"></i>
+					<span>{{trans('menu.listaroaca')}}</span>
 				</a>
 
 			</li>
 			<li>
 				<a href="{{url('admin')}}">
-				<i class="fa fa-book"></i>
-				<span>{{trans('menu.configuracion')}}</span>
+					<i class="fa fa-book"></i>
+					<span>{{trans('menu.configuracion')}}</span>
 				</a>
 
 			</li>

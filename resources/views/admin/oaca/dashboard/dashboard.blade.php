@@ -20,7 +20,7 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="col-xs-6 col-md-2">
+			<div class="col-xs-12 col-sm-3">
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3>OACA</h3>
