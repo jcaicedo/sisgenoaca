@@ -1,6 +1,6 @@
 <header class="main-header">
 	
-	<a class="logo" href="">
+	<a class="logo" href="{{url('/admin')}}">
 		<span class="logo-mini"> <b>SIS</b> </span>
 		<span class="logo-lg"> <b>SISGENOACA</b> </span>
 	</a>

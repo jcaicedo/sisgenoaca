@@ -93,32 +93,237 @@
 						</div>
 
 						<div class="form-group">
-							<label for="colaborators">{{trans('admin.colaborators')}}</label>
-							<button type="button" class="btn btn-success">
-								<i class="fa fa-plus"></i>
-							</button>
-							
+							<label for="colaborator">{{trans('admin.colaborator')}}<span> *</span></label> <button type="button" class="btn btn-box-tool">
+							<i class="fa fa-plus"></i>
+						</button>
 
+						<div class="box">
+							<div class="box-header">
+								<h6 class="box-title">{{trans('admin.colaborator')}} 1</h6>
+								<div class="box-tools pull-right">
+									<button type="button" class="btn btn-box-tool">
+										<i class="fa fa-close"></i>
+									</button>
+								</div>
+							</div>
+							<br>
+							<div class="box-body">
+								<div class="form-group">
+									<div class="col-md-4">
+										<label for="">{{trans('admin.typecontribution')}}</label>
+										<select name="typecontribution" id="typecontribution" class="form-control">
+											<option value="author">{{trans('admin.author')}}</option>
+											<option value="reviser">{{trans('admin.reviser')}}</option>
+											<option value="unknown">{{trans('admin.unknown')}}</option>
+											<option value="indicator">{{trans('admin.indicator')}}</option>
+											<option value="terminator">{{trans('admin.terminator')}}</option>
+											<option value="editor">{{trans('admin.editor')}}</option>
+											<option value="writer">{{trans('admin.writer')}}</option>
+										</select>
+									</div>
 
+									<div class="col-md-4">
+										<label for="name">{{trans('admin.name')}} <span>*</span> </label>
+										<input type="text" name="name" id="name" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
+									</div>
+									<div class="col-md-4">
+										<label for="lastname">{{trans('admin.lastname')}} <span>*</span> </label>
+										<input type="text" name="name" id="name" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}">
+									</div>
+									<div class="col-md-6">
+										<label for="email">{{trans('admin.email')}} <span>*</span> </label>
+										<input type="email" name="email" id="email" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
+									</div>
 
+									<div class="col-md-6">
+										<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
+										<input type="text" name="name" id="name" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
+									</div>
+								</div>
+							</div>
 						</div>
 
 
-					</div>
-					<!--/-box-body-->
 
-					<div class="box-footer">
-						<button type="button" class="btn btn-primary btn-next" data-body="general-features">
-							<i class="fa fa-hand-o-right"></i>	
-							&nbsp;{{trans('admin.next')}}	
-						</button>
+
 					</div>
 
 
-				</form>
-			</div>
+				</div>
+				<!--/-box-body CICLO DE VIDA -->
+
+				<!-- Educativo -->
+				<div class="box-body" id="educational">
+					<h4>{{trans('admin.educational')}}</h4>
+					<br>
+
+					<div class="form-group">
+						<div class="col-md-3 col-xs-12">
+							<label for="learning_resources">{{trans('admin.learning_resources')}}</label><span> *</span>
+						</div>
+						<div class="col-md-9 col-xs-12">
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="evaluation_test">{{trans('admin.evaluation_test')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="close_homework">{{trans('admin.close_homework')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="open_homework">{{trans('admin.open_homework')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="research_material">{{trans('admin.research_material')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="manual">{{trans('admin.manual')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="source_information">{{trans('admin.source_information')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="source_information">{{trans('admin.source_information')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="learning_resources[]" value="tool">{{trans('admin.tool')}}
+								</label>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-3 col-xs-12">
+							<label for="ldestination_rol">{{trans('admin.destination_rol')}}</label><span> *</span>
+						</div>
+						<div class="col-md-9 col-xs-12">
+
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="destination_rol[]" value="student">{{trans('admin.student')}}
+								</label>
+							</div>
+
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="destination_rol[]" value="student">{{trans('admin.student')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="destination_rol[]" value="professor">{{trans('admin.professor')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="destination_rol[]" value="author">{{trans('admin.author')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="destination_rol[]" value="manager">{{trans('admin.manager')}}
+								</label>
+							</div>
+
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-3 col-xs-12">
+							<label for="context">{{trans('admin.context')}}</label><span> *</span>
+						</div>
+						<div class="col-md-9 col-xs-12">
+
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="context[]" value="children_educaction">{{trans('admin.children_educaction')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="context[]" value="primary_education">{{trans('admin.primary_education')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="context[]" value="highschool_education">{{trans('admin.highschool_education')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="context[]" value="bachillerato">{{trans('admin.bachillerato')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="context[]" value="professional">{{trans('admin.professional')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="context[]" value="college">{{trans('admin.college')}}
+								</label>
+							</div>
+							<div class="checkbox">
+								<label for="">
+									<input type="checkbox" name="context[]" value="postgraduate">{{trans('admin.postgraduate')}}
+								</label>
+							</div>
+
+							
+
+						</div>
+					</div> <!--/-form-group-->
+
+					<div class="form-group col-md-12">
+						<label for="age_range">{{trans('admin.age_range')}}</label>
+						<br>
+						<input type="number" name="age_range" id="age_range" class="from-control" placeholder="{{trans('admin.placeholderage_range')}}" value="0">
+					</div>
+				</div>
+				<!--/-box-body Educational -->
+
+				<div class="box-body" id="copyright">
+					<h4>{{trans('admin.copyright')}}</h4>
+					<br>
+					<div class="form-group col-xs-12">
+						<label for="description">{{trans('admin.description')}}<span> *</span></label>
+						<textarea id="description" name="description" class="form-control" cols="30" rows="10"></textarea>
+					</div>
+					<div class="form-group col-md-6 col-xs-12">
+						<label for="cost">{{trans('admin.cost')}}</label>
+						<select name="cost" id="cost" class="form-control">
+							<option value="yes">{{trans('admin.yes')}}</option>
+							<option value="not">{{trans('admin.not')}}</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="box-footer">
+					<button type="button" class="btn btn-primary btn-next" data-body="general-features">
+						<i class="fa fa-hand-o-right"></i>	
+						&nbsp;{{trans('admin.next')}}	
+					</button>
+				</div>
+
+
+			</form>
 		</div>
 	</div>
+</div>
 </section>
 
 </div>
@@ -127,7 +332,7 @@
 
 @push('styles')
 <style>
-	.nomostrar{display: none;}
+.nomostrar{display: none;}
 </style>
 @endpush
 
@@ -135,26 +340,26 @@
 
 <script>
 
-	$(document).ready(function(){
+$(document).ready(function(){
 
-		$('.btn-next').click(function(){
-			var content_body = $('.btn-next').data('body');
+	$('.btn-next').click(function(){
+		var content_body = $('.btn-next').data('body');
 
-			switch(content_body){
+		switch(content_body){
 
-				case 'general-features':
+			case 'general-features':
 
-				$('.btn-next').data('body',"lifecycle");
-				$('#'+content_body).hide();
-				$('#lifecycle').show();
+			$('.btn-next').data('body',"lifecycle");
+			$('#'+content_body).hide();
+			$('#lifecycle').show();
 
-				break;
-			}
-
-		});
-
-		
+			break;
+		}
 
 	});
+
+
+
+});
 </script>
 @endpush

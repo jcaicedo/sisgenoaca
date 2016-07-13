@@ -20,7 +20,7 @@
 	</section>
 	<section class="content">
 		<div class="row">
-			<div class="col-xs-12 col-sm-3">
+			<div class="col-xs-12 col-md-4">
 				<div class="small-box bg-aqua">
 					<div class="inner">
 						<h3>OACA</h3>
@@ -45,9 +45,9 @@
 
 @push('styles')
 <style>
-	.btn-dashboard{
-		color: white;
-	}
+.btn-dashboard{
+	color: white;
+}
 </style>
 
 @endpush

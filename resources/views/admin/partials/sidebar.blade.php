@@ -7,10 +7,10 @@
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="http://sisgenoaca.app/assets/imgs/image_profile.jpg" class="img-circle" alt="User Image">
+				<img src="{{ Auth::user()->avatar_image }}" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p>Julio Caicedo</p>
+				<p>{{ Auth::user()->username }}</p>
 				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 			</div>
 		</div>
