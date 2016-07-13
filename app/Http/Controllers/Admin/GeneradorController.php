@@ -15,8 +15,13 @@ class GeneradorController extends Controller
 	function index(){
 	}
 
-	function form_register(){
+
+
+	function getRegister(){
 		return view('admin.oaca.registro');
+	}
+	function getRegisteraux(){
+		return view('admin.oaca.register');
 	}
 
 	public function registro(Request $request){
@@ -24,25 +29,15 @@ class GeneradorController extends Controller
 		$data=$request->input('obj');
 
 		if($request->ajax()){
-
-
-
-
 			return 'si';
-
-
-
-
 		}else{
-
 			return 'no';
-
 		}
 	}
 
 	public function getCreateoaca(){
 
-		return view('admin.oaca.create_oaca');
+		return view('admin.oaca.objetos.create_oaca');
 	}
 
 	public function postCreateoaca(Request $request){

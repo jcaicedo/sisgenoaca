@@ -41,10 +41,15 @@ Route::group(['middleware' => 'web'],function(){
 
 
     Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth']],function(){
+
+        Route::get('/',['uses'=>'AdminController@index']);
+        
+
         Route::group(['prefix'=>'oaca'],function(){
 
-            Route::get('registro',['as'=>'registro','uses' => 'GeneradorController@form_register']);
-            Route::get('registro/create',['as'=>'registro','uses' => 'GeneradorController@form_register']);
+            Route::controller('registro','GeneradorController');
+            Route::controller('objetos','GeneradorController');
+
             Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
 
 
@@ -52,7 +57,7 @@ Route::group(['middleware' => 'web'],function(){
 
 
 
-            Route::controller('objetos','GeneradorController');
+            
                 // Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
                 // Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
 
