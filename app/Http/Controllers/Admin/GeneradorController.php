@@ -18,11 +18,11 @@ class GeneradorController extends Controller
 
 
 	function getRegister(){
-		return view('admin.oaca.registro');
-	}
-	function getRegisteraux(){
 		return view('admin.oaca.register');
 	}
+/*	function getRegisteraux(){
+		return view('admin.oaca.register');
+	}*/
 
 	public function registro(Request $request){
 

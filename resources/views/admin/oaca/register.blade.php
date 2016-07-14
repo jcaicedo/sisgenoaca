@@ -72,7 +72,7 @@
 
 					<!--CICLO DE VIDA -->
 
-					<div class="box-body" id="lifecycle">
+					<div class="box-body nomostrar" id="lifecycle">
 						<h4>{{trans('admin.lifecycle')}}</h4>
 						<br>
 						<div class="form-group col-xs-12 col-sm-6">
@@ -153,7 +153,7 @@
 				<!--/-box-body CICLO DE VIDA -->
 
 				<!-- Educativo -->
-				<div class="box-body" id="educational">
+				<div class="box-body nomostrar" id="educational">
 					<h4>{{trans('admin.educational')}}</h4>
 					<br>
 
@@ -296,24 +296,37 @@
 				</div>
 				<!--/-box-body Educational -->
 
-				<div class="box-body" id="copyright">
+				{{-- Derechos de Autor --}}
+
+				<div class="box-body nomostrar" id="copyright">
 					<h4>{{trans('admin.copyright')}}</h4>
 					<br>
-					<div class="form-group col-xs-12">
-						<label for="description">{{trans('admin.description')}}<span> *</span></label>
-						<textarea id="description" name="description" class="form-control" cols="30" rows="10"></textarea>
-					</div>
 					<div class="form-group col-md-6 col-xs-12">
 						<label for="cost">{{trans('admin.cost')}}</label>
 						<select name="cost" id="cost" class="form-control">
+							<option value="yes" default>{{trans('admin.yes')}}</option>
+							<option value="not">{{trans('admin.not')}}</option>
+						</select>
+					</div>
+					<div class="form-group col-md-6 col-xs-12">
+						<label for="copyright_restrictions">{{trans('admin.copyright_restrictions')}}</label>
+						<select name="cost" id="copyright_restrictions" class="form-control">
 							<option value="yes">{{trans('admin.yes')}}</option>
 							<option value="not">{{trans('admin.not')}}</option>
 						</select>
 					</div>
+					<div class="form-group">
+						<label for="copyright_description">{{trans('admin.copyright_description')}}</label><span style="color:red;"> *</span>
+						<textarea class="form-control" name="copyright_description" id="copyright_description" cols="30" rows="10"></textarea>
+					</div>
 				</div>
 
 				<div class="box-footer">
-					<button type="button" class="btn btn-primary btn-next" data-body="general-features">
+					<button class="btn btn-danger btn-back nomostrar" data-body="lifecycle" >
+						<i class="fa fa-hand-o-left"></i>
+						&nbsp;{{trans('admin.back')}}
+					</button>
+					<button type="button" class="btn btn-primary btn-next pull-right" data-body="general-features">
 						<i class="fa fa-hand-o-right"></i>	
 						&nbsp;{{trans('admin.next')}}	
 					</button>
@@ -332,7 +345,7 @@
 
 @push('styles')
 <style>
-.nomostrar{display: none;}
+	.nomostrar{display: none;}
 </style>
 @endpush
 
@@ -340,26 +353,78 @@
 
 <script>
 
-$(document).ready(function(){
+	$(document).ready(function(){
 
-	$('.btn-next').click(function(){
-		var content_body = $('.btn-next').data('body');
+		/*Buttom Next*/
+		$('.btn-next').click(function(e){
+			e.preventDefault();
 
-		switch(content_body){
+			var content_body = $('.btn-next').data('body');
 
-			case 'general-features':
+			switch(content_body){
 
-			$('.btn-next').data('body',"lifecycle");
-			$('#'+content_body).hide();
-			$('#lifecycle').show();
+				case 'general-features':
+				$('.btn-next').data('body','lifecycle');
+				$('#'+content_body).hide();
+				$('#lifecycle').show();
+				$('.btn-back').data('body','lifecycle').show();
+				break;
 
-			break;
-		}
+				case 'lifecycle':
+				$('.btn-next').data('body','educational');
+				$('#'+content_body).hide();
+				$('#educational').show();
+				$('.btn-back').data('body','educational');
+				break;
+
+				case 'educational':
+				$('.btn-next').data('body','copyright');
+				$('#'+content_body).hide();
+				$('#copyright').show();
+				$(this).hide();
+				$('.btn-back').data('body','copyright');
+				break;
+			}
+
+		});
+
+		/*Button Back*/
+
+		$(".btn-back").click(function(e) {
+			// body...
+			e.preventDefault();
+
+			var content_body = $('.btn-back').data('body');
+
+			switch(content_body){
+
+				case 'lifecycle':
+				$(this).hide();
+				$('#'+content_body).hide();
+				$('#general-features').show();
+				$('.btn-next').data('body','general-features');
+				break;
+
+				case 'educational':
+				$(this).data('body','lifecycle');
+				$('#'+content_body).hide();
+				$('#lifecycle').show();
+				$('.btn-next').data('body','lifecycle');
+				break;
+
+				case 'copyright':
+				$(this).data('body','educational');
+				$('#'+content_body).hide();
+				$('#educational').show();
+				$('.btn-next').data('body','educational').show();
+				break;
+			}
+
+
+		});
+
+
 
 	});
-
-
-
-});
 </script>
 @endpush

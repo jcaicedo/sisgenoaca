@@ -31,6 +31,7 @@ return [
     'wordskey'=>'Palabras Claves',
     'placeholderWordKey' => 'Ingrese Palabra Clave',
     'next' => 'Siguiente',
+    'back' => 'Atrás',
     'lifecycle'=> 'Ciclo de Vida',
     'version'=> 'Version',
     'placeholderVersion' => 'Indique Versión por ejemplo: "24092004 2" (ddmmaaaa+numeroedición)',
@@ -86,6 +87,8 @@ return [
     'cost' => 'Coste',
     'yes' => 'Si',
     'not' => 'No',
+    'copyright_restrictions' => 'Derechos de Autor y otras Restricciones',
+    'copyright_description' => 'Descripción de los derechos de Autor',
 
 
 
