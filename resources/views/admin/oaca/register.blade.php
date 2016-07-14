@@ -60,11 +60,21 @@
 								<textarea id="description" name="description" class="form-control" cols="30" rows="10"></textarea>
 							</div>
 
-							<div class="form-group col-xs-12">
-								<label for="words_key">{{trans('admin.wordskey')}}<span> *</span></label> <button type="button" class="btn btn-box-tool">
-								<i class="fa fa-plus"></i>
-							</button>
-							<input type="text" class="form-control" id="words_key" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
+							<div class="form-group box-wordskeys">
+								<div class="col-md-12">
+									<label for="words_key">{{trans('admin.wordskey')}}<span> *</span></label> <button type="button" class="btn btn-box-tool btn-wordskey-plus">
+									<i class="fa fa-plus"></i>
+								</button>
+							</div>
+
+							<div class="form-group col-md-12 box-wordkey">
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="words_key" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
+								</div>
+								<button type="button" class="btn btn-box-tool btn-remove">
+									<i class="fa fa-close"></i>
+								</button>
+							</div>
 						</div>
 
 					</div>
@@ -93,51 +103,54 @@
 						</div>
 
 						<div class="form-group">
-							<label for="colaborator">{{trans('admin.colaborator')}}<span> *</span></label> <button type="button" class="btn btn-box-tool">
+							<label for="colaborator">{{trans('admin.title_colaborators')}}<span> *</span></label> <button type="button" class="btn btn-default btn-colaborators">
 							<i class="fa fa-plus"></i>
 						</button>
+						<br>
 
-						<div class="box">
-							<div class="box-header">
-								<h6 class="box-title">{{trans('admin.colaborator')}} 1</h6>
-								<div class="box-tools pull-right">
-									<button type="button" class="btn btn-box-tool">
-										<i class="fa fa-close"></i>
-									</button>
+						<div class="content-box-colaborators">
+							<div class="box box-colaborator" >
+								<div class="box-header">
+									<h6 class="box-title">{{trans('admin.colaborator')}} 1</h6>
+									<div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool btn-remove">
+											<i class="fa fa-close"></i>
+										</button>
+									</div>
 								</div>
-							</div>
-							<br>
-							<div class="box-body">
-								<div class="form-group">
-									<div class="col-md-4">
-										<label for="">{{trans('admin.typecontribution')}}</label>
-										<select name="typecontribution" id="typecontribution" class="form-control">
-											<option value="author">{{trans('admin.author')}}</option>
-											<option value="reviser">{{trans('admin.reviser')}}</option>
-											<option value="unknown">{{trans('admin.unknown')}}</option>
-											<option value="indicator">{{trans('admin.indicator')}}</option>
-											<option value="terminator">{{trans('admin.terminator')}}</option>
-											<option value="editor">{{trans('admin.editor')}}</option>
-											<option value="writer">{{trans('admin.writer')}}</option>
-										</select>
-									</div>
+								<br>
+								<div class="box-body">
+									<div class="form-group">
+										<div class="col-md-4">
+											<label for="">{{trans('admin.typecontribution')}}</label>
+											<select name="colaborator[typecontribution][]" id="typecontribution" class="form-control">
+												<option value="author">{{trans('admin.author')}}</option>
+												<option value="reviser">{{trans('admin.reviser')}}</option>
+												<option value="unknown">{{trans('admin.unknown')}}</option>
+												<option value="indicator">{{trans('admin.indicator')}}</option>
+												<option value="terminator">{{trans('admin.terminator')}}</option>
+												<option value="editor">{{trans('admin.editor')}}</option>
+												<option value="writer">{{trans('admin.writer')}}</option>
+											</select>
+										</div>
 
-									<div class="col-md-4">
-										<label for="name">{{trans('admin.name')}} <span>*</span> </label>
-										<input type="text" name="name" id="name" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
-									</div>
-									<div class="col-md-4">
-										<label for="lastname">{{trans('admin.lastname')}} <span>*</span> </label>
-										<input type="text" name="name" id="name" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}">
-									</div>
-									<div class="col-md-6">
-										<label for="email">{{trans('admin.email')}} <span>*</span> </label>
-										<input type="email" name="email" id="email" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
-									</div>
+										<div class="col-md-4">
+											<label for="name">{{trans('admin.name')}} <span>*</span> </label>
+											<input type="text" name="colaborator[name][]" id="name" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
+										</div>
+										<div class="col-md-4">
+											<label for="lastname">{{trans('admin.lastname')}} <span>*</span> </label>
+											<input type="text" name="colaborator[name][]" id="name" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}">
+										</div>
+										<div class="col-md-6">
+											<label for="email">{{trans('admin.email')}} <span>*</span> </label>
+											<input type="email" name="colaborator[email][]" id="email" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
+										</div>
 
-									<div class="col-md-6">
-										<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
-										<input type="text" name="name" id="name" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
+										<div class="col-md-6">
+											<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
+											<input type="text" name="colaborator[organization][]" id="name" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -283,7 +296,7 @@
 								</label>
 							</div>
 
-							
+
 
 						</div>
 					</div> <!--/-form-group-->
@@ -355,6 +368,39 @@
 
 	$(document).ready(function(){
 
+		var count = 2;
+		var count_words_key=2;
+
+
+		/*add Words Key*/
+
+		$('.btn-wordskey-plus').click(function(e){
+			e.preventDefault();
+
+			var input_wordKey = $('.box-wordkey').clone().removeClass('box-wordkey').attr('id','divwordkey'+count_words_key);
+			input_wordKey.find('button.btn-remove').data('parent','divwordkey'+count_words_key);
+			count_words_key++;
+			$('.box-wordskeys').append(input_wordKey);
+
+		})
+
+		/*Add Colaborators*/
+
+		$('.btn-colaborators').click(function(e){
+			e.preventDefault();
+
+			var colaboratorbox = $('.box-colaborator').clone().removeClass('box-colaborator').attr('id','divcolaborator'+count);
+			colaboratorbox.find('.box-title').text('{{trans('admin.colaborator')}} '+count);
+			colaboratorbox.find('button.btn-remove').data('parent','divcolaborator'+count);
+
+			count ++;
+			
+			$('.content-box-colaborators').append(colaboratorbox);
+			console.log(colaboratorbox.html());
+
+		});
+
+
 		/*Buttom Next*/
 		$('.btn-next').click(function(e){
 			e.preventDefault();
@@ -423,7 +469,12 @@
 
 		});
 
+		$('#form_register').on('click','button.btn-remove',function(e) {
+			// body...
+			e.preventDefault();
 
+			$('#'+$(this).data('parent')).remove();
+		});
 
 	});
 </script>
