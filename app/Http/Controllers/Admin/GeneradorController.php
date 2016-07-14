@@ -26,25 +26,10 @@ class GeneradorController extends Controller
 
 	function postRegister(Request $request){
 
-		dd($request->input());
-		return "good";
-	}
-
-	public function registro(Request $request){
-
-		$data=$request->input('obj');
-
-		if($request->ajax()){
-			return 'si';
-		}else{
-			return 'no';
-		}
-	}
-
-	public function getCreateoaca(){
-
+		// dd($request->input());
 		return view('admin.oaca.objetos.create_oaca');
 	}
+
 
 	public function postCreateoaca(Request $request){
 		
@@ -90,17 +75,7 @@ class GeneradorController extends Controller
 			$filebackground->move($url, $namebackground);
 			return 'si';
 		}
-
-
-
-
-
-
-
-
 		return $request->input('obj');
-
-
 	}
 
 }
