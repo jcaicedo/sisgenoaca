@@ -28,7 +28,7 @@
 					<!--/-box-header-->
 					<!-- form start-->
 
-					<form action="" method="post" id="form_register" role="form">
+					<form  method="post" id="form_register" role="form">
 						
 						<div class="box-body" id="general-features">
 							<h4>{{trans('admin.generalfeatures')}}</h4>
@@ -69,11 +69,8 @@
 
 							<div class="form-group col-md-12 box-wordkey">
 								<div class="col-md-6">
-									<input type="text" class="form-control" id="words_key" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
+									<input type="text" class="form-control" id="words_key1" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
 								</div>
-								<button type="button" class="btn btn-box-tool btn-remove">
-									<i class="fa fa-close"></i>
-								</button>
 							</div>
 						</div>
 
@@ -123,7 +120,7 @@
 									<div class="form-group">
 										<div class="col-md-4">
 											<label for="">{{trans('admin.typecontribution')}}</label>
-											<select name="colaborator[typecontribution][]" id="typecontribution" class="form-control">
+											<select name="colaborator[1][typecontribution]" id="typecontribution1" class="form-control">
 												<option value="author">{{trans('admin.author')}}</option>
 												<option value="reviser">{{trans('admin.reviser')}}</option>
 												<option value="unknown">{{trans('admin.unknown')}}</option>
@@ -136,20 +133,20 @@
 
 										<div class="col-md-4">
 											<label for="name">{{trans('admin.name')}} <span>*</span> </label>
-											<input type="text" name="colaborator[name][]" id="name" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
+											<input type="text" name="colaborator[1][name]" id="name1" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
 										</div>
 										<div class="col-md-4">
 											<label for="lastname">{{trans('admin.lastname')}} <span>*</span> </label>
-											<input type="text" name="colaborator[name][]" id="name" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}">
+											<input type="text" name="colaborator[1][lastname]" id="lastname1" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}">
 										</div>
 										<div class="col-md-6">
 											<label for="email">{{trans('admin.email')}} <span>*</span> </label>
-											<input type="email" name="colaborator[email][]" id="email" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
+											<input type="email" name="colaborator[1][email]" id="email1" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
 										</div>
 
 										<div class="col-md-6">
 											<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
-											<input type="text" name="colaborator[organization][]" id="name" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
+											<input type="text" name="colaborator[1][organization]" id="organization1" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
 										</div>
 									</div>
 								</div>
@@ -343,6 +340,10 @@
 						<i class="fa fa-hand-o-right"></i>	
 						&nbsp;{{trans('admin.next')}}	
 					</button>
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-save"></i>
+						Guardar
+					</button>
 				</div>
 
 
@@ -353,12 +354,71 @@
 </section>
 
 </div>
+<!--///////////////////////////ELEMENTOS OCULTOS PARA CLONAR ////////////////////////////-->
+{{-- Input Word Key --}}
+<div class="form-group col-md-12 box-wordkey-clone nomostrar">
+	<div class="col-md-6">
+		<input type="text" class="form-control" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
+	</div>
+	<button type="button" class="btn btn-box-tool btn-remove">
+		<i class="fa fa-close"></i>
+	</button>
+</div>
+
+{{-- Container Colaborators --}}
+<div class="box box-colaborator-clone nomostrar" >
+	<div class="box-header">
+		<h6 class="box-title">{{trans('admin.colaborator')}}</h6>
+		<div class="box-tools pull-right">
+			<button type="button" class="btn btn-box-tool btn-remove">
+				<i class="fa fa-close"></i>
+			</button>
+		</div>
+	</div>
+	<br>
+	<div class="box-body">
+		<div class="form-group">
+			<div class="col-md-4">
+				<label for="">{{trans('admin.typecontribution')}}</label>
+				<select name="colaborator[][typecontribution]" id="typecontribution" class="form-control">
+					<option value="author">{{trans('admin.author')}}</option>
+					<option value="reviser">{{trans('admin.reviser')}}</option>
+					<option value="unknown">{{trans('admin.unknown')}}</option>
+					<option value="indicator">{{trans('admin.indicator')}}</option>
+					<option value="terminator">{{trans('admin.terminator')}}</option>
+					<option value="editor">{{trans('admin.editor')}}</option>
+					<option value="writer">{{trans('admin.writer')}}</option>
+				</select>
+			</div>
+
+			<div class="col-md-4">
+				<label for="name">{{trans('admin.name')}} <span>*</span> </label>
+				<input type="text" name="colaborator[][name]" id="name" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
+			</div>
+			<div class="col-md-4">
+				<label for="lastname">{{trans('admin.lastname')}} <span>*</span> </label>
+				<input type="text" name="colaborator[][lastname]" id="lastname" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}">
+			</div>
+			<div class="col-md-6">
+				<label for="email">{{trans('admin.email')}} <span>*</span> </label>
+				<input type="email" name="colaborator[][email]" id="email" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
+			</div>
+
+			<div class="col-md-6">
+				<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
+				<input type="text" name="colaborator[][organization]" id="organization" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
+			</div>
+		</div>
+	</div>
+</div>
+
+
 
 @endsection
 
 @push('styles')
 <style>
-	.nomostrar{display: none;}
+.nomostrar{display: none;}
 </style>
 @endpush
 
@@ -366,77 +426,84 @@
 
 <script>
 
-	$(document).ready(function(){
+$(document).ready(function(){
 
-		var count = 2;
-		var count_words_key=2;
-
-
-		/*add Words Key*/
-
-		$('.btn-wordskey-plus').click(function(e){
-			e.preventDefault();
-
-			var input_wordKey = $('.box-wordkey').clone().removeClass('box-wordkey').attr('id','divwordkey'+count_words_key);
-			input_wordKey.find('button.btn-remove').data('parent','divwordkey'+count_words_key);
-			count_words_key++;
-			$('.box-wordskeys').append(input_wordKey);
-
-		})
-
-		/*Add Colaborators*/
-
-		$('.btn-colaborators').click(function(e){
-			e.preventDefault();
-
-			var colaboratorbox = $('.box-colaborator').clone().removeClass('box-colaborator').attr('id','divcolaborator'+count);
-			colaboratorbox.find('.box-title').text('{{trans('admin.colaborator')}} '+count);
-			colaboratorbox.find('button.btn-remove').data('parent','divcolaborator'+count);
-
-			count ++;
-			
-			$('.content-box-colaborators').append(colaboratorbox);
-			console.log(colaboratorbox.html());
-
-		});
+	var count = 2;
+	var count_words_key=2;
 
 
-		/*Buttom Next*/
-		$('.btn-next').click(function(e){
-			e.preventDefault();
+	/*add Words Key*/
 
-			var content_body = $('.btn-next').data('body');
+	$('.btn-wordskey-plus').click(function(e){
+		e.preventDefault();
 
-			switch(content_body){
+		var input_wordKey = $('.box-wordkey-clone').clone().addClass('box-wordkey').removeClass('box-wordkey-clone').removeClass('nomostrar').attr({'id':'divwordkey'+count_words_key});
+		input_wordKey.find('button.btn-remove').data('parent','divwordkey'+count_words_key);
+		input_wordKey.find('input').attr({'name':'words_key[]','id':'words_key'+count_words_key});
+		count_words_key++;
+		$('.box-wordskeys').append(input_wordKey);
 
-				case 'general-features':
-				$('.btn-next').data('body','lifecycle');
-				$('#'+content_body).hide();
-				$('#lifecycle').show();
-				$('.btn-back').data('body','lifecycle').show();
-				break;
+	})
 
-				case 'lifecycle':
-				$('.btn-next').data('body','educational');
-				$('#'+content_body).hide();
-				$('#educational').show();
-				$('.btn-back').data('body','educational');
-				break;
+	/*Add Colaborators*/
 
-				case 'educational':
-				$('.btn-next').data('body','copyright');
-				$('#'+content_body).hide();
-				$('#copyright').show();
-				$(this).hide();
-				$('.btn-back').data('body','copyright');
-				break;
-			}
+	$('.btn-colaborators').click(function(e){
+		e.preventDefault();
 
-		});
+		var colaboratorbox = $('.box-colaborator-clone').clone().removeClass('box-colaborator-clone').removeClass('nomostrar').addClass('box-colaborator').attr('id','divcolaborator'+count);
+		colaboratorbox.find('.box-title').text('{{trans('admin.colaborator')}} '+count);
+		colaboratorbox.find('button.btn-remove').data('parent','divcolaborator'+count);
+		colaboratorbox.find("input[id='name']").attr({'id':'name'+count,'name':'colaborator['+count+'][name]'});
+		colaboratorbox.find("input[id='lastname']").attr({'id':'lastname'+count,'name':'colaborator['+count+'][lastname]'});
+		colaboratorbox.find("input[id='email']").attr({'id':'email'+count,'name':'colaborator['+count+'][email]'});
+		colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
+		colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
+		
 
-		/*Button Back*/
+		count ++;
 
-		$(".btn-back").click(function(e) {
+		$('.content-box-colaborators').append(colaboratorbox);
+		console.log(colaboratorbox.html());
+
+	});
+
+
+/*Buttom Next*/
+$('.btn-next').click(function(e){
+	e.preventDefault();
+
+	var content_body = $('.btn-next').data('body');
+
+	switch(content_body){
+
+		case 'general-features':
+		$('.btn-next').data('body','lifecycle');
+		$('#'+content_body).hide();
+		$('#lifecycle').show();
+		$('.btn-back').data('body','lifecycle').show();
+		break;
+
+		case 'lifecycle':
+		$('.btn-next').data('body','educational');
+		$('#'+content_body).hide();
+		$('#educational').show();
+		$('.btn-back').data('body','educational');
+		break;
+
+		case 'educational':
+		$('.btn-next').data('body','copyright');
+		$('#'+content_body).hide();
+		$('#copyright').show();
+		$(this).hide();
+		$('.btn-back').data('body','copyright');
+		break;
+	}
+
+});
+
+/*Button Back*/
+
+$(".btn-back").click(function(e) {
 			// body...
 			e.preventDefault();
 
@@ -469,13 +536,13 @@
 
 		});
 
-		$('#form_register').on('click','button.btn-remove',function(e) {
+$('#form_register').on('click','button.btn-remove',function(e) {
 			// body...
 			e.preventDefault();
 
 			$('#'+$(this).data('parent')).remove();
 		});
 
-	});
+});
 </script>
 @endpush

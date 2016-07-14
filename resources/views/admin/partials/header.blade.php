@@ -28,7 +28,7 @@
 								<li>
 									<a href="#">
 										<div class="pull-left">
-											<img src="http://sisgenoaca.app/assets/imgs/image_profile.jpg" alt="User Image" class="img-circle">
+											<img src="{{ Auth::user()->avatar_image }}" alt="User Image" class="img-circle">
 										</div>
 										<h4>
 											Support Team

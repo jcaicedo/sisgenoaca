@@ -24,6 +24,12 @@ class GeneradorController extends Controller
 		return view('admin.oaca.register');
 	}*/
 
+	function postRegister(Request $request){
+
+		dd($request->input());
+		return "good";
+	}
+
 	public function registro(Request $request){
 
 		$data=$request->input('obj');
