@@ -1,6 +1,6 @@
 <?php
 namespace App\Http\Controllers\Admin;
-use App\RegistroOaca;
+use App\Models\RegistroOaca;
 use App\Content;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class GeneradorController extends Controller
 {
 
-
+	const USER_ID = '45';
 
 	function index(){
 	}
@@ -26,7 +26,15 @@ class GeneradorController extends Controller
 
 	function postRegister(Request $request){
 
-		// dd($request->input());
+		$content = serialize($request->input());
+
+		$content_register = new RegistroOaca();
+
+		$content_register->registro_content = $content;
+		$content_register->title_oaca = $request->input('title');
+		$content_register->user_id = 28;
+		$content_register->save();
+
 		return view('admin.oaca.objetos.create_oaca');
 	}
 
