@@ -9,6 +9,8 @@ class RegistroOaca extends Model
 {
 
 	protected $table = 'registrooaca';
+	protected $primaryKey = 'id';
+	public $incrementing = false;
 
 	protected $fillable = [
 	'content_register',
@@ -16,7 +18,7 @@ class RegistroOaca extends Model
 	'user_id',
 	];
 
-	protected static function boot()
+/*	protected static function boot()
 	{
 		parent::boot();
 		self::creating(function ($registro) {
@@ -24,6 +26,11 @@ class RegistroOaca extends Model
 				$registro->id = $uuid->toString();
 				return true;
 			});
+		}*/
+
+	public function parentRegistrooaca()
+	{
+		return $this->belongsTo('App\Models\RegistroOaca', 'parent');
 	}
 
 }

@@ -15,6 +15,7 @@ class GeneradorController extends Controller
 	function index(){
 	}
 
+	
 
 
 	function getRegister(){

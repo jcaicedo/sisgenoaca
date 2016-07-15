@@ -15,12 +15,13 @@ class RegistroOaca extends Migration
     {
         Schema::create('registrooaca',function (Blueprint $table){
 
-            $table->id('id')->primary();
+            $table->increments('id');
             $table->json('content_register');
             $table->integer('user_id')->unsigned();
             $table->longText('title_oaca')->required();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
+            
         });
     }
 

@@ -90,6 +90,7 @@ return [
     'copyright_restrictions' => 'Derechos de Autor y otras Restricciones',
     'copyright_description' => 'Descripción de los derechos de Autor',
 
+    'entry_required'=>'Este campo es requerido',
 
 
 

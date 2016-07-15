@@ -48,6 +48,7 @@
 								<label for="language">{{trans('admin.language')}}<span> *</span></label>
 								<div>
 									<select name="language" id="language" class="form-control" required="">
+										<option value="">Seleccione un idioma</option>
 										<option value="english">{{trans('admin.english')}}</option>
 										<option value="spanish">{{trans('admin.spanish')}}</option>
 										<option value="other">{{trans('admin.other')}}</option>
@@ -417,13 +418,16 @@
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="/vendor/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
 <style>
 	.nomostrar{display: none;}
 </style>
+
 @endpush
 
 @push('scripts')
-
+<script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript"  src="/assets/js/register/main.js" ></script>
 <script>
 
 	$(document).ready(function(){
