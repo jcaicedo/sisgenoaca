@@ -23,7 +23,7 @@
 
       <meta name="csrf-token" content="{{ csrf_token() }}">
       {{csrf_field()}}
-
+      <input type="hidden" name="register_id" value="{{$register}}">
 
 
 
@@ -136,21 +136,21 @@
  @push('styles')
  <style>
 
- .nomostrar{display:none;}
- .mostrar{display: block;}
- .btn-proccess{margin:0 auto; width: 200px;align:left;}
- .preview{display: none;}
- .mark_background{background: #88AAAA}
- .content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
- .content-preview h2{
-  color: blue;
-  text-align: center;
-}
+   .nomostrar{display:none;}
+   .mostrar{display: block;}
+   .btn-proccess{margin:0 auto; width: 200px;align:left;}
+   .preview{display: none;}
+   .mark_background{background: #88AAAA}
+   .content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+   .content-preview h2{
+    color: blue;
+    text-align: center;
+  }
 
 
-.options-textarea{
-  padding-bottom: 10px;
-}
+  .options-textarea{
+    padding-bottom: 10px;
+  }
 
 </style>
 {{-- <link type="text/css" rel="stylesheet" href="/vendor/jqueryte/dist/jquery-te-1.4.0.css"> --}}
@@ -172,12 +172,12 @@
 
 <script> 
 
-$(document).ready(function(){
+  $(document).ready(function(){
 
 
-  $(function(){
+    $(function(){
 
-    var elements = new Array();
+      var elements = new Array();
 
 
     // var textarea = $(".textarea").html();
@@ -260,28 +260,28 @@ $(document).ready(function(){
 
 
 
-});
+  });
 
-$("#form-create-oaca").on('click','button.remove-div',function (e){
+    $("#form-create-oaca").on('click','button.remove-div',function (e){
 
-  var divDelete = $(this).data('parent');
+      var divDelete = $(this).data('parent');
 
-  $("."+divDelete).remove();
+      $("."+divDelete).remove();
 
-});
+    });
 
-var textareaID;
-var content_element
+    var textareaID;
+    var content_element
 
-$( ".sortable:not(div.box-footer)" ).sortable({
-  axis: 'y',
-  opacity: 0.5,
-  tolerance: 'pointer',
-  handle: ".box-header"
+    $( ".sortable:not(div.box-footer)" ).sortable({
+      axis: 'y',
+      opacity: 0.5,
+      tolerance: 'pointer',
+      handle: ".box-header"
 
-});
+    });
 
-}); /*enddocumentReady*/
+  }); /*enddocumentReady*/
 
 
 

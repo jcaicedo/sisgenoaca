@@ -26,16 +26,17 @@ class GeneradorController extends Controller
 
 	function postRegister(Request $request){
 
-		$content = serialize($request->input());
+		//$content = serialize($request->input());
+		$content = json_encode($request->input());
 
 		$content_register = new RegistroOaca();
 
-		$content_register->registro_content = $content;
+		$content_register->content_register = $content;
 		$content_register->title_oaca = $request->input('title');
-		$content_register->user_id = 28;
+		$content_register->user_id = $request->input('user_id');
 		$content_register->save();
 
-		return view('admin.oaca.objetos.create_oaca');
+		return view('admin.oaca.objetos.create_oaca',["register"=>$content_register->id]);
 	}
 
 

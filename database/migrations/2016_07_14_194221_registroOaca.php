@@ -3,6 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+
 class RegistroOaca extends Migration
 {
     /**
@@ -14,8 +15,8 @@ class RegistroOaca extends Migration
     {
         Schema::create('registrooaca',function (Blueprint $table){
 
-            $table->uuid('id');
-            $table->text('registro_content');
+            $table->id('id')->primary();
+            $table->json('content_register');
             $table->integer('user_id')->unsigned();
             $table->longText('title_oaca')->required();
             $table->timestamps();
