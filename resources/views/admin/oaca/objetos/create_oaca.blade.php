@@ -15,7 +15,6 @@
         </a>
       </div>
 
-
     </div>
     <div class="content sortable">
 
@@ -131,6 +130,9 @@
 
 
  @endsection
+
+
+
 
 
  @push('styles')

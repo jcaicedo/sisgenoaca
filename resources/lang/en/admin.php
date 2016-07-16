@@ -12,7 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-    
+    'introduction' => 'Introducción',
     'createOaca' => 'Create Oaca',
     'process'    => 'Procesar',
     'dashboard' => 'Dashboard',

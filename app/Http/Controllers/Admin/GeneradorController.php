@@ -11,6 +11,7 @@ class GeneradorController extends Controller
 {
 
 	const USER_ID = '45';
+	const UUID_REGISTER = '410a43a9-7e67-359b-9b51-0c8c9eb4e8e6';
 
 	function index(){
 	}
@@ -37,7 +38,7 @@ class GeneradorController extends Controller
 		$content_register->user_id = $request->input('user_id');
 		$content_register->save();
 
-		return view('admin.oaca.objetos.create_oaca',["register"=>$content_register->id]);
+		return view('admin.oaca.objetos.create_oaca',["register"=>$content_register->id, "area"=>"introduction"]);
 	}
 
 
@@ -86,6 +87,10 @@ class GeneradorController extends Controller
 			return 'si';
 		}
 		return $request->input('obj');
+	}
+
+	function getIntroduction(){
+		return view('admin.oaca.objetos.introduction.add');
 	}
 
 }

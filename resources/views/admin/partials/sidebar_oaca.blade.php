@@ -49,12 +49,15 @@
 				</a>
 
 			</li>
+
+			@if ($area == 'introduction')
 			<li id="uploadimage" data-element-option="uploadimage" class="option">
 				<a href="#">
 					<i class="fa fa-file-image-o"></i>
 					<span>{{trans('menu.uploadimage')}}</span>
 				</a>
 			</li>
+			@endif
 
 
 		</ul>

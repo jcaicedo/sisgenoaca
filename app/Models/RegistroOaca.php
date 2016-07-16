@@ -18,15 +18,15 @@ class RegistroOaca extends Model
 	'user_id',
 	];
 
-/*	protected static function boot()
+	protected static function boot()
 	{
 		parent::boot();
 		self::creating(function ($registro) {
-				$uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $registro->title);// name-based uuid
+				$uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $registro->title_oaca);// name-based uuid
 				$registro->id = $uuid->toString();
 				return true;
 			});
-		}*/
+	}
 
 	public function parentRegistrooaca()
 	{

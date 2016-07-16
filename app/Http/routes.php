@@ -52,21 +52,6 @@ Route::group(['middleware' => 'web'],function(){
 
             Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
 
-
-
-
-
-
-            
-                // Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
-                // Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
-
-
-            
-
-
-
-
         });
 
     });
