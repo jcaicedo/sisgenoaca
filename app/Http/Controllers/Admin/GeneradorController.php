@@ -90,7 +90,16 @@ class GeneradorController extends Controller
 	}
 
 	function getIntroduction(){
-		return view('admin.oaca.objetos.introduction.add');
+		return view('admin.oaca.objetos.introduction.add',[
+			"register_id" =>'410a43a9-7e67-359b-9b51-0c8c9eb4e8e6',
+			"area"=>"introduction"]);
+	}
+
+	function postIntroduction(Request $request){
+
+		dd($request->input());
+
+		return response()->json(['result'=>'ok']);
 	}
 
 }

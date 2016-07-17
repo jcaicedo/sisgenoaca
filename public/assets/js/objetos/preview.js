@@ -41,7 +41,7 @@
     break;
 
     case 'image':
-    $(".content-preview").append('<img src="" alt="'+input.value+'" id="loadimage'+numImage+'" height="100" width="100">')
+    $(".content-preview").append('<br><img src="" alt="'+input.value+'" id="loadimage'+numImage+'" height="100" width="100"><br>');
 
     $("#"+input.value).html(function(){
      readImage(this,numImage);
@@ -53,7 +53,8 @@
 
 });
 
- $("#form-create-oaca").hide();
+ $(".sortable").hide();
+ $(".box-header-btn").hide();
  $(".preview").show();
 
 
@@ -63,24 +64,13 @@
  $('#preview').click(function(e){
   e.preventDefault();
   $(".content-preview").html("");
-  $("#form-create-oaca").show();
+  $(".sortable").show();
+  $('.box-header-btn').show();
   $(".preview").hide();
 
 });
 
- $('#processit').click(function(e) {
-  /* Act on the event */
 
-  console.log($('.content-preview').html());
-  // var token=$('[name="_token"]').val();
-  // var contenido = $('.content-preview').html();
-  // $.post('/admin/oaca/objetos/createoaca',{
-  //   content: contenido,
-  //   _token: token
-  // }).done(function(data){
-  //   console.log(data);
-  // });
-});
 
 
 
