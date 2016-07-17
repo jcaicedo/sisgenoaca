@@ -18,12 +18,12 @@
 	<form action="" method="post" onSubmit="submitFormOaca()" role="form" id="form-create-oaca" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-		<div class="content sortable">
+		<div class="content sortable" id="content-form">
 			
 			<input type="hidden" name="register_id" value="{{$register_id}}">
 			
 
-			{{-- <input type="hidden" name="elementos" value="" id="hidden_elementos"> --}}
+			<input type="hidden" name="elementos" value="" id="hidden_elementos">
 
 		</div>
 
@@ -76,7 +76,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<input type="text" class="form-control"> 
+					<input type="text" class="form-control componente"> 
 				</div>
 			</div>
 		</div>
@@ -107,7 +107,7 @@
 		<!--modulo image-->
 
 
-		<div class="uploadimage nomostrar">
+		<div class="uploadimage uploadimage-clone nomostrar">
 			<div class="box">
 				<div class="box-header with-border">
 					<h3 class="box-title">Image</h3>
@@ -222,57 +222,54 @@
             	$(".remove-div-"+count).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
 
-        /*    	elements[count]="title";
-        $("#hidden_elementos").val(elements);*/
-        count ++;
 
-        break;
+            	count ++;
 
-        case 'textarea':
-        var textarea = $(".textareaclone").clone();
-        $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
-        $(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput").after("<input type='hidden' name='textarea' id='input-textarea"+count+"' value='textarea"+count+"'>");
-        $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+            	break;
 
-
-        $('#textarea'+count).summernote({
-        	height: 300,               
-        	minHeight: null,             
-        	maxHeight: null,             
-        	focus: true,
-        	maximumImageFileSize: 512*1024  
-        });
+            	case 'textarea':
+            	var textarea = $(".textareaclone").clone();
+            	$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
+            	$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput").after("<input type='hidden' name='textarea' id='input-textarea"+count+"' value='textarea"+count+"'>");
+            	$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
+            	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
 
 
-
-         /*   	elements[count]="textarea";
-         $("#hidden_elementos").val(elements);*/
-         count ++;
-
-         break;
-
-         case 'uploadimage':
-         var uploadimage = $("div.uploadimage").first().clone();
-         $(uploadimage).removeClass("nomostrar").addClass("remove-div-"+count).appendTo(this)
-
-         $(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'image-'+count}).addClass("myinput").after("<input type='hidden' name='image' value='image-"+count+"'>");
-         $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-
-      /*      	elements[count]="image";
-      $("#hidden_elementos").val(elements);*/
-      count ++;
-
-      break;
+            	$('#textarea'+count).summernote({
+            		height: 300,               
+            		minHeight: null,             
+            		maxHeight: null,             
+            		focus: true,
+            		maximumImageFileSize: 512*1024  
+            	});
 
 
-  }
+            	count ++;
+
+            	break;
+
+            	case 'uploadimage':
+            	var uploadimage = $("div.uploadimage-clone").clone();
+            	$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo(this)
+
+            	$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'imagep-'+count}).addClass("myinput").after("<input type='hidden' id='image-"+count+"' name='image' value='imagep-"+count+"'>");
+            	
+            	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+            	$("#image-"+count).addClass("componente");
+
+            	count ++;
+
+            	break;
+
+
+            }
 
 
 
 
-}
+        }
 
-});
+    });
 
 				$("#form-create-oaca").on('click','button.remove-div',function (e){
 
@@ -329,20 +326,52 @@
 				});*/
 
 				function submitFormOaca(){
-					var postData = $('#form-create-oaca').serializeArray();
+					var count=0;
+					var inputElements=[];
 
-					$.each(postData, function(index, input){
-
-						var   element = input.name;
-
-						if(input.name == 'textarea'){
-							var content_textarea = $('#'+input.value).summernote('code');
-							$('#input-'+input.value).val(content_textarea);
-						}
+					$('div#content-form input.componente').each( function(index, element){
 
 						
+						var type_element = $(this).attr('name');
+
+
+						switch(type_element){
+
+							case 'title':
+
+							inputElements.push('title');
+							$(this).attr({'name':'title-'+count});
+							count ++;
+
+							break;
+
+							case 'textarea':
+
+							inputElements.push('textarea');
+							var summernoteid = $(this).val();
+							var content_textarea = $('#'+summernoteid).summernote('code');
+							$(this).val(content_textarea);
+							$(this).attr({'name':'textarea-'+count});
+							count ++;
+
+							break;
+
+							case 'image':
+
+							inputElements.push('image');
+							console.log($(this));
+							$(this).attr({'name':'image-'+count});
+							$('#'+$(this).val()).attr({'name':'image-'+count});
+							console.log($(this));
+							count ++;
+
+							break;
+						}
 
 					});
+
+
+					$('#hidden_elementos').val(inputElements);
 				}
 
 

@@ -25,6 +25,7 @@ class ElementsContents extends Migration
             ->on('registrooaca')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->timestamps();
 
 
 

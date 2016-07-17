@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Admin;
 use App\Models\RegistroOaca;
+use App\Models\ElementsOaca;
 use App\Content;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -10,8 +11,7 @@ use Illuminate\Support\Facades\Auth;
 class GeneradorController extends Controller
 {
 
-	const USER_ID = '45';
-	const UUID_REGISTER = '410a43a9-7e67-359b-9b51-0c8c9eb4e8e6';
+
 
 	function index(){
 	}
@@ -91,14 +91,80 @@ class GeneradorController extends Controller
 
 	function getIntroduction(){
 		return view('admin.oaca.objetos.introduction.add',[
-			"register_id" =>'410a43a9-7e67-359b-9b51-0c8c9eb4e8e6',
-			"area"=>"introduction"]);
+			"register_id" =>ElementsOaca::UUID_REGISTER,
+			"area"=>ElementsOaca::INTRODUCTION]);
 	}
 
 	function postIntroduction(Request $request){
 
-		dd($request->input());
+		$position = 0;
+		$imagesarray = array();
+		
 
+		foreach ($request->input() as $key => $value) {
+
+			$typeelement = explode('-',$key);
+
+
+
+			switch ($typeelement[0]) {
+
+				case 'title':
+					# code...
+				$element = new ElementsOaca();
+				$element->type_element ='title';
+				$element->content = $value;
+				$element->area = ElementsOaca::INTRODUCTION;
+				$element->position_order = $position;
+				$element->register_id = $request->input('register_id');
+				$element->save();
+				$position++;
+				break;
+
+				case 'textarea':
+
+				$element = new ElementsOaca();
+				$element->type_element ='textarea';
+				$element->content = $value;
+				$element->area = ElementsOaca::INTRODUCTION;
+				$element->position_order = $position;
+				$element->register_id = $request->input('register_id');
+				$element->save();
+				$position++;
+
+				break;
+
+				case 'image':
+
+				$element = new ElementsOaca();
+				$element->type_element ='image';
+				$element->area = ElementsOaca::INTRODUCTION;
+				$element->position_order = $position;
+				$element->register_id = $request->input('register_id');
+
+				$filebackground = $request->file($key);
+				$namebackground = $filebackground->getClientOriginalName();
+				$public_path = public_path();		
+				$url = $public_path.'/assets/imgs/contents-img/introduction';
+				$filebackground->move($url, $namebackground);
+				$element->content = '/assets/imgs/contents-img/introduction/'.$namebackground;
+
+				$element->save();
+				$position++;
+
+				break;
+
+				default:
+					# code...
+				break;
+			}
+
+
+
+		}
+
+
+		
 		return response()->json(['result'=>'ok']);
 	}
 
