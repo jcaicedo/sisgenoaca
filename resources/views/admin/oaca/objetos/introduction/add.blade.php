@@ -15,7 +15,7 @@
 			</a>
 		</div>
 	</div>
-	<form action="" method="post" onSubmit="myFunction()" role="form" id="form-create-oaca" enctype="multipart/form-data" >
+	<form action="" method="post" onSubmit="submitFormOaca()" role="form" id="form-create-oaca" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<div class="content sortable">
@@ -231,7 +231,7 @@
         case 'textarea':
         var textarea = $(".textareaclone").clone();
         $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
-        $(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput").after("<input type='hidden' name='textarea' value='textarea"+count+"'>");
+        $(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput").after("<input type='hidden' name='textarea' id='input-textarea"+count+"' value='textarea"+count+"'>");
         $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
 
 
@@ -328,13 +328,24 @@
 
 				});*/
 
-				function myFunction(){
-					alert('hola');
+				function submitFormOaca(){
+					var postData = $('#form-create-oaca').serializeArray();
+
+					$.each(postData, function(index, input){
+
+						var   element = input.name;
+
+						if(input.name == 'textarea'){
+							var content_textarea = $('#'+input.value).summernote('code');
+							$('#input-'+input.value).val(content_textarea);
+						}
+
+						
+
+					});
 				}
 
-				$( "#form-create-oaca" ).submit(function( event ) {
-					alert('hola');
-				});
+
 
 			</script>
 			<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
