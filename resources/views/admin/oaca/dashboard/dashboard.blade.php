@@ -3,6 +3,12 @@
 @section('content')
 
 <div class="content-wrapper">
+	@if (Session::has('flash_message'))
+	<div class="alert alert-success alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<p>{{Session::get('flash_message')}}</p>
+	</div>
+	@endif
 	
 	<section class="content-header">
 		<h1>{{trans('admin.dashboard')}}</h1>
@@ -38,16 +44,16 @@
 
 	</section>
 
-
+	
 </div>
 
 @endsection
 
 @push('styles')
 <style>
-.btn-dashboard{
-	color: white;
-}
+	.btn-dashboard{
+		color: white;
+	}
 </style>
 
 @endpush

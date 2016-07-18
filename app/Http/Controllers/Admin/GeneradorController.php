@@ -245,9 +245,9 @@ class GeneradorController extends Controller
 
 		}
 
-
+		$request->session()->flash('flash_message', trans('admin.oaca_created'));
 		
-		return response()->json(['result'=>'ok']);
+		return view('admin.oaca.dashboard.dashboard');
 
 
 	}
