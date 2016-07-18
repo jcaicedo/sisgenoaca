@@ -38,7 +38,7 @@ class GeneradorController extends Controller
 		$content_register->user_id = $request->input('user_id');
 		$content_register->save();
 
-		return view('admin.oaca.objetos.create_oaca',["register"=>$content_register->id, "area"=>"introduction"]);
+		return view('admin.oaca.objetos.introduction.add',["register_id"=>$content_register->id, "area"=>ElementsOaca::INTRODUCTION]);
 	}
 
 
@@ -165,7 +165,91 @@ class GeneradorController extends Controller
 
 
 		
+		return view('admin.oaca.objetos.development.add',[
+			"register_id" =>$request->input('register_id'),
+			"area"=>ElementsOaca::DEVELOPMENT]);
+	}
+
+	function getDevelopment(){
+		return view('admin.oaca.objetos.development.add',[
+			"register_id" =>ElementsOaca::UUID_REGISTER,
+			"area"=>ElementsOaca::DEVELOPMENT]);
+	}
+
+	function postDevelopment(Request $request){
+		
+
+		$position = 0;
+		$imagesarray = array();
+		
+
+		foreach ($request->input() as $key => $value) {
+
+			$typeelement = explode('-',$key);
+
+
+
+			switch ($typeelement[0]) {
+
+				case 'title':
+					# code...
+				$element = new ElementsOaca();
+				$element->type_element ='title';
+				$element->content = $value;
+				$element->area = ElementsOaca::DEVELOPMENT;
+				$element->position_order = $position;
+				$element->register_id = $request->input('register_id');
+				$element->save();
+				$position++;
+				break;
+
+				case 'textarea':
+
+				$element = new ElementsOaca();
+				$element->type_element ='textarea';
+				$element->content = $value;
+				$element->area = ElementsOaca::DEVELOPMENT;
+				$element->position_order = $position;
+				$element->register_id = $request->input('register_id');
+				$element->save();
+				$position++;
+
+				break;
+
+				case 'image':
+
+				$element = new ElementsOaca();
+				$element->type_element ='image';
+				$element->area = ElementsOaca::DEVELOPMENT;
+				$element->position_order = $position;
+				$element->register_id = $request->input('register_id');
+
+				$filebackground = $request->file($key);
+				$namebackground = $filebackground->getClientOriginalName();
+				$public_path = public_path();		
+				$url = $public_path.'/assets/imgs/contents-img/development';
+				$filebackground->move($url, $namebackground);
+				$element->content = '/assets/imgs/contents-img/development/'.$namebackground;
+
+				$element->save();
+				$position++;
+
+				break;
+
+				default:
+					# code...
+				break;
+			}
+
+
+
+		}
+
+
+		
 		return response()->json(['result'=>'ok']);
+
+
 	}
 
 }

@@ -13,6 +13,7 @@ return [
     |
     */
     'introduction' => 'Introducción',
+    'development' => 'Desarrollo',
     'createOaca' => 'Create Oaca',
     'process'    => 'Procesar',
     'dashboard' => 'Dashboard',
