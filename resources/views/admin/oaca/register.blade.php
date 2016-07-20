@@ -37,12 +37,12 @@
 
 							<div class="form-group col-xs-12">
 								<label for="identificator">{{trans('admin.identificator')}}<span> *</span></label>
-								<input type="text" class="form-control" id="identificator" name="identificator" placeholder="{{trans('admin.placeholderIdentificator')}}">
+								<input type="text" class="form-control" id="identificator" name="identificator" placeholder="{{trans('admin.placeholderIdentificator')}}" value="{{$content_register->identificator}}">
 							</div>
 
 							<div class="form-group col-xs-12">
 								<label for="title">{{trans('admin.title')}}<span> *</span></label>
-								<input type="text" class="form-control" id="title" name="title" placeholder="{{trans('admin.placeholderTitle')}}">
+								<input type="text" class="form-control" id="title" name="title" placeholder="{{trans('admin.placeholderTitle')}}" value="{{$content_register->title}}">
 							</div>
 
 							<div class="form-group col-xs-12">
@@ -50,16 +50,16 @@
 								<div>
 									<select name="language" id="language" class="form-control" required="">
 										<option value="">Seleccione un idioma</option>
-										<option value="english">{{trans('admin.english')}}</option>
-										<option value="spanish">{{trans('admin.spanish')}}</option>
-										<option value="other">{{trans('admin.other')}}</option>
+										<option value="english" {{$content_register->language =='english'?'selected':''}}>{{trans('admin.english')}}</option>
+										<option value="spanish" {{$content_register->language =='spanish'?'selected':''}} >{{trans('admin.spanish')}}</option>
+										<option value="other" {{$content_register->language =='other'?'selected':''}} >{{trans('admin.other')}}</option>
 									</select>
 								</div>
 							</div>
 
 							<div class="form-group col-xs-12">
 								<label for="description">{{trans('admin.description')}}<span> *</span></label>
-								<textarea id="description" name="description" class="form-control" cols="30" rows="10"></textarea>
+								<textarea id="description" name="description" class="form-control" cols="30" rows="10">{{$content_register->description}}</textarea>
 							</div>
 
 							<div class="form-group box-wordskeys">
@@ -68,12 +68,24 @@
 									<i class="fa fa-plus"></i>
 								</button>
 							</div>
+							@if($content_register->words_key)
+							<div class="form-group col-md-12 box-wordkey">
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="words_key1" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$content_register->words_key[0]}}">
+								</div>
+							</div>
+
+							@foreach()
+							@endforeach
+							@else
 
 							<div class="form-group col-md-12 box-wordkey">
 								<div class="col-md-6">
 									<input type="text" class="form-control" id="words_key1" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
 								</div>
 							</div>
+
+							@endif
 						</div>
 
 					</div>

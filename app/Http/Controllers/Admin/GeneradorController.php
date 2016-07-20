@@ -20,7 +20,19 @@ class GeneradorController extends Controller
 
 
 	function getRegister(){
-		return view('admin.oaca.register');
+		$registro =  new RegistroOaca();
+		//Hacer json_decode del content->register para convertir el contenido del registro en un array
+		$content_regiter=json_decode($registro->content_register);
+
+		return view('admin.oaca.register',['regitro'=>$registro,'content_regiter'=>$content_regiter]);
+	}
+
+	function getEditRegister(){
+		$registro =  RegistroOaca::find(RegistroOaca::REGISTROID);
+		//Hacer json_decode del content->register para convertir el contenido del registro en un array
+		$content_regiter=json_decode($registro->content_register);
+		return view('admin.oaca.register',['regitro'=>$registro,'content_register'=>$content_regiter]);
+
 	}
 /*	function getRegisteraux(){
 		return view('admin.oaca.register');

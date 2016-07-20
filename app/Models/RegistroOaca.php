@@ -8,6 +8,7 @@ use Ramsey\Uuid\Uuid;
 class RegistroOaca extends Model
 {
 
+	const REGISTROID = "26de1390-eb77-3ec7-8cc4-bc46578794e4";
 	protected $table = 'registrooaca';
 	protected $primaryKey = 'id';
 	public $incrementing = false;
