@@ -74,8 +74,17 @@
 									<input type="text" class="form-control" id="words_key1" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$content_register->words_key[0]}}">
 								</div>
 							</div>
+							
+							@foreach($content_register->words_key as $key=>$word)
+							@if($key == 0)
+							<div class="form-group col-md-12 box-wordkey">
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="words_key1" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$content_register->words_key[0]}}">
+								</div>
+							</div>
+							@else
 
-							@foreach()
+							@endif
 							@endforeach
 							@else
 
