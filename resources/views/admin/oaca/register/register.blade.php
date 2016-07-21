@@ -324,7 +324,7 @@
 						</div>
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="copyright_restrictions">{{trans('admin.copyright_restrictions')}}</label>
-							<select name="cost" id="copyright_restrictions" class="form-control">
+							<select name="copyright_restrictions" id="copyright_restrictions" class="form-control">
 								<option value="yes">{{trans('admin.yes')}}</option>
 								<option value="not">{{trans('admin.not')}}</option>
 							</select>

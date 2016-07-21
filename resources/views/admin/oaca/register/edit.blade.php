@@ -198,42 +198,37 @@
 							<div class="col-md-9 col-xs-12">
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="evaluation_test" {{$}}>{{trans('admin.evaluation_test')}}
+										<input type="checkbox" name="learning_resources[]" value="evaluation_test" {{ in_array("evaluation_test",$content_register->learning_resources)?'checked':''}}>{{trans('admin.evaluation_test')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="close_homework">{{trans('admin.close_homework')}}
+										<input type="checkbox" name="learning_resources[]" value="close_homework" {{ in_array("close_homework",$content_register->learning_resources)?'checked':''}}>{{trans('admin.close_homework')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="open_homework">{{trans('admin.open_homework')}}
+										<input type="checkbox" name="learning_resources[]" value="open_homework" {{ in_array("open_homework",$content_register->learning_resources)?'checked':''}} >{{trans('admin.open_homework')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="research_material">{{trans('admin.research_material')}}
+										<input type="checkbox" name="learning_resources[]" value="research_material" {{ in_array("research_material",$content_register->learning_resources)?'checked':''}} >{{trans('admin.research_material')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="manual">{{trans('admin.manual')}}
+										<input type="checkbox" name="learning_resources[]" value="manual" {{ in_array("manual",$content_register->learning_resources)?'checked':''}} >{{trans('admin.manual')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="source_information">{{trans('admin.source_information')}}
+										<input type="checkbox" name="learning_resources[]" value="source_information" {{ in_array("source_information",$content_register->learning_resources)?'checked':''}} >{{trans('admin.source_information')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="source_information">{{trans('admin.source_information')}}
-									</label>
-								</div>
-								<div class="checkbox">
-									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="tool">{{trans('admin.tool')}}
+										<input type="checkbox" name="learning_resources[]" value="tool" {{ in_array("tool",$content_register->learning_resources)?'checked':''}} >{{trans('admin.tool')}}
 									</label>
 								</div>
 
@@ -248,28 +243,28 @@
 
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="destination_rol[]" value="student">{{trans('admin.student')}}
+										<input type="checkbox" name="destination_rol[]" value="student" {{ in_array("student",$content_register->destination_rol)?'checked':''}} >{{trans('admin.student')}}
 									</label>
 								</div>
 
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="destination_rol[]" value="student">{{trans('admin.student')}}
+										<input type="checkbox" name="destination_rol[]" value="student" {{ in_array("student",$content_register->destination_rol)?'checked':''}} >{{trans('admin.student')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="destination_rol[]" value="professor">{{trans('admin.professor')}}
+										<input type="checkbox" name="destination_rol[]" value="professor" {{ in_array("professor",$content_register->destination_rol)?'checked':''}} >{{trans('admin.professor')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="destination_rol[]" value="author">{{trans('admin.author')}}
+										<input type="checkbox" name="destination_rol[]" value="author" {{ in_array("author",$content_register->destination_rol)?'checked':''}} >{{trans('admin.author')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="destination_rol[]" value="manager">{{trans('admin.manager')}}
+										<input type="checkbox" name="destination_rol[]" value="manager" {{ in_array("manager",$content_register->destination_rol)?'checked':''}} >{{trans('admin.manager')}}
 									</label>
 								</div>
 
@@ -283,37 +278,37 @@
 
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="context[]" value="children_educaction">{{trans('admin.children_educaction')}}
+										<input type="checkbox" name="context[]" value="children_educaction" {{ in_array("children_educaction",$content_register->context)?'checked':''}} >{{trans('admin.children_educaction')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="context[]" value="primary_education">{{trans('admin.primary_education')}}
+										<input type="checkbox" name="context[]" value="primary_education" {{ in_array("primary_education",$content_register->context)?'checked':''}} >{{trans('admin.primary_education')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="context[]" value="highschool_education">{{trans('admin.highschool_education')}}
+										<input type="checkbox" name="context[]" value="highschool_education" {{ in_array("highschool_education",$content_register->context)?'checked':''}} >{{trans('admin.highschool_education')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="context[]" value="bachillerato">{{trans('admin.bachillerato')}}
+										<input type="checkbox" name="context[]" value="bachillerato" {{ in_array("bachillerato",$content_register->context)?'checked':''}} >{{trans('admin.bachillerato')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="context[]" value="professional">{{trans('admin.professional')}}
+										<input type="checkbox" name="context[]" value="professional" {{ in_array("professional",$content_register->context)?'checked':''}} >{{trans('admin.professional')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="context[]" value="college">{{trans('admin.college')}}
+										<input type="checkbox" name="context[]" value="college" {{ in_array("college",$content_register->context)?'checked':''}} >{{trans('admin.college')}}
 									</label>
 								</div>
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="context[]" value="postgraduate">{{trans('admin.postgraduate')}}
+										<input type="checkbox" name="context[]" value="postgraduate" {{ in_array("postgraduate",$content_register->context)?'checked':''}} >{{trans('admin.postgraduate')}}
 									</label>
 								</div>
 
@@ -325,7 +320,7 @@
 						<div class="form-group col-md-12">
 							<label for="age_range">{{trans('admin.age_range')}}</label>
 							<br>
-							<input type="number" name="age_range" id="age_range" class="from-control" placeholder="{{trans('admin.placeholderage_range')}}" value="0">
+							<input type="number" name="age_range" id="age_range" class="from-control" placeholder="{{trans('admin.placeholderage_range')}}" value="{{$content_register->age_range}}">
 						</div>
 					</div>
 					<!--/-box-body Educational -->
@@ -338,20 +333,20 @@
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="cost">{{trans('admin.cost')}}</label>
 							<select name="cost" id="cost" class="form-control">
-								<option value="yes" default>{{trans('admin.yes')}}</option>
-								<option value="not">{{trans('admin.not')}}</option>
+								<option value="yes" {{$content_register->cost=='yes'?'selected':''}}>{{trans('admin.yes')}}</option>
+								<option value="not" {{$content_register->cost=='not'?'selected':''}}>{{trans('admin.not')}}</option>
 							</select>
 						</div>
 						<div class="form-group col-md-6 col-xs-12">
 							<label for="copyright_restrictions">{{trans('admin.copyright_restrictions')}}</label>
-							<select name="cost" id="copyright_restrictions" class="form-control">
+							<select name="copyright_restrictions" id="copyright_restrictions" class="form-control">
 								<option value="yes">{{trans('admin.yes')}}</option>
 								<option value="not">{{trans('admin.not')}}</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="copyright_description">{{trans('admin.copyright_description')}}</label><span style="color:red;"> *</span>
-							<textarea class="form-control" name="copyright_description" id="copyright_description" cols="30" rows="10"></textarea>
+							<textarea class="form-control" name="copyright_description" id="copyright_description" cols="30" rows="10">{{$content_register->copyright_description}}</textarea>
 						</div>
 					</div>
 
