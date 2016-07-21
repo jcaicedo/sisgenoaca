@@ -69,21 +69,24 @@
 								</button>
 							</div>
 							@if($content_register->words_key)
-							<div class="form-group col-md-12 box-wordkey">
-								<div class="col-md-6">
-									<input type="text" class="form-control" id="words_key1" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$content_register->words_key[0]}}">
-								</div>
-							</div>
+							
 							
 							@foreach($content_register->words_key as $key=>$word)
 							@if($key == 0)
-							<div class="form-group col-md-12 box-wordkey">
+							<div class="form-group col-md-12 box-wordkey" id="divwordkey{{$key+1}}">
 								<div class="col-md-6">
-									<input type="text" class="form-control" id="words_key1" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$content_register->words_key[0]}}">
+									<input type="text" class="form-control" id="words_key1" name="words_key[]"  placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$word}}">
 								</div>
 							</div>
 							@else
-
+							<div class="form-group col-md-12 box-wordkey" id="divwordkey{{$key+1}}" >
+								<div class="col-md-6">
+									<input type="text" class="form-control" id="words_key{{$key+1}}" name="words_key[]"  placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$word}}">
+								</div>
+								<button type="button" class="btn btn-box-tool btn-remove" data-parent="divwordkey{{$key+1}}">
+									<i class="fa fa-close"></i>
+								</button>
+							</div>
 							@endif
 							@endforeach
 							@else
@@ -100,14 +103,13 @@
 					</div>
 					<!--/-box-body-->
 
-					<!--CICLO DE VIDA -->
 
 					<div class="box-body nomostrar" id="lifecycle">
 						<h4>{{trans('admin.lifecycle')}}</h4>
 						<br>
 						<div class="form-group col-xs-12 col-sm-6">
 							<label for="version">{{trans('admin.version')}}<span> *</span></label>
-							<input type="text" class="form-control" id="version" name="version" placeholder="{{trans('admin.placeholderVersion')}}">
+							<input type="text" class="form-control" id="version" name="version" placeholder="{{trans('admin.placeholderVersion')}}" value="{{$content_register->version}}">
 						</div>
 
 						<div class="form-group col-xs-12 col-sm-6">
