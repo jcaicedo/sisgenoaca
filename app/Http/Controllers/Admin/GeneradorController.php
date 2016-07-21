@@ -24,19 +24,6 @@ class GeneradorController extends Controller
 
 		return view('admin.oaca.register.register');
 	}
-
-	function getEditRegister(){
-		$registro =  RegistroOaca::find(RegistroOaca::REGISTROID);
-		//Hacer json_decode del content->register para convertir el contenido del registro en un array
-		$content_regiter=json_decode($registro->content_register);
-		//dd($content_regiter);
-		return view('admin.oaca.register.edit',['regitro'=>$registro,'content_register'=>$content_regiter]);
-
-	}
-/*	function getRegisteraux(){
-		return view('admin.oaca.register');
-	}*/
-
 	function postRegister(Request $request){
 
 		//$content = serialize($request->input());
@@ -51,6 +38,35 @@ class GeneradorController extends Controller
 
 		return view('admin.oaca.objetos.introduction.add',["register_id"=>$content_register->id, "area"=>ElementsOaca::INTRODUCTION]);
 	}
+
+	//////////////////////////////////////////////////////////////////
+
+	function getEditRegister(){
+		$registro =  RegistroOaca::find(RegistroOaca::REGISTROID);
+		//Hacer json_decode del content->register para convertir el contenido del registro en un array
+		$content_regiter=json_decode($registro->content_register);
+		//dd($content_regiter);
+		return view('admin.oaca.register.edit',['registro'=>$registro,'content_register'=>$content_regiter]);
+
+	}
+
+	function postEditRegister(Request $request){
+		$register_edited = RegistroOaca::find($request->input('register_id'));
+		$content = json_encode($request->input());
+		$register_edited->content_register = $content;
+		$register_edited->title_oaca = $request->input('title');
+		$register_edited->user_id = $request->input('user_id');
+		$register_edited->save();
+
+		return response()->json(["response"=>"ok"]);
+
+
+	}
+/*	function getRegisteraux(){
+		return view('admin.oaca.register');
+	}*/
+
+
 
 
 	public function postCreateoaca(Request $request){

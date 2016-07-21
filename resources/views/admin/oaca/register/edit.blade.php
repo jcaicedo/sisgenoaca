@@ -30,6 +30,7 @@
 
 					<form  method="post" id="form_register" role="form">
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+						<input type="hidden" name="register_id" value="{{$registro->id}}">
 						<div class="box-body" id="general-features">
 							<h4>{{trans('admin.generalfeatures')}}</h4>
 							<section data-step="0"></section>
@@ -134,10 +135,14 @@
 							<div class="content-box-colaborators">
 								<div class="box box-colaborator" >
 									<div class="box-header">
-										<h6 class="box-title">{{trans('admin.colaborator')}} 1</h6>
-										<button type="button" class="btn btn-box-tool btn-remove">
-											<i class="fa fa-close"></i>
-										</button>
+										<h6 class="box-title">{{trans('admin.colaborator')}} {{$key}}</h6>
+										@if($key != 0 )
+										<div class="box-tools pull-right">
+											<button type="button" class="btn btn-box-tool btn-remove">
+												<i class="fa fa-close"></i>
+											</button>
+										</div>
+										@endif
 									</div>
 									<br>
 									<div class="box-body">
@@ -157,7 +162,7 @@
 
 											<div class="col-md-4">
 												<label for="name">{{trans('admin.name')}} <span>*</span> </label>
-												<input type="text" name="colaborator['{{$key}}'][name]" id="name{{$key}}" class="form-control" placeholder="{{trans('admin.placeholdername')}}" value="{{$colaborator->name}}">
+												<input type="text" name="colaborator[{{$key}}][name]" id="name{{$key}}" class="form-control" placeholder="{{trans('admin.placeholdername')}}" value="{{$colaborator->name}}">
 											</div>
 											<div class="col-md-4">
 												<label for="lastname">{{trans('admin.lastname')}} <span>*</span> </label>
