@@ -102,7 +102,7 @@
 
 					</div>
 					<!--/-box-body-->
-
+					<!---CICLO DE VIDA-->
 
 					<div class="box-body nomostrar" id="lifecycle">
 						<h4>{{trans('admin.lifecycle')}}</h4>
@@ -116,70 +116,68 @@
 							<label for="state">{{trans('admin.state')}}<span> *</span></label>
 							<div>
 								<select name="state" id="state" class="form-control" required="">
-									<option value="borrador">{{trans('admin.draftcopy')}}</option>
-									<option value="final">{{trans('admin.end')}}</option>
-									<option value="revision">{{trans('admin.review')}}</option>
-									<option value="nodisponible">{{trans('admin.notavaliable')}}</option>
+									<option value="borrador" {{$content_register->state == 'borrador'?'selected':''}} >{{trans('admin.draftcopy')}}</option>
+									<option value="final" {{$content_register->state == 'final'?'selected':''}}>{{trans('admin.end')}}</option>
+									<option value="revision" {{$content_register->state == 'revision'?'selected':''}}>{{trans('admin.review')}}</option>
+									<option value="nodisponible" {{$content_register->state == 'nodisponible'?'selected':''}}>{{trans('admin.notavaliable')}}</option>
 								</select>
 							</div>
 						</div>
-
+						<!--Colaborators-->
 						<div class="form-group">
 							<label for="colaborator">{{trans('admin.title_colaborators')}}<span> *</span></label>
 							<button type="button" class="btn btn-box-tool btn-colaborators">
 								<i class="fa fa-plus"></i>
 							</button>
 							<br>
-
+							@foreach($content_register->colaborator as $key=>$colaborator)
 							<div class="content-box-colaborators">
 								<div class="box box-colaborator" >
 									<div class="box-header">
 										<h6 class="box-title">{{trans('admin.colaborator')}} 1</h6>
-										<div class="box-tools pull-right">
-											<button type="button" class="btn btn-box-tool btn-remove">
-												<i class="fa fa-close"></i>
-											</button>
-										</div>
+										<button type="button" class="btn btn-box-tool btn-remove">
+											<i class="fa fa-close"></i>
+										</button>
 									</div>
 									<br>
 									<div class="box-body">
 										<div class="form-group">
 											<div class="col-md-4">
 												<label for="">{{trans('admin.typecontribution')}}</label>
-												<select name="colaborator[1][typecontribution]" id="typecontribution1" class="form-control">
-													<option value="author">{{trans('admin.author')}}</option>
-													<option value="reviser">{{trans('admin.reviser')}}</option>
-													<option value="unknown">{{trans('admin.unknown')}}</option>
-													<option value="indicator">{{trans('admin.indicator')}}</option>
-													<option value="terminator">{{trans('admin.terminator')}}</option>
-													<option value="editor">{{trans('admin.editor')}}</option>
-													<option value="writer">{{trans('admin.writer')}}</option>
+												<select name="colaborator[{{$key}}][typecontribution]" id="typecontribution{{$key}}" class="form-control">
+													<option value="author" {{$colaborator->typecontribution == 'author'?'selected':''}} >{{trans('admin.author')}}</option>
+													<option value="reviser" {{$colaborator->typecontribution == 'reviser'?'selected':''}}>{{trans('admin.reviser')}}</option>
+													<option value="unknown" {{$colaborator->typecontribution == 'unknown'?'selected':''}}>{{trans('admin.unknown')}}</option>
+													<option value="indicator" {{$colaborator->typecontribution == 'indicator'?'selected':''}}>{{trans('admin.indicator')}}</option>
+													<option value="terminator" {{$colaborator->typecontribution == 'terminator'?'selected':''}}>{{trans('admin.terminator')}}</option>
+													<option value="editor" {{$colaborator->typecontribution == 'editor'?'selected':''}}>{{trans('admin.editor')}}</option>
+													<option value="writer" {{$colaborator->typecontribution == 'writer'?'selected':''}}>{{trans('admin.writer')}}</option>
 												</select>
 											</div>
 
 											<div class="col-md-4">
 												<label for="name">{{trans('admin.name')}} <span>*</span> </label>
-												<input type="text" name="colaborator[1][name]" id="name1" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
+												<input type="text" name="colaborator['{{$key}}'][name]" id="name{{$key}}" class="form-control" placeholder="{{trans('admin.placeholdername')}}" value="{{$colaborator->name}}">
 											</div>
 											<div class="col-md-4">
 												<label for="lastname">{{trans('admin.lastname')}} <span>*</span> </label>
-												<input type="text" name="colaborator[1][lastname]" id="lastname1" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}">
+												<input type="text" name="colaborator[{{$key}}][lastname]" id="lastname{{$key}}" class="form-control" placeholder="{{trans('admin.placeholderlastname')}}" value="{{$colaborator->lastname}}">
 											</div>
 											<div class="col-md-6">
 												<label for="email">{{trans('admin.email')}} <span>*</span> </label>
-												<input type="email" name="colaborator[1][email]" id="email1" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
+												<input type="email" name="colaborator[{{$key}}][email]" id="email{{$key}}" class="form-control" placeholder="{{trans('admin.placeholderemail')}}" value="{{$colaborator->email}}">
 											</div>
 
 											<div class="col-md-6">
 												<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
-												<input type="text" name="colaborator[1][organization]" id="organization1" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
+												<input type="text" name="colaborator[{{$key}}][organization]" id="organization{{$key}}" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}" value="{{$colaborator->organization}}">
 											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 
-
+							@endforeach
 
 
 						</div>
@@ -200,7 +198,7 @@
 							<div class="col-md-9 col-xs-12">
 								<div class="checkbox">
 									<label for="">
-										<input type="checkbox" name="learning_resources[]" value="evaluation_test">{{trans('admin.evaluation_test')}}
+										<input type="checkbox" name="learning_resources[]" value="evaluation_test" {{$}}>{{trans('admin.evaluation_test')}}
 									</label>
 								</div>
 								<div class="checkbox">
@@ -447,7 +445,7 @@
 @push('styles')
 <link rel="stylesheet" href="/vendor/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
 <style>
-	.nomostrar{display: none;}
+.nomostrar{display: none;}
 </style>
 
 @endpush
@@ -460,86 +458,86 @@
 
 <script>
 
-	$(document).ready(function(){
+$(document).ready(function(){
 
-		var count = 2;
-		var count_words_key=2;
-
-
-		/*add Words Key*/
-
-		$('.btn-wordskey-plus').click(function(e){
-			e.preventDefault();
-
-			var input_wordKey = $('.box-wordkey-clone').clone().addClass('box-wordkey').removeClass('box-wordkey-clone').removeClass('nomostrar').attr({'id':'divwordkey'+count_words_key});
-			input_wordKey.find('button.btn-remove').data('parent','divwordkey'+count_words_key);
-			input_wordKey.find('input').attr({'name':'words_key[]','id':'words_key'+count_words_key});
-			count_words_key++;
-			$('.box-wordskeys').append(input_wordKey);
-
-		})
-
-		/*Add Colaborators*/
-
-		$('.btn-colaborators').click(function(e){
-			e.preventDefault();
-
-			var colaboratorbox = $('.box-colaborator-clone').clone().removeClass('box-colaborator-clone').removeClass('nomostrar').addClass('box-colaborator').attr('id','divcolaborator'+count);
-			colaboratorbox.find('.box-title').text('{{trans('admin.colaborator')}} '+count);
-			colaboratorbox.find('button.btn-remove').data('parent','divcolaborator'+count);
-			colaboratorbox.find("input[id='name']").attr({'id':'name'+count,'name':'colaborator['+count+'][name]'});
-			colaboratorbox.find("input[id='lastname']").attr({'id':'lastname'+count,'name':'colaborator['+count+'][lastname]'});
-			colaboratorbox.find("input[id='email']").attr({'id':'email'+count,'name':'colaborator['+count+'][email]'});
-			colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
-			colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
+	var count = 1;
+	var count_words_key=2;
 
 
-			count ++;
+	/*add Words Key*/
 
-			$('.content-box-colaborators').append(colaboratorbox);
-			console.log(colaboratorbox.html());
+	$('.btn-wordskey-plus').click(function(e){
+		e.preventDefault();
 
-		});
+		var input_wordKey = $('.box-wordkey-clone').clone().addClass('box-wordkey').removeClass('box-wordkey-clone').removeClass('nomostrar').attr({'id':'divwordkey'+count_words_key});
+		input_wordKey.find('button.btn-remove').data('parent','divwordkey'+count_words_key);
+		input_wordKey.find('input').attr({'name':'words_key[]','id':'words_key'+count_words_key});
+		count_words_key++;
+		$('.box-wordskeys').append(input_wordKey);
+
+	})
+
+	/*Add Colaborators*/
+
+	$('.btn-colaborators').click(function(e){
+		e.preventDefault();
+
+		var colaboratorbox = $('.box-colaborator-clone').clone().removeClass('box-colaborator-clone').removeClass('nomostrar').addClass('box-colaborator').attr('id','divcolaborator'+count);
+		colaboratorbox.find('.box-title').text('{{trans('admin.colaborator')}} '+count);
+		colaboratorbox.find('button.btn-remove').data('parent','divcolaborator'+count);
+		colaboratorbox.find("input[id='name']").attr({'id':'name'+count,'name':'colaborator['+count+'][name]'});
+		colaboratorbox.find("input[id='lastname']").attr({'id':'lastname'+count,'name':'colaborator['+count+'][lastname]'});
+		colaboratorbox.find("input[id='email']").attr({'id':'email'+count,'name':'colaborator['+count+'][email]'});
+		colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
+		colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
 
 
-		/*Buttom Next*/
-		$('.btn-next').click(function(e){
-			e.preventDefault();
+		count ++;
+
+		$('.content-box-colaborators').append(colaboratorbox);
+		console.log(colaboratorbox.html());
+
+	});
 
 
-			var content_body = $('.btn-next').data('body');
+/*Buttom Next*/
+$('.btn-next').click(function(e){
+	e.preventDefault();
 
-			switch(content_body){
 
-				case 'general-features':
-				$('.btn-next').data('body','lifecycle');
-				$('#'+content_body).hide();
-				$('#lifecycle').show();
-				$('.btn-back').data('body','lifecycle').show();
-				break;
+	var content_body = $('.btn-next').data('body');
 
-				case 'lifecycle':
-				$('.btn-next').data('body','educational');
-				$('#'+content_body).hide();
-				$('#educational').show();
-				$('.btn-back').data('body','educational');
-				break;
+	switch(content_body){
 
-				case 'educational':
-				$('.btn-next').data('body','copyright');
-				$('#'+content_body).hide();
-				$('#copyright').show();
-				$(this).hide();
-				$('.btn-back').data('body','copyright');
-				$('.btn-save').show();
-				break;
-			}
+		case 'general-features':
+		$('.btn-next').data('body','lifecycle');
+		$('#'+content_body).hide();
+		$('#lifecycle').show();
+		$('.btn-back').data('body','lifecycle').show();
+		break;
 
-		});
+		case 'lifecycle':
+		$('.btn-next').data('body','educational');
+		$('#'+content_body).hide();
+		$('#educational').show();
+		$('.btn-back').data('body','educational');
+		break;
 
-		/*Button Back*/
+		case 'educational':
+		$('.btn-next').data('body','copyright');
+		$('#'+content_body).hide();
+		$('#copyright').show();
+		$(this).hide();
+		$('.btn-back').data('body','copyright');
+		$('.btn-save').show();
+		break;
+	}
 
-		$(".btn-back").click(function(e) {
+});
+
+/*Button Back*/
+
+$(".btn-back").click(function(e) {
 			// body...
 			e.preventDefault();
 
@@ -573,13 +571,13 @@
 
 		});
 
-		$('#form_register').on('click','button.btn-remove',function(e) {
+$('#form_register').on('click','button.btn-remove',function(e) {
 			// body...
 			e.preventDefault();
 
 			$('#'+$(this).data('parent')).remove();
 		});
 
-	});
+});
 </script>
 @endpush
