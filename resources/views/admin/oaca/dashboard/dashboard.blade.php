@@ -33,7 +33,7 @@
 						<p>Crear Nuevo</p>
 					</div>
 					<div class="icon">
-						<a href={{url('/admin/oaca/register/register/')}}>
+						<a href={{url('/admin/oaca/registry/create/')}}>
 							<i class="ion ion-plus-round"></i>
 						</a>
 					</div>
