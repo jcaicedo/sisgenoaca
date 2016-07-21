@@ -29,6 +29,7 @@
 					<!-- form start-->
 
 					<form  method="post" id="form_register" role="form">
+						{!! csrf_field() !!}
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 						<input type="hidden" name="register_id" value="{{$registro->id}}">
 						<div class="box-body" id="general-features">

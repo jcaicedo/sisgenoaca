@@ -2,7 +2,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
-use App\Content;
+//use App\Content;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -22,7 +22,7 @@ class GeneradorController extends Controller
 	function getRegister(){
 
 
-		return view('admin.oaca.register.register');
+		return view('admin.oaca.register.create');
 	}
 	function postRegister(Request $request){
 
@@ -39,7 +39,7 @@ class GeneradorController extends Controller
 		return view('admin.oaca.objetos.introduction.add',["register_id"=>$content_register->id, "area"=>ElementsOaca::INTRODUCTION]);
 	}
 
-	//////////////////////////////////////////////////////////////////
+	//////////////////
 
 	function getEditRegister(){
 		$registro =  RegistroOaca::find(RegistroOaca::REGISTROID);

@@ -33,7 +33,7 @@
 						<p>Crear Nuevo</p>
 					</div>
 					<div class="icon">
-						<a href={{url('/admin/oaca/registro/register/')}}>
+						<a href={{url('/admin/oaca/register/register/')}}>
 							<i class="ion ion-plus-round"></i>
 						</a>
 					</div>
@@ -51,9 +51,9 @@
 
 @push('styles')
 <style>
-	.btn-dashboard{
-		color: white;
-	}
+.btn-dashboard{
+	color: white;
+}
 </style>
 
 @endpush

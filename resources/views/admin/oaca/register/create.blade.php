@@ -29,7 +29,9 @@
 					<!-- form start-->
 
 					<form  method="post" id="form_register" role="form">
+
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+						{!! csrf_field() !!}
 						<div class="box-body" id="general-features">
 							<h4>{{trans('admin.generalfeatures')}}</h4>
 							<section data-step="0"></section>

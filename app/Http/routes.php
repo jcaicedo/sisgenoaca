@@ -47,7 +47,8 @@ Route::group(['middleware' => 'web'],function(){
 
         Route::group(['prefix'=>'oaca'],function(){
 
-            Route::controller('registro','GeneradorController');
+            Route::controller('register','GeneradorController');
+            Route::controller('registry','RegistryOacaController');
             Route::controller('objetos','GeneradorController');
 
             Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
