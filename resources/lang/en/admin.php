@@ -15,6 +15,7 @@ return [
     'introduction' => 'Introducción',
     'development' => 'Desarrollo',
     'createOaca' => 'Create Oaca',
+    'editOaca' => 'Edit Oaca',
     'process'    => 'Procesar',
     'dashboard' => 'Dashboard',
     'newOaca'=>'Nuevo OACA',

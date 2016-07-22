@@ -279,6 +279,11 @@ class GeneradorController extends Controller
 
 	}
 
+	public function getEditoaca(){
+
+		return view('admin.oaca.objetos.edit');
+	}
+
 }
 
 
