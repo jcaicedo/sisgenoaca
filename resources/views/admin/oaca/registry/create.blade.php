@@ -7,7 +7,7 @@
 		<h1>{{trans('admin.newOaca')}}</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="">
+				<a href="/admin">
 					<i class="fa fa-dashboard"></i>
 					Incio
 				</a>

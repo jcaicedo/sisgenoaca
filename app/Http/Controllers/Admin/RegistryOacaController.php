@@ -15,7 +15,10 @@ class RegistryOacaController extends Controller
 
 
 	function getRegistrys(){
-		return view('admin.oaca.registry.index');
+
+		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
+
+		return view('admin.oaca.registry.index',["registrys"=>$registrys]);
 	}
 
 	function getCreate(){
@@ -40,11 +43,10 @@ class RegistryOacaController extends Controller
 
 		//////////////////
 
-	function getEdit(){
-		$registro =  RegistroOaca::find(RegistroOaca::REGISTROID);
+	function getEdit($id){
+		$registro =  RegistroOaca::find($id);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_regiter=json_decode($registro->content_register);
-		dd($registro->elements);
 		return view('admin.oaca.registry.edit',['registro'=>$registro,'content_register'=>$content_regiter]);
 
 	}
@@ -57,7 +59,7 @@ class RegistryOacaController extends Controller
 		$register_edited->user_id = $request->input('user_id');
 		$register_edited->save();
 
-		return response()->json(["response"=>"ok"]);
+		return redirect('/admin/oaca/registry/registrys');
 
 
 	}

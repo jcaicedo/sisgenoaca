@@ -30,13 +30,33 @@
 					<div class="box-body table-responsive no-padding">
 						
 						<table class="table table-hover">
-							<tbody>
-								<th>ID</th>
+							<tr>
 								<th>Titulo</th>
 								<th>Fecha Creación</th>
 								<th>Última Actualización</th>
 								<th>&nbsp;</th>
-							</tbody>
+							</tr>
+							@foreach($registrys as $key=>$registry)
+							<tr>
+								<td>
+									{{$registry->title_oaca}}
+								</td>
+								<td>
+									{{$registry->created_at->format('d/m/Y')}}
+								</td>
+								<td>
+									{{ $registry->updated_at->format('d/m/Y') }}
+								</td>
+								<td class="text-right">
+									<a href="{{ url("admin/oaca/registry/edit/{$registry->id}") }}" class="btn btn-sm btn-default">
+										<i class="fa fa-edit"></i>
+									</a>
+									<a href="" class="btn btn-sm btn-default">
+										<i class="fa fa-newspaper-o"></i>
+									</a>
+								</td>
+							</tr>
+							@endforeach
 						</table>
 
 					</div>

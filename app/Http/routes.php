@@ -49,6 +49,7 @@ Route::group(['middleware' => 'web'],function(){
 
             Route::controller('register','GeneradorController');
             Route::controller('registry','RegistryOacaController');
+            Route::get('registry/edit/{id}',['uses'=>'RegistryOacaController@getEdit']);
             Route::controller('objetos','GeneradorController');
 
             Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);

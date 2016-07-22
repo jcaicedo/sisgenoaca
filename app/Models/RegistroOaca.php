@@ -9,6 +9,7 @@ class RegistroOaca extends Model
 {
 
 	const REGISTROID = "26de1390-eb77-3ec7-8cc4-bc46578794e4";
+	const USERIDPRUEBA = "27";
 	protected $table = 'registrooaca';
 	protected $primaryKey = 'id';
 	public $incrementing = false;
@@ -36,6 +37,11 @@ class RegistroOaca extends Model
 
 	public function elements(){
 		return $this->hasMany('App\Models\ElementsOaca','register_id');
+	}
+
+	public static function contentRegistry($id){
+		$query= self:: where('user_id',$id);
+		return $query;
 	}
 
 }
