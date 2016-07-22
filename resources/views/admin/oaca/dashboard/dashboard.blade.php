@@ -47,7 +47,7 @@
 						<p>Listar mis Oacas</p>
 					</div>
 					<div class="icon">
-						<a href={{url('/admin/oaca/registry/')}}>
+						<a href={{url('/admin/oaca/registry/registrys')}}>
 							<i class="ion ion-plus-round"></i>
 						</a>
 					</div>
@@ -65,9 +65,9 @@
 
 @push('styles')
 <style>
-	.btn-dashboard{
-		color: white;
-	}
+.btn-dashboard{
+	color: white;
+}
 </style>
 
 @endpush
