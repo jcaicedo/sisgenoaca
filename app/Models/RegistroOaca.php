@@ -8,7 +8,7 @@ use Ramsey\Uuid\Uuid;
 class RegistroOaca extends Model
 {
 
-	const REGISTROID = "bd6bfed6-6c2c-311d-a289-482eb01bbafb";
+	const REGISTROID = "51ed7b57-6638-39c0-93c2-a66b57525b2c";
 	protected $table = 'registrooaca';
 	protected $primaryKey = 'id';
 	public $incrementing = false;
@@ -32,6 +32,10 @@ class RegistroOaca extends Model
 	public function parentRegistrooaca()
 	{
 		return $this->belongsTo('App\Models\RegistroOaca', 'parent');
+	}
+
+	public function elements(){
+		return $this->hasMany('App\Models\ElementsOaca','register_id');
 	}
 
 }

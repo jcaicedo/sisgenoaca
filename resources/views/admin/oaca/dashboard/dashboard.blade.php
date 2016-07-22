@@ -39,6 +39,20 @@
 					</div>
 
 				</div>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<div class="small-box bg-yellow">
+					<div class="inner">
+						<h3>MIS OACAS</h3>
+						<p>Listar mis Oacas</p>
+					</div>
+					<div class="icon">
+						<a href={{url('/admin/oaca/registry/')}}>
+							<i class="ion ion-plus-round"></i>
+						</a>
+					</div>
+
+				</div>
 			</div>							
 		</div>
 
@@ -51,9 +65,9 @@
 
 @push('styles')
 <style>
-.btn-dashboard{
-	color: white;
-}
+	.btn-dashboard{
+		color: white;
+	}
 </style>
 
 @endpush

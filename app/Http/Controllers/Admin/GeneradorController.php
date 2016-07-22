@@ -46,7 +46,7 @@ class GeneradorController extends Controller
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_regiter=json_decode($registro->content_register);
 		//dd($content_regiter);
-		return view('admin.oaca.register.edit',['registro'=>$registro,'content_register'=>$content_regiter]);
+		return view('admin.oaca.registry.edit',['registro'=>$registro,'content_register'=>$content_regiter]);
 
 	}
 
