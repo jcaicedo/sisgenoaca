@@ -18,6 +18,8 @@ class RegistryOacaController extends Controller
 
 		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
 
+		
+
 		return view('admin.oaca.registry.index',["registrys"=>$registrys]);
 	}
 
