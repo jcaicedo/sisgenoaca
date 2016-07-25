@@ -11,92 +11,6 @@ use Illuminate\Support\Facades\Auth;
 class GeneradorController extends Controller
 {
 
-
-
-	function index(){
-	}
-
-	
-
-
-	function getRegister(){
-
-
-		return view('admin.oaca.register.create');
-	}
-	function postRegister(Request $request){
-
-		//$content = serialize($request->input());
-		$content = json_encode($request->input());
-
-		$content_register = new RegistroOaca();
-
-		$content_register->content_register = $content;
-		$content_register->title_oaca = $request->input('title');
-		$content_register->user_id = $request->input('user_id');
-		$content_register->save();
-
-		return view('admin.oaca.objetos.introduction.add',["register_id"=>$content_register->id, "area"=>ElementsOaca::INTRODUCTION]);
-	}
-
-	//////////////////
-
-	function getEditRegister(){
-		$registro =  RegistroOaca::find(RegistroOaca::REGISTROID);
-		//Hacer json_decode del content->register para convertir el contenido del registro en un array
-		$content_regiter=json_decode($registro->content_register);
-		//dd($content_regiter);
-		return view('admin.oaca.registry.edit',['registro'=>$registro,'content_register'=>$content_regiter]);
-
-	}
-
-	function postEditRegister(Request $request){
-		$register_edited = RegistroOaca::find($request->input('register_id'));
-		$content = json_encode($request->input());
-		$register_edited->content_register = $content;
-		$register_edited->title_oaca = $request->input('title');
-		$register_edited->user_id = $request->input('user_id');
-		$register_edited->save();
-
-		return response()->json(["response"=>"ok"]);
-
-
-	}
-/*	function getRegisteraux(){
-		return view('admin.oaca.register');
-	}*/
-
-
-
-
-	public function postCreateoaca(Request $request){
-		
-
-		// $objeto=$request->input('obj');
-
-		// if($request->hasFile('image')){
-
-		// 	$filebackground = $request->file('image');
-		// 	$namebackground = $filebackground->getClientOriginalName();
-		// 	$public_path = public_path();		
-		// 	$url = $public_path.'/assets/imgs';
-
-		// 	$filebackground->move($url, $namebackground);
-		// 	dd($url);
-		// }
-
-		if($request->ajax()){
-
-			return $request->input('content');
-		}else{
-
-			return 'no';
-
-		}
-	}
-
-
-
 	function preview(Request $request){
 
 		$namebackground=false;
@@ -114,6 +28,21 @@ class GeneradorController extends Controller
 			return 'si';
 		}
 		return $request->input('obj');
+	}
+
+
+	function getEditIntroduction(){
+
+
+		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
+
+		
+
+		return view('admin.oaca.objetos.introduction.edit',[
+			"register_id" =>ElementsOaca::UUID_REGISTER,
+			"area"=>ElementsOaca::INTRODUCTION,
+			"registrys"=>$registrys
+			]);
 	}
 
 	function getIntroduction(){

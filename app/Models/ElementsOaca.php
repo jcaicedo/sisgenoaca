@@ -25,7 +25,7 @@ class ElementsOaca extends Model
 
 	public function registry(){
 
-		return $this->belongsTo('App\Models\RegistroOaca');
+		return $this->belongsTo('App\Models\RegistroOaca','register_id');
 	}
 
 	

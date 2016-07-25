@@ -95,6 +95,7 @@ return [
     'entry_required'=>'Este campo es requerido',
 
     'oaca_created'=>'OACA Creado',
+    'edit_Oaca'=>'Editar Oaca',
 
 
 
