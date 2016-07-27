@@ -8,8 +8,9 @@
 		<h1>Mis Oaca</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="">
+				<a href="/admin">
 					<i class="fa fa-dashboard"></i>
+					{{trans('admin.dashboard')}}
 				</a>
 			</li>
 			<li class="active">

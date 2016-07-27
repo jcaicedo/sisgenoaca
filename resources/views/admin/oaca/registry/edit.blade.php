@@ -7,7 +7,7 @@
 		<h1>{{trans('admin.newOaca')}}</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="/admin">
+				<a href="/admin/oaca/registry/registrys">
 					<i class="fa fa-dashboard"></i>
 					Incio
 				</a>
@@ -447,7 +447,7 @@
 @push('styles')
 <link rel="stylesheet" href="/vendor/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
 <style>
-.nomostrar{display: none;}
+	.nomostrar{display: none;}
 </style>
 
 @endpush
@@ -460,86 +460,86 @@
 
 <script>
 
-$(document).ready(function(){
+	$(document).ready(function(){
 
-	var count = {{count($content_register->words_key)}};
-	var count_words_key=2;
-
-
-	/*add Words Key*/
-
-	$('.btn-wordskey-plus').click(function(e){
-		e.preventDefault();
-
-		var input_wordKey = $('.box-wordkey-clone').clone().addClass('box-wordkey').removeClass('box-wordkey-clone').removeClass('nomostrar').attr({'id':'divwordkey'+count_words_key});
-		input_wordKey.find('button.btn-remove').data('parent','divwordkey'+count_words_key);
-		input_wordKey.find('input').attr({'name':'words_key[]','id':'words_key'+count_words_key});
-		count_words_key++;
-		$('.box-wordskeys').append(input_wordKey);
-
-	})
-
-	/*Add Colaborators*/
-
-	$('.btn-colaborators').click(function(e){
-		e.preventDefault();
-
-		var colaboratorbox = $('.box-colaborator-clone').clone().removeClass('box-colaborator-clone').removeClass('nomostrar').addClass('box-colaborator').attr('id','divcolaborator'+count);
-		colaboratorbox.find('.box-title').text('{{trans('admin.colaborator')}} '+count);
-		colaboratorbox.find('button.btn-remove').data('parent','divcolaborator'+count);
-		colaboratorbox.find("input[id='name']").attr({'id':'name'+count,'name':'colaborator['+count+'][name]'});
-		colaboratorbox.find("input[id='lastname']").attr({'id':'lastname'+count,'name':'colaborator['+count+'][lastname]'});
-		colaboratorbox.find("input[id='email']").attr({'id':'email'+count,'name':'colaborator['+count+'][email]'});
-		colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
-		colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
+		var count = {{count($content_register->words_key)}};
+		var count_words_key=2;
 
 
-		count ++;
+		/*add Words Key*/
 
-		$('.content-box-colaborators').append(colaboratorbox);
-		console.log(colaboratorbox.html());
+		$('.btn-wordskey-plus').click(function(e){
+			e.preventDefault();
 
-	});
+			var input_wordKey = $('.box-wordkey-clone').clone().addClass('box-wordkey').removeClass('box-wordkey-clone').removeClass('nomostrar').attr({'id':'divwordkey'+count_words_key});
+			input_wordKey.find('button.btn-remove').data('parent','divwordkey'+count_words_key);
+			input_wordKey.find('input').attr({'name':'words_key[]','id':'words_key'+count_words_key});
+			count_words_key++;
+			$('.box-wordskeys').append(input_wordKey);
+
+		})
+
+		/*Add Colaborators*/
+
+		$('.btn-colaborators').click(function(e){
+			e.preventDefault();
+
+			var colaboratorbox = $('.box-colaborator-clone').clone().removeClass('box-colaborator-clone').removeClass('nomostrar').addClass('box-colaborator').attr('id','divcolaborator'+count);
+			colaboratorbox.find('.box-title').text('{{trans('admin.colaborator')}} '+count);
+			colaboratorbox.find('button.btn-remove').data('parent','divcolaborator'+count);
+			colaboratorbox.find("input[id='name']").attr({'id':'name'+count,'name':'colaborator['+count+'][name]'});
+			colaboratorbox.find("input[id='lastname']").attr({'id':'lastname'+count,'name':'colaborator['+count+'][lastname]'});
+			colaboratorbox.find("input[id='email']").attr({'id':'email'+count,'name':'colaborator['+count+'][email]'});
+			colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
+			colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
 
 
-/*Buttom Next*/
-$('.btn-next').click(function(e){
-	e.preventDefault();
+			count ++;
+
+			$('.content-box-colaborators').append(colaboratorbox);
+			console.log(colaboratorbox.html());
+
+		});
 
 
-	var content_body = $('.btn-next').data('body');
+		/*Buttom Next*/
+		$('.btn-next').click(function(e){
+			e.preventDefault();
 
-	switch(content_body){
 
-		case 'general-features':
-		$('.btn-next').data('body','lifecycle');
-		$('#'+content_body).hide();
-		$('#lifecycle').show();
-		$('.btn-back').data('body','lifecycle').show();
-		break;
+			var content_body = $('.btn-next').data('body');
 
-		case 'lifecycle':
-		$('.btn-next').data('body','educational');
-		$('#'+content_body).hide();
-		$('#educational').show();
-		$('.btn-back').data('body','educational');
-		break;
+			switch(content_body){
 
-		case 'educational':
-		$('.btn-next').data('body','copyright');
-		$('#'+content_body).hide();
-		$('#copyright').show();
-		$(this).hide();
-		$('.btn-back').data('body','copyright');
-		$('.btn-save').show();
-		break;
-	}
+				case 'general-features':
+				$('.btn-next').data('body','lifecycle');
+				$('#'+content_body).hide();
+				$('#lifecycle').show();
+				$('.btn-back').data('body','lifecycle').show();
+				break;
 
-});
+				case 'lifecycle':
+				$('.btn-next').data('body','educational');
+				$('#'+content_body).hide();
+				$('#educational').show();
+				$('.btn-back').data('body','educational');
+				break;
 
-/*Button Back*/
+				case 'educational':
+				$('.btn-next').data('body','copyright');
+				$('#'+content_body).hide();
+				$('#copyright').show();
+				$(this).hide();
+				$('.btn-back').data('body','copyright');
+				$('.btn-save').show();
+				break;
+			}
 
-$(".btn-back").click(function(e) {
+		});
+
+		/*Button Back*/
+
+		$(".btn-back").click(function(e) {
 			// body...
 			e.preventDefault();
 
@@ -573,13 +573,13 @@ $(".btn-back").click(function(e) {
 
 		});
 
-$('#form_register').on('click','button.btn-remove',function(e) {
+		$('#form_register').on('click','button.btn-remove',function(e) {
 			// body...
 			e.preventDefault();
 
 			$('#'+$(this).data('parent')).remove();
 		});
 
-});
+	});
 </script>
 @endpush

@@ -35,13 +35,15 @@ class GeneradorController extends Controller
 
 
 		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
+		$content_Introduction= ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION);
 
 		
 
 		return view('admin.oaca.objetos.introduction.edit',[
 			"register_id" =>ElementsOaca::UUID_REGISTER,
 			"area"=>ElementsOaca::INTRODUCTION,
-			"registrys"=>$registrys
+			"registrys"=>$registrys,
+			"contentIntroduction" => $content_Introduction
 			]);
 	}
 
