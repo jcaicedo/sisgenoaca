@@ -48,8 +48,12 @@ Route::group(['middleware' => 'web'],function(){
         Route::group(['prefix'=>'oaca'],function(){
 
             Route::controller('register','GeneradorController');
-            Route::controller('registry','RegistryOacaController');
+            
             Route::get('registry/edit/{id}',['uses'=>'RegistryOacaController@getEdit']);
+            Route::get('registry/delete/{id}','RegistryOacaController@delete')
+            ->where(['id' => '[a-f0-9\-]+']);
+            Route::controller('registry','RegistryOacaController');
+            
             Route::controller('objetos','GeneradorController');
 
             Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);

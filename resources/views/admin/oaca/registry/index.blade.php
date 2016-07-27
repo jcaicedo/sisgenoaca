@@ -3,6 +3,14 @@
 @section('content')
 
 <div class="content-wrapper">
+
+	<!--@if (Session::has('flash_message'))
+	<div class="alert alert-success alert-dismissible">
+		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		<p>{{Session::get('flash_message')}}</p>
+	</div>
+	@endif-->
+
 	
 	<section class="content-header">
 		<h1>Mis Oaca</h1>
@@ -54,6 +62,9 @@
 									</a>
 									<a href="" class="btn btn-sm btn-default">
 										<i class="fa fa-newspaper-o"></i>
+									</a>
+									<a href="{{ url("admin/oaca/registry/delete/{$registry->id}")}}" class="btn btn-default">
+										<i class="fa fa-trash-o"></i>
 									</a>
 								</td>
 							</tr>

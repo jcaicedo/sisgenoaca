@@ -14,18 +14,18 @@ class RegistryOacaController extends Controller
 
 
 
-	function getRegistrys(){
+	public function getRegistrys(){
 
 		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
 		return view('admin.oaca.registry.index',["registrys"=>$registrys]);
 	}
 
-	function getCreate(){
+	public function getCreate(){
 
 
 		return view('admin.oaca.registry.create');
 	}
-	function postCreate(Request $request){
+	public function postCreate(Request $request){
 
 		//$content = serialize($request->input());
 		$content = json_encode($request->input());
@@ -42,7 +42,7 @@ class RegistryOacaController extends Controller
 
 		//////////////////
 
-	function getEdit($id){
+	public function getEdit($id){
 		$registro =  RegistroOaca::find($id);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_regiter=json_decode($registro->content_register);
@@ -50,7 +50,7 @@ class RegistryOacaController extends Controller
 
 	}
 
-	function postEdit(Request $request){
+	public function postEdit(Request $request){
 		$register_edited = RegistroOaca::find($request->input('register_id'));
 		$content = json_encode($request->input());
 		$register_edited->content_register = $content;
@@ -62,4 +62,14 @@ class RegistryOacaController extends Controller
 
 
 	}
+
+	public function delete(Request $request, $id)
+	{
+
+		$registry = RegistroOaca::find($id);
+		$registry->delete();
+		$request->session()->flash('flash_message','Registro Eliminado');
+		return redirect('admin/oaca/registry/registrys');
+	}
+
 }
