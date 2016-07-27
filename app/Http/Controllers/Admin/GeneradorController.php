@@ -31,7 +31,7 @@ class GeneradorController extends Controller
 	}
 
 
-	function getEditIntroduction(){
+	function getEditIntroduction($id){
 
 
 		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();

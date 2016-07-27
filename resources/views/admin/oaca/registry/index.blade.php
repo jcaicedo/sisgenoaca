@@ -63,7 +63,7 @@
 									<a href="" class="btn btn-sm btn-default">
 										<i class="fa fa-newspaper-o"></i>
 									</a>
-									<a href="{{ url("admin/oaca/registry/delete/{$registry->id}")}}" class="btn btn-default">
+									<a href="{{ url("admin/oaca/registry/{$registry->id}/delete")}}" class="btn btn-default">
 										<i class="fa fa-trash-o"></i>
 									</a>
 								</td>
