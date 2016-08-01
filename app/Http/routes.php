@@ -55,7 +55,7 @@ Route::group(['middleware' => 'web'],function(){
             
             //Controladores de los elementos de los OACA
 
-            Route::get()
+            Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
             Route::controller('objetos','GeneradorController');
 
 

@@ -65,9 +65,9 @@
 
 @push('styles')
 <style>
-.btn-dashboard{
-	color: white;
-}
+	.btn-dashboard{
+		color: white;
+	}
 </style>
 
 @endpush

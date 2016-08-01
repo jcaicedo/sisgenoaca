@@ -60,7 +60,7 @@
 									<a href="{{ url("admin/oaca/registry/edit/{$registry->id}") }}" class="btn btn-sm btn-default">
 										<i class="fa fa-edit"></i>
 									</a>
-									<a href="" class="btn btn-sm btn-default">
+									<a href="{{ url("admin/oaca/objetos/edit-introduction/{$registry->id}") }}" class="btn btn-sm btn-default">
 										<i class="fa fa-newspaper-o"></i>
 									</a>
 									<a href="{{ url("admin/oaca/registry/{$registry->id}/delete")}}" class="btn btn-default">

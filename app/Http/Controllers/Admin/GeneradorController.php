@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Session;
 
-class GeneradorController extends Controller
+class GeneradorController extends AdminController
 {
 
 	function preview(Request $request){
@@ -31,7 +32,7 @@ class GeneradorController extends Controller
 	}
 
 
-	function getEditIntroduction($id){
+	function getEditIntroduction(){
 
 
 		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();

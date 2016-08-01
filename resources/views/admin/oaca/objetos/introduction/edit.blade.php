@@ -9,7 +9,13 @@
 	@foreach($registry->elements as $ind=>$element)
 	h1>{{ $element->area }}</h1>
 	@endforeach
+	@endforeach
+
+	
+	@foreach($contentIntroduction as $ind=>$content)
+	{{ $content->content }}
 	@endforeach-->
+
 
 	<div class="box-header box-header-btn">
 		<h1 class="box-title">{{trans('admin.introduction')}}</h1>
@@ -34,24 +40,73 @@
 
 
 			@if(($element->type_element) == 'title')
-
-			<div class="titulo">
+			<div class="title remove-div-{{$key}}">
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title">{{trans('admin.title')}}</h3>
 						<div class="box-tools pull-right">
-							<button class="btn btn-box-tool">
+							<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}">
 								<i class="fa fa-close"></i>
 							</button>
 						</div>
 					</div>
 					<div class="box-body">
-						<input type="text" class="form-control componente" value="{{$element->content}}">
+						<input type="text" class="form-control componente" data-element="title" data-position={{$key}} id="title-{{$key}}" name="title-{{$key}}" value="{{$element->content}}">
+					</div>
+				</div>
+			</div>
+			@endif
+
+			@if(($element->type_element) == 'textarea')
+
+			<div class="textarea remove-div-{{$key}}">
+
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title">Textarea</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" >
+								<i class="fa  fa-close"></i>
+							</button>
+							<button  type="button" class="btn btn-box-tool">
+								<i class="fa  fa-paint-brush"></i>
+							</button>
+						</div>
+					</div>
+					<div class="box-body edit-textarea" data-element="textarea" data-position="count" id="textarea{{$key}}" name="textarea" >
+
+					</div>
+
+					<input type="hidden" name="textarea" id="input-textarea{{$key}}" value="{{$element->content}}" class="componente" >
+				</div>
+
+			</div>
+			@endif
+
+			@if(($element->type_element) == 'image')
+			
+			<div class="uploadimage remove-div-{{$key}}" >
+				<div class="box">
+					<div class="box-header with-border">
+						<h3 class="box-title">Image</h3>
+						<div class="box-tools pull-right">
+							<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}">
+								<i class="fa fa-close"></i>
+							</button>
+						</div>
+					</div>
+					<div class=" box-body">
+						<input class="form-control myinput" type="file" data-element="image" data-position={{$key}} value="image-{{$key}}" name="image-{{$key}}" id="imagep-{{$key}}" />
+
+						<input type="hidden" id="image-{{$key}}" name="image-{{$key}}" value="imagep-{{$key}}" class="componente">
 					</div>
 				</div>
 			</div>
 
+
 			@endif
+
+
 
 			@endforeach
 

@@ -66,7 +66,7 @@
 
 		{{-- Modulo Title --}}
 
-		<div class="titulo nomostrar">
+		<div class="titulo-clone nomostrar">
 			<div class="box">
 				<div class="box-header with-border">
 					<h3 class="box-title">Titulo</h3>
@@ -221,8 +221,8 @@
 
             switch(opt){
             	case 'title':
-            	var title = $(".titulo").clone().removeClass('titulo');
-            	$(title).removeClass("nomostrar").addClass("remove-div-"+count).appendTo(this);
+            	var title = $(".titulo-clone").clone().removeClass('titulo-clone');
+            	$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").appendTo(this);
             	$(".remove-div-"+count).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
 
