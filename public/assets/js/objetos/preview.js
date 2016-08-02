@@ -2,47 +2,6 @@
 
   e.preventDefault();
 
-/*
-  var count = 0;
-  $('div#content-form input.componente').each( function(index, element){
-    var inputElements=[];
-    var type_element = $(this).attr('name');
-    switch(type_element){
-
-      case 'title':
-
-      inputElements.push('title');
-      $(this).attr({'name':'title-'+count});
-      count ++;
-
-      break;
-
-      case 'textarea':
-
-      inputElements.push('textarea');
-      var summernoteid = $(this).val();
-      var content_textarea = $('#'+summernoteid).summernote('code');
-      $(this).val(content_textarea);
-      $(this).attr({'name':'textarea-'+count});
-      count ++;
-
-      break;
-
-      case 'image':
-
-      inputElements.push('image');
-      console.log($(this));
-      $(this).attr({'name':'image-'+count});
-      console.log($(this));
-      count ++;
-
-      break;
-    }
-
-  });
-  
-  */
-
   var myElements = [];
 
   $("#form-create-oaca .myinput").each(function(index){

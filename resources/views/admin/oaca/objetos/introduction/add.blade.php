@@ -296,91 +296,59 @@
 
 			});
 
-/*
-			$('#processit').click(function(e){
-				e.preventDefault();
 
-				var postData = $('#form-create-oaca').serializeArray();
-				console.log(postData);
+			function submitFormOaca(){
+				var count=0;
+				var inputElements=[];
 
-				$.each(postData, function(index, input){
-					var   element = input.name;
-					console.log(element);
-					if(element=='textarea'){
+				$('div#content-form input.componente').each( function(index, element){
 
-						input.value=$('#'+input.value).summernote('code');;
+					
+					var type_element = $(this).attr('name');
+
+
+					switch(type_element){
+
+						case 'title':
+
+						inputElements.push('title');
+						$(this).attr({'name':'title-'+count});
+						count ++;
+
+						break;
+
+						case 'textarea':
+
+						inputElements.push('textarea');
+						var summernoteid = $(this).val();
+						var content_textarea = $('#'+summernoteid).summernote('code');
+						$(this).val(content_textarea);
+						$(this).attr({'name':'textarea-'+count});
+						count ++;
+
+						break;
+
+						case 'image':
+
+						inputElements.push('image');
+						console.log($(this));
+						$(this).attr({'name':'image-'+count});
+						$('#'+$(this).val()).attr({'name':'image-'+count});
+						console.log($(this));
+						count ++;
+
+						break;
 					}
-					console.log(postData);
-
 
 				});
-				var token=$('meta[name="csrf_token"]').attr('content');
-
-				$.post({
-					url:'/admin/oaca/objetos/introduction',
-					data:{ data:postData,
-
-						_token:"{{ csrf_token() }}"},
-
-					}).done(function(data){
-						//console.log(data);
-					});
 
 
-				});*/
-
-				function submitFormOaca(){
-					var count=0;
-					var inputElements=[];
-
-					$('div#content-form input.componente').each( function(index, element){
-
-						
-						var type_element = $(this).attr('name');
-
-
-						switch(type_element){
-
-							case 'title':
-
-							inputElements.push('title');
-							$(this).attr({'name':'title-'+count});
-							count ++;
-
-							break;
-
-							case 'textarea':
-
-							inputElements.push('textarea');
-							var summernoteid = $(this).val();
-							var content_textarea = $('#'+summernoteid).summernote('code');
-							$(this).val(content_textarea);
-							$(this).attr({'name':'textarea-'+count});
-							count ++;
-
-							break;
-
-							case 'image':
-
-							inputElements.push('image');
-							console.log($(this));
-							$(this).attr({'name':'image-'+count});
-							$('#'+$(this).val()).attr({'name':'image-'+count});
-							console.log($(this));
-							count ++;
-
-							break;
-						}
-
-					});
-
-
-					$('#hidden_elementos').val(inputElements);
-				}
+				$('#hidden_elementos').val(inputElements);
+			}
 
 
 
-			</script>
-			<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
-			</script>
-			@endpush
+		</script>
+		<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
+		</script>
+		@endpush
