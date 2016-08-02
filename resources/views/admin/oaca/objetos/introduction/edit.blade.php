@@ -73,8 +73,8 @@
 							</button>
 						</div>
 					</div>
-					<div class="box-body edit-textarea" data-element="textarea" data-position="count" id="textarea{{$key}}" name="textarea" >
-
+					<div class="box-body edit-textarea" data-element="textarea" data-position={{$key}} id="textarea{{$key}}" name="textarea" >
+						
 					</div>
 
 					<input type="hidden" name="textarea" id="input-textarea{{$key}}" value="{{$element->content}}" class="componente" >
@@ -161,7 +161,25 @@
 <script>
 	$(document).ready(function(){
 
+		$('div#content-form .edit-textarea').each( function(index, element){
 
+			var textarea_id = $(this).attr('id');
+
+			$('#'+textarea_id).summernote({
+				height: 300,               
+				minHeight: null,             
+				maxHeight: null,             
+				focus: true,
+				maximumImageFileSize: 512*1024 
+			});
+
+			var content = $('#input-'+textarea_id).val();
+
+			$('#'+textarea_id).summernote('code',content);
+/*
+$('#input-'+$(this).attr('id'))*/
+console.log(content);
+});
 
 
 

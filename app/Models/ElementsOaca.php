@@ -28,9 +28,9 @@ class ElementsOaca extends Model
 		return $this->belongsTo('App\Models\RegistroOaca','register_id');
 	}
 
-	public static function contentOaca($typeElement){
+	public static function contentOaca($typeElement, $id){
 
-		$content = self::where('register_id','=',ElementsOaca::UUID_REGISTER)
+		$content = self::where('register_id','=',$id)
 		->where('area','=',$typeElement)
 		->orderBy('position_order','asc')
 		->get();
