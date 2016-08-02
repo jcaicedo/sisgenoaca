@@ -170,16 +170,14 @@
 				minHeight: null,             
 				maxHeight: null,             
 				focus: true,
-				maximumImageFileSize: 512*1024 
+				maximumImageFileSize: 512*1024
 			});
 
 			var content = $('#input-'+textarea_id).val();
 
 			$('#'+textarea_id).summernote('code',content);
-/*
-$('#input-'+$(this).attr('id'))*/
-console.log(content);
-});
+
+		});
 
 
 
