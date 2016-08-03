@@ -4,19 +4,6 @@
 
 <div class="content-wrapper">
 
-<!--	@foreach($registrys as $key=>$registry)
-	<h1>{{$registry->title_oaca}}</h1>
-	@foreach($registry->elements as $ind=>$element)
-	h1>{{ $element->area }}</h1>
-	@endforeach
-	@endforeach
-
-	
-	@foreach($contentIntroduction as $ind=>$content)
-	{{ $content->content }}
-	@endforeach-->
-
-
 	<div class="box-header box-header-btn">
 		<h1 class="box-title">{{trans('admin.introduction')}}</h1>
 		<div style="margin:0;background-color:transparent;text-align:center;" >
@@ -89,6 +76,10 @@
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title">Image</h3>
+						<div>
+							<img src="{{$element->content}}" alt="" height="100%" width="20%">
+						</div>
+						
 						<div class="box-tools pull-right">
 							<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}">
 								<i class="fa fa-close"></i>
@@ -114,87 +105,111 @@
 
 		</div>
 
+		<div class="preview">
+			<div class="box-footer box-footer-preview" style="margin-bottom:35px;">
+				<div style="margin:0;background-color:transparent;text-align:center;">
 
-	</form>
+					<a class="btn btn-warning" id="preview">
+						<i class="fa fa-edit"></i>
+						Seguir Editando</a>
 
-	
-</div>
+						<button type="submit" class="btn btn-success" id="processit">
+							<i class="fa fa-cogs"></i>
+							Procesar</button>
+						</div>
+					</div>
 
 
 
-@endsection
+					<div class="content-preview">
 
-@push('styles')
-<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
+					</div>
+				</div>
+				
 
-<style>
-	.nomostrar{display:none;}
-	.mostrar{display: block;}
-	.btn-proccess{margin:0 auto; width: 200px;align:left;}
-	.preview{display: none;}
-	.mark_background{background: #88AAAA}
-	.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
-	.content-preview h2{
-		color: blue;
-		text-align: center;
-	}
-	.callout{margin: 0 !important; min-height:0;}
 
-	.options-textarea{
-		padding-bottom: 10px;
-	}
-	.box-header-btn{
-		background: #CCCBCB;
-	}
+			</form>
 
-</style>
 
-@endpush
+		</div>
 
-@push('scripts')
 
-<script src="/vendor/summernote/dist/summernote.js"></script>
-<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
-<script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
-<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
-<script>
-	$(document).ready(function(){
+		@endsection
 
-		$('div#content-form .edit-textarea').each( function(index, element){
+		@push('styles')
+		<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
 
-			var textarea_id = $(this).attr('id');
+		<style>
+			.nomostrar{display:none;}
+			.mostrar{display: block;}
+			.btn-proccess{margin:0 auto; width: 200px;align:left;}
+			.preview{display: none;}
+			.mark_background{background: #88AAAA}
+			.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+			.content-preview h2{
+				color: blue;
+				text-align: center;
+			}
+			.callout{margin: 0 !important; min-height:0;}
 
-			$('#'+textarea_id).summernote({
-				height: 300,               
-				minHeight: null,             
-				maxHeight: null,             
-				focus: true,
-				maximumImageFileSize: 512*1024
+			.options-textarea{
+				padding-bottom: 10px;
+			}
+			.box-header-btn{
+				background: #CCCBCB;
+			}
+
+		</style>
+
+		@endpush
+
+		@push('scripts')
+
+		<script src="/vendor/summernote/dist/summernote.js"></script>
+		<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+		<script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
+		<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+
+		<script>
+			$(document).ready(function(){
+
+				$('div#content-form .edit-textarea').each( function(index, element){
+
+					var textarea_id = $(this).attr('id');
+
+					$('#'+textarea_id).summernote({
+						height: 300,               
+						minHeight: null,             
+						maxHeight: null,             
+						focus: true,
+						maximumImageFileSize: 512*1024
+					});
+
+					var content = $('#input-'+textarea_id).val();
+					$('#input-'+textarea_id).val(textarea_id);
+
+
+					$('#'+textarea_id).summernote('code',content);
+
+				});
+
+
+
+
+
+
+				$( ".sortable:not(div.box-footer)" ).sortable({
+					axis: 'y',
+					opacity: 0.5,
+					tolerance: 'pointer',
+					handle: ".box-header"
+
+				});
+
 			});
 
-			var content = $('#input-'+textarea_id).val();
 
-			$('#'+textarea_id).summernote('code',content);
+		</script>
 
-		});
-
-
-
-
-
-
-		$( ".sortable:not(div.box-footer)" ).sortable({
-			axis: 'y',
-			opacity: 0.5,
-			tolerance: 'pointer',
-			handle: ".box-header"
-
-		});
-
-	});
-
-
-</script>
-
-@endpush
+		@endpush

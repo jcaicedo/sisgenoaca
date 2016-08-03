@@ -15,8 +15,9 @@
 
 
   var postData = $('#form-create-oaca').serializeArray();
+  console.log(postData);
   var Data = $('#form-create-oaca').serialize();
-  var postDataObject = $('#form-create-oaca').serializeObject();
+  //var postDataObject = $('#form-create-oaca').serializeObject();
 
   var elementos = postData[1].value.split(',');
  // console.log(postData);

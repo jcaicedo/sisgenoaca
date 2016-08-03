@@ -49,13 +49,13 @@
 
 					</div>
 				</div>
-			</div>
+				
 
 
-		</form>
+			</form>
 
 
-
+		</div>
 
 
 
@@ -143,6 +143,8 @@
 				</div>
 			</div>
 		</div>
+
+		
 		<div class="box-footer box-footer-home" style="position: fixed;" >
 
 			<div style="margin:0;background-color:transparent;text-align:center;">
