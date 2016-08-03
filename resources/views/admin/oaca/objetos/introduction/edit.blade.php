@@ -87,9 +87,9 @@
 						</div>
 					</div>
 					<div class=" box-body">
-						<input class="form-control myinput" type="file" data-element="image" data-position={{$key}} value="image-{{$key}}" name="image-{{$key}}" id="imagep-{{$key}}" />
+						<input class="form-control myinput image-upload" type="file" data-element="image" data-position={{$key}} value="image-{{$key}}" name="image-{{$key}}" id="imagep-{{$key}}" />
 
-						<input type="hidden" id="image-{{$key}}" name="image-{{$key}}" value="imagep-{{$key}}" class="componente">
+						<input type="hidden" id="image-{{$key}}" name="image" value="imagep-{{$key}}" class="componente">
 					</div>
 				</div>
 			</div>
@@ -205,6 +205,11 @@
 					tolerance: 'pointer',
 					handle: ".box-header"
 
+				});
+
+
+				$('.image-upload').change(function(event) {
+					console.log($(this).attr('name'));
 				});
 
 			});

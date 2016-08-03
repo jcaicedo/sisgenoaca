@@ -298,7 +298,7 @@
 
 			});
 
-
+			//funcion para establecer en los nombres de los input el orden en los que se crearon.
 			function submitFormOaca(){
 				var count=0;
 				var inputElements=[];

@@ -16,6 +16,7 @@
 
   var postData = $('#form-create-oaca').serializeArray();
   console.log(postData);
+  console.log(postData);
   var Data = $('#form-create-oaca').serialize();
   //var postDataObject = $('#form-create-oaca').serializeObject();
 
