@@ -38,7 +38,7 @@
 						</div>
 					</div>
 					<div class="box-body">
-						<input type="text" class="form-control componente" data-element="title" data-position={{$key}} id="title-{{$key}}" name="title-{{$key}}" value="{{$element->content}}">
+						<input type="text" class="form-control componente" data-element="title" data-position={{$key}} id="title-{{$key}}" name="title" value="{{$element->content}}">
 					</div>
 				</div>
 			</div>
