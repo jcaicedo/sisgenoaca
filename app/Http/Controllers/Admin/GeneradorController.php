@@ -58,7 +58,7 @@ class GeneradorController extends AdminController
 
 		$position = 0;
 		$imagesarray = array();
-		dd($request->input());
+		//dd($request->input());
 
 		foreach ($request->input() as $key => $value) {
 
@@ -214,6 +214,10 @@ class GeneradorController extends AdminController
 	public function getEditoaca(){
 
 		return view('admin.oaca.objetos.edit');
+	}
+
+	public function getPrueba(){
+		return redirect('admin/oaca/objetos/edit-introduction/'.RegistroOaca::REGISTROID);
 	}
 
 }
