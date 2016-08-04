@@ -58,7 +58,7 @@ class GeneradorController extends AdminController
 
 		$position = 0;
 		$imagesarray = array();
-		//dd($request->input());
+		dd($request->input());
 
 		foreach ($request->input() as $key => $value) {
 

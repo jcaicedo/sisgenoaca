@@ -1,5 +1,12 @@
  $("#preview-oaca").click(function(e){
 
+ var postDataObject = $('#form-create-oaca').serializeObject();
+  console.log(postDataObject);
+
+
+
+
+
   e.preventDefault();
 
   var myElements = [];
@@ -15,11 +22,10 @@
 
 
   var postData = $('#form-create-oaca').serializeArray();
-  console.log(postData);
+  //console.log(postData);
 
-  var Data = $('#form-create-oaca').serialize();
-/*  var postDataObject = $('#form-create-oaca').serializeObject();
-console.log(postDataObject);*/
+  // var Data = $('#form-create-oaca').serialize();
+ 
   var elementos = postData[1].value.split(',');
  // console.log(postData);
 

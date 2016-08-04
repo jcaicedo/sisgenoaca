@@ -225,8 +225,11 @@
             	case 'title':
             	var title = $(".titulo-clone").clone().removeClass('titulo-clone');
             	$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").appendTo(this);
-            	$(".remove-div-"+count).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"title"}).addClass("myinput");
+            	$(".remove-div-"+count).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+            	//$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value='title-"+count+"'>");
+            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
+            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 
 
             	count ++;
@@ -302,6 +305,9 @@
 			function submitFormOaca(){
 				var count=0;
 				var inputElements=[];
+
+				
+
 
 				$('div#content-form input.componente').each( function(index, element){
 
