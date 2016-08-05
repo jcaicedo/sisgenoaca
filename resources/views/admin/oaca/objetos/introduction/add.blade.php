@@ -227,9 +227,8 @@
             	$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").appendTo(this);
             	$(".remove-div-"+count).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-            	//$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value='title-"+count+"'>");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+            	$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
+            	$("#title-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 
 
             	count ++;
@@ -239,9 +238,12 @@
             	case 'textarea':
             	var textarea = $(".textareaclone").clone();
             	$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
-            	$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput").after("<input type='hidden' name='textarea' id='input-textarea"+count+"' value='textarea"+count+"'>");
+            	$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
             	$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
+            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][type]'  value='textarea'>");
+            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value='00'>");
 
 
             	$('#textarea'+count).summernote({
@@ -261,10 +263,13 @@
             	var uploadimage = $("div.uploadimage-clone").clone();
             	$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo(this)
 
-            	$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'imagep-'+count}).addClass("myinput").after("<input type='hidden' id='image-"+count+"' name='image' value='imagep-"+count+"'>");
-            	
+            	$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'imagep-'+count}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
             	$("#image-"+count).addClass("componente");
+            	$(".remove-div-"+count).after("<input type='hidden' id='image-"+count+"' name='image' value='imagep-"+count+"'>");
+            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value=''>");
+            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
+            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 
             	count ++;
 
