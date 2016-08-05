@@ -243,7 +243,7 @@
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
             	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
             	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][type]'  value='textarea'>");
-            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value='00'>");
+            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 
 
             	$('#textarea'+count).summernote({

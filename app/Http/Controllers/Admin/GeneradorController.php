@@ -55,6 +55,26 @@ class GeneradorController extends AdminController
 	}
 
 	function postIntroduction(Request $request){
+		$position = 0;
+
+
+		foreach ($request->input('data') as $key => $value) {
+
+			$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
+			$element->type_element = $value['type'];
+			$element->content = $value['content'];
+			$element->area = ElementsOaca::INTRODUCTION;
+			$element->position_order = $position;
+			$element->register_id =  $request->input('register_id');
+			$element->save();
+			$position ++;
+			
+
+		}
+	}
+
+
+	/*function postIntroduction(Request $request){
 
 		$position = 0;
 		$imagesarray = array();
@@ -127,99 +147,99 @@ class GeneradorController extends AdminController
 		return view('admin.oaca.objetos.development.add',[
 			"register_id" =>$request->input('register_id'),
 			"area"=>ElementsOaca::DEVELOPMENT]);
-	}
+		}*/
 
-	function getDevelopment(){
-		return view('admin.oaca.objetos.development.add',[
-			"register_id" =>ElementsOaca::UUID_REGISTER,
-			"area"=>ElementsOaca::DEVELOPMENT]);
-	}
+		function getDevelopment(){
+			return view('admin.oaca.objetos.development.add',[
+				"register_id" =>ElementsOaca::UUID_REGISTER,
+				"area"=>ElementsOaca::DEVELOPMENT]);
+		}
 
-	function postDevelopment(Request $request){
-		
-
-		$position = 0;
-		$imagesarray = array();
-		
-
-		foreach ($request->input() as $key => $value) {
-
-			$typeelement = explode('-',$key);
+		function postDevelopment(Request $request){
 
 
+			$position = 0;
+			$imagesarray = array();
 
-			switch ($typeelement[0]) {
 
-				case 'title':
+			foreach ($request->input() as $key => $value) {
+
+				$typeelement = explode('-',$key);
+
+
+
+				switch ($typeelement[0]) {
+
+					case 'title':
 					# code...
-				$element = new ElementsOaca();
-				$element->type_element ='title';
-				$element->content = $value;
-				$element->area = ElementsOaca::DEVELOPMENT;
-				$element->position_order = $position;
-				$element->register_id = $request->input('register_id');
-				$element->save();
-				$position++;
-				break;
+					$element = new ElementsOaca();
+					$element->type_element ='title';
+					$element->content = $value;
+					$element->area = ElementsOaca::DEVELOPMENT;
+					$element->position_order = $position;
+					$element->register_id = $request->input('register_id');
+					$element->save();
+					$position++;
+					break;
 
-				case 'textarea':
+					case 'textarea':
 
-				$element = new ElementsOaca();
-				$element->type_element ='textarea';
-				$element->content = $value;
-				$element->area = ElementsOaca::DEVELOPMENT;
-				$element->position_order = $position;
-				$element->register_id = $request->input('register_id');
-				$element->save();
-				$position++;
+					$element = new ElementsOaca();
+					$element->type_element ='textarea';
+					$element->content = $value;
+					$element->area = ElementsOaca::DEVELOPMENT;
+					$element->position_order = $position;
+					$element->register_id = $request->input('register_id');
+					$element->save();
+					$position++;
 
-				break;
+					break;
 
-				case 'image':
+					case 'image':
 
-				$element = new ElementsOaca();
-				$element->type_element ='image';
-				$element->area = ElementsOaca::DEVELOPMENT;
-				$element->position_order = $position;
-				$element->register_id = $request->input('register_id');
+					$element = new ElementsOaca();
+					$element->type_element ='image';
+					$element->area = ElementsOaca::DEVELOPMENT;
+					$element->position_order = $position;
+					$element->register_id = $request->input('register_id');
 
-				$filebackground = $request->file($key);
-				$namebackground = $filebackground->getClientOriginalName();
-				$public_path = public_path();		
-				$url = $public_path.'/assets/imgs/contents-img/development';
-				$filebackground->move($url, $namebackground);
-				$element->content = '/assets/imgs/contents-img/development/'.$namebackground;
+					$filebackground = $request->file($key);
+					$namebackground = $filebackground->getClientOriginalName();
+					$public_path = public_path();		
+					$url = $public_path.'/assets/imgs/contents-img/development';
+					$filebackground->move($url, $namebackground);
+					$element->content = '/assets/imgs/contents-img/development/'.$namebackground;
 
-				$element->save();
-				$position++;
+					$element->save();
+					$position++;
 
-				break;
+					break;
 
-				default:
+					default:
 					# code...
-				break;
+					break;
+				}
+
+
+
 			}
 
+			$request->session()->flash('flash_message', trans('admin.oaca_created'));
+
+			return view('admin.oaca.dashboard.dashboard');
 
 
 		}
 
-		$request->session()->flash('flash_message', trans('admin.oaca_created'));
-		
-		return view('admin.oaca.dashboard.dashboard');
+		public function getEditoaca(){
 
+			return view('admin.oaca.objetos.edit');
+		}
+
+		public function getPrueba(){
+			return redirect('admin/oaca/objetos/edit-introduction/'.RegistroOaca::REGISTROID);
+		}
 
 	}
-
-	public function getEditoaca(){
-
-		return view('admin.oaca.objetos.edit');
-	}
-
-	public function getPrueba(){
-		return redirect('admin/oaca/objetos/edit-introduction/'.RegistroOaca::REGISTROID);
-	}
-
-}
 
 

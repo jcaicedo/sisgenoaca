@@ -17,12 +17,10 @@
       break;
 
       case 'textarea':
+      
       var content_textarea = $('#'+$(this).attr('id')).summernote('code');
       $(".content-preview").append('<br>'+content_textarea+'<br>');
-      console.log($(this).data('content'));
-      console.log(content_textarea);
       var idContent = $(this).data('content');
-      console.log(idContent);
       $("#"+idContent).val(content_textarea);
       break;
 
@@ -43,12 +41,12 @@
 
 
 
-   var myElements = [];
+ /*  var myElements = [];
 
    $("#form-create-oaca .myinput").each(function(index){
      myElements.push($(this).data("element"));
 
-   });
+   });*/
 
    $(".sortable").hide();
    $(".box-header-btn").hide();
