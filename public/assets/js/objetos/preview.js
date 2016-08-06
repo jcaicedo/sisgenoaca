@@ -1,14 +1,10 @@
  $("#preview-oaca").click(function(e){
-
-
    e.preventDefault();
-
 
    var countImage = 0;
 
    $("#form-create-oaca .myinput").each(function(index){
 
-     console.log($(this).data('element'));
      var element = $(this).data('element');
      switch(element){
 
@@ -25,6 +21,7 @@
       break;
 
       case 'image':
+      $(this);
 
       $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
@@ -37,26 +34,17 @@
     }
 
   });
+    //Hidden elements from edit content
+    $(".sortable").hide();
+    $(".box-header-btn").hide();
+    $(".preview").show();
 
 
+  });
 
+//Reset Preview and return to edit content
 
- /*  var myElements = [];
-
-   $("#form-create-oaca .myinput").each(function(index){
-     myElements.push($(this).data("element"));
-
-   });*/
-
-   $(".sortable").hide();
-   $(".box-header-btn").hide();
-   $(".preview").show();
-
-
- });
-
-
- $('#preview').click(function(e){
+$('#preview').click(function(e){
   e.preventDefault();
   $(".content-preview").html("");
   $(".sortable").show();
@@ -69,7 +57,7 @@
 
 
 
- function readImage (input, id) {
+function readImage (input, id) {
 
   if(input.files && input.files[0]) {
     var reader = new FileReader();

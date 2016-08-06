@@ -16,7 +16,7 @@
 			</a>
 		</div>
 	</div>
-	<form action="{{url('/admin/oaca/objetos/introduction')}}" method="post" onSubmit="submitFormOaca()" role="form" id="form-create-oaca" enctype="multipart/form-data" >
+	<form action="{{url('/admin/oaca/objetos/introduction')}}" method="post"  role="form" id="form-create-oaca" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<div class="content sortable" id="content-form">
@@ -145,17 +145,6 @@
 		</div>
 
 		
-		<div class="box-footer box-footer-home" style="position: fixed;" >
-
-			<div style="margin:0;background-color:transparent;text-align:center;">
-				{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
-				<a id="preview-oaca" class="btn btn-warning">
-					<i class="fa fa-eye"></i>
-					Visualizar
-				</a>
-			</div>
-
-		</div>
 		@endsection
 
 
@@ -225,7 +214,7 @@
             	case 'title':
             	var title = $(".titulo-clone").clone().removeClass('titulo-clone');
             	$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").appendTo(this);
-            	$(".remove-div-"+count).find('input').attr({"data-element":"title","data-position":count,"id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
+            	$(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
             	$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
             	$("#title-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
@@ -238,7 +227,7 @@
             	case 'textarea':
             	var textarea = $(".textareaclone").clone();
             	$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
-            	$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea","data-position":count,'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
+            	$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
             	$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
             	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
@@ -263,11 +252,10 @@
             	var uploadimage = $("div.uploadimage-clone").clone();
             	$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo(this)
 
-            	$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image","id":'imagep-'+count}).addClass("myinput");
+            	$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
             	$("#image-"+count).addClass("componente");
-            	$(".remove-div-"+count).after("<input type='hidden' id='image-"+count+"' name='image' value='imagep-"+count+"'>");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value=''>");
+            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
             	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
             	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 
@@ -284,6 +272,8 @@
         }
 
     });
+
+				//Function Delete content
 
 				$("#form-create-oaca").on('click','button.remove-div',function (e){
 
@@ -305,59 +295,6 @@
 				});
 
 			});
-
-			//funcion para establecer en los nombres de los input el orden en los que se crearon.
-			function submitFormOaca(){
-				var count=0;
-				var inputElements=[];
-
-				
-
-
-				$('div#content-form input.componente').each( function(index, element){
-
-					
-					var type_element = $(this).attr('name');
-
-
-					switch(type_element){
-
-						case 'title':
-
-						inputElements.push('title');
-						$(this).attr({'name':'title-'+count});
-						count ++;
-
-						break;
-
-						case 'textarea':
-
-						inputElements.push('textarea');
-						var summernoteid = $(this).val();
-						var content_textarea = $('#'+summernoteid).summernote('code');
-						$(this).val(content_textarea);
-						$(this).attr({'name':'textarea-'+count});
-						count ++;
-
-						break;
-
-						case 'image':
-
-						inputElements.push('image');
-						console.log($(this));
-						$(this).attr({'name':'image-'+count});
-						$('#'+$(this).val()).attr({'name':'image-'+count});
-						console.log($(this));
-						count ++;
-
-						break;
-					}
-
-				});
-
-
-				$('#hidden_elementos').val(inputElements);
-			}
 
 
 

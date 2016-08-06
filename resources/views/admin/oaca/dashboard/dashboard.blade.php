@@ -27,32 +27,36 @@
 	<section class="content">
 		<div class="row">
 			<div class="col-xs-12 col-md-4">
-				<div class="small-box bg-aqua">
-					<div class="inner">
-						<h3>OACA</h3>
-						<p>Crear Nuevo</p>
-					</div>
-					<div class="icon">
-						<a href={{url('/admin/oaca/registry/create/')}}>
-							<i class="ion ion-plus-round"></i>
-						</a>
-					</div>
+				<a href={{url('/admin/oaca/registry/create/')}}>
+					<div class="small-box bg-aqua">
+						<div class="inner">
+							<h3>OACA</h3>
+							<p>Crear Nuevo</p>
+						</div>
+						<div class="icon">
 
-				</div>
+							<i class="ion ion-plus-round"></i>
+
+						</div>
+
+					</div>
+				</a>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<div class="small-box bg-yellow">
-					<div class="inner">
-						<h3>MIS OACAS</h3>
-						<p>Listar mis Oacas</p>
-					</div>
-					<div class="icon">
-						<a href={{url('/admin/oaca/registry/registrys')}}>
+				<a href={{url('/admin/oaca/registry/registrys')}}>
+					<div class="small-box bg-yellow">
+						<div class="inner">
+							<h3>MIS OACAS</h3>
+							<p>Listar mis Oacas</p>
+						</div>
+						<div class="icon">
+							
 							<i class="ion ion-plus-round"></i>
-						</a>
-					</div>
+							
+						</div>
 
-				</div>
+					</div>
+				</a>
 			</div>							
 		</div>
 
