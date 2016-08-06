@@ -92,7 +92,10 @@ class GeneradorController extends AdminController
 
 		return view('admin.oaca.objetos.development.add',[
 			"register_id" =>$request->input('register_id'),
-			"area"=>ElementsOaca::DEVELOPMENT]);
+			"momento"=>ElementsOaca::DEVELOPMENT,
+			"patron_tecnopedagogico" => ElementsOaca::EXPLANATION
+
+			]);
 	}
 
 

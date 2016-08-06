@@ -11,6 +11,8 @@ class ElementsOaca extends Model
 	const UUID_REGISTER = '77b82dea-246a-39b7-b447-ededd84c9fcc';
 	const INTRODUCTION = "introduction";
 	const DEVELOPMENT = "develoment";
+	const EXPLANATION = "explanation";
+	const EXEMPLIFICATION = "exemplification";
 	
 	protected $table = 'elements';
 	
