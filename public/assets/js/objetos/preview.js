@@ -1,90 +1,63 @@
  $("#preview-oaca").click(function(e){
+   e.preventDefault();
 
-  e.preventDefault();
+   var countImage = 0;
 
-  var myElements = [];
+   $("#form-create-oaca .myinput").each(function(index){
 
-  $("#form-create-oaca .myinput").each(function(index){
-   myElements.push($(this).data("element"));
+     var element = $(this).data('element');
+     switch(element){
 
- });
+      case 'title':
+      $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
+      break;
 
+      case 'textarea':
+      
+      var content_textarea = $('#'+$(this).attr('id')).summernote('code');
+      $(".content-preview").append('<br>'+content_textarea+'<br>');
+      var idContent = $(this).data('content');
+      $("#"+idContent).val(content_textarea);
+      break;
 
-  $("#hidden_elementos").val(myElements);
+      case 'image':
+      $(this);
 
+      $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
+      $("#"+$(this).attr('id')).html(function(){
+       readImage(this,countImage);
+       countImage ++;
+     });
+      break;
 
-  var postData = $('#form-create-oaca').serializeArray();
-  var Data = $('#form-create-oaca').serialize();
-  var postDataObject = $('#form-create-oaca').serializeObject();
+    }
 
-  var elementos = postData[1].value.split(',');
- // console.log(postData);
-
-
- numImage = 0;
-
- $.each(postData, function(index, input){
-
-  var   element = input.name;
-
-  switch(element){
-    case 'title':
-    $(".content-preview").append('<h2>'+input.value+'</h2>');
-    break;
-
-    case 'textarea':
-    console.log(input.value);
-    var content_textarea = $('#'+input.value).summernote('code');
-    $(".content-preview").append(content_textarea);
-
-    break;
-
-    case 'image':
-    $(".content-preview").append('<img src="" alt="'+input.value+'" id="loadimage'+numImage+'" height="100" width="100">')
-
-    $("#"+input.value).html(function(){
-     readImage(this,numImage);
-     numImage ++;
-   });
-    break;
-  }
-  //console.log(input.value);
-
-});
-
- $("#form-create-oaca").hide();
- $(".preview").show();
+  });
+    //Hidden elements from edit content
+    $(".sortable").hide();
+    $(".box-header-btn").hide();
+    $(".preview").show();
 
 
-});
+  });
 
+//Reset Preview and return to edit content
 
- $('#preview').click(function(e){
+$('#preview').click(function(e){
   e.preventDefault();
   $(".content-preview").html("");
-  $("#form-create-oaca").show();
+  $(".sortable").show();
+  $('.box-header-btn').show();
   $(".preview").hide();
 
 });
 
- $('#processit').click(function(e) {
-  /* Act on the event */
-
-  console.log($('.content-preview').html());
-  // var token=$('[name="_token"]').val();
-  // var contenido = $('.content-preview').html();
-  // $.post('/admin/oaca/objetos/createoaca',{
-  //   content: contenido,
-  //   _token: token
-  // }).done(function(data){
-  //   console.log(data);
-  // });
-});
 
 
 
- function readImage (input, id) {
+
+function readImage (input, id) {
 
   if(input.files && input.files[0]) {
     var reader = new FileReader();

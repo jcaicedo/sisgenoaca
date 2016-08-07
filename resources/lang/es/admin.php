@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+
     'introduction' => 'Introducción',
     'development' => 'Desarrollo',
     'createOaca' => 'Create Oaca',
@@ -96,14 +97,15 @@ return [
 
     'oaca_created'=>'OACA Creado',
     'edit_Oaca'=>'Editar Oaca',
+    'visualize' => 'Visualizar',
 
-
-    ///////
-
-    'visualize' => 'Visualize',
-
-
-
-
+    'explanation' => 'Explicación',
+    'exemplification' => 'Ejemplificación',
+    'application' => 'Aplicación',
+    'justification' => 'Justificación',
+    'compare' => 'Comparación',
+    'contrast' => 'Contraste',
+    'contextualization' => 'Contextualización',
+    'generalization' => 'Generalización',
 
     ];

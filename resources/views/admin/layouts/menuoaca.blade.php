@@ -7,14 +7,13 @@
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 	<link rel="stylesheet" href="/vendor/AdminLTE/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" type="text/css" href="/assets/css/style_form.css">
+	<link rel="stylesheet" type="text/css" href="/assets/css/style_form_register.css">
 		<!--<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" />
 		<link rel="stylesheet" href="/vendor/Ionicons/css/ionicons.min.css" />-->
 		<link rel="stylesheet" href="/vendor/AdminLTE/dist/css/AdminLTE.min.css" />
 		<link rel="stylesheet" href="/vendor/AdminLTE/dist/css/skins/_all-skins.min.css" />
 		<link rel="stylesheet" href="/vendor/jquery-ui-1.11.4.custom/jquery-ui.css">
-		<link rel="stylesheet" type="text/css" href="/assets/css/style_objeto_create.css">
-
+		
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -53,10 +52,6 @@
 		<script src="/vendor/AdminLTE/dist/js/app.min.js"></script>
 		<script src="/vendor/AdminLTE/dist/js/demo.js"></script>
 		<script src="/vendor/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
-		<!-- CK Editor -->
-		<script src="https://cdn.ckeditor.com/4.5.7/standard/ckeditor.js"></script>
-		<!-- Bootstrap WYSIHTML5 -->
-		<script src="/vendor/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js"></script>
 
 		@stack('scripts')
 	</body>

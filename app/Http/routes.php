@@ -47,23 +47,16 @@ Route::group(['middleware' => 'web'],function(){
 
         Route::group(['prefix'=>'oaca'],function(){
 
-            Route::controller('registro','GeneradorController');
+            //Controladores del Registro del OACA
+            Route::get('registry/edit/{id}',['uses'=>'RegistryOacaController@getEdit']);
+            Route::get('registry/{id}/delete','RegistryOacaController@delete')
+            ->where(['id' => '[a-f0-9\-]+']);
+            Route::controller('registry','RegistryOacaController');
+            
+            //Controladores de los elementos de los OACA
+
+            Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
             Route::controller('objetos','GeneradorController');
-
-            Route::post('registro/create',['as'=>'registro','uses'=>'GeneradorController@registro']);
-
-
-
-
-
-
-            
-                // Route::get('create',['as'=>'create','uses'=>'GeneradorController@createOaca']);
-                // Route::post('create',['as'=>'create','uses'=>'GeneradorController@create_objetos']);
-
-
-            
-
 
 
 
