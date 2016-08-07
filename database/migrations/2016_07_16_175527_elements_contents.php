@@ -17,7 +17,8 @@ class ElementsContents extends Migration
             $table->increments('id');
             $table->string('type_element');
             $table->longText('content');
-            $table->string('area');
+            $table->string('moment');
+            $table->string('pattern_pedagogicaltechno')->nullable();
             $table->integer('position_order');
             $table->uuid('register_id')->required();
             $table->foreign('register_id')

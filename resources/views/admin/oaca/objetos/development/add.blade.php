@@ -3,11 +3,8 @@
 @section('content')
 
 <div class="content-wrapper">
-
-
-
 	<div class="box-header box-header-btn">
-		<h1 class="box-title">{{trans('admin.development')}}</h1>
+		<h1 class="box-title">{{trans('admin.development')}} {{trans('admin.'.$pattern_pedagogicaltechno.'')  }}</h1>
 		<div style="margin:0;background-color:transparent;text-align:center;">
 			{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
 			<a id="preview-oaca" class="btn btn-warning">
@@ -24,7 +21,7 @@
 			<input type="hidden" name="register_id" value="{{$register_id}}">
 			
 
-			<input type="hidden" name="elementos" value="" id="hidden_elementos">
+			<input type="hidden" name="patron_tecnopedagogico" value="{{$pattern_pedagogicaltechno}}" id="hidden_elementos">
 
 		</div>
 
@@ -190,7 +187,7 @@
 		<script>
 			$(document).ready(function(){
 
-				$("#myModal").modal('show'); /*Show Modal Automatic*/
+				//$("#myModal").modal('show'); /*Show Modal Automatic*/
 
 				/*var elements = new Array();*/ /*Array elementos creados */
 

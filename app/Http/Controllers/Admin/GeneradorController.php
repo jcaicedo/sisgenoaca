@@ -42,7 +42,7 @@ class GeneradorController extends AdminController
 
 		return view('admin.oaca.objetos.introduction.edit',[
 			"register_id" =>ElementsOaca::UUID_REGISTER,
-			"area"=>ElementsOaca::INTRODUCTION,
+			"moment"=>ElementsOaca::INTRODUCTION,
 			"registrys"=>$registrys,
 			"contentIntroduction" => $content_Introduction
 			]);
@@ -51,7 +51,7 @@ class GeneradorController extends AdminController
 	function getIntroduction(){
 		return view('admin.oaca.objetos.introduction.add',[
 			"register_id" =>ElementsOaca::UUID_REGISTER,
-			"area"=>ElementsOaca::INTRODUCTION]);
+			"moment"=>ElementsOaca::INTRODUCTION]);
 	}
 
 	function postIntroduction(Request $request){
@@ -65,7 +65,7 @@ class GeneradorController extends AdminController
 				$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
 				$element->type_element = $value['type'];
 				$element->content = $value['content'];
-				$element->area = ElementsOaca::INTRODUCTION;
+				$element->moment = ElementsOaca::INTRODUCTION;
 				$element->position_order = $position;
 				$element->register_id =  $request->input('register_id');
 				$element->save();
@@ -74,7 +74,7 @@ class GeneradorController extends AdminController
 
 				$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
 				$element->type_element = $value['type'];
-				$element->area = ElementsOaca::INTRODUCTION;
+				$element->moment = ElementsOaca::INTRODUCTION;
 				$element->position_order = $position;
 				$element->register_id =  $request->input('register_id');
 
@@ -92,8 +92,8 @@ class GeneradorController extends AdminController
 
 		return view('admin.oaca.objetos.development.add',[
 			"register_id" =>$request->input('register_id'),
-			"momento"=>ElementsOaca::DEVELOPMENT,
-			"patron_tecnopedagogico" => ElementsOaca::EXPLANATION
+			"moment"=>ElementsOaca::DEVELOPMENT,
+			"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION
 
 			]);
 	}
@@ -102,11 +102,131 @@ class GeneradorController extends AdminController
 	function getDevelopment(){
 		return view('admin.oaca.objetos.development.add',[
 			"register_id" =>ElementsOaca::UUID_REGISTER,
-			"area"=>ElementsOaca::DEVELOPMENT]);
+			"moment"=>ElementsOaca::DEVELOPMENT,
+			"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION
+			]);
 	}
 
 	function postDevelopment(Request $request){
-		dd($request->input('data'));
+		
+		$input_pattern_pedagogicaltechno = $request->input('patron_tecnopedagogico');
+
+		if($input_pattern_pedagogicaltechno!= ElementsOaca::GENERALIZATION){
+
+			$position = 0;
+
+		//dd($request->input('data'));
+
+			foreach ($request->input('data') as $key => $value) {
+
+				if($value['type']!='image'){
+					$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::DEVELOPMENT;
+					$element->pattern_pedagogicaltechno = $input_pattern_pedagogicaltechno;
+					$element->position_order = $position;
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
+				}else if($value['type'] == 'image'){
+
+					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element->type_element = $value['type'];
+					$element->moment = ElementsOaca::DEVELOPMENT;
+					$element->pattern_pedagogicaltechno = $input_pattern_pedagogicaltechno;
+					$element->position_order = $position;
+					$element->register_id =  $request->input('register_id');
+
+					$filebackground = $request->file( $value['content']);
+					$namebackground = $filebackground->getClientOriginalName();
+					$public_path = public_path();		
+					$url = $public_path.'/assets/imgs/contents-img/development';
+					$filebackground->move($url, $namebackground);
+					$element->content = '/assets/imgs/contents-img/development/'.$namebackground;
+					$element->save();
+					$position ++;
+
+				}
+			}
+
+			switch ($input_pattern_pedagogicaltechno) {
+				case 'explanation':
+				$pattern_pedagogicaltechno = ElementsOaca::EXEMPLIFICATION;
+				break;
+				case 'exemplification':
+				$pattern_pedagogicaltechno = ElementsOaca::APPLICATION;
+				break;
+				case 'application':
+				$pattern_pedagogicaltechno = ElementsOaca::JUSTIFICATION;
+				break;
+				case 'justification':
+				$pattern_pedagogicaltechno = ElementsOaca::COMPARE;
+				break;
+				case 'compare':
+				$pattern_pedagogicaltechno = ElementsOaca::CONTRAST;
+				break;
+				case 'contrast':
+				$pattern_pedagogicaltechno = ElementsOaca::CONTEXTUALIZATION;
+				break;
+				case 'contextualization':
+				$pattern_pedagogicaltechno = ElementsOaca::GENERALIZATION;
+				break;
+
+				default:
+				# code...
+				break;
+			}
+
+			return view('admin.oaca.objetos.development.add',[
+				"register_id" =>$request->input('register_id'),
+				"momento"=>ElementsOaca::DEVELOPMENT,
+				"pattern_pedagogicaltechno" => $pattern_pedagogicaltechno 
+				]);
+
+			
+		}else{
+
+			$position = 0;
+
+		//dd($request->input('data'));
+
+			foreach ($request->input('data') as $key => $value) {
+
+				if($value['type']!='image'){
+					$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::DEVELOPMENT;
+					$element->pattern_pedagogicaltechno = $input_pattern_pedagogicaltechno;
+					$element->position_order = $position;
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
+				}else if($value['type'] == 'image'){
+
+					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element->type_element = $value['type'];
+					$element->moment = ElementsOaca::DEVELOPMENT;
+					$element->pattern_pedagogicaltechno = $input_pattern_pedagogicaltechno;
+					$element->position_order = $position;
+					$element->register_id =  $request->input('register_id');
+
+					$filebackground = $request->file( $value['content']);
+					$namebackground = $filebackground->getClientOriginalName();
+					$public_path = public_path();		
+					$url = $public_path.'/assets/imgs/contents-img/development';
+					$filebackground->move($url, $namebackground);
+					$element->content = '/assets/imgs/contents-img/development/'.$namebackground;
+					$element->save();
+					$position ++;
+
+				}
+			}
+
+			return redirect ('/admin');
+			
+		}
 
 	}
 

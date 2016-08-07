@@ -8,11 +8,17 @@ class ElementsOaca extends Model
 {
 
 	const USER_ID = '1';
-	const UUID_REGISTER = '77b82dea-246a-39b7-b447-ededd84c9fcc';
+	const UUID_REGISTER = 'a1d09e67-2eaf-35e2-a738-08b7864e1576';
 	const INTRODUCTION = "introduction";
 	const DEVELOPMENT = "develoment";
 	const EXPLANATION = "explanation";
 	const EXEMPLIFICATION = "exemplification";
+	const APPLICATION = "application";
+	const JUSTIFICATION = "justification";
+	const COMPARE = "compare";
+	const CONTRAST = "contrast";
+	const CONTEXTUALIZATION = "contextualization";
+	const GENERALIZATION = "generalization";
 	
 	protected $table = 'elements';
 	

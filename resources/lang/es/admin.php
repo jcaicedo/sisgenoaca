@@ -99,4 +99,13 @@ return [
     'edit_Oaca'=>'Editar Oaca',
     'visualize' => 'Visualizar',
 
+    'explanation' => 'Explicación',
+    'exemplification' => 'Ejemplificación',
+    'application' => 'Aplicación',
+    'justification' => 'Justificación',
+    'compare' => 'Comparación',
+    'contrast' => 'Contraste',
+    'contextualization' => 'Contextualización',
+    'generalization' => 'Generalización',
+
     ];
