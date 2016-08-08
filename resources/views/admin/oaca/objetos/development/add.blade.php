@@ -4,7 +4,77 @@
 
 <div class="content-wrapper">
 	<div class="box-header box-header-btn">
+
 		<h1 class="box-title">{{trans('admin.development')}} {{trans('admin.'.$pattern_pedagogicaltechno.'')  }}</h1>
+
+
+		<div class="container-fluid">
+
+
+			<div class="row bs-wizard" style="border-bottom:0;">
+
+
+				<div class="col-xs-1 bs-wizard-step complete">
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.explanation')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+					
+				</div>
+
+				<div class="col-xs-1 bs-wizard-step complete"><!-- complete -->
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.exemplification')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+					
+				</div>
+				<div class="col-xs-1 bs-wizard-step complete"><!-- complete -->
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.application')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+					
+				</div>
+				<div class="col-xs-1 bs-wizard-step complete"><!-- complete -->
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.justification')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+					
+				</div>
+				<div class="col-xs-1 bs-wizard-step complete"><!-- complete -->
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.compare')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+					
+				</div>
+				<div class="col-xs-1 bs-wizard-step complete"><!-- complete -->
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.contrast')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+					
+				</div>
+				
+
+				<div class="col-xs-1 bs-wizard-step disabled"><!-- complete -->
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.contextualization')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+					
+				</div>
+
+
+				<div class="col-xs-1 bs-wizard-step disabled"><!-- active -->
+					<div class="text-center bs-wizard-stepnum">{{trans('admin.generalization')}}</div>
+					<div class="progress"><div class="progress-bar"></div></div>
+					<a href="#" class="bs-wizard-dot"></a>
+
+				</div>
+			</div>
+
+
+
+
+
+		</div>
+
 		<div style="margin:0;background-color:transparent;text-align:center;">
 			{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
 			<a id="preview-oaca" class="btn btn-warning">
@@ -12,6 +82,8 @@
 				Visualizar
 			</a>
 		</div>
+
+
 	</div>
 	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -150,6 +222,8 @@
 
 
 		<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
+		<link href="/assets/css/style_steps.css" rel="stylesheet">
+
 
 		<style>
 			.nomostrar{display:none;}
