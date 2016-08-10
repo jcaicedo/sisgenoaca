@@ -108,6 +108,8 @@ class GeneradorController extends AdminController
 	}
 
 	function postDevelopment(Request $request){
+
+		dd($request->input('data'));
 		
 		$input_pattern_pedagogicaltechno = $request->input('patron_tecnopedagogico');
 
