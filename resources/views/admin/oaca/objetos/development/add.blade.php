@@ -5,17 +5,7 @@
 <div class="content-wrapper">
 	<div class="box-header box-header-btn">
 
-		<h1 class="box-title">{{trans('admin.development')}} {{trans('admin.'.$pattern_pedagogicaltechno.'')  }}</h1>
-
-
-		<div style="margin:0;background-color:transparent;text-align:center;">
-			{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
-			<a id="preview-oaca" class="btn btn-warning">
-				<i class="fa fa-eye"></i>
-				Visualizar
-			</a>
-		</div>
-
+		<h1 class="box-title">{{trans('admin.development')}}</h1>
 
 	</div>
 	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca" enctype="multipart/form-data" >
@@ -23,34 +13,40 @@
 
 		<input type="hidden" name="register_id" value="{{$register_id}}">
 
-		<div id="rootwizard">
-			<div class="navbar">
-				<div class="navbar-inner">
-					<div class="container">
-						<ul>
-							<li><a href="#tab1" data-toggle="tab">{{trans('admin.explanation')}}</a></li>
-							<li><a href="#tab2" data-toggle="tab">{{trans('admin.exemplification')}}</a></li>
-							<li><a href="#tab3" data-toggle="tab">{{trans('admin.application')}}</a></li>
-							<li><a href="#tab4" data-toggle="tab">{{trans('admin.justification')}}</a></li>
-							<li><a href="#tab5" data-toggle="tab">{{trans('admin.compare')}}</a></li>
-							<li><a href="#tab6" data-toggle="tab">{{trans('admin.contrast')}}</a></li>
-							<li><a href="#tab7" data-toggle="tab">{{trans('admin.contextualization')}}</a></li>
-							<li><a href="#tab8" data-toggle="tab">{{trans('admin.generalization')}}</a></li>
-						</ul>
-					</div>
-				</div>
+		<div id="rootwizard" class="tabbable tabs-left">
+			
+			<ul class="nav bav-tabs">
+				<li><a href="#tab1" data-toggle="tab">{{trans('admin.explanation')}}</a></li>
+				<li><a href="#tab2" data-toggle="tab">{{trans('admin.exemplification')}}</a></li>
+				<li><a href="#tab3" data-toggle="tab">{{trans('admin.application')}}</a></li>
+				<li><a href="#tab4" data-toggle="tab">{{trans('admin.justification')}}</a></li>
+				<li><a href="#tab5" data-toggle="tab">{{trans('admin.compare')}}</a></li>
+				<li><a href="#tab6" data-toggle="tab">{{trans('admin.contrast')}}</a></li>
+				<li><a href="#tab7" data-toggle="tab">{{trans('admin.contextualization')}}</a></li>
+				<li><a href="#tab8" data-toggle="tab">{{trans('admin.generalization')}}</a></li>
+			</ul>
+			<div id="bar" class="progress progress-info progress-striped">
+				<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 57.1429%;"></div>
 			</div>
+
 			<div class="tab-content">
 				<div class="tab-pane" id="tab1">
+					<div style="margin:0;background-color:transparent;text-align:center;">
+						<a  class="btn btn-warning preview-oaca" data-prev="prev1" data-content="#content-form1">
+							<i class="fa fa-eye"></i>
+							Visualizar
+						</a>
+					</div>
 
 					<!--EXPLANATION-->
-					<div class="content sortable" id="content-form" data-pattern='explanation'>
+					<div class="content sortable" id="content-form1" data-pattern='explanation'>
+						
 
 						
 					</div>
 
 
-					<div class="preview">
+					<div class="preview" id="prev1">
 						<div class="box-footer box-footer-preview" style="margin-bottom:35px;">
 							<div style="margin:0;background-color:transparent;text-align:center;">
 
@@ -58,7 +54,7 @@
 									<i class="fa fa-edit"></i>
 									Seguir Editando</a>
 
-									<button type="submit" class="btn btn-success" id="processit">
+									<button type="submit" class="btn btn-success">
 										<i class="fa fa-cogs"></i>
 										Procesar</button>
 									</div>
@@ -74,10 +70,17 @@
 							<!--./EXPLANATION-->
 						</div>
 						<div class="tab-pane" id="tab2" >
+							<div style="margin:0;background-color:transparent;text-align:center;">
+
+								<a class="btn btn-warning preview-oaca" data-prev="prev2">
+									<i class="fa fa-eye"></i>
+									Visualizar
+								</a>
+							</div>
 							<!--EXEMPLIFICATION-->
 
 							<div class="content sortable" data-pattern='exemplification'>
-
+								
 								
 							</div>
 
@@ -90,7 +93,7 @@
 											<i class="fa fa-edit"></i>
 											Seguir Editando</a>
 
-											<button type="submit" class="btn btn-success" id="processit">
+											<button type="submit" class="btn btn-success">
 												<i class="fa fa-cogs"></i>
 												Procesar</button>
 											</div>
@@ -105,7 +108,13 @@
 									<!--./EXEMPLIFICATION-->
 								</div>
 								<div class="tab-pane" id="tab3">
-									
+									<div style="margin:0;background-color:transparent;text-align:center;">
+
+										<a class="btn btn-warning preview-oaca" data-prev="prev3">
+											<i class="fa fa-eye"></i>
+											Visualizar
+										</a>
+									</div>
 									<!--APPLICATION-->
 									
 									<div class="content sortable" data-pattern='application'>
@@ -122,7 +131,7 @@
 													<i class="fa fa-edit"></i>
 													Seguir Editando</a>
 
-													<button type="submit" class="btn btn-success" id="processit">
+													<button type="submit" class="btn btn-success">
 														<i class="fa fa-cogs"></i>
 														Procesar</button>
 													</div>
@@ -139,10 +148,17 @@
 											<!--./APPLICATION-->
 										</div>
 										<div class="tab-pane" id="tab4">
+											<div style="margin:0;background-color:transparent;text-align:center;">
+
+												<a class="btn btn-warning preview-oaca" data-prev="prev4">
+													<i class="fa fa-eye"></i>
+													Visualizar
+												</a>
+											</div>
 											<!--JUSTIFICATION-->
 
 											<div class="content sortable" data-pattern='justification'>
-
+												
 
 											</div>
 
@@ -155,7 +171,7 @@
 															<i class="fa fa-edit"></i>
 															Seguir Editando</a>
 
-															<button type="submit" class="btn btn-success" id="processit">
+															<button type="submit" class="btn btn-success">
 																<i class="fa fa-cogs"></i>
 																Procesar</button>
 															</div>
@@ -170,10 +186,18 @@
 													<!--./JUSTIFICATION-->
 												</div>
 												<div class="tab-pane" id="tab5">
+
+													<div style="margin:0;background-color:transparent;text-align:center;">
+														{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
+														<a class="btn btn-warning preview-oaca" data-prev="prev5">
+															<i class="fa fa-eye"></i>
+															Visualizar
+														</a>
+													</div>
 													<!--COMPARE-->
 
 													<div class="content sortable" data-pattern='compare'>
-
+														
 
 													</div>
 
@@ -186,7 +210,7 @@
 																	<i class="fa fa-edit"></i>
 																	Seguir Editando</a>
 
-																	<button type="submit" class="btn btn-success" id="processit">
+																	<button type="submit" class="btn btn-success">
 																		<i class="fa fa-cogs"></i>
 																		Procesar</button>
 																	</div>
@@ -201,10 +225,18 @@
 															<!--./COMPARE-->
 														</div>
 														<div class="tab-pane" id="tab6">
+
+															<div style="margin:0;background-color:transparent;text-align:center;">
+																{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
+																<a class="btn btn-warning preview-oaca"  data-prev="prev6">
+																	<i class="fa fa-eye"></i>
+																	Visualizar
+																</a>
+															</div>
 															<!--CONTRAST-->
 
 															<div class="content sortable" data-pattern='contrast'>
-
+																
 
 															</div>
 
@@ -217,7 +249,7 @@
 																			<i class="fa fa-edit"></i>
 																			Seguir Editando</a>
 
-																			<button type="submit" class="btn btn-success" id="processit">
+																			<button type="submit" class="btn btn-success">
 																				<i class="fa fa-cogs"></i>
 																				Procesar</button>
 																			</div>
@@ -232,10 +264,18 @@
 																	<!--./CONTRAST-->
 																</div>
 																<div class="tab-pane" id="tab7">
+
+																	<div style="margin:0;background-color:transparent;text-align:center;">
+																		{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
+																		<a class="btn btn-warning preview-oaca"  data-prev="prev7">
+																			<i class="fa fa-eye"></i>
+																			Visualizar
+																		</a>
+																	</div>
 																	<!--CONTEXTUALIZATION-->
 
 																	<div class="content sortable" data-pattern='contextualization'>
-
+																		
 
 																	</div>
 
@@ -248,7 +288,7 @@
 																					<i class="fa fa-edit"></i>
 																					Seguir Editando</a>
 
-																					<button type="submit" class="btn btn-success" id="processit">
+																					<button type="submit" class="btn btn-success" >
 																						<i class="fa fa-cogs"></i>
 																						Procesar</button>
 																					</div>
@@ -263,10 +303,18 @@
 																			<!--./CONTEXTUALIZATION-->
 																		</div>
 																		<div class="tab-pane" id="tab8">
+
+																			<div style="margin:0;background-color:transparent;text-align:center;">
+																				{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
+																				<a class="btn btn-warning preview-oaca"  data-prev="prev8">
+																					<i class="fa fa-eye"></i>
+																					Visualizar
+																				</a>
+																			</div>
 																			<!--GENERALIZATION-->
 																			<div class="content sortable" data-pattern='generalization'>
 
-
+																				
 																			</div>
 
 
@@ -278,7 +326,7 @@
 																							<i class="fa fa-edit"></i>
 																							Seguir Editando</a>
 
-																							<button type="submit" class="btn btn-success" id="processit">
+																							<button type="submit" class="btn btn-success">
 																								<i class="fa fa-cogs"></i>
 																								Procesar</button>
 																							</div>
@@ -300,14 +348,6 @@
 																				</ul>
 																			</div>
 																		</div>
-
-
-
-
-
-
-
-
 																	</form>
 
 
@@ -448,25 +488,27 @@
 
 																<script>
 																	$(document).ready(function(){
-																		$('#rootwizard').bootstrapWizard();
-
-				//$("#myModal").modal('show'); /*Show Modal Automatic*/
-
-				/*var elements = new Array();*/ /*Array elementos creados */
-
-				var count=0;
-
-				$( "#title, #textarea, #uploadimage" ).draggable({
-					appendTo: "body",
-					helper: "clone"
-				});
+																		$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs',onTabShow: function(tab, navigation, index) {
+																			var $total = navigation.find('li').length;
+																			var $current = index+1;
+																			var $percent = ($current/$total) * 100;
+																			$('#rootwizard .progress-bar').css({width:$percent+'%'});
+																		}});
 
 
-				$(".content").droppable({
-					accept: '.option',
-					drop:function(event,ui){
+																		var count=0;
 
-						var opt = ui.draggable.data('element-option');
+																		$( "#title, #textarea, #uploadimage" ).draggable({
+																			appendTo: "body",
+																			helper: "clone"
+																		});
+
+
+																		$(".content").droppable({
+																			accept: '.option',
+																			drop:function(event,ui){
+
+																				var opt = ui.draggable.data('element-option');
 
             // console.log(ui.draggable.data('element-option'));
 

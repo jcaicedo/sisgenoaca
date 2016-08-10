@@ -1,3 +1,19 @@
+ $('.preview-oaca').click(function(e){
+  e.preventDefault();
+
+  var content_preview = $(this).data('prev');
+  var content_data = $(this).data('content');
+
+  $(content_data+" .myinput").each(function(index){
+
+    console.log($(this).val());
+  });
+
+});
+
+
+
+
  $("#preview-oaca").click(function(e){
    e.preventDefault();
 
