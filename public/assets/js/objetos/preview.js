@@ -1,55 +1,40 @@
- $('.preview-oaca').click(function(e){
-  e.preventDefault();
 
-  var content_preview = $(this).data('prev');
-  var content_data = $(this).data('content');
+$("#preview-oaca").click(function(e){
+ e.preventDefault();
 
-  $(content_data+" .myinput").each(function(index){
+ var countImage = 0;
 
-    console.log($(this).val());
-  });
+ $("#form-create-oaca .myinput").each(function(index){
+
+   var element = $(this).data('element');
+   switch(element){
+
+    case 'title':
+    $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
+    break;
+
+    case 'textarea':
+    
+    var content_textarea = $('#'+$(this).attr('id')).summernote('code');
+    $(".content-preview").append('<br>'+content_textarea+'<br>');
+    var idContent = $(this).data('content');
+    $("#"+idContent).val(content_textarea);
+    break;
+
+    case 'image':
+    $(this);
+
+    $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+
+    $("#"+$(this).attr('id')).html(function(){
+     readImage(this,countImage);
+     countImage ++;
+   });
+    break;
+
+  }
 
 });
-
-
-
-
- $("#preview-oaca").click(function(e){
-   e.preventDefault();
-
-   var countImage = 0;
-
-   $("#form-create-oaca .myinput").each(function(index){
-
-     var element = $(this).data('element');
-     switch(element){
-
-      case 'title':
-      $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
-      break;
-
-      case 'textarea':
-      
-      var content_textarea = $('#'+$(this).attr('id')).summernote('code');
-      $(".content-preview").append('<br>'+content_textarea+'<br>');
-      var idContent = $(this).data('content');
-      $("#"+idContent).val(content_textarea);
-      break;
-
-      case 'image':
-      $(this);
-
-      $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
-
-      $("#"+$(this).attr('id')).html(function(){
-       readImage(this,countImage);
-       countImage ++;
-     });
-      break;
-
-    }
-
-  });
     //Hidden elements from edit content
     $(".sortable").hide();
     $(".box-header-btn").hide();

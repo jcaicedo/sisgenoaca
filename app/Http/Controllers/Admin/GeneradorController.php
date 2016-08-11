@@ -103,7 +103,8 @@ class GeneradorController extends AdminController
 		return view('admin.oaca.objetos.development.add',[
 			"register_id" =>ElementsOaca::UUID_REGISTER,
 			"moment"=>ElementsOaca::DEVELOPMENT,
-			"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION
+			"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
+			"pattern_array" => ElementsOaca::DEVELOP_ARRAY
 			]);
 	}
 

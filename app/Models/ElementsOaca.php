@@ -19,6 +19,7 @@ class ElementsOaca extends Model
 	const CONTRAST = "contrast";
 	const CONTEXTUALIZATION = "contextualization";
 	const GENERALIZATION = "generalization";
+	const DEVELOP_ARRAY = ["explanation","exemplification","application","justification","compare","contrast","contextualization","generalization"];
 	
 	protected $table = 'elements';
 	
