@@ -181,7 +181,7 @@ $(document).ready(function(){
 	});
 
 
-	$("#form-create-oaca").on('click','button.remove-div',function (e){
+	$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
 
 		var divDelete = $(this).data('parent');
 

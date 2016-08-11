@@ -8,7 +8,7 @@
 		<h1 class="box-title">{{trans('admin.development')}}</h1>
 
 	</div>
-	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca" enctype="multipart/form-data" >
+	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca-develop" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<input type="hidden" name="register_id" value="{{$register_id}}">
@@ -221,5 +221,16 @@
 	<script type="text/javascript" src="/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js" ></script>
 	<script type="text/javascript" src="/assets/js/objetos/develop/main.js" ></script>
 	<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
+	</script>
+
+	<script>
+		$('#form-create-oaca-develop').submit(function(event) {
+
+				$("#form-create-oaca-develop name='textarea'").each(function(index, el) {
+					console.log($(this));
+				});
+
+		});
+
 	</script>
 	@endpush
