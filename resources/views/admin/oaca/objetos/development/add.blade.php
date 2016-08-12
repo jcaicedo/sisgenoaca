@@ -226,8 +226,12 @@
 	<script>
 		$('#form-create-oaca-develop').submit(function(event) {
 
-				$("#form-create-oaca-develop name='textarea'").each(function(index, el) {
-					console.log($(this));
+				$("#form-create-oaca-develop [name='textarea']").each(function(index) {
+					var idcontent = $(this).data('content');
+
+					var content = $(this).summernote('code');
+
+					$('#'+idcontent).val(content);
 				});
 
 		});
