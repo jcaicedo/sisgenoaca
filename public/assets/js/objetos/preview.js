@@ -7,6 +7,7 @@ $("#preview-oaca").click(function(e){
  $("#form-create-oaca .myinput").each(function(index){
 
    var element = $(this).data('element');
+   console.log(element);
    switch(element){
 
     case 'title':

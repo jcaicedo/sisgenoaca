@@ -40,10 +40,10 @@ class ElementsOaca extends Model
 	public static function contentOaca($typeElement, $id){
 
 		$content = self::where('register_id','=',$id)
-		->where('area','=',$typeElement)
+		->where('moment','=',$typeElement)
 		->orderBy('position_order','asc')
 		->get();
-
+	//m	dd($content);
 		return $content;
 
 	}
