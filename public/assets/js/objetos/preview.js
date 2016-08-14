@@ -1,39 +1,40 @@
- $("#preview-oaca").click(function(e){
-   e.preventDefault();
 
-   var countImage = 0;
+$("#preview-oaca").click(function(e){
+ e.preventDefault();
 
-   $("#form-create-oaca .myinput").each(function(index){
+ var countImage = 0;
 
-     var element = $(this).data('element');
-     switch(element){
+ $("#form-create-oaca .myinput").each(function(index){
 
-      case 'title':
-      $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
-      break;
+   var element = $(this).data('element');
+   switch(element){
 
-      case 'textarea':
-      
-      var content_textarea = $('#'+$(this).attr('id')).summernote('code');
-      $(".content-preview").append('<br>'+content_textarea+'<br>');
-      var idContent = $(this).data('content');
-      $("#"+idContent).val(content_textarea);
-      break;
+    case 'title':
+    $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
+    break;
 
-      case 'image':
-      $(this);
+    case 'textarea':
+    
+    var content_textarea = $('#'+$(this).attr('id')).summernote('code');
+    $(".content-preview").append('<br>'+content_textarea+'<br>');
+    var idContent = $(this).data('content');
+    $("#"+idContent).val(content_textarea);
+    break;
 
-      $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+    case 'image':
+    $(this);
 
-      $("#"+$(this).attr('id')).html(function(){
-       readImage(this,countImage);
-       countImage ++;
-     });
-      break;
+    $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
-    }
+    $("#"+$(this).attr('id')).html(function(){
+     readImage(this,countImage);
+     countImage ++;
+   });
+    break;
 
-  });
+  }
+
+});
     //Hidden elements from edit content
     $(".sortable").hide();
     $(".box-header-btn").hide();

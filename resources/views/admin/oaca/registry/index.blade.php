@@ -41,6 +41,7 @@
 						<table class="table table-hover">
 							<tr>
 								<th>Titulo</th>
+								<th>Status</th>
 								<th>Fecha Creación</th>
 								<th>Última Actualización</th>
 								<th>&nbsp;</th>
@@ -49,6 +50,13 @@
 							<tr>
 								<td>
 									{{$registry->title_oaca}}
+								</td>
+								<td>
+									<a href="">
+										<span class="label label-{{$registry->status == 'active'?'success':'warning'}}">
+											{{$registry->status =='active'?'Activo':'Pendiente'}}
+										</span>
+									</a>
 								</td>
 								<td>
 									{{$registry->created_at->format('d/m/Y')}}
