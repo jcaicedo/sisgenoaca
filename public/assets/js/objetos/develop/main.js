@@ -1,9 +1,9 @@
 
 //Boton captura evento para mostrar los preview
-
+var countImage = 0;
 $('.preview-oaca').click(function(e){
 	e.preventDefault();
-	var countImage = 0;
+	
 	var preview = $(this).data('prev');
 	var content_data = $(this).data('content');
 	var content_btn = $(this).data('btn');
@@ -28,11 +28,11 @@ $('.preview-oaca').click(function(e){
 			break;
 
 			case 'image':
-			$(this);
 
 			$(content_preview).append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
 			$("#"+$(this).attr('id')).html(function(){
+				
 				readImage(this,countImage);
 				countImage ++;
 			});
