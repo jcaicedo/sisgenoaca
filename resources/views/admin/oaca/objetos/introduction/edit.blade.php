@@ -81,7 +81,7 @@
 					<div class="box-header with-border">
 						<h3 class="box-title">Image</h3>
 						<div>
-							<img src="{{$element->content}}" alt="" height="100%" width="20%">
+							<img src="{{$element->content}}" alt="" height="100%" width="20%" id="imagep-{{$key}}-original">
 						</div>
 						
 						<div class="box-tools pull-right">

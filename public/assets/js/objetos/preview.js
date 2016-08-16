@@ -23,14 +23,19 @@ $("#preview-oaca").click(function(e){
     break;
 
     case 'image':
-    $(this);
+    console.log($(this).val());
 
-    $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+    if($(this).val()!=''){
+      $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
-    $("#"+$(this).attr('id')).html(function(){
-     readImage(this,countImage);
-     countImage ++;
-   });
+      $("#"+$(this).attr('id')).html(function(){
+       readImage(this,countImage);
+       countImage ++;
+     });
+    }else{
+
+      $('.content-preview').append($($(this).attr('id')+'-original'));
+    }
     break;
 
   }
