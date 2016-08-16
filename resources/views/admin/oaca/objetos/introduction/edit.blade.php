@@ -198,7 +198,7 @@
 					</div>
 				</div>
 				<div class=" box-body">
-					<input class="form-control" type="file" />
+					<input class="form-control" type="file" required />
 				</div>
 			</div>
 		</div>
@@ -275,7 +275,7 @@
 				/*var elements = new Array();*/ /*Array elementos creados */
 
 				var count=$('#content-form .old').size();
-				console.log(count);
+				//console.log(count);
 
 				$( "#title, #textarea, #uploadimage" ).draggable({
 					appendTo: "body",

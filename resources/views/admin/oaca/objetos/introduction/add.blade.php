@@ -119,7 +119,7 @@
 					</div>
 				</div>
 				<div class=" box-body">
-					<input class="form-control" type="file" />
+					<input class="form-control" type="file" required/>
 				</div>
 			</div>
 		</div>

@@ -23,7 +23,7 @@ $("#preview-oaca").click(function(e){
     break;
 
     case 'image':
-    console.log($(this).val());
+    console.log($(this).attr('id'));
 
     if($(this).val()!=''){
       $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
@@ -34,7 +34,11 @@ $("#preview-oaca").click(function(e){
      });
     }else{
 
-      $('.content-preview').append($($(this).attr('id')+'-original'));
+      var id_image = $(this).attr('id')+'-original';
+      var image = $('#'+id_image).clone();
+      $(".content-preview").append(image);
+
+      
     }
     break;
 
