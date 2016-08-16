@@ -70,6 +70,7 @@ class GeneradorController extends AdminController
 				$element->register_id =  $request->input('register_id');
 				$element->save();
 				$position ++;
+
 			}else if($value['type'] == 'image'){
 
 				$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
@@ -77,8 +78,10 @@ class GeneradorController extends AdminController
 				$element->moment = ElementsOaca::INTRODUCTION;
 				$element->position_order = $position;
 				$element->register_id =  $request->input('register_id');
-
+				
 				$filebackground = $request->file( $value['content']);
+				if($filebackground){
+					//dd($filebackground);
 				$namebackground = $filebackground->getClientOriginalName();
 				$public_path = public_path();		
 				$url = $public_path.'/assets/imgs/contents-img/introduction';
@@ -86,6 +89,8 @@ class GeneradorController extends AdminController
 				$element->content = '/assets/imgs/contents-img/introduction/'.$namebackground;
 				$element->save();
 				$position ++;
+				}
+				
 
 			}
 		}

@@ -198,7 +198,7 @@
 					</div>
 				</div>
 				<div class=" box-body">
-					<input class="form-control" type="file" required />
+					<input class="form-control" type="file" />
 				</div>
 			</div>
 		</div>
