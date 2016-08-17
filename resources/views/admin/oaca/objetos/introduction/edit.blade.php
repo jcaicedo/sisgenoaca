@@ -64,14 +64,14 @@
 							</button>
 						</div>
 					</div>
-					<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$key}} id="textarea{{$key}}" name="textarea" >
+					<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$key}} id="textarea{{$key}}" name="textarea" data-content="content-textarea{{$key}}">
 						
 					</div>
 
 					<input type="hidden" name="textarea" id="input-textarea{{$key}}" value="{{$element->content}}" class="componente" >
-					<input type="hidden" name="data[{{$key}}][content]" id="content-textarea"{{$key}} value="pruab">
+					<input type="hidden" name="data[{{$key}}][content]" id="content-textarea{{$key}}" value="pruab">
 					<input type="hidden" name="data[{{$key}}][type]" value="textarea">
-					<input type="hidden" name="data[{{$key}}][id]" value="">
+					<input type="hidden" name="data[{{$key}}][id]" value="{{$element->id}}">
 				</div>
 
 			</div>
