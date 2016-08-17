@@ -22,7 +22,7 @@
 		<div class="content sortable" id="content-form">
 			
 			<input type="hidden" name="register_id" value="{{$register_id}}">
-			<input type="hidden" name="elements-delete" value="" id="hidden_elementos">
+			<input type="hidden" name="elementos-delete" value="" id="elementos-delete">
 
 
 			@foreach($contentIntroduction as $key=>$element)
@@ -56,7 +56,7 @@
 					<div class="box-header with-border">
 						<h3 class="box-title">Textarea</h3>
 						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" >
+							<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}" >
 								<i class="fa  fa-close"></i>
 							</button>
 							<button  type="button" class="btn btn-box-tool">
@@ -88,7 +88,7 @@
 						</div>
 						
 						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}">
+							<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}">
 								<i class="fa fa-close"></i>
 							</button>
 						</div>

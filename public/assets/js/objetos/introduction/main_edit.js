@@ -1,6 +1,6 @@
 $(document).ready(function (e) {
 	// body...
-      var elements_delete = [];
+      var array_elements_delete = [];
 
 	
 				//console.log(count);
@@ -89,8 +89,9 @@ $(document).ready(function (e) {
 					var divDelete = $(this).data('parent');
 
                               if($(this).data('idelement')){
-                                   elements_delete.push($(this).data('idelement'));
-                                   console.log(elements_delete);
+                                   array_elements_delete.push($(this).data('idelement'));
+                                   $('#elementos-delete').val(array_elements_delete);
+                                   console.log($('#elementos-delete').val());
                               }
                               
 
