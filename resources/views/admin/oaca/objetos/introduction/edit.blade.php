@@ -64,11 +64,14 @@
 							</button>
 						</div>
 					</div>
-					<div class="box-body edit-textarea" data-element="textarea" data-position={{$key}} id="textarea{{$key}}" name="textarea" >
+					<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$key}} id="textarea{{$key}}" name="textarea" >
 						
 					</div>
 
 					<input type="hidden" name="textarea" id="input-textarea{{$key}}" value="{{$element->content}}" class="componente" >
+					<input type="hidden" name="data[{{$key}}][content]" id="content-textarea"{{$key}} value="pruab">
+					<input type="hidden" name="data[{{$key}}][type]" value="textarea">
+					<input type="hidden" name="data[{{$key}}][id]" value="">
 				</div>
 
 			</div>
@@ -247,137 +250,34 @@
 		@push('scripts')
 		<script src="/vendor/summernote/dist/summernote.js"></script>
 		<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+		<script type="text/javascript"  src="/assets/js/objetos/introduction/main_edit.js" ></script>
 		<script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 		<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
 
 		<script>
-			$(document).ready(function(){
+			$('div#content-form .edit-textarea').each( function(index, element){
 
-				
+				var textarea_id = $(this).attr('id');
 
-				$('div#content-form .edit-textarea').each( function(index, element){
-
-					var textarea_id = $(this).attr('id');
-
-					$('#'+textarea_id).summernote({
-						height: 300,               
-						minHeight: null,             
-						maxHeight: null,             
-						focus: true,
-						maximumImageFileSize: 512*1024
-					});
-
-					var content = $('#input-'+textarea_id).val();
-					$('#input-'+textarea_id).val(textarea_id);
-
-
-					$('#'+textarea_id).summernote('code',content);
-
+				$('#'+textarea_id).summernote({
+					height: 300,               
+					minHeight: null,             
+					maxHeight: null,             
+					focus: true,
+					maximumImageFileSize: 512*1024
 				});
 
-				/*var elements = new Array();*/ /*Array elementos creados */
-
-				var count=$('#content-form .old').size();
-				//console.log(count);
-
-				$( "#title, #textarea, #uploadimage" ).draggable({
-					appendTo: "body",
-					helper: "clone"
-				});
+				var content = $('#input-'+textarea_id).val();
+				$('#input-'+textarea_id).val(textarea_id);
 
 
-				$(".content").droppable({
-					accept: '.option',
-					drop:function(event,ui){
-
-						var opt = ui.draggable.data('element-option');
-
-            // console.log(ui.draggable.data('element-option'));
-
-            switch(opt){
-            	case 'title':
-            	var title = $(".titulo-clone").clone().removeClass('titulo-clone');
-            	$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").appendTo(this);
-            	$(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
-            	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-            	$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
-            	$("#title-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-
-
-            	count ++;
-
-            	break;
-
-            	case 'textarea':
-            	var textarea = $(".textareaclone").clone();
-            	$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( this );
-            	$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
-            	$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
-            	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
-            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][type]'  value='textarea'>");
-            	$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-
-
-            	$('#textarea'+count).summernote({
-            		height: 300,               
-            		minHeight: null,             
-            		maxHeight: null,             
-            		focus: true,
-            		maximumImageFileSize: 512*1024  
-            	});
-
-
-            	count ++;
-
-            	break;
-
-            	case 'uploadimage':
-            	var uploadimage = $("div.uploadimage-clone").clone();
-            	$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo(this)
-
-            	$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
-            	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-            	$("#image-"+count).addClass("componente");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-
-            	count ++;
-
-            	break;
-
-
-            }
-
-
-
-
-        }
-
-    });
-
-				//Function Delete content
-
-				$("#form-create-oaca").on('click','button.remove-div',function (e){
-
-					var divDelete = $(this).data('parent');
-
-					$("."+divDelete).remove();
-
-				});
-
-				$( ".sortable:not(div.box-footer)" ).sortable({
-					axis: 'y',
-					opacity: 0.5,
-					tolerance: 'pointer',
-					handle: ".box-header"
-
-				});
+				$('#'+textarea_id).summernote('code',content);
 
 			});
 
+
+			var count=$('#content-form .old').size();
 
 
 		</script>

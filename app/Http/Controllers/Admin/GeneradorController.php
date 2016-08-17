@@ -55,6 +55,8 @@ class GeneradorController extends AdminController
 	}
 
 	function postIntroduction(Request $request){
+
+		//dd($request->input('data'));
 		$position = 0;
 
 		//dd($request->input('data'));
@@ -82,13 +84,13 @@ class GeneradorController extends AdminController
 				$filebackground = $request->file( $value['content']);
 				if($filebackground){
 					//dd($filebackground);
-				$namebackground = $filebackground->getClientOriginalName();
-				$public_path = public_path();		
-				$url = $public_path.'/assets/imgs/contents-img/introduction';
-				$filebackground->move($url, $namebackground);
-				$element->content = '/assets/imgs/contents-img/introduction/'.$namebackground;
-				$element->save();
-				$position ++;
+					$namebackground = $filebackground->getClientOriginalName();
+					$public_path = public_path();		
+					$url = $public_path.'/assets/imgs/contents-img/introduction';
+					$filebackground->move($url, $namebackground);
+					$element->content = '/assets/imgs/contents-img/introduction/'.$namebackground;
+					$element->save();
+					$position ++;
 				}
 				
 
