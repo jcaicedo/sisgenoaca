@@ -82,3 +82,12 @@ function readImage (input, id) {
 }
 
 
+$(".btn-clear-input-image").click(function(e){
+
+  e.preventDefault();
+  var id_image_input = $(this).data('content');
+  $(id_image_input).val('');
+
+});
+
+

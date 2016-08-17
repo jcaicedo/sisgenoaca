@@ -91,9 +91,13 @@
 						</div>
 					</div>
 					<div class=" box-body">
-						<input class="form-control myinput image-upload" type="file" data-element="image" data-position={{$key}} value="image-{{$key}}" name="image-{{$key}}" id="imagep-{{$key}}" />
+						<div class="col-md-6">
+							<input class="form-control myinput image-upload" type="file" data-element="image" data-position={{$key}} value="image-{{$key}}" name="image-{{$key}}" id="imagep-{{$key}}" />
 
-						<input type="hidden" id="image-{{$key}}" name="image" value="imagep-{{$key}}" class="componente">
+
+							<input type="hidden" id="image-{{$key}}" name="image" value="imagep-{{$key}}" class="componente">
+						</div>
+						<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ='#imagep-{{$key}}'>{{trans('admin.btn-clear')}}</buttton>
 					</div>
 				</div>
 			</div>

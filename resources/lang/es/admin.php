@@ -107,5 +107,6 @@ return [
     'contrast' => 'Contraste',
     'contextualization' => 'Contextualización',
     'generalization' => 'Generalización',
+    'btn-clear' => 'Limpiar',
 
     ];
