@@ -22,7 +22,7 @@
 		<div class="content sortable" id="content-form">
 			
 			<input type="hidden" name="register_id" value="{{$register_id}}">
-			<input type="hidden" name="elementos" value="" id="hidden_elementos">
+			<input type="hidden" name="elements-delete" value="" id="hidden_elementos">
 
 
 			@foreach($contentIntroduction as $key=>$element)
@@ -34,7 +34,7 @@
 					<div class="box-header with-border">
 						<h3 class="box-title">{{trans('admin.title')}}</h3>
 						<div class="box-tools pull-right">
-							<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}">
+							<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}">
 								<i class="fa fa-close"></i>
 							</button>
 						</div>
@@ -95,10 +95,14 @@
 					</div>
 					<div class=" box-body">
 						<div class="col-md-6">
-							<input class="form-control myinput image-upload" type="file" data-element="image" data-position={{$key}} value="image-{{$key}}" name="image-{{$key}}" id="imagep-{{$key}}" />
+							<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$key}}" value="image-{{$key}}" name="image{{$key}}" id="imagep-{{$key}}" />
 
 
 							<input type="hidden" id="image-{{$key}}" name="image" value="imagep-{{$key}}" class="componente">
+
+							<input type="hidden" name="data[{{$key}}][content]" value="image{{$key}}" >
+							<input type="hidden" name="data[{{$key}}][type]" value='image' >
+							<input type="hidden" name="data[{{$key}}][id]" value='{{$element->id}}' >
 						</div>
 						<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ='#imagep-{{$key}}'>{{trans('admin.btn-clear')}}</buttton>
 					</div>
@@ -251,7 +255,6 @@
 		<script src="/vendor/summernote/dist/summernote.js"></script>
 		<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 		<script type="text/javascript"  src="/assets/js/objetos/introduction/main_edit.js" ></script>
-		<script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
 		<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
 

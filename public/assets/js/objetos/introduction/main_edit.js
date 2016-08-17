@@ -1,5 +1,6 @@
 $(document).ready(function (e) {
 	// body...
+      var elements_delete = [];
 
 	
 				//console.log(count);
@@ -86,6 +87,12 @@ $(document).ready(function (e) {
 				$("#form-create-oaca").on('click','button.remove-div',function (e){
 
 					var divDelete = $(this).data('parent');
+
+                              if($(this).data('idelement')){
+                                   elements_delete.push($(this).data('idelement'));
+                                   console.log(elements_delete);
+                              }
+                              
 
 					$("."+divDelete).remove();
 

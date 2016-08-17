@@ -82,13 +82,18 @@ class GeneradorController extends AdminController
 				$element->register_id =  $request->input('register_id');
 				
 				$filebackground = $request->file( $value['content']);
-				if($filebackground){
-					//dd($filebackground);
+
+				if($filebackground != null){
+					
 					$namebackground = $filebackground->getClientOriginalName();
 					$public_path = public_path();		
 					$url = $public_path.'/assets/imgs/contents-img/introduction';
 					$filebackground->move($url, $namebackground);
 					$element->content = '/assets/imgs/contents-img/introduction/'.$namebackground;
+					$element->save();
+					$position ++;
+				}else{
+
 					$element->save();
 					$position ++;
 				}
