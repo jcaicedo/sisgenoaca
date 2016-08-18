@@ -111,20 +111,16 @@ class GeneradorController extends AdminController
 
 				return view('admin.oaca.objetos.development.add',[
 					"register_id" =>$request->input('register_id'),
-					"moment"=>ElementsOaca::DEVELOPMENT,
-					"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
 					"pattern_array" => ElementsOaca::DEVELOP_ARRAY
 
 					]);
+
 			}elseif ($request->input('taks_moment') == 'edit') {
 
-				$content_develop_edit = ElementsOaca::contentDevelop($request->input('register_id'));
-				dd($content_develop_edit);
+				dd(ElementsOaca::searchElementsDevelop($request->input('register_id')));
 
 				return view('admin.oaca.objetos.development.add',[
 					"register_id" =>$request->input('register_id'),
-					"moment"=>ElementsOaca::DEVELOPMENT,
-					"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
 					"pattern_array" => ElementsOaca::DEVELOP_ARRAY
 
 					]);

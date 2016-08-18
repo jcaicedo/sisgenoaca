@@ -49,12 +49,52 @@ class ElementsOaca extends Model
 
 	}
 
-	public static function contentDevelop($id){
-		$content = self::where('register_id','=',$id)
-		->where('moment','=','development')
-		->get();
+	public static function searchElementsDevelop($id){
 
-		return $content;
+			$all = self::where('register_id','=',$id)
+						->where('moment','=','development')
+						->get();
+
+						$collect = [];
+
+			foreach ($all as $key => $value) {
+				
+				switch ($value->pattern_pedagogicaltechno) {
+					case 'explanation':
+						$collect['explanation'][]=$value;
+						break;
+					case 'exemplification':
+						$collect['exemplification'][]=$value;
+						break;
+					case 'application':
+					    $collect['application'][]=$value;
+						break;
+					case 'justification':
+					    $collect['justification'][]=$value;
+						break;
+					case 'compare':
+					    $collect['compare'][]=$value;
+						break;
+					case 'contrast':
+					    $collect['contrast'][]=$value;
+						break;
+					case 'contextualization':
+					    $collect['contextualization'][]=$value;
+						break;
+					case 'generalization':
+					    $collect['generalization'][]=$value;
+						break;
+					
+					default:
+						# code...
+						break;
+				}
+
+
+			}
+
+			return $collect;
+
 	}
 
 	
