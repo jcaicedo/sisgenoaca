@@ -10,7 +10,7 @@ class ElementsOaca extends Model
 	const USER_ID = '1';
 	const UUID_REGISTER = '4ab1a90f-3dc9-30a8-9a9d-a6caa7b21a5f';
 	const INTRODUCTION = "introduction";
-	const DEVELOPMENT = "develoment";
+	const DEVELOPMENT = "development";
 	const EXPLANATION = "explanation";
 	const EXEMPLIFICATION = "exemplification";
 	const APPLICATION = "application";
@@ -30,6 +30,7 @@ class ElementsOaca extends Model
 	'area',
 	'position_order',
 	'register_id',
+	'pattern_pedagogicaltechno',
 	];
 
 	public function registry(){
@@ -46,6 +47,14 @@ class ElementsOaca extends Model
 	//m	dd($content);
 		return $content;
 
+	}
+
+	public static function contentDevelop($id){
+		$content = self::where('register_id','=',$id)
+		->where('moment','=','development')
+		->get();
+
+		return $content;
 	}
 
 	

@@ -44,7 +44,8 @@ class GeneradorController extends AdminController
 		return view('admin.oaca.objetos.introduction.edit',[
 			"register_id" =>$id,
 			"moment"=>ElementsOaca::INTRODUCTION,
-			"contentIntroduction" => $content_Introduction
+			"contentIntroduction" => $content_Introduction,
+			"taks_moment" => 'edit'
 			]);
 	}
 
@@ -55,14 +56,14 @@ class GeneradorController extends AdminController
 	}
 
 	function postIntroduction(Request $request){
-
+		//dd($request->input('data'));
 		
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
 
 		$position = 0;
 
-		//dd($request->input('data'));
+		
 		if($request->input('data')){
 
 			foreach ($request->input('data') as $key => $value) {
@@ -106,13 +107,29 @@ class GeneradorController extends AdminController
 				}
 			}}
 
-			return view('admin.oaca.objetos.development.add',[
-				"register_id" =>$request->input('register_id'),
-				"moment"=>ElementsOaca::DEVELOPMENT,
-				"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
-				"pattern_array" => ElementsOaca::DEVELOP_ARRAY
+			if($request->input('taks_moment') == 'create'){
 
-				]);
+				return view('admin.oaca.objetos.development.add',[
+					"register_id" =>$request->input('register_id'),
+					"moment"=>ElementsOaca::DEVELOPMENT,
+					"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
+					"pattern_array" => ElementsOaca::DEVELOP_ARRAY
+
+					]);
+			}elseif ($request->input('taks_moment') == 'edit') {
+
+				$content_develop_edit = ElementsOaca::contentDevelop($request->input('register_id'));
+				dd($content_develop_edit);
+
+				return view('admin.oaca.objetos.development.add',[
+					"register_id" =>$request->input('register_id'),
+					"moment"=>ElementsOaca::DEVELOPMENT,
+					"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
+					"pattern_array" => ElementsOaca::DEVELOP_ARRAY
+
+					]);
+				
+			}
 		}
 
 
