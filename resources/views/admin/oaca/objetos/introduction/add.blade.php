@@ -254,10 +254,10 @@
 
             	$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
             	$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-            	$("#image-"+count).addClass("componente");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
-            	$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+            	$("#imagep-"+count).addClass("componente");
+            	$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
+            	$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
+            	$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 
             	count ++;
 
