@@ -22,6 +22,7 @@
 		<div class="content sortable" id="content-form">
 			
 			<input type="hidden" name="register_id" value="{{$register_id}}">
+			<input type="hidden" name="taks_moment" value="{{$taks_moment}}">
 			<input type="hidden" name="elementos-delete" value="" id="elementos-delete">
 
 
@@ -253,7 +254,7 @@
 
 		@push('scripts')
 		<script src="/vendor/summernote/dist/summernote.js"></script>
-		<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+		<!--<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>-->
 		<script type="text/javascript"  src="/assets/js/objetos/introduction/main_edit.js" ></script>
 		<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 

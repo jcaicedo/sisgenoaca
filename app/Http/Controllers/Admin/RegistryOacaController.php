@@ -37,7 +37,12 @@ class RegistryOacaController extends Controller
 		$content_register->user_id = $request->input('user_id');
 		$content_register->save();
 
-		return view('admin.oaca.objetos.introduction.add',["register_id"=>$content_register->id, "area"=>ElementsOaca::INTRODUCTION]);
+		return view('admin.oaca.objetos.introduction.add',[
+			"register_id"=>$content_register->id,
+			"area"=>ElementsOaca::INTRODUCTION,
+			"taks_moment" => "create"
+
+			]);
 	}
 
 		//////////////////
