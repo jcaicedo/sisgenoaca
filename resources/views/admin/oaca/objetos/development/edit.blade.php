@@ -29,7 +29,9 @@
 				<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 57.1429%;"></div>
 			</div>
 
-			<div class="tab-content">
+			<div class="tab-content" id="content-form">
+
+				<?php $count=0;?>
 
 				@for($i=1;$i<9;$i++)
 
@@ -43,69 +45,102 @@
 
 					
 					<div class="content sortable" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
-							@foreach($content_davelop[$pattern_array[$i-1]] as $key=>$element)
-										
-								@if($element->type_element == 'title')
-												<div class="title remove-div-{{$key}} tilte old">
-										<div class="box">
-											<div class="box-header with-border">
-												<h3 class="box-title">{{trans('admin.title')}}</h3>
-												<div class="box-tools pull-right">
-													<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}">
-														<i class="fa fa-close"></i>
-													</button>
-												</div>
-											</div>
-											<div class="box-body">
-												<input type="text" class="form-control componente myinput" data-element="title" data-position={{$key}} id="title-{{$key}}" name="data[{{$key}}][content]" value="{{$element->content}}">
-												<input type="hidden" name="data[{{$key}}][type]" value='title'>
-												<input type="hidden" name="data[{{$key}}][id]" value="{{$element->id}}">
-											</div>
-										</div>
-									</div>			
-								@endif
-
-								@if($element->type_element == 'textarea')
-
-
-								@endif
-
-								@if($element->type_element == 'image')
-									<div class="uploadimage remove-div-{{$key}} old" >
-													<div class="box">
-														<div class="box-header with-border">
-															<h3 class="box-title">Image</h3>
-															<div>
-																<img src="{{$element->content}}" alt="" height="100%" width="20%" id="imagep-{{$key}}-original">
-															</div>
 						
-															<div class="box-tools pull-right">
-																<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}">
-																	<i class="fa fa-close"></i>
-																</button>
-															</div>
-														</div>
-														<div class=" box-body">
-															<div class="col-md-6">
-																<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$key}}" value="image-{{$key}}" name="image{{$key}}" id="imagep-{{$key}}" />
+
+						@foreach($content_davelop[$pattern_array[$i-1]] as $key=>$element)
+
+						@if($element->type_element == 'title')
+						<div class="title remove-div-{{$count}} tilte old">
+							<div class="box">
+								<div class="box-header with-border">
+									<h3 class="box-title">{{trans('admin.title')}}</h3>
+									<div class="box-tools pull-right">
+										<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}">
+											<i class="fa fa-close"></i>
+										</button>
+									</div>
+								</div>
+								<div class="box-body">
+									<input type="text" class="form-control componente myinput" data-element="title" data-position={{$count}} id="title-{{$count}}" name="data[{{$count}}][content]" value="{{$element->content}}">
+									<input type="hidden" name="data[{{$count}}][type]" value='title'>
+									<input type="hidden" name="data[{{$count}}][id]" value="{{$element->id}}">
+									<input type="hidden" name="data[{{$count}}][pattern]" value="{{$element->pattern_pedagogicaltechno}}" >
+								</div>
+							</div>
+						</div>			
+						<?php $count++;?>
+						@endif
+
+						@if($element->type_element == 'textarea')
+
+						<div class="textarea remove-div-{{$count}} old">
+
+							<div class="box">
+								<div class="box-header with-border">
+									<h3 class="box-title">Textarea</h3>
+									<div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}" >
+											<i class="fa  fa-close"></i>
+										</button>
+										<button  type="button" class="btn btn-box-tool">
+											<i class="fa  fa-paint-brush"></i>
+										</button>
+									</div>
+								</div>
+								<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$count}} id="textarea{{$count}}" name="textarea" data-content="content-textarea{{$count}}">
+
+								</div>
+
+								<input type="hidden" name="textarea" id="input-textarea{{$count}}" value="{{$element->content}}" class="componente" >
+								<input type="hidden" name="data[{{$count}}][content]" id="content-textarea{{$count}}" value="pruab">
+								<input type="hidden" name="data[{{$count}}][type]" value="textarea">
+								<input type="hidden" name="data[{{$count}}][id]" value="{{$element->id}}">
+								<input type="hidden" name="data[{{$count}}][pattern]" value="{{$element->pattern_pedagogicaltechno}}" >
+							</div>
+
+						</div>
+						<?php $count++;?>
+						@endif
+
+						
+
+						@if($element->type_element == 'image')
+						<div class="uploadimage remove-div-{{$count}} old" >
+							<div class="box">
+								<div class="box-header with-border">
+									<h3 class="box-title">Image</h3>
+									<div>
+										<img src="{{$element->content}}" alt="" height="100%" width="20%" id="imagep-{{$count}}-original">
+									</div>
+
+									<div class="box-tools pull-right">
+										<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}">
+											<i class="fa fa-close"></i>
+										</button>
+									</div>
+								</div>
+								<div class=" box-body">
+									<div class="col-md-6">
+										<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" />
 
 
-																<input type="hidden" id="image-{{$key}}" name="image" value="imagep-{{$key}}" class="componente">
+										<input type="hidden" id="image-{{$count}}" name="image" value="imagep-{{$count}}" class="componente">
 
-																<input type="hidden" name="data[{{$key}}][content]" value="image{{$key}}" >
-																<input type="hidden" name="data[{{$key}}][type]" value='image' >
-																<input type="hidden" name="data[{{$key}}][id]" value='{{$element->id}}' >
-															</div>
-															<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ='#imagep-{{$key}}'>{{trans('admin.btn-clear')}}</buttton>
-														</div>
-													</div>
-												</div>
-								
-								@endif
+										<input type="hidden" name="data[{{$count}}][content]" value="image{{$count}}" >
+										<input type="hidden" name="data[{{$count}}][type]" value='image' >
+										<input type="hidden" name="data[{{$count}}][id]" value='{{$element->id}}' >
+										<input type="hidden" name="data[{{$count}}][pattern]" value="{{$element->pattern_pedagogicaltechno}}" >
+									</div>
+									<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ='#imagep-{{$count}}'>{{trans('admin.btn-clear')}}</buttton>
+								</div>
+							</div>
+						</div>
+						<?php $count++;?>
+						@endif
 
 
 
-							@endforeach
+						@endforeach
 
 
 					</div>
@@ -286,17 +321,43 @@
 	</script>
 
 	<script>
+
+		
 		$('#form-create-oaca-develop').submit(function(event) {
 
-				$("#form-create-oaca-develop [name='textarea']").each(function(index) {
-					var idcontent = $(this).data('content');
+			$("#form-create-oaca-develop [name='textarea']").each(function(index) {
+				var idcontent = $(this).data('content');
 
-					var content = $(this).summernote('code');
+				var content = $(this).summernote('code');
 
-					$('#'+idcontent).val(content);
-				});
+				$('#'+idcontent).val(content);
+			});
 
 		});
+
+		$('div#content-form .edit-textarea').each(function(index, element){
+			var textarea_id = $(this).attr('id');
+
+			
+			$('#'+textarea_id).summernote({
+				height: 300,               
+				minHeight: null,             
+				maxHeight: null,             
+				focus: true,
+				maximumImageFileSize: 512*1024
+			});
+
+			var content = $('#input-'+textarea_id).val();
+			$('#input-'+textarea_id).val(textarea_id);
+
+
+			$('#'+textarea_id).summernote('code',content);
+
+
+
+		});
+
+		
 
 	</script>
 	@endpush

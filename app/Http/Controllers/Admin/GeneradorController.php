@@ -117,7 +117,7 @@ class GeneradorController extends AdminController
 
 			}elseif ($request->input('taks_moment') == 'edit') {
 
-			$content = ElementsOaca::searchElementsDevelop($request->input('register_id'));
+				$content = ElementsOaca::searchElementsDevelop($request->input('register_id'));
 
 				return view('admin.oaca.objetos.development.edit',[
 					"register_id" =>$request->input('register_id'),
@@ -140,7 +140,7 @@ class GeneradorController extends AdminController
 
 		function postDevelopment(Request $request){
 
-		//dd($request->input('data'));
+			//dd($request->input('data'));
 			$position = 0;
 
 			foreach ($request->input('data') as $key => $value) {
