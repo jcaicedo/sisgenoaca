@@ -107,6 +107,9 @@ $(".btn-clear-input-image").click(function(e){
 
 
 $(document).ready(function(){
+
+	
+	
 	$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs',onTabShow: function(tab, navigation, index) {
 		var $total = navigation.find('li').length;
 		var $current = index+1;

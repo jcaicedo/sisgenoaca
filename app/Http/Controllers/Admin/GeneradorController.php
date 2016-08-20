@@ -145,7 +145,7 @@ class GeneradorController extends AdminController
 			//dd($request->input('data'));
 			$Arr = explode(",",$request->input('elementos-delete'));
 			$collection = ElementsOaca::destroy($Arr);
-			
+
 			$position = 0;
 
 			foreach ($request->input('data') as $key => $value) {

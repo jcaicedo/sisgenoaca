@@ -59,7 +59,7 @@
 								<div class="box-header with-border">
 									<h3 class="box-title">{{trans('admin.title')}}</h3>
 									<div class="box-tools pull-right">
-										<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}">
+										<button  class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}">
 											<i class="fa fa-close"></i>
 										</button>
 									</div>
@@ -325,7 +325,7 @@
 	</script>
 
 	<script>
-
+		var array_elements_delete = [];
 		
 		$('#form-create-oaca-develop').submit(function(event) {
 
@@ -361,12 +361,30 @@
 
 		});
 		
+		$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
+
+			e.preventDefault();
+
+
+			var divDelete = $(this).data('parent');
+
+			if($(this).data('idelement')){
+				array_elements_delete.push($(this).data('idelement'));
+				$('#elementos-delete').val(array_elements_delete);
+				console.log($('#elementos-delete').val());
+			}
+
+
+			$("."+divDelete).remove();
+
+		});
+
 
 		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
 		
 
 
-		
+
 
 	</script>
 	@endpush
