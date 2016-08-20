@@ -364,6 +364,8 @@
 
 		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
 		
+
+
 		
 
 	</script>

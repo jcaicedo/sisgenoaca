@@ -23,6 +23,7 @@
 			
 			<input type="hidden" name="register_id" value="{{$register_id}}">
 			<input type="hidden" name="taks_moment" value="{{$taks_moment}}">
+			<input type="hidden" name="count_elements_old" value="0" id="count_elements_old">
 			<input type="hidden" name="elementos-delete" value="" id="elementos-delete">
 
 

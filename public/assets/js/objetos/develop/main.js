@@ -28,14 +28,21 @@ $('.preview-oaca').click(function(e){
 			break;
 
 			case 'image':
+			if($(this).val()!=''){
 
-			$(content_preview).append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+				$(content_preview).append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
-			$("#"+$(this).attr('id')).html(function(){
-				
-				readImage(this,countImage);
-				countImage ++;
-			});
+				$("#"+$(this).attr('id')).html(function(){
+
+					readImage(this,countImage);
+					countImage ++;
+				});
+			}else{
+
+				var id_image = $(this).attr('id')+'-original';
+				var image = $('#'+id_image).clone();
+				$(content_preview).append(image);
+			}
 			break;
 
 		}
@@ -87,6 +94,16 @@ function readImage (input, id) {
 		reader.readAsDataURL(input.files[0]);
 	}
 }
+
+
+
+$(".btn-clear-input-image").click(function(e){
+
+	e.preventDefault();
+	var id_image_input = $(this).data('content');
+	$(id_image_input).val('');
+
+});
 
 
 $(document).ready(function(){
@@ -182,16 +199,9 @@ $(document).ready(function(){
 	});
 
 
-	$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
+	
 
-		var divDelete = $(this).data('parent');
 
-		$("."+divDelete).remove();
-
-	});
-
-	var textareaID;
-	var content_element
 
 	$( ".sortable:not(div.box-footer)" ).sortable({
 		axis: 'y',

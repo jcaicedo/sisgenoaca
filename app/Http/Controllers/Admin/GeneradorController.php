@@ -119,6 +119,8 @@ class GeneradorController extends AdminController
 
 				$content = ElementsOaca::searchElementsDevelop($request->input('register_id'));
 
+				//dd($content);
+
 				return view('admin.oaca.objetos.development.edit',[
 					"register_id" =>$request->input('register_id'),
 					"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
@@ -141,6 +143,9 @@ class GeneradorController extends AdminController
 		function postDevelopment(Request $request){
 
 			//dd($request->input('data'));
+			$Arr = explode(",",$request->input('elementos-delete'));
+			$collection = ElementsOaca::destroy($Arr);
+			
 			$position = 0;
 
 			foreach ($request->input('data') as $key => $value) {

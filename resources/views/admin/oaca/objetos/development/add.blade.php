@@ -237,5 +237,13 @@
 
 		});
 
+		$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
+
+			var divDelete = $(this).data('parent');
+
+			$("."+divDelete).remove();
+
+		});
+
 	</script>
 	@endpush

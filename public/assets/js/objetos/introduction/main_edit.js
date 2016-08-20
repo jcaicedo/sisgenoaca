@@ -31,18 +31,18 @@ $("#preview-oaca").click(function(e){
       $("#"+$(this).attr('id')).html(function(){
        readImage(this,countImage);
        countImage ++;
-   });
-  }else{
+     });
+    }else{
 
       var id_image = $(this).attr('id')+'-original';
       var image = $('#'+id_image).clone();
       $(".content-preview").append(image);
 
 
-  }
-  break;
+    }
+    break;
 
-}
+  }
 
 });
     //Hidden elements from edit content
@@ -51,7 +51,7 @@ $("#preview-oaca").click(function(e){
     $(".preview").show();
 
 
-});
+  });
 
 //Reset Preview and return to edit content
 
@@ -76,9 +76,9 @@ function readImage (input, id) {
     reader.onload = function (e){
       $('#loadimage'+id).attr('src', e.target.result);
 
+    }
+    reader.readAsDataURL(input.files[0]);
   }
-  reader.readAsDataURL(input.files[0]);
-}
 }
 
 
@@ -97,7 +97,7 @@ $(".btn-clear-input-image").click(function(e){
 $(document).ready(function (e) {
 	// body...
   var array_elements_delete = [];
-
+  var count= $('input[name=count_elements_old]').val();
 
 				//console.log(count);
 
@@ -174,9 +174,9 @@ $(document).ready(function (e) {
 
 
 
-        }
+          }
 
-    });
+        });
 
 				//Function Delete content
 
@@ -184,16 +184,16 @@ $(document).ready(function (e) {
 
 					var divDelete = $(this).data('parent');
 
-                  if($(this).data('idelement')){
-                   array_elements_delete.push($(this).data('idelement'));
-                   $('#elementos-delete').val(array_elements_delete);
-                   console.log($('#elementos-delete').val());
-               }
+          if($(this).data('idelement')){
+           array_elements_delete.push($(this).data('idelement'));
+           $('#elementos-delete').val(array_elements_delete);
+           console.log($('#elementos-delete').val());
+         }
 
 
-               $("."+divDelete).remove();
+         $("."+divDelete).remove();
 
-           });
+       });
 
 				$( ".sortable:not(div.box-footer)" ).sortable({
 					axis: 'y',

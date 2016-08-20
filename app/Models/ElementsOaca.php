@@ -51,49 +51,50 @@ class ElementsOaca extends Model
 
 	public static function searchElementsDevelop($id){
 
-			$all = self::where('register_id','=',$id)
-						->where('moment','=','development')
-						->get();
+		$all = self::where('register_id','=',$id)
+		->where('moment','=','development')
+		->orderBy('position_order','asc')
+		->get();
 
-						$collect = [];
+		$collect = [];
 
-			foreach ($all as $key => $value) {
+		foreach ($all as $key => $value) {
+			
+			switch ($value->pattern_pedagogicaltechno) {
+				case 'explanation':
+				$collect['explanation'][]=$value;
+				break;
+				case 'exemplification':
+				$collect['exemplification'][]=$value;
+				break;
+				case 'application':
+				$collect['application'][]=$value;
+				break;
+				case 'justification':
+				$collect['justification'][]=$value;
+				break;
+				case 'compare':
+				$collect['compare'][]=$value;
+				break;
+				case 'contrast':
+				$collect['contrast'][]=$value;
+				break;
+				case 'contextualization':
+				$collect['contextualization'][]=$value;
+				break;
+				case 'generalization':
+				$collect['generalization'][]=$value;
+				break;
 				
-				switch ($value->pattern_pedagogicaltechno) {
-					case 'explanation':
-						$collect['explanation'][]=$value;
-						break;
-					case 'exemplification':
-						$collect['exemplification'][]=$value;
-						break;
-					case 'application':
-					    $collect['application'][]=$value;
-						break;
-					case 'justification':
-					    $collect['justification'][]=$value;
-						break;
-					case 'compare':
-					    $collect['compare'][]=$value;
-						break;
-					case 'contrast':
-					    $collect['contrast'][]=$value;
-						break;
-					case 'contextualization':
-					    $collect['contextualization'][]=$value;
-						break;
-					case 'generalization':
-					    $collect['generalization'][]=$value;
-						break;
-					
-					default:
+				default:
 						# code...
-						break;
-				}
-
-
+				break;
 			}
 
-			return $collect;
+
+		}
+
+		return $collect;
 
 	}
 
