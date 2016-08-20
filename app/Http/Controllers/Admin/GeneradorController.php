@@ -119,7 +119,7 @@ class GeneradorController extends AdminController
 
 				$content = ElementsOaca::searchElementsDevelop($request->input('register_id'));
 
-				//dd($content);
+				
 
 				return view('admin.oaca.objetos.development.edit',[
 					"register_id" =>$request->input('register_id'),
@@ -148,53 +148,57 @@ class GeneradorController extends AdminController
 
 			$position = 0;
 
-			foreach ($request->input('data') as $key => $value) {
-				if($value['type']!='image'){
+			if ($request->input('data')) {
+				foreach ($request->input('data') as $key => $value) {
+					if($value['type']!='image'){
 
-					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
-					$element->type_element = $value['type'];
-					$element->content = $value['content'];
-					$element->moment = ElementsOaca::DEVELOPMENT;
-					$element->pattern_pedagogicaltechno = $value['pattern'];
-					$element->position_order = $position;
-					$element->register_id =  $request->input('register_id');
-					$element->save();
-					$position ++;
-
-
-				}else if($value['type']== 'image'){
-
-					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
-					$element->type_element = $value['type'];
-					$element->moment = ElementsOaca::DEVELOPMENT;
-					$element->pattern_pedagogicaltechno = $value['pattern'];
-					$element->position_order = $position;
-					$element->register_id =  $request->input('register_id');
-
-
-
-					$filebackground = $request->file( $value['content']);
-
-					if($filebackground != null){
-						$namebackground = $filebackground->getClientOriginalName();
-						$public_path = public_path();		
-						$url = $public_path.'/assets/imgs/contents-img/development';
-						$filebackground->move($url, $namebackground);
-						$element->content = '/assets/imgs/contents-img/development/'.$namebackground;
+						$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+						$element->type_element = $value['type'];
+						$element->content = $value['content'];
+						$element->moment = ElementsOaca::DEVELOPMENT;
+						$element->pattern_pedagogicaltechno = $value['pattern'];
+						$element->position_order = $position;
+						$element->register_id =  $request->input('register_id');
 						$element->save();
 						$position ++;
-					}else{
 
-						$element->save();
-						$position ++;
+
+					}else if($value['type']== 'image'){
+
+						$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+						$element->type_element = $value['type'];
+						$element->moment = ElementsOaca::DEVELOPMENT;
+						$element->pattern_pedagogicaltechno = $value['pattern'];
+						$element->position_order = $position;
+						$element->register_id =  $request->input('register_id');
+
+
+
+						$filebackground = $request->file( $value['content']);
+
+						if($filebackground != null){
+							$namebackground = $filebackground->getClientOriginalName();
+							$public_path = public_path();		
+							$url = $public_path.'/assets/imgs/contents-img/development';
+							$filebackground->move($url, $namebackground);
+							$element->content = '/assets/imgs/contents-img/development/'.$namebackground;
+							$element->save();
+							$position ++;
+						}else{
+
+							$element->save();
+							$position ++;
+						}
+
+
+
+
 					}
 
-
-					
-
 				}
-
 			}
+
+
 
 
 			return redirect ('/admin');

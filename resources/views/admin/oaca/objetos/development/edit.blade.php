@@ -50,7 +50,7 @@
 					
 					<div class="content sortable" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
 						
-
+						@if(isset($content_davelop[$pattern_array[$i-1]]))
 						@foreach($content_davelop[$pattern_array[$i-1]] as $key=>$element)
 
 						@if($element->type_element == 'title')
@@ -145,7 +145,7 @@
 
 
 						@endforeach
-
+						@endif
 
 					</div>
 
