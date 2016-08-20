@@ -12,6 +12,7 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<input type="hidden" name="register_id" value="{{$register_id}}">
+		<input type="hidden" name="count_elements_old" value="0" id="count_elements_old">
 
 		<div id="rootwizard" class="tabbable tabs-left">
 			
@@ -226,13 +227,13 @@
 	<script>
 		$('#form-create-oaca-develop').submit(function(event) {
 
-				$("#form-create-oaca-develop [name='textarea']").each(function(index) {
-					var idcontent = $(this).data('content');
+			$("#form-create-oaca-develop [name='textarea']").each(function(index) {
+				var idcontent = $(this).data('content');
 
-					var content = $(this).summernote('code');
+				var content = $(this).summernote('code');
 
-					$('#'+idcontent).val(content);
-				});
+				$('#'+idcontent).val(content);
+			});
 
 		});
 

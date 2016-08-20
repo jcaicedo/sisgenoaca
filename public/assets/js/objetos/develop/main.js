@@ -98,7 +98,8 @@ $(document).ready(function(){
 	}});
 
 
-	var count=0;
+	var count= $('input[name=count_elements_old]').val();
+	console.log(count);
 
 	$( "#title, #textarea, #uploadimage" ).draggable({
 		appendTo: "body",
@@ -111,7 +112,7 @@ $(document).ready(function(){
 		drop:function(event,ui){
 
 			var opt = ui.draggable.data('element-option');
-
+			console.log(count);
 
 			switch(opt){
 				case 'title':

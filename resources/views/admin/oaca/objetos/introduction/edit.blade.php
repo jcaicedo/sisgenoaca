@@ -281,7 +281,7 @@
 			});
 
 
-			var count=$('#content-form .old').size();
+			$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
 
 
 		</script>

@@ -11,7 +11,11 @@
 	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca-develop" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+
 		<input type="hidden" name="register_id" value="{{$register_id}}">
+
+		<input type="hidden" name="count_elements_old" value="0" id="count_elements_old">
+		<input type="hidden" name="elementos-delete" value="" id="elementos-delete">
 
 		<div id="rootwizard" class="tabbable tabs-left">
 			
@@ -356,7 +360,10 @@
 
 
 		});
+		
 
+		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
+		
 		
 
 	</script>
