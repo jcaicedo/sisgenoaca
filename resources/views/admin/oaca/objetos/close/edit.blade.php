@@ -1,34 +1,28 @@
 @extends('admin.layouts.menuoaca')
-@section('title',trans('admin.development'))
+@section('title',trans('admin.close'))
 @section('content')
 
 <div class="content-wrapper">
 	<div class="box-header box-header-btn">
 
-		<h1 class="box-title">{{trans('admin.development')}}</h1>
+		<h1 class="box-title">{{trans('admin.close')}}</h1>
 
 	</div>
-	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca-develop" enctype="multipart/form-data" >
+	<form action="{{url('/admin/oaca/objetos/close')}}" method="post"  role="form" id="form-create-oaca-close" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 
 		<input type="hidden" name="register_id" value="{{$register_id}}">
 
 		<input type="hidden" name="count_elements_old" value="0" id="count_elements_old">
-		<input type="hidden" name="task_moment" value="{{$task_moment}}">
 		<input type="hidden" name="elementos-delete" value="" id="elementos-delete">
 
 		<div id="rootwizard" class="tabbable tabs-left">
 			
 			<ul class="nav bav-tabs">
-				<li><a href="#tab1" data-toggle="tab">{{trans('admin.explanation')}}</a></li>
-				<li><a href="#tab2" data-toggle="tab">{{trans('admin.exemplification')}}</a></li>
-				<li><a href="#tab3" data-toggle="tab">{{trans('admin.application')}}</a></li>
-				<li><a href="#tab4" data-toggle="tab">{{trans('admin.justification')}}</a></li>
-				<li><a href="#tab5" data-toggle="tab">{{trans('admin.compare')}}</a></li>
-				<li><a href="#tab6" data-toggle="tab">{{trans('admin.contrast')}}</a></li>
-				<li><a href="#tab7" data-toggle="tab">{{trans('admin.contextualization')}}</a></li>
-				<li><a href="#tab8" data-toggle="tab">{{trans('admin.generalization')}}</a></li>
+				<li><a href="#tab1" data-toggle="tab">{{trans('admin.systematization')}}</a></li>
+				<li><a href="#tab2" data-toggle="tab">{{trans('admin.investigation')}}</a></li>
+				<li><a href="#tab3" data-toggle="tab">{{trans('admin.evaluation')}}</a></li>
 			</ul>
 			<div id="bar" class="progress progress-info progress-striped">
 				<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 57.1429%;"></div>
@@ -38,7 +32,7 @@
 
 				<?php $count=0;?>
 
-				@for($i=1;$i<9;$i++)
+				@for($i=1;$i<4;$i++)
 
 				<div class="tab-pane" id="tab{{$i}}">
 					<div id="btn-prev{{$i}}" style="margin:0;background-color:transparent;text-align:center;">
@@ -51,8 +45,8 @@
 					
 					<div class="content sortable" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
 						
-						@if(isset($content_davelop[$pattern_array[$i-1]]))
-						@foreach($content_davelop[$pattern_array[$i-1]] as $key=>$element)
+						@if(isset($content_close[$pattern_array[$i-1]]))
+						@foreach($content_close[$pattern_array[$i-1]] as $key=>$element)
 
 						@if($element->type_element == 'title')
 						<div class="title remove-div-{{$count}} tilte old">
@@ -321,16 +315,16 @@
 	<!--<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>-->
 	<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js" ></script>
-	<script type="text/javascript" src="/assets/js/objetos/develop/main.js" ></script>
+	<script type="text/javascript" src="/assets/js/objetos/close/main.js" ></script>
 	<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
 	</script>
 
 	<script>
 		var array_elements_delete = [];
 		
-		$('#form-create-oaca-develop').submit(function(event) {
+		$('#form-create-oaca-close').submit(function(event) {
 
-			$("#form-create-oaca-develop [name='textarea']").each(function(index) {
+			$("#form-create-oaca-close [name='textarea']").each(function(index) {
 				var idcontent = $(this).data('content');
 
 				var content = $(this).summernote('code');
@@ -362,7 +356,7 @@
 
 		});
 		
-		$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
+		$("#form-create-oaca-close").on('click','button.remove-div',function (e){
 
 			e.preventDefault();
 

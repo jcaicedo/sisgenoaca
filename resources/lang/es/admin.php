@@ -15,6 +15,7 @@ return [
 
     'introduction' => 'Introducción',
     'development' => 'Desarrollo',
+    'close' => 'Cierre Integrador',
     'createOaca' => 'Create Oaca',
     'editOaca' => 'Edit Oaca',
     'process'    => 'Procesar',
@@ -108,5 +109,9 @@ return [
     'contextualization' => 'Contextualización',
     'generalization' => 'Generalización',
     'btn-clear' => 'Limpiar',
+    'systematization' => 'Sistematización',
+    'investigation' => 'Investigación',
+    'evaluation' => 'Evaluación',
+
 
     ];

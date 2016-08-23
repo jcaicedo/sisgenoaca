@@ -45,7 +45,7 @@ class GeneradorController extends AdminController
 			"register_id" =>$id,
 			"moment"=>ElementsOaca::INTRODUCTION,
 			"contentIntroduction" => $content_Introduction,
-			"taks_moment" => 'edit'
+			"task_moment" => 'edit'
 			]);
 	}
 
@@ -107,15 +107,16 @@ class GeneradorController extends AdminController
 				}
 			}}
 
-			if($request->input('taks_moment') == 'create'){
+			if($request->input('task_moment') == 'create'){
 
 				return view('admin.oaca.objetos.development.add',[
 					"register_id" =>$request->input('register_id'),
-					"pattern_array" => ElementsOaca::DEVELOP_ARRAY
+					"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
+					"task_moment" => "create"
 
 					]);
 
-			}elseif ($request->input('taks_moment') == 'edit') {
+			}elseif ($request->input('task_moment') == 'edit') {
 
 				$content = ElementsOaca::searchElementsDevelop($request->input('register_id'));
 
@@ -124,7 +125,8 @@ class GeneradorController extends AdminController
 				return view('admin.oaca.objetos.development.edit',[
 					"register_id" =>$request->input('register_id'),
 					"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
-					"content_davelop" => $content
+					"content_davelop" => $content,
+					"task_moment" => "edit"
 					]);
 				
 			}
@@ -198,6 +200,91 @@ class GeneradorController extends AdminController
 				}
 			}
 
+			if($request->input('task_moment') == 'create'){
+
+				return view('admin.oaca.objetos.close.add',[
+					"register_id" =>$request->input('register_id'),
+					"pattern_array" => ElementsOaca::CLOSE_ARRAY
+
+					]);
+
+			}elseif ($request->input('task_moment') == 'edit') {
+
+				$content = ElementsOaca::searchElementsClose($request->input('register_id'));
+
+				
+
+				return view('admin.oaca.objetos.close.edit',[
+					"register_id" =>$request->input('register_id'),
+					"pattern_array" => ElementsOaca::CLOSE_ARRAY,
+					"content_close" => $content
+					]);
+				
+			}
+
+			
+
+		}
+
+
+		function postClose(Request $request){
+
+			//dd($request->input('data'));
+			$Arr = explode(",",$request->input('elementos-delete'));
+			$collection = ElementsOaca::destroy($Arr);
+
+			$position = 0;
+
+			if ($request->input('data')) {
+				foreach ($request->input('data') as $key => $value) {
+					if($value['type']!='image'){
+
+						$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+						$element->type_element = $value['type'];
+						$element->content = $value['content'];
+						$element->moment = ElementsOaca::CLOSE;
+						$element->pattern_pedagogicaltechno = $value['pattern'];
+						$element->position_order = $position;
+						$element->register_id =  $request->input('register_id');
+						$element->save();
+						$position ++;
+
+
+					}else if($value['type']== 'image'){
+
+						$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+						$element->type_element = $value['type'];
+						$element->moment = ElementsOaca::CLOSE;
+						$element->pattern_pedagogicaltechno = $value['pattern'];
+						$element->position_order = $position;
+						$element->register_id =  $request->input('register_id');
+
+
+
+						$filebackground = $request->file( $value['content']);
+
+						if($filebackground != null){
+							$namebackground = $filebackground->getClientOriginalName();
+							$public_path = public_path();		
+							$url = $public_path.'/assets/imgs/contents-img/close';
+							$filebackground->move($url, $namebackground);
+							$element->content = '/assets/imgs/contents-img/close/'.$namebackground;
+							$element->save();
+							$position ++;
+						}else{
+
+							$element->save();
+							$position ++;
+						}
+
+
+
+
+					}
+
+				}
+			}
+
 
 
 
@@ -206,6 +293,9 @@ class GeneradorController extends AdminController
 			
 
 		}
+
+
+
 
 		public function getEditoaca(){
 

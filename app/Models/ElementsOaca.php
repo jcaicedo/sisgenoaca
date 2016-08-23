@@ -11,6 +11,7 @@ class ElementsOaca extends Model
 	const UUID_REGISTER = '4ab1a90f-3dc9-30a8-9a9d-a6caa7b21a5f';
 	const INTRODUCTION = "introduction";
 	const DEVELOPMENT = "development";
+	const CLOSE = "close";
 	const EXPLANATION = "explanation";
 	const EXEMPLIFICATION = "exemplification";
 	const APPLICATION = "application";
@@ -20,6 +21,10 @@ class ElementsOaca extends Model
 	const CONTEXTUALIZATION = "contextualization";
 	const GENERALIZATION = "generalization";
 	const DEVELOP_ARRAY = ["explanation","exemplification","application","justification","compare","contrast","contextualization","generalization"];
+	const SISTEMATIZATION = "systematization";
+	const INVESTIGATION = "investigation";
+	const EVALUATION = "evaluation";
+	const CLOSE_ARRAY = ["systematization","investigation","evaluation"];
 	
 	protected $table = 'elements';
 	
@@ -88,6 +93,37 @@ class ElementsOaca extends Model
 				
 				default:
 						# code...
+				break;
+			}
+
+
+		}
+
+		return $collect;
+
+	}
+
+
+	public static function searchElementsClose($id){
+
+		$all = self::where('register_id','=',$id)
+		->where('moment','=','close')
+		->orderBy('position_order','asc')
+		->get();
+
+		$collect = [];
+
+		foreach ($all as $key => $value) {
+			
+			switch ($value->pattern_pedagogicaltechno) {
+				case 'systematization':
+				$collect['systematization'][]=$value;
+				break;
+				case 'investigation':
+				$collect['investigation'][]=$value;
+				break;
+				case 'evaluation':
+				$collect['evaluation'][]=$value;
 				break;
 			}
 
