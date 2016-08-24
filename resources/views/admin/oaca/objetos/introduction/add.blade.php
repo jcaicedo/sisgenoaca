@@ -3,19 +3,27 @@
 @section('content')
 
 <div class="content-wrapper">
-
-
-
-	<div class="box-header box-header-btn">
-		<h1 class="box-title">{{trans('admin.introduction')}}</h1>
-		<div style="margin:0;background-color:transparent;text-align:center;">
-			{{-- <button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button> --}}
+	<div class="box-header box-header-principal">
+		<h1 class="box-title" >{{trans('admin.introduction')}}</h1>
+		<div class="box-tool pull-right">
 			<a id="preview-oaca" class="btn btn-warning">
 				<i class="fa fa-eye"></i>
 				Visualizar
 			</a>
 		</div>
 	</div>
+	
+
+	{{-- <div class="box-header box-header-btn">
+		<h1 class="box-title">{{trans('admin.introduction')}}</h1>
+		<div style="margin:0;background-color:transparent;text-align:center;">
+			<button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button>
+			<a id="preview-oaca" class="btn btn-warning">
+				<i class="fa fa-eye"></i>
+				Visualizar
+			</a>
+		</div>
+	</div> --}}
 	<form action="{{url('/admin/oaca/objetos/introduction')}}" method="post"  role="form" id="form-create-oaca" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -29,7 +37,22 @@
 
 
 		<div class="preview">
-			<div class="box-footer box-footer-preview" style="margin-bottom:35px;">
+
+			<div class="box-header">
+				<h1 class="box-title" >{{trans('admin.introduction')}}</h1>
+				<div class="box-tool pull-right">
+					<a class="btn btn-warning" id="preview">
+						<i class="fa fa-edit"></i>
+						Seguir Editando
+					</a>
+
+					<button type="submit" class="btn btn-success" id="processit">
+						<i class="fa fa-cogs"></i>
+						Procesar
+					</button>
+				</div>
+			</div>
+			{{-- <div class="box-footer box-footer-preview" style="margin-bottom:35px;">
 				<div style="margin:0;background-color:transparent;text-align:center;">
 
 					<a class="btn btn-warning" id="preview">
@@ -40,7 +63,7 @@
 							<i class="fa fa-cogs"></i>
 							Procesar</button>
 						</div>
-					</div>
+					</div> --}}
 
 
 
@@ -171,6 +194,9 @@
 			}
 			.box-header-btn{
 				background: #CCCBCB;
+			}
+			.box-header h1{
+				font-size: 30px !important;
 			}
 
 		</style>

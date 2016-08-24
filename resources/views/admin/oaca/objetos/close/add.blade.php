@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="content-wrapper">
-	<div class="box-header box-header-btn">
 
-		<h1 class="box-title">{{trans('admin.close')}}</h1>
+	<section class="content-header">
+		<h1>{{trans('admin.close')}}</h1>
+	</section>
 
-	</div>
 	<form action="{{url('/admin/oaca/objetos/close')}}" method="post"  role="form" id="form-create-oaca-close" enctype="multipart/form-data" >
 		
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -203,6 +203,7 @@
 		.box-header-btn{
 			background: #CCCBCB;
 		}
+		.content-header{margin-bottom: 14px;}
 
 	</style>
 	@endpush

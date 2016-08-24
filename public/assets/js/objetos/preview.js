@@ -47,7 +47,7 @@ $("#preview-oaca").click(function(e){
 });
     //Hidden elements from edit content
     $(".sortable").hide();
-    $(".box-header-btn").hide();
+    $(".box-header-principal").hide();
     $(".preview").show();
 
 
@@ -59,7 +59,7 @@ $('#preview').click(function(e){
   e.preventDefault();
   $(".content-preview").html("");
   $(".sortable").show();
-  $('.box-header-btn').show();
+  $('.box-header-principal').show();
   $(".preview").hide();
 
 });

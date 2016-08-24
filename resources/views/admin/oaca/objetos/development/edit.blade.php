@@ -3,11 +3,10 @@
 @section('content')
 
 <div class="content-wrapper">
-	<div class="box-header box-header-btn">
+	<section class="content-header">
+		<h1>{{trans('admin.development')}}</h1>
+	</section>
 
-		<h1 class="box-title">{{trans('admin.development')}}</h1>
-
-	</div>
 	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca-develop" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -309,6 +308,7 @@
 		.box-header-btn{
 			background: #CCCBCB;
 		}
+		.content-header{margin-bottom: 14px;}
 
 	</style>
 	@endpush
