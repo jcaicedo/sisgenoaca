@@ -30,7 +30,7 @@
 		<div class="content sortable" id="content-form">
 			
 			<input type="hidden" name="register_id" value="{{$register_id}}">
-			<input type="hidden" name="task_moment" value="{{$taks_moment}}">
+			<input type="hidden" name="task_moment" value="{{$task_moment}}">
 			<input type="hidden" name="elementos" value="" id="hidden_elementos">
 
 		</div>

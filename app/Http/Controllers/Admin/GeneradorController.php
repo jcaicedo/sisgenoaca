@@ -52,7 +52,8 @@ class GeneradorController extends AdminController
 	function getIntroduction(){
 		return view('admin.oaca.objetos.introduction.add',[
 			"register_id" =>ElementsOaca::UUID_REGISTER,
-			"moment"=>ElementsOaca::INTRODUCTION]);
+			"moment"=>ElementsOaca::INTRODUCTION,
+			"task_moment" => 'edit']);
 	}
 
 	function postIntroduction(Request $request){
