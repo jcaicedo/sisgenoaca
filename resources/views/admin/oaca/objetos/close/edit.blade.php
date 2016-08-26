@@ -4,9 +4,20 @@
 
 <div class="content-wrapper">
 
-	<section class="content-header">
+{{-- 	<section class="content-header">
 		<h1>{{trans('admin.close')}}</h1>
-	</section>
+	</section> --}}
+
+	<div class="box-header box-header-principal">
+		<h1 >{{trans('admin.close')}}
+			<div class="box-tool pull-right">
+				{{-- <a id="preview-oaca" class="btn btn-warning">
+					<i class="fa fa-eye"></i>
+					Visualizar
+				</a> --}}
+			</div>
+		</h1>
+	</div>
 
 	<form action="{{url('/admin/oaca/objetos/close')}}" method="post"  role="form" id="form-create-oaca-close" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -154,9 +165,11 @@
 									Seguir Editando
 								</a>
 
-								<button type="submit" class="btn btn-success">
+								{{-- <button type="submit" class="btn btn-success">
 									<i class="fa fa-cogs"></i>
-									Procesar</button>
+									Procesar
+									</button>
+									--}}			
 								</div>
 							</div>
 
@@ -171,10 +184,14 @@
 					@endfor
 
 
-					
+
 					<ul class="pager wizard">
 						<li class="previous first" style="display:none;"><a href="#">First</a></li>
 						<li class="previous"><a href="#">Previous</a></li>
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-cogs"></i>
+							Procesar
+						</button>
 						<li class="next last" style="display:none;"><a href="#">Last</a></li>
 						<li class="next"><a href="#">Next</a></li>
 					</ul>
@@ -322,7 +339,7 @@
 
 	<script>
 		var array_elements_delete = [];
-		
+
 		$('#form-create-oaca-close').submit(function(event) {
 
 			$("#form-create-oaca-close [name='textarea']").each(function(index) {
@@ -338,7 +355,7 @@
 		$('div#content-form .edit-textarea').each(function(index, element){
 			var textarea_id = $(this).attr('id');
 
-			
+
 			$('#'+textarea_id).summernote({
 				height: 300,               
 				minHeight: null,             
@@ -356,7 +373,7 @@
 
 
 		});
-		
+
 		$("#form-create-oaca-close").on('click','button.remove-div',function (e){
 
 			e.preventDefault();
@@ -377,7 +394,7 @@
 
 
 		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
-		
+
 
 
 

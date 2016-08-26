@@ -3,9 +3,20 @@
 @section('content')
 
 <div class="content-wrapper">
-	<section class="content-header">
+{{-- 	<section class="content-header">
 		<h1>{{trans('admin.development')}}</h1>
-	</section>
+	</section> --}}
+
+	<div class="box-header box-header-principal">
+		<h1 >{{trans('admin.development')}}
+			<div class="box-tool pull-right">
+				{{-- <a id="preview-oaca" class="btn btn-warning">
+					<i class="fa fa-eye"></i>
+					Visualizar
+				</a> --}}
+			</div>
+		</h1>
+	</div>
 
 	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca-develop" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -159,233 +170,238 @@
 									Seguir Editando
 								</a>
 
-								<button type="submit" class="btn btn-success">
+								{{-- <button type="submit" class="btn btn-success">
 									<i class="fa fa-cogs"></i>
-									Procesar</button>
-								</div>
-							</div>
-
-
-
-							<div class="content-preview" id="content-prev{{$i}}">
-
+									Procesar
+								</button> --}}
 							</div>
 						</div>
+
+
+
+						<div class="content-preview" id="content-prev{{$i}}">
+
+						</div>
 					</div>
-
-					@endfor
-
-
-					
-					<ul class="pager wizard">
-						<li class="previous first" style="display:none;"><a href="#">First</a></li>
-						<li class="previous"><a href="#">Previous</a></li>
-						<li class="next last" style="display:none;"><a href="#">Last</a></li>
-						<li class="next"><a href="#">Next</a></li>
-					</ul>
 				</div>
-			</div>
-		</form>
 
-
-	</div>
+				@endfor
 
 
 
-
-	<!-------------------------------------------------------------------------------->
-
-	{{-- Modulos de elementos ocultos para clonar --}}
-
-	{{-- Modulo Title --}}
-
-	<div class="titulo-clone nomostrar">
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">Titulo</h3>
-				<div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool">
-						<i class="fa fa-close"></i>
+				<ul class="pager wizard">
+					<li class="previous first" style="display:none;"><a href="#">First</a></li>
+					<li class="previous"><a href="#">Previous</a></li>
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-cogs"></i>
+						Procesar
 					</button>
-				</div>
+					<li class="next last" style="display:none;"><a href="#">Last</a></li>
+					<li class="next"><a href="#">Next</a></li>
+				</ul>
 			</div>
-			<div class="box-body">
-				<input type="text" class="form-control componente"> 
+		</div>
+	</form>
+
+
+</div>
+
+
+
+
+<!-------------------------------------------------------------------------------->
+
+{{-- Modulos de elementos ocultos para clonar --}}
+
+{{-- Modulo Title --}}
+
+<div class="titulo-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Titulo</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
 			</div>
+		</div>
+		<div class="box-body">
+			<input type="text" class="form-control componente"> 
+		</div>
+	</div>
+</div>
+
+{{-- Modulo Textarea --}}
+<div class="textareaclone nomostrar  ">
+
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Textarea</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa  fa-close"></i>
+				</button>
+				<button  type="button" class="btn btn-box-tool">
+					<i class="fa  fa-paint-brush"></i>
+				</button>
+			</div>
+		</div>
+		<div class="box-body edit-textarea">
+
 		</div>
 	</div>
 
-	{{-- Modulo Textarea --}}
-	<div class="textareaclone nomostrar  ">
+</div>
 
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">Textarea</h3>
-				<div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool">
-						<i class="fa  fa-close"></i>
-					</button>
-					<button  type="button" class="btn btn-box-tool">
-						<i class="fa  fa-paint-brush"></i>
-					</button>
-				</div>
-			</div>
-			<div class="box-body edit-textarea">
 
+<!--modulo image-->
+
+
+<div class="uploadimage uploadimage-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Image</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
 			</div>
 		</div>
-
-	</div>
-
-
-	<!--modulo image-->
-
-
-	<div class="uploadimage uploadimage-clone nomostrar">
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">Image</h3>
-				<div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool">
-						<i class="fa fa-close"></i>
-					</button>
-				</div>
-			</div>
-			<div class=" box-body">
-				<input class="form-control" type="file" />
-			</div>
+		<div class=" box-body">
+			<input class="form-control" type="file" />
 		</div>
 	</div>
+</div>
 
 
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				</div>
-				<div class="modal-body">
-					...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
 			</div>
 		</div>
 	</div>
+</div>
 
 
-	@endsection
+@endsection
 
 
-	<!--Styles-->
-	@push('styles')
+<!--Styles-->
+@push('styles')
 
 
-	<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
-	<link href="/assets/css/style_steps.css" rel="stylesheet">
+<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
+<link href="/assets/css/style_steps.css" rel="stylesheet">
 
 
-	<style>
-		.nomostrar{display:none;}
-		.mostrar{display: block;}
-		.btn-proccess{margin:0 auto; width: 200px;align:left;}
-		.preview{display: none;}
-		.mark_background{background: #88AAAA}
-		.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
-		.content-preview h2{
-			color: blue;
-			text-align: center;
-		}
-		.callout{margin: 0 !important; min-height:0;}
+<style>
+	.nomostrar{display:none;}
+	.mostrar{display: block;}
+	.btn-proccess{margin:0 auto; width: 200px;align:left;}
+	.preview{display: none;}
+	.mark_background{background: #88AAAA}
+	.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+	.content-preview h2{
+		color: blue;
+		text-align: center;
+	}
+	.callout{margin: 0 !important; min-height:0;}
 
-		.options-textarea{
-			padding-bottom: 10px;
-		}
-		.box-header-btn{
-			background: #CCCBCB;
-		}
-		.content-header{margin-bottom: 14px;}
+	.options-textarea{
+		padding-bottom: 10px;
+	}
+	.box-header-btn{
+		background: #CCCBCB;
+	}
+	.content-header{margin-bottom: 14px;}
 
-	</style>
-	@endpush
+</style>
+@endpush
 
-	<!--Scripts-->
+<!--Scripts-->
 
 
-	@push('scripts')
-	<script src="/vendor/summernote/dist/summernote.js"></script>
-	<!--<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>-->
-	<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js" ></script>
-	<script type="text/javascript" src="/assets/js/objetos/develop/main.js" ></script>
-	<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
-	</script>
+@push('scripts')
+<script src="/vendor/summernote/dist/summernote.js"></script>
+<!--<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>-->
+<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js" ></script>
+<script type="text/javascript" src="/assets/js/objetos/develop/main.js" ></script>
+<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
+</script>
 
-	<script>
-		var array_elements_delete = [];
-		
-		$('#form-create-oaca-develop').submit(function(event) {
+<script>
+	var array_elements_delete = [];
 
-			$("#form-create-oaca-develop [name='textarea']").each(function(index) {
-				var idcontent = $(this).data('content');
+	$('#form-create-oaca-develop').submit(function(event) {
 
-				var content = $(this).summernote('code');
+		$("#form-create-oaca-develop [name='textarea']").each(function(index) {
+			var idcontent = $(this).data('content');
 
-				$('#'+idcontent).val(content);
-			});
+			var content = $(this).summernote('code');
 
+			$('#'+idcontent).val(content);
 		});
 
-		$('div#content-form .edit-textarea').each(function(index, element){
-			var textarea_id = $(this).attr('id');
+	});
 
-			
-			$('#'+textarea_id).summernote({
-				height: 300,               
-				minHeight: null,             
-				maxHeight: null,             
-				focus: true,
-				maximumImageFileSize: 512*1024
-			});
-
-			var content = $('#input-'+textarea_id).val();
-			$('#input-'+textarea_id).val(textarea_id);
+	$('div#content-form .edit-textarea').each(function(index, element){
+		var textarea_id = $(this).attr('id');
 
 
-			$('#'+textarea_id).summernote('code',content);
-
-
-
-		});
-		
-		$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
-
-			e.preventDefault();
-
-
-			var divDelete = $(this).data('parent');
-
-			if($(this).data('idelement')){
-				array_elements_delete.push($(this).data('idelement'));
-				$('#elementos-delete').val(array_elements_delete);
-				console.log($('#elementos-delete').val());
-			}
-
-
-			$("."+divDelete).remove();
-
+		$('#'+textarea_id).summernote({
+			height: 300,               
+			minHeight: null,             
+			maxHeight: null,             
+			focus: true,
+			maximumImageFileSize: 512*1024
 		});
 
-
-		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
-		
-
+		var content = $('#input-'+textarea_id).val();
+		$('#input-'+textarea_id).val(textarea_id);
 
 
+		$('#'+textarea_id).summernote('code',content);
 
-	</script>
-	@endpush
+
+
+	});
+
+	$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
+
+		e.preventDefault();
+
+
+		var divDelete = $(this).data('parent');
+
+		if($(this).data('idelement')){
+			array_elements_delete.push($(this).data('idelement'));
+			$('#elementos-delete').val(array_elements_delete);
+			console.log($('#elementos-delete').val());
+		}
+
+
+		$("."+divDelete).remove();
+
+	});
+
+
+	$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
+
+
+
+
+
+</script>
+@endpush

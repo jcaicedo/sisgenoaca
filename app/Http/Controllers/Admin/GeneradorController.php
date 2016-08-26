@@ -139,7 +139,8 @@ class GeneradorController extends AdminController
 				"register_id" =>ElementsOaca::UUID_REGISTER,
 				"moment"=>ElementsOaca::DEVELOPMENT,
 				"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
-				"pattern_array" => ElementsOaca::DEVELOP_ARRAY
+				"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
+				"task_moment" => "create"
 				]);
 		}
 

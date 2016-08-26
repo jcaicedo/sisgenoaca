@@ -40,7 +40,7 @@ class RegistryOacaController extends Controller
 		return view('admin.oaca.objetos.introduction.add',[
 			"register_id"=>$content_register->id,
 			"area"=>ElementsOaca::INTRODUCTION,
-			"taks_moment" => "create"
+			"task_moment" => "create"
 
 			]);
 	}

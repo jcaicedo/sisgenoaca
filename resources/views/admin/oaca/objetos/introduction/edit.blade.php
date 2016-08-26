@@ -5,13 +5,18 @@
 <div class="content-wrapper">
 
 	<div class="box-header box-header-principal">
-		<h1 class="box-title" >{{trans('admin.introduction')}}</h1>
-		<div class="box-tool pull-right">
-			<a id="preview-oaca" class="btn btn-warning">
-				<i class="fa fa-eye"></i>
-				Visualizar
-			</a>
-		</div>
+
+		<h1 >{{trans('admin.introduction')}}
+
+			<div class="box-tool pull-right">
+			{{-- 	<a id="preview-oaca" class="btn btn-warning">
+					<i class="fa fa-eye"></i>
+					Visualizar
+				</a> --}}
+			</div>
+		</h1>
+		
+
 	</div>
 
 
@@ -29,7 +34,15 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<div class="content sortable" id="content-form">
-			
+
+			<div class="box-header">
+				<a id="preview-oaca" class="btn btn-warning">
+					<i class="fa fa-eye"></i>
+					Visualizar
+				</a>
+			</div>
+
+
 			<input type="hidden" name="register_id" value="{{$register_id}}">
 			<input type="hidden" name="task_moment" value="{{$task_moment}}">
 			<input type="hidden" name="count_elements_old" value="0" id="count_elements_old">
@@ -131,9 +144,10 @@
 
 
 		<div class="preview">
-			<div class="box-header">
-				<h1 class="box-title" >{{trans('admin.introduction')}}</h1>
-				<div class="box-tool pull-right">
+			<div class="box-header box-header-preview">
+				<h1>{{trans('admin.introduction')}}
+				</h1>
+				<div class="">
 					<a class="btn btn-warning" id="preview">
 						<i class="fa fa-edit"></i>
 						Seguir Editando
@@ -144,6 +158,9 @@
 						Procesar
 					</button>
 				</div>
+
+				
+				
 			</div>
 		{{-- 	<div class="box-footer box-footer-preview" style="margin-bottom:35px;">
 				<div style="margin:0;background-color:transparent;text-align:center;">
@@ -271,16 +288,18 @@
 	.box-header-btn{
 		background: #CCCBCB;
 	}
-	.content-header{margin-bottom: 14px;}
+	
 	.options-proccess{
 		position: absolute;
 		right: 10px;
 		float: right!important;
 	}
-
-	.box-header h1{
-		font-size: 30px !important;
+	.box-header-principal h1{
+		text-align: center;
 	}
+	
+
+
 </style>
 @endpush
 
