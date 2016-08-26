@@ -4,6 +4,8 @@ $("#preview-oaca").click(function(e){
 
  var countImage = 0;
 
+ var content_btn =$(this).data('btn');
+
  $("#form-create-oaca .myinput").each(function(index){
 
    var element = $(this).data('element');
@@ -47,7 +49,7 @@ $("#preview-oaca").click(function(e){
 });
     //Hidden elements from edit content
     $(".sortable").hide();
-    $(".box-header-principal").hide();
+    
     $(".preview").show();
 
 
@@ -59,7 +61,7 @@ $('#preview').click(function(e){
   e.preventDefault();
   $(".content-preview").html("");
   $(".sortable").show();
-  $('.box-header-principal').show();
+  // $('.box-header-principal').show();
   $(".preview").hide();
 
 });

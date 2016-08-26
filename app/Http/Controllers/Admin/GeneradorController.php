@@ -228,6 +228,15 @@ class GeneradorController extends AdminController
 
 		}
 
+		function getClose(){
+			return view('admin.oaca.objetos.close.add',[
+				"register_id" =>ElementsOaca::UUID_REGISTER,
+				"moment"=>ElementsOaca::DEVELOPMENT,
+				"pattern_pedagogicaltechno" => ElementsOaca::EXPLANATION,
+				"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
+				"task_moment" => "create"
+				]);
+		}
 
 		function postClose(Request $request){
 

@@ -3,37 +3,22 @@
 @section('content')
 
 <div class="content-wrapper">
-	<div class="box-header box-header-principal">
+	<div class="box-header">
 
 		<h1 >{{trans('admin.introduction')}}
-
 			<div class="box-tool pull-right">
-				{{-- <a id="preview-oaca" class="btn btn-warning">
-					<i class="fa fa-eye"></i>
-					Visualizar
-				</a> --}}
 			</div>
 		</h1>
 		
 
 	</div>
 	
-
-	{{-- <div class="box-header box-header-btn">
-		<h1 class="box-title">{{trans('admin.introduction')}}</h1>
-		<div style="margin:0;background-color:transparent;text-align:center;">
-			<button type="submit" class="btn btn-primary btn-proccess" id="preview-oaca">Pre-Visualizar</button>
-			<a id="preview-oaca" class="btn btn-warning">
-				<i class="fa fa-eye"></i>
-				Visualizar
-			</a>
-		</div>
-	</div> --}}
 	<form action="{{url('/admin/oaca/objetos/introduction')}}" method="post"  role="form" id="form-create-oaca" enctype="multipart/form-data" >
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<div class="content sortable" id="content-form">
-			<div class="box-header">
+
+			<div class="box-header box-header-principal">
 				<a id="preview-oaca" class="btn btn-warning">
 					<i class="fa fa-eye"></i>
 					Visualizar
@@ -51,42 +36,22 @@
 		<div class="preview">
 
 			<div class="box-header box-header-preview">
-				<h1>{{trans('admin.introduction')}}</h1>
-
-				<div class="">
+				<div class="content-btn-preview">
 					<a class="btn btn-warning" id="preview">
 						<i class="fa fa-edit"></i>
 						Seguir Editando
 					</a>
-
 					<button type="submit" class="btn btn-success" id="processit">
 						<i class="fa fa-cogs"></i>
 						Procesar
 					</button>
 				</div>
-
-				
-				
 			</div>
-			{{-- <div class="box-footer box-footer-preview" style="margin-bottom:35px;">
-				<div style="margin:0;background-color:transparent;text-align:center;">
 
-					<a class="btn btn-warning" id="preview">
-						<i class="fa fa-edit"></i>
-						Seguir Editando</a>
+			<div class="content-preview">
 
-						<button type="submit" class="btn btn-success" id="processit">
-							<i class="fa fa-cogs"></i>
-							Procesar</button>
-						</div>
-					</div> --}}
-
-
-
-					<div class="content-preview">
-
-					</div>
-				</div>
+			</div>
+		</div>
 				
 
 
@@ -203,20 +168,9 @@
 				color: blue;
 				text-align: center;
 			}
-			.callout{margin: 0 !important; min-height:0;}
-
-			.options-textarea{
-				padding-bottom: 10px;
-			}
-			.box-header-btn{
-				background: #CCCBCB;
-			}
-			.box-header-principal h1{
-				text-align: center;
-			}
-			.box-header-preview h1{
-				text-align: center;
-			}
+			#preview-oaca{margin-left: 44%;}
+			.box-header-principal{padding-top: 0px;}
+			.content-btn-preview{position: absolute;left:44%;}
 
 		</style>
 		@endpush
