@@ -64,11 +64,12 @@ Route::group(['middleware' => 'web'],function(){
 
     });
 
-    
+    Route::group(['namespace'=>'Oaca','prefix'=>'oaca'],function(){
+
+        Route::controller('/','OacaController');
 
 
-
-
+    });
 });
 
 Route::get('usuario/registro/',['uses'=>'UsersController@index']);
@@ -78,10 +79,4 @@ Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
 Route::resource('log','LogController');
 
 Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);
-/*
-Route::group(['middleware' => 'web'], function () {
 
-    Route::auth();
-
-    Route::get('/home', 'HomeController@index');
-});*/
