@@ -19,11 +19,14 @@
 		<div class="content sortable" id="content-form">
 
 			<div class="box-header box-header-principal">
+
 				<a id="preview-oaca" class="btn btn-warning">
 					<i class="fa fa-eye"></i>
 					Visualizar
 				</a>
+
 			</div>
+
 			
 			
 			<input type="hidden" name="register_id" value="{{$register_id}}">
@@ -169,8 +172,8 @@
 		text-align: center;
 	}
 	#preview-oaca{margin-left: 44%;}
-	.box-header-principal{text-align: center;}
-	.content-btn-preview{text-align: center;}
+	.box-header-principal{padding-top: 0px;}
+	.content-btn-preview{text-align: center;padding-top: 5px;}
 
 </style>
 @endpush

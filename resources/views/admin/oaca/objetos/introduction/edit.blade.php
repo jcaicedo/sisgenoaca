@@ -251,7 +251,7 @@
 	}
 	#preview-oaca{margin-left: 44%;}
 	.box-header-principal{padding-top: 0px;}
-	.content-btn-preview{text-align: center;}
+	.content-btn-preview{text-align: center;padding-top: 5px;}
 	
 </style>
 @endpush

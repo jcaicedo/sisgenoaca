@@ -51,6 +51,7 @@
 				@for($i=1;$i<9;$i++)
 
 				<div class="tab-pane" id="tab{{$i}}">
+					{{-- botones de preview --}}
 					<div id="btn-prev{{$i}}"  class="box-header box-header-principal">
 						<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
 							<i class="fa fa-eye"></i>
