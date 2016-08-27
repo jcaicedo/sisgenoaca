@@ -52,159 +52,159 @@
 
 			</div>
 		</div>
-				
-
-
-			</form>
-
-
-		</div>
-
-
-
-
-		<!-------------------------------------------------------------------------------->
-
-		{{-- Modulos de elementos ocultos para clonar --}}
-
-		{{-- Modulo Title --}}
-
-		<div class="titulo-clone nomostrar">
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">Titulo</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool">
-							<i class="fa fa-close"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body">
-					<input type="text" class="form-control componente"> 
-				</div>
-			</div>
-		</div>
-
-		{{-- Modulo Textarea --}}
-		<div class="textareaclone nomostrar  ">
-
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">Textarea</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool">
-							<i class="fa  fa-close"></i>
-						</button>
-						<button  type="button" class="btn btn-box-tool">
-							<i class="fa  fa-paint-brush"></i>
-						</button>
-					</div>
-				</div>
-				<div class="box-body edit-textarea">
-
-				</div>
-			</div>
-
-		</div>
-
-
-		<!--modulo image-->
-
-
-		<div class="uploadimage uploadimage-clone nomostrar">
-			<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">Image</h3>
-					<div class="box-tools pull-right">
-						<button type="button" class="btn btn-box-tool">
-							<i class="fa fa-close"></i>
-						</button>
-					</div>
-				</div>
-				<div class=" box-body">
-					<input class="form-control" type="file" />
-				</div>
-			</div>
-		</div>
-
-
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-					</div>
-					<div class="modal-body">
-						...
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		
-		@endsection
 
 
-		<!--Styles-->
-		@push('styles')
+	</form>
 
 
-		<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
-
-		<style>
-			.nomostrar{display:none;}
-			.mostrar{display: block;}
-			.btn-proccess{margin:0 auto; width: 200px;align:left;}
-			.preview{display: none;}
-			.mark_background{background: #88AAAA}
-			.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
-			.content-preview h2{
-				color: blue;
-				text-align: center;
-			}
-			#preview-oaca{margin-left: 44%;}
-			.box-header-principal{padding-top: 0px;}
-			.content-btn-preview{position: absolute;left:44%;}
-
-		</style>
-		@endpush
-
-		<!--Scripts-->
+</div>
 
 
-		@push('scripts')
-		<script src="/vendor/summernote/dist/summernote.js"></script>
-		<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
-		<script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
-		<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
 
-		<script>
-			$(document).ready(function(){
+<!-------------------------------------------------------------------------------->
 
-				$("#myModal").modal('show'); /*Show Modal Automatic*/
+{{-- Modulos de elementos ocultos para clonar --}}
 
-				/*var elements = new Array();*/ /*Array elementos creados */
+{{-- Modulo Title --}}
 
-				var count=0;
+<div class="titulo-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Titulo</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
+			</div>
+		</div>
+		<div class="box-body">
+			<input type="text" class="form-control componente"> 
+		</div>
+	</div>
+</div>
 
-				$( "#title, #textarea, #uploadimage" ).draggable({
-					appendTo: "body",
-					helper: "clone"
-				});
+{{-- Modulo Textarea --}}
+<div class="textareaclone nomostrar  ">
+
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Textarea</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa  fa-close"></i>
+				</button>
+				<button  type="button" class="btn btn-box-tool">
+					<i class="fa  fa-paint-brush"></i>
+				</button>
+			</div>
+		</div>
+		<div class="box-body edit-textarea">
+
+		</div>
+	</div>
+
+</div>
 
 
-				$(".content").droppable({
-					accept: '.option',
-					drop:function(event,ui){
+<!--modulo image-->
 
-						var opt = ui.draggable.data('element-option');
+
+<div class="uploadimage uploadimage-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Image</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
+			</div>
+		</div>
+		<div class=" box-body">
+			<input class="form-control" type="file" />
+		</div>
+	</div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+@endsection
+
+
+<!--Styles-->
+@push('styles')
+
+
+<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
+
+<style>
+	.nomostrar{display:none;}
+	.mostrar{display: block;}
+	.btn-proccess{margin:0 auto; width: 200px;align:left;}
+	.preview{display: none;}
+	.mark_background{background: #88AAAA}
+	.content-preview{padding:5%;}
+	.content-preview h2{
+		color: blue;
+		text-align: center;
+	}
+	#preview-oaca{margin-left: 44%;}
+	.box-header-principal{text-align: center;}
+	.content-btn-preview{text-align: center;}
+
+</style>
+@endpush
+
+<!--Scripts-->
+
+
+@push('scripts')
+<script src="/vendor/summernote/dist/summernote.js"></script>
+<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+<script type="text/javascript"  src="/assets/js/objetos/options-textarea.js" ></script>
+<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+
+
+<script>
+	$(document).ready(function(){
+
+		$("#myModal").modal('show'); /*Show Modal Automatic*/
+
+		/*var elements = new Array();*/ /*Array elementos creados */
+
+		var count=0;
+
+		$( "#title, #textarea, #uploadimage" ).draggable({
+			appendTo: "body",
+			helper: "clone"
+		});
+
+
+		$(".content").droppable({
+			accept: '.option',
+			drop:function(event,ui){
+
+				var opt = ui.draggable.data('element-option');
 
             // console.log(ui.draggable.data('element-option'));
 

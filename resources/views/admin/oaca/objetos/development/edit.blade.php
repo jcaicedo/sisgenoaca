@@ -7,7 +7,7 @@
 		<h1>{{trans('admin.development')}}</h1>
 	</section> --}}
 
-	<div class="box-header box-header-principal">
+	<div class="box-header">
 		<h1 >{{trans('admin.development')}}
 			<div class="box-tool pull-right">
 				{{-- <a id="preview-oaca" class="btn btn-warning">
@@ -51,7 +51,7 @@
 				@for($i=1;$i<9;$i++)
 
 				<div class="tab-pane" id="tab{{$i}}">
-					<div id="btn-prev{{$i}}" style="margin:0;background-color:transparent;text-align:center;">
+					<div id="btn-prev{{$i}}"  class="box-header box-header-principal">
 						<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
 							<i class="fa fa-eye"></i>
 							Visualizar
@@ -162,8 +162,8 @@
 
 
 					<div class="preview" id="prev{{$i}}">
-						<div class="box-footer box-footer-preview" style="margin-bottom:35px;">
-							<div style="margin:0;background-color:transparent;text-align:center;">
+						<div class="box-header">
+							<div class="content-btn-preview">
 
 								<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
 									<i class="fa fa-edit"></i>
@@ -309,7 +309,7 @@
 	.nomostrar{display:none;}
 	.mostrar{display: block;}
 	.btn-proccess{margin:0 auto; width: 200px;align:left;}
-	.preview{display: none;}
+	.preview{display: none;min-height:304px;}
 	.mark_background{background: #88AAAA}
 	.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
 	.content-preview h2{
@@ -325,6 +325,8 @@
 		background: #CCCBCB;
 	}
 	.content-header{margin-bottom: 14px;}
+	.content-btn-preview{text-align: center;}
+	.box-header-principal{text-align: center;}
 
 </style>
 @endpush

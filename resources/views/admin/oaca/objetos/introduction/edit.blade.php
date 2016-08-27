@@ -244,14 +244,14 @@
 	.btn-proccess{margin:0 auto; width: 200px;align:left;}
 	.preview{display: none;}
 	.mark_background{background: #88AAAA}
-	.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+	.content-preview{padding:5%;}
 	.content-preview h2{
 		color: blue;
 		text-align: center;
 	}
 	#preview-oaca{margin-left: 44%;}
 	.box-header-principal{padding-top: 0px;}
-	.content-btn-preview{position: absolute;left:44%;}
+	.content-btn-preview{text-align: center;}
 	
 </style>
 @endpush
