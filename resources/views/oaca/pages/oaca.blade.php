@@ -9,7 +9,8 @@
 
 		@if($element_introduction->type_element == 'textarea')
 		
-		{{$element_introduction->content}}
+		<input type="hidden" class="value-textarea" name="textarea[]" value = "{{$element_introduction->content}}">
+		
 		@endif
 
 		@endforeach
@@ -25,3 +26,21 @@
 <style>
 	.content-wrapper{padding-top: 20px;}
 </style>
+
+<!--Scripts-->
+@push('scripts')
+<script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script>
+
+	$(document).ready(function (e) {
+		
+		$('.value-textarea').each(function(index){
+
+			$(this).after($(this).val());
+
+		});
+
+
+
+	});
+</script>

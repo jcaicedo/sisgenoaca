@@ -17,6 +17,7 @@ $("#preview-oaca").click(function(e){
     case 'textarea':
 
     var content_textarea = $('#'+$(this).attr('id')).summernote('code');
+    console.log(content_textarea);
     $(".content-preview").append('<br>'+content_textarea+'<br>');
     var idContent = $(this).data('content');
     $("#"+idContent).val(content_textarea);
