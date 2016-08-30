@@ -20,5 +20,7 @@
 		</nav> --}}
 		<div class="image-principal">
 			<h1 class="title-oaca" >{{$oaca->title_oaca}}</h1>
+			<h2 class="title-moment"></h2>
+			<h3 class="title-pattern"></h3>
 		</div>
 	</header>

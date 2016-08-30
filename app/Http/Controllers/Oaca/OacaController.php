@@ -14,12 +14,19 @@ class OacaController extends Controller
 
 
 	function getOaca(){
-		$oaca = RegistroOaca::find('0a90ec35-2ec7-3f31-a3e6-84c06d8e76fe');
-		$content_introduction = ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION, '0a90ec35-2ec7-3f31-a3e6-84c06d8e76fe');
-		//dd($content_introduction);
+		$oaca = RegistroOaca::find('c23487c6-1de2-381d-a55c-d56a2f1cbd49');
+		$content_introduction = ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION, 'c23487c6-1de2-381d-a55c-d56a2f1cbd49');
+
+		$content_develop = ElementsOaca::searchElementsDevelop('c23487c6-1de2-381d-a55c-d56a2f1cbd49');
+		$content_close = ElementsOaca::searchElementsClose('c23487c6-1de2-381d-a55c-d56a2f1cbd49');
+
 		return view('oaca.pages.oaca',[
 			'oaca'=>$oaca,
-			'content_introduction' => $content_introduction,	
+			'content_introduction' => $content_introduction,
+			"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
+			"content_develop" => $content_develop,	
+			"pattern_array" => ElementsOaca::CLOSE_ARRAY,
+			"content_close" => $content_close
 			]);
 	}
 

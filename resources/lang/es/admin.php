@@ -112,6 +112,7 @@ return [
     'systematization' => 'Sistematización',
     'investigation' => 'Investigación',
     'evaluation' => 'Evaluación',
-
+    'motivation' => 'Motivación',
+    
 
     ];
