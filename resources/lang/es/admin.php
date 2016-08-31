@@ -113,6 +113,6 @@ return [
     'investigation' => 'Investigación',
     'evaluation' => 'Evaluación',
     'motivation' => 'Motivación',
-    
+    'plantilla' => 'Plantilla',
 
     ];

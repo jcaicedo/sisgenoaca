@@ -317,6 +317,10 @@ class GeneradorController extends AdminController
 			return redirect('admin/oaca/objetos/edit-introduction/'.RegistroOaca::REGISTROID);
 		}
 
+		public function getPlantilla(){
+			return view('admin.oaca.registry.select_plantilla');
+		}
+
 	}
 
 
