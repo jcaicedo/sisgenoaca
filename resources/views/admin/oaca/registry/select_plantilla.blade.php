@@ -38,7 +38,7 @@
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 <script>
 
-	$(document).ready(function () {
+	$(document).ready(function ($) {
 		$('ol').selectable();
 		
 	});
