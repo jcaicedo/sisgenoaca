@@ -38,7 +38,7 @@
 		body{
 			font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
 		}
-		.image-principal{min-height: 240px;background-color: #A9AEB1; padding-top: 20px;padding-bottom: 10px;}
+		.image-principal{min-height: 240px;background-color: #A9AEB1; padding-top: 20px;padding-bottom: 10px; text-align: center;}
 		.navbar-principal{margin-bottom: 0px !important; background-color: #222d32 !important;}
 		.main-sidebar{top:auto !important; padding-top: 0px;}
 		.navbar{border-radius:0px;}
