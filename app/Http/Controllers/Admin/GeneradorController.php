@@ -321,6 +321,10 @@ class GeneradorController extends AdminController
 			return view('admin.oaca.registry.select_plantilla');
 		}
 
+		public function postPlantilla(Request $request){
+			dd($request->input(''));
+		}
+
 	}
 
 

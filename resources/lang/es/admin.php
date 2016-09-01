@@ -114,5 +114,7 @@ return [
     'evaluation' => 'Evaluación',
     'motivation' => 'Motivación',
     'plantilla' => 'Plantilla',
+    'create_plantilla' => 'Crear Plantilla',
+    'select_plantilla' => 'Seleccionar Plantilla',
 
     ];
