@@ -35,6 +35,8 @@ class RegistryOacaController extends Controller
 		$content_register->content_register = $content;
 		$content_register->title_oaca = $request->input('title');
 		$content_register->user_id = $request->input('user_id');
+		$content_register->plantilla = $request->input('plantilla');
+
 		$content_register->save();
 
 		return view('admin.oaca.objetos.introduction.add',[
@@ -61,6 +63,7 @@ class RegistryOacaController extends Controller
 		$register_edited->content_register = $content;
 		$register_edited->title_oaca = $request->input('title');
 		$register_edited->user_id = $request->input('user_id');
+		$register_edited->plantilla = $request->input('plantilla');
 		$register_edited->save();
 
 		return redirect('/admin/oaca/registry/registrys');

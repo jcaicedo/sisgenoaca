@@ -29,28 +29,34 @@
 					</h3>
 				</div>
 				<form  method="post" id="form_select_plantilla" role="form">
-
+					{!! csrf_field() !!}
 					<div class="box-body">
-
-						<ol id="selectable" name="">
-							<li class="ui-state-default">
+						<h4>{{trans('admin.select_plantilla')}}</h4>
+						<br>
+						<ol id="selectable" name="selectable">
+							<li class="ui-state-default" value="plantilla1">
 								<img name="plantilla1" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
 							</li>
-							<li class="ui-state-default">
+							<li class="ui-state-default" value="plantilla2">
 								<img name="plantilla2" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
 							</li>
-							<li class="ui-state-default">
+							<li class="ui-state-default" value="plantilla3">
 								<img name="plantilla3" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
 							</li>
-							<li class="ui-state-default">
+							<li class="ui-state-default" value="plantilla4">
 								<img name="plantilla4" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
 							</li>
-							<li class="ui-state-default">
+							<li class="ui-state-default" value="plantilla5">
 								<img name="plantilla5" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
 							</li>
 						</ol>
 
 					</div>
+
+					<div class="box-footer">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+
 				</form>
 				
 			</div>
@@ -82,7 +88,12 @@
 	$(document).ready(function ($) {
 		$('ol').selectable({
 			selected: function( event, ui ) {
-				console.log( $( ".ui-selected", this ).find('img').attr('name'));
+				$('.input_plantilla').each(function(){
+					$(this).remove();
+				});
+				var idPlantilla = $( ".ui-selected", this ).find('img').attr('name');
+				$( ".ui-selected", this ).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='"+idPlantilla+"'>");
+
 			},
 			stop: function(event, ui){
 				$(".ui-selected:first",this).each(function(){

@@ -322,7 +322,7 @@ class GeneradorController extends AdminController
 		}
 
 		public function postPlantilla(Request $request){
-			dd($request->input(''));
+			dd($request->input('plantilla'));
 		}
 
 	}
