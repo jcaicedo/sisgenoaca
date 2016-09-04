@@ -12,13 +12,22 @@
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
 		</a>
+
+		<div class="navbar-custom-menu">
+			<ul class="nav navbar-nav">
+				<li>
+					<a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+				</li>
+				
+			</ul>
+		</div>
 	</nav>
 		{{-- <nav class="navbar navbar-inverse navbar-principal">
 			<div class="container-fluid">
 				<a href="#" class="navbar-brand">Sisgeoaca</a>
 			</div>
 		</nav> --}}
-		<div class="image-principal">
+		<div class="image-principal" style="background-image: url('/assets/imgs/contents-img/plantillas/banner_principal1.png')">
 			<h1 class="title-oaca" >{{$oaca->title_oaca}}</h1>
 			<h2 class="title-moment"></h2>
 			<h3 class="title-pattern"></h3>

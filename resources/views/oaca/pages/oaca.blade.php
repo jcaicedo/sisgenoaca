@@ -131,10 +131,9 @@
 
 <!--Styles-->
 @push('styles')
+
 <style>
-	.content-wrapper{padding-top: 20px;}
-	.title{text-align: center;}
-	.image{text-align: center;}
+	
 </style>
 
 <!--Scripts-->
