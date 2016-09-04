@@ -28,6 +28,7 @@ class RegistryOacaController extends Controller
 	public function postCreate(Request $request){
 
 		//$content = serialize($request->input());
+		//dd($request->input('licencia'));
 		$content = json_encode($request->input());
 
 		$content_register = new RegistroOaca();
@@ -36,6 +37,7 @@ class RegistryOacaController extends Controller
 		$content_register->title_oaca = $request->input('title');
 		$content_register->user_id = $request->input('user_id');
 		$content_register->plantilla = $request->input('plantilla');
+		$content_register->licencia  = $request->input('licencia');
 
 		$content_register->save();
 
@@ -64,6 +66,8 @@ class RegistryOacaController extends Controller
 		$register_edited->title_oaca = $request->input('title');
 		$register_edited->user_id = $request->input('user_id');
 		$register_edited->plantilla = $request->input('plantilla');
+		$register_edited->licencia  = $request->input('licencia');
+		
 		$register_edited->save();
 
 		return redirect('/admin/oaca/registry/registrys');

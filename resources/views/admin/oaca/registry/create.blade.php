@@ -315,10 +315,11 @@
 					{{-- Derechos de Autor --}}
 
 					<div class="box-body nomostrar" id="copyright">
+						<input type="hidden" name="licencia" id="licencia" value="">
 						<h4>{{trans('admin.copyright')}}</h4>
 						<br>
 						<ol id="selectable-copyright">
-							<li class="ui-widget-content">
+							<li class="ui-widget-content" data-licencia="by-nc">
 								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
 									<img src="/assets/imgs/licencias_creative_commons/by-nc.png" alt="">
 								</div>
@@ -337,7 +338,7 @@
 								</div>
 								
 							</li>
-							<li class="ui-widget-content">
+							<li class="ui-widget-content" data-licencia="by-nc-nd">
 								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
 									<img src="/assets/imgs/licencias_creative_commons/by-nc-nd.png" alt="">
 								</div>
@@ -355,7 +356,7 @@
 								</div>
 								
 							</li>
-							<li class="ui-widget-content">
+							<li class="ui-widget-content" data-licencia="by-nc-sa">
 								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
 									<img src="/assets/imgs/licencias_creative_commons/by-nc-sa.png" alt="">
 								</div>
@@ -712,7 +713,10 @@
 <script>
 	$( function() {
 		$( "#selectable-copyright" ).selectable({
-
+			selected: function(event, ui){
+				console.log( $(ui.selected).data('licencia'));
+				$("#licencia").val($(ui.selected).data('licencia'));
+			}
 		});
 	} );
 </script>

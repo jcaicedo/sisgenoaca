@@ -18,6 +18,8 @@ class RegistroOaca extends Model
 	'content_register',
 	'title_oaca',
 	'user_id',
+	'plantilla',
+	'licencia'
 	];
 
 	protected static function boot()
