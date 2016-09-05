@@ -223,37 +223,41 @@
  .skin-blue .wrapper,
  .skin-blue .main-sidebar,
  .skin-blue .left-side {
- 	background-color: #0E6AF8;
+ 	background-color: #0E6AF8; /*Background del menu y header*/
  }
  .skin-blue .user-panel > .info,
  .skin-blue .user-panel > .info > a {
  	color: #fff;
  }
  .skin-blue .sidebar-menu > li.header {
- 	color: #4b646f;
- 	background: #1a2226;
+ 	color: #000000;
+ 	background: #4EA0C9;
+ 	font-size: 17px !important;
  }
  .skin-blue .sidebar-menu > li > a {
  	border-left: 3px solid transparent;
+ 	font-size: 18px !important; /*tamaño de las opciones del menu*/
  }
  .skin-blue .sidebar-menu > li:hover > a,
  .skin-blue .sidebar-menu > li.active > a {
  	color: #ffffff;
- 	background: #1e282c;
+ 	background: #35C6FF;
  	border-left-color: #3c8dbc;
+ 	font-size: 18px !important; /*tamaño de las opciones del menu al pasar mouse*/
  }
  .skin-blue .sidebar-menu > li > .treeview-menu {
  	margin: 0 1px;
- 	background: #2c3b41;
+ 	background: #35C6FF;
  }
  .skin-blue .sidebar a {
- 	color: #b8c7ce;
+ 	color: #FFFFFF;
  }
  .skin-blue .sidebar a:hover {
  	text-decoration: none;
  }
  .skin-blue .treeview-menu > li > a {
- 	color: #8aa4af;
+ 	color: #000000;
+ 	font-size: 16px !important;
  }
  .skin-blue .treeview-menu > li.active > a,
  .skin-blue .treeview-menu > li > a:hover {
@@ -311,14 +315,14 @@
  .skin-blue .navbar-principal{margin-bottom: 0px !important; background-color: #222d32 !important;}
  .skin-blue .main-sidebar{top:auto !important; padding-top: 0px;}
  .skin-blue .navbar{border-radius:0px;}
- .skin-blue .title-oaca{text-align: center; color: #FFFFFF}
- .skin-blue .title-moment{color:#FFFFFF; }
+ .skin-blue .title-oaca{text-align: center; color: #FFFFFF; font-size: 60px }
+ .skin-blue .title-moment{color:#FFFFFF; font-size: 40px}
  .skin-blue .main-header{ max-height: none !important; }
 
  .skin-blue .main-header .navbar{
- 	background-color: #0E6AF8 !important;
+ 	background-color: #0E6AF8 !important; /*Background header*/
  }
- .skin-blue .main-header .logo{ background-color: #0E6AF8 }
+ .skin-blue .main-header .logo{ background-color: #0E6AF8 } /*Background header logo*/
 
  .skin-blue .content-wrapper{padding-top: 20px; background-color: #F8FFFC}
  .skin-blue .title{text-align: center;}
