@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 	@stack('styles')
 </head>
-<body class="skin-blue sidebar-mini">
+<body class="skin-default sidebar-mini">
 
 	<div class="wrapper">
 		

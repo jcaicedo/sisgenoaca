@@ -139,6 +139,7 @@
 <!--Scripts-->
 @push('scripts')
 <script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+
 <script>
 
 
