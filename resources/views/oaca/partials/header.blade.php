@@ -16,7 +16,7 @@
 		<div class="navbar-custom-menu">
 			<ul class="nav navbar-nav dropdown">
 				<li>
-					<a class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
+					<a class="btn btn-default btn-default-gears dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 						<li role="presentation"><a role="menuitem" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal">Estilo Colores</a></li>
 						<li role="presentation">
