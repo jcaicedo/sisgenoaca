@@ -220,6 +220,9 @@
 	.content-header{margin-bottom: 14px;}
 	.content-btn-preview{text-align: center;}
 	.box-header-principal{text-align: center;}
+	.image-preview-content{text-align: center;}
+	.image-preview-content img{width: 50%; height: auto;}
+
 
 </style>
 @endpush

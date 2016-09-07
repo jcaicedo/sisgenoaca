@@ -96,8 +96,8 @@
 				<div class="box">
 					<div class="box-header with-border">
 						<h3 class="box-title">Image</h3>
-						<div>
-							<img src="{{$element->content}}" alt="" height="100%" width="20%" id="imagep-{{$key}}-original">
+						<div class="image-preview-content" id="imagep-{{$key}}-original">
+							<img src="{{$element->content}}" alt=""  >
 						</div>
 						
 						<div class="box-tools pull-right">
@@ -252,6 +252,8 @@
 	#preview-oaca{margin-left: 44%;}
 	.box-header-principal{padding-top: 0px;}
 	.content-btn-preview{text-align: center;padding-top: 5px;}
+	.image-preview-content{text-align: center;}
+	.image-preview-content img{width: 50%; height: auto;}
 	
 </style>
 @endpush

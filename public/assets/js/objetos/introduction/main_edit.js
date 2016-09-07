@@ -7,7 +7,7 @@ $("#preview-oaca").click(function(e){
  $("#form-create-oaca .myinput").each(function(index){
 
    var element = $(this).data('element');
-  
+
    switch(element){
 
     case 'title':
@@ -27,7 +27,7 @@ $("#preview-oaca").click(function(e){
     console.log($(this).attr('id'));
 
     if($(this).val()!=''){
-      $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+      $(".content-preview").append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'"></div>');
 
       $("#"+$(this).attr('id')).html(function(){
        readImage(this,countImage);

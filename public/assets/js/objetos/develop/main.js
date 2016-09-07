@@ -31,7 +31,7 @@ $('.preview-oaca').click(function(e){
 			case 'image':
 			if($(this).val()!=''){
 
-				$(content_preview).append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+				$(content_preview).append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>');
 
 				$("#"+$(this).attr('id')).html(function(){
 
