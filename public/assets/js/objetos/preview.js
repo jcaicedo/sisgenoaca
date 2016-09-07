@@ -4,9 +4,12 @@ $("#preview-oaca").click(function(e){
 
  var countImage = 0;
 
+ var content_btn =$(this).data('btn');
+
  $("#form-create-oaca .myinput").each(function(index){
 
    var element = $(this).data('element');
+   console.log(element);
    switch(element){
 
     case 'title':
@@ -22,14 +25,23 @@ $("#preview-oaca").click(function(e){
     break;
 
     case 'image':
-    $(this);
+    console.log($(this).attr('id'));
 
-    $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+    if($(this).val()!=''){
+      $(".content-preview").append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
-    $("#"+$(this).attr('id')).html(function(){
-     readImage(this,countImage);
-     countImage ++;
-   });
+      $("#"+$(this).attr('id')).html(function(){
+       readImage(this,countImage);
+       countImage ++;
+     });
+    }else{
+
+      var id_image = $(this).attr('id')+'-original';
+      var image = $('#'+id_image).clone();
+      $(".content-preview").append(image);
+
+      
+    }
     break;
 
   }
@@ -37,7 +49,7 @@ $("#preview-oaca").click(function(e){
 });
     //Hidden elements from edit content
     $(".sortable").hide();
-    $(".box-header-btn").hide();
+    
     $(".preview").show();
 
 
@@ -49,7 +61,7 @@ $('#preview').click(function(e){
   e.preventDefault();
   $(".content-preview").html("");
   $(".sortable").show();
-  $('.box-header-btn').show();
+  // $('.box-header-principal').show();
   $(".preview").hide();
 
 });
@@ -70,5 +82,14 @@ function readImage (input, id) {
     reader.readAsDataURL(input.files[0]);
   }
 }
+
+
+$(".btn-clear-input-image").click(function(e){
+
+  e.preventDefault();
+  var id_image_input = $(this).data('content');
+  $(id_image_input).val('');
+
+});
 
 

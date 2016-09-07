@@ -333,29 +333,118 @@
 					<!--/-box-body Educational -->
 
 					{{-- Derechos de Autor --}}
-
 					<div class="box-body nomostrar" id="copyright">
+						<input type="hidden" name="licencia" id="licencia" value="">
 						<h4>{{trans('admin.copyright')}}</h4>
 						<br>
-						<div class="form-group col-md-6 col-xs-12">
-							<label for="cost">{{trans('admin.cost')}}</label>
-							<select name="cost" id="cost" class="form-control">
-								<option value="yes" {{$content_register->cost=='yes'?'selected':''}}>{{trans('admin.yes')}}</option>
-								<option value="not" {{$content_register->cost=='not'?'selected':''}}>{{trans('admin.not')}}</option>
-							</select>
-						</div>
-						<div class="form-group col-md-6 col-xs-12">
-							<label for="copyright_restrictions">{{trans('admin.copyright_restrictions')}}</label>
-							<select name="copyright_restrictions" id="copyright_restrictions" class="form-control">
-								<option value="yes">{{trans('admin.yes')}}</option>
-								<option value="not">{{trans('admin.not')}}</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="copyright_description">{{trans('admin.copyright_description')}}</label><span style="color:red;"> *</span>
-							<textarea class="form-control" name="copyright_description" id="copyright_description" cols="30" rows="10">{{$content_register->copyright_description}}</textarea>
-						</div>
+						<ol id="selectable-copyright">
+							<li class="ui-widget-content {{$registro->licencia == 'by-nc' ? 'ui-selected' : '' }} " data-licencia="by-nc">
+								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
+									<img src="/assets/imgs/licencias_creative_commons/by-nc.png" alt="">
+								</div>
+								<div class="col-md-9" style="overflow:hidden;">
+									<h2>
+										<b>
+											Reconocimiento-NoComercial
+											CC BY-NC
+
+
+										</b>
+									</h2>
+									<p>
+										Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, y aunque en sus nuevas creaciones deban reconocerle su autoría y no puedan ser utilizadas de manera comercial, no tienen que estar bajo una licencia con los mismos términos.
+									</p>
+								</div>
+								
+							</li>
+							<li class="ui-widget-content {{$registro->licencia == 'by-nc-nd' ? 'ui-selected' : '' }}" data-licencia="by-nc-nd">
+								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
+									<img src="/assets/imgs/licencias_creative_commons/by-nc-nd.png" alt="">
+								</div>
+								<div class="col-md-9" style="overflow:hidden;">
+									<h2>
+										<b>
+											Reconocimiento-NoComercial-CompartirIgual 
+											CC BY-NC-SA
+
+										</b>
+									</h2>
+									<p>
+										Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, siempre y cuando le reconozcan la autoría y sus nuevas creaciones estén bajo una licencia con los mismos términos.
+									</p>
+								</div>
+								
+							</li>
+							<li class="ui-widget-content {{$registro->licencia == 'by-nc-sa' ? 'ui-selected' : '' }}" data-licencia="by-nc-sa">
+								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
+									<img src="/assets/imgs/licencias_creative_commons/by-nc-sa.png" alt="">
+								</div>
+								<div class="col-md-9" style="overflow:hidden;">
+									<h2>
+										<b>
+											Reconocimiento-NoComercial-SinObraDerivada 
+											CC BY-NC-ND
+
+										</b>
+									</h2>
+									<p>
+										Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente.
+									</p>
+								</div>
+								
+							</li>
+							
+						</ol>
+
 					</div>
+
+					
+
+
+
+
+					{{-- Seleccion de Plantilla --}}
+
+					<div class="box-body nomostrar" id="selectable_plantilla">
+						<h4 style="text-align:center;">{{trans('admin.select_plantilla')}}</h4>
+						<br>
+						<input type="hidden" id="number_plantilla" value="{{$registro->plantilla}}" >
+						<ol id="selectable" name="selectable">
+							<li class="ui-state-default" data-value="plantilla1">
+								<img name="plantilla1" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
+								@if($registro->plantilla == "plantilla1")
+								<input type="hidden" class="input_plantilla" name="plantilla" value="{{$registro->plantilla}}">
+								@endif
+							</li>
+							<li class="ui-state-default" data-value="plantilla2">
+								<img name="plantilla2" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
+								@if($registro->plantilla == "plantilla2")
+								<input type="hidden" class="input_plantilla" name="plantilla" value="{{$registro->plantilla}}">
+								@endif
+							</li>
+							<li class="ui-state-default" data-value="plantilla3">
+								<img name="plantilla3" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
+								@if($registro->plantilla == "plantilla3")
+								<input type="hidden" class="input_plantilla" name="plantilla" value="{{$registro->plantilla}}">
+								@endif
+							</li>
+							<li class="ui-state-default" data-value="plantilla4">
+								<img name="plantilla4" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
+								@if($registro->plantilla == "plantilla4")
+								<input type="hidden" class="input_plantilla" name="plantilla" value="{{$registro->plantilla}}">
+								@endif
+							</li>
+							<li class="ui-state-default" data-value="plantilla5">
+								<img name="plantilla5" src="/assets/imgs/contents-img/plantillas/plantilla1.png" style="height:auto; width:100%; " alt="">
+								@if($registro->plantilla == "plantilla5")
+								<input type="hidden" class="input_plantilla" name="plantilla" value="{{$registro->plantilla}}">
+								@endif
+							</li>
+						</ol>
+
+					</div>
+
+
 
 					<div class="box-footer">
 						<button class="btn btn-danger btn-back nomostrar" data-body="lifecycle" >
@@ -446,8 +535,23 @@
 
 @push('styles')
 <link rel="stylesheet" href="/vendor/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+
 <style>
 	.nomostrar{display: none;}
+	#feedback { font-size: 1.4em; }
+	#selectable .ui-selecting { background: #FECA40; }
+	#selectable .ui-selected { background: #F39814; color: white; }
+	#selectable {  margin: 0 auto; list-style-type: none; padding: 0; width: 1050px; }
+	#selectable li { padding: 15px; float: left; width: 500px; height: auto; font-size: 4em; text-align: center; margin:10px; }
+
+	#selectable-copyright .ui-selecting { background: #FECA40; }
+	#selectable-copyright .ui-selected { background: #F39814; color: white; }
+	#selectable-copyright { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+	#selectable-copyright li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 241px; }
+	#selectable-copyright li img{ height: auto; width:180px; }
+	.content-img-copyright{ overflow: hidden; line-height: 200px; }
+
 </style>
 
 @endpush
@@ -455,12 +559,21 @@
 @push('scripts')
 <script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
 <script type="text/javascript"  src="/assets/js/register/main.js" ></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
 
 
 <script>
 
 	$(document).ready(function(){
+
+		$(".ui-state-default").each(function(){
+			console.log($(this).data('value'));
+			if($(this).data('value') == $("#number_plantilla").val()){
+				$(this).addClass('ui-selected');
+				console.log({{$registro->plantilla}});
+			}
+		});
 
 		var count = {{count($content_register->words_key)}};
 		var count_words_key=2;
@@ -529,10 +642,16 @@
 				$('.btn-next').data('body','copyright');
 				$('#'+content_body).hide();
 				$('#copyright').show();
-				$(this).hide();
 				$('.btn-back').data('body','copyright');
-				$('.btn-save').show();
 				break;
+
+				case 'copyright':
+				$('.btn-next').data('body','selectable_plantilla');
+				$('#'+content_body).hide();
+				$('#selectable_plantilla').show();
+				$(this).hide();
+				$('.btn-back').data('body','selectable_plantilla');
+				$('.btn-save').show();
 			}
 
 		});
@@ -565,9 +684,17 @@
 				$(this).data('body','educational');
 				$('#'+content_body).hide();
 				$('#educational').show();
-				$('.btn-next').data('body','educational').show();
+				$('.btn-next').data('body','educational');
+				break;
+
+				case 'selectable_plantilla':
+				$(this).data('body','copyright');
+				$('#'+content_body).hide();
+				$('#copyright').show();
+				$('.btn-next').data('body','copyright').show();
 				$('.btn-save').hide();
 				break;
+
 			}
 
 
@@ -582,4 +709,41 @@
 
 	});
 </script>
+
+<script>
+
+	$(document).ready(function ($) {
+		$('ol').selectable({
+			selected: function( event, ui ) {
+				$('.input_plantilla').each(function(){
+					$(this).remove();
+				});
+				var idPlantilla = $( ".ui-selected", this ).find('img').attr('name');
+				$( ".ui-selected", this ).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='"+idPlantilla+"'>");
+
+			},
+			stop: function(event, ui){
+				$(".ui-selected:first",this).each(function(){
+					$(this).siblings().removeClass("ui-selected");
+
+				});
+			}
+		});
+		
+	});
+
+</script>
+
+<script>
+	$( function() {
+		$( "#selectable-copyright" ).selectable({
+			selected: function(event, ui){
+				console.log( $(ui.selected).data('licencia'));
+				$("#licencia").val($(ui.selected).data('licencia'));
+			}
+		});
+	} );
+</script>
+
+
 @endpush

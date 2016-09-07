@@ -3,15 +3,28 @@
 @section('content')
 
 <div class="content-wrapper">
-	<div class="box-header box-header-btn">
+	{{-- <section class="content-header">
+		<h1>{{trans('admin.development')}}</h1>
+	</section> --}}
 
-		<h1 class="box-title">{{trans('admin.development')}}</h1>
 
+	<div class="box-header">
+		<h1 >{{trans('admin.development')}}
+			<div class="box-tool pull-right">
+				{{-- <a id="preview-oaca" class="btn btn-warning">
+					<i class="fa fa-eye"></i>
+					Visualizar
+				</a> --}}
+			</div>
+		</h1>
 	</div>
-	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca-develop" enctype="multipart/form-data" >
-		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
+	<form action="{{url('/admin/oaca/objetos/development')}}" method="post"  role="form" id="form-create-oaca-develop" enctype="multipart/form-data" >
+		
+		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		<input type="hidden" name="register_id" value="{{$register_id}}">
+		<input type="hidden" name="task_moment" value="{{$task_moment}}">
+		<input type="hidden" name="count_elements_old" value="0" id="count_elements_old">
 
 		<div id="rootwizard" class="tabbable tabs-left">
 			
@@ -34,7 +47,8 @@
 				@for($i=1;$i<9;$i++)
 
 				<div class="tab-pane" id="tab{{$i}}">
-					<div id="btn-prev{{$i}}" style="margin:0;background-color:transparent;text-align:center;">
+					{{-- bontones de preview --}}
+					<div id="btn-prev{{$i}}" class="box-header box-header-principal">
 						<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
 							<i class="fa fa-eye"></i>
 							Visualizar
@@ -50,191 +64,203 @@
 
 
 					<div class="preview" id="prev{{$i}}">
-						<div class="box-footer box-footer-preview" style="margin-bottom:35px;">
-							<div style="margin:0;background-color:transparent;text-align:center;">
+						<div class="box-header">
+							<div class="content-btn-preview">
 
 								<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
 									<i class="fa fa-edit"></i>
 									Seguir Editando
 								</a>
-
-								<button type="submit" class="btn btn-success">
-									<i class="fa fa-cogs"></i>
-									Procesar</button>
-								</div>
-							</div>
-
-
-
-							<div class="content-preview" id="content-prev{{$i}}">
-
 							</div>
 						</div>
+
+
+
+						<div class="content-preview" id="content-prev{{$i}}">
+
+						</div>
 					</div>
+				</div>
 
-					@endfor
+				@endfor
 
-
-					
+				<div class="footer">
 					<ul class="pager wizard">
 						<li class="previous first" style="display:none;"><a href="#">First</a></li>
 						<li class="previous"><a href="#">Previous</a></li>
+						<button type="submit" class="btn btn-success">
+							<i class="fa fa-cogs"></i>
+							Procesar
+						</button>
 						<li class="next last" style="display:none;"><a href="#">Last</a></li>
 						<li class="next"><a href="#">Next</a></li>
 					</ul>
 				</div>
 			</div>
-		</form>
+		</div>
+	</form>
 
 
+</div>
+
+
+
+
+<!-------------------------------------------------------------------------------->
+
+{{-- Modulos de elementos ocultos para clonar --}}
+
+{{-- Modulo Title --}}
+
+<div class="titulo-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Titulo</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
+			</div>
+		</div>
+		<div class="box-body">
+			<input type="text" class="form-control componente"> 
+		</div>
 	</div>
+</div>
 
+{{-- Modulo Textarea --}}
+<div class="textareaclone nomostrar  ">
 
-
-
-	<!-------------------------------------------------------------------------------->
-
-	{{-- Modulos de elementos ocultos para clonar --}}
-
-	{{-- Modulo Title --}}
-
-	<div class="titulo-clone nomostrar">
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">Titulo</h3>
-				<div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool">
-						<i class="fa fa-close"></i>
-					</button>
-				</div>
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Textarea</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa  fa-close"></i>
+				</button>
+				<button  type="button" class="btn btn-box-tool">
+					<i class="fa  fa-paint-brush"></i>
+				</button>
 			</div>
-			<div class="box-body">
-				<input type="text" class="form-control componente"> 
-			</div>
+		</div>
+		<div class="box-body edit-textarea">
+
 		</div>
 	</div>
 
-	{{-- Modulo Textarea --}}
-	<div class="textareaclone nomostrar  ">
+</div>
 
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">Textarea</h3>
-				<div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool">
-						<i class="fa  fa-close"></i>
-					</button>
-					<button  type="button" class="btn btn-box-tool">
-						<i class="fa  fa-paint-brush"></i>
-					</button>
-				</div>
-			</div>
-			<div class="box-body edit-textarea">
 
+<!--modulo image-->
+
+
+<div class="uploadimage uploadimage-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Image</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
 			</div>
 		</div>
-
-	</div>
-
-
-	<!--modulo image-->
-
-
-	<div class="uploadimage uploadimage-clone nomostrar">
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">Image</h3>
-				<div class="box-tools pull-right">
-					<button type="button" class="btn btn-box-tool">
-						<i class="fa fa-close"></i>
-					</button>
-				</div>
-			</div>
-			<div class=" box-body">
-				<input class="form-control" type="file" />
-			</div>
+		<div class=" box-body">
+			<input class="form-control" type="file" />
 		</div>
 	</div>
+</div>
 
 
-	<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-				</div>
-				<div class="modal-body">
-					...
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+			</div>
+			<div class="modal-body">
+				...
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
 			</div>
 		</div>
 	</div>
+</div>
 
 
-	@endsection
+@endsection
 
 
-	<!--Styles-->
-	@push('styles')
+<!--Styles-->
+@push('styles')
 
 
-	<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
-	<link href="/assets/css/style_steps.css" rel="stylesheet">
+<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
+<link href="/assets/css/style_steps.css" rel="stylesheet">
 
 
-	<style>
-		.nomostrar{display:none;}
-		.mostrar{display: block;}
-		.btn-proccess{margin:0 auto; width: 200px;align:left;}
-		.preview{display: none;}
-		.mark_background{background: #88AAAA}
-		.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
-		.content-preview h2{
-			color: blue;
-			text-align: center;
-		}
-		.callout{margin: 0 !important; min-height:0;}
+<style>
+	.nomostrar{display:none;}
+	.mostrar{display: block;}
+	.btn-proccess{margin:0 auto; width: 200px;align:left;}
+	.preview{display: none; min-height:304px;}
+	.mark_background{background: #88AAAA}
+	.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+	.content-preview h2{
+		color: blue;
+		text-align: center;
+	}
+	.callout{margin: 0 !important; min-height:0;}
 
-		.options-textarea{
-			padding-bottom: 10px;
-		}
-		.box-header-btn{
-			background: #CCCBCB;
-		}
+	.options-textarea{
+		padding-bottom: 10px;
+	}
+	.box-header-btn{
+		background: #CCCBCB;
+	}
 
-	</style>
-	@endpush
+	.content-header{margin-bottom: 14px;}
+	.content-btn-preview{text-align: center;}
+	.box-header-principal{text-align: center;}
 
-	<!--Scripts-->
+</style>
+@endpush
+
+<!--Scripts-->
 
 
-	@push('scripts')
-	<script src="/vendor/summernote/dist/summernote.js"></script>
-	<!--<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>-->
-	<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js" ></script>
-	<script type="text/javascript" src="/assets/js/objetos/develop/main.js" ></script>
-	<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
-	</script>
+@push('scripts')
+<script src="/vendor/summernote/dist/summernote.js"></script>
+<!--<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>-->
+<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="/vendor/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js" ></script>
+<script type="text/javascript" src="/assets/js/objetos/develop/main.js" ></script>
+<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
+</script>
 
-	<script>
-		$('#form-create-oaca-develop').submit(function(event) {
+<script>
+	$('#form-create-oaca-develop').submit(function(event) {
 
-				$("#form-create-oaca-develop [name='textarea']").each(function(index) {
-					var idcontent = $(this).data('content');
+		$("#form-create-oaca-develop [name='textarea']").each(function(index) {
+			var idcontent = $(this).data('content');
 
-					var content = $(this).summernote('code');
+			var content = $(this).summernote('code');
 
-					$('#'+idcontent).val(content);
-				});
-
+			$('#'+idcontent).val(content);
 		});
 
-	</script>
-	@endpush
+	});
+
+	$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
+
+		var divDelete = $(this).data('parent');
+
+		$("."+divDelete).remove();
+
+	});
+
+</script>
+@endpush

@@ -15,6 +15,7 @@ return [
 
     'introduction' => 'Introducción',
     'development' => 'Desarrollo',
+    'close' => 'Cierre Integrador',
     'createOaca' => 'Create Oaca',
     'editOaca' => 'Edit Oaca',
     'process'    => 'Procesar',
@@ -107,5 +108,13 @@ return [
     'contrast' => 'Contraste',
     'contextualization' => 'Contextualización',
     'generalization' => 'Generalización',
+    'btn-clear' => 'Limpiar',
+    'systematization' => 'Sistematización',
+    'investigation' => 'Investigación',
+    'evaluation' => 'Evaluación',
+    'motivation' => 'Motivación',
+    'plantilla' => 'Plantilla',
+    'create_plantilla' => 'Crear Plantilla',
+    'select_plantilla' => 'Seleccionar Plantilla',
 
     ];

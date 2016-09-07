@@ -1,14 +1,15 @@
 
 //Boton captura evento para mostrar los preview
-
+var countImage = 0;
 $('.preview-oaca').click(function(e){
 	e.preventDefault();
-	var countImage = 0;
+	
 	var preview = $(this).data('prev');
 	var content_data = $(this).data('content');
 	var content_btn = $(this).data('btn');
 	var content_preview = $(this).data('contentprev');
 
+	console.log(preview);
 
 	$(content_data+" .myinput").each(function(index){
 
@@ -28,14 +29,21 @@ $('.preview-oaca').click(function(e){
 			break;
 
 			case 'image':
-			$(this);
+			if($(this).val()!=''){
 
-			$(content_preview).append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
+				$(content_preview).append('<br><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><br>');
 
-			$("#"+$(this).attr('id')).html(function(){
-				readImage(this,countImage);
-				countImage ++;
-			});
+				$("#"+$(this).attr('id')).html(function(){
+
+					readImage(this,countImage);
+					countImage ++;
+				});
+			}else{
+
+				var id_image = $(this).attr('id')+'-original';
+				var image = $('#'+id_image).clone();
+				$(content_preview).append(image);
+			}
 			break;
 
 		}
@@ -47,6 +55,7 @@ $('.preview-oaca').click(function(e){
 	$(content_data).hide();
 	$(preview).show();
 	$(content_btn).hide();
+
 
 });
 
@@ -89,7 +98,20 @@ function readImage (input, id) {
 }
 
 
+
+$(".btn-clear-input-image").click(function(e){
+
+	e.preventDefault();
+	var id_image_input = $(this).data('content');
+	$(id_image_input).val('');
+
+});
+
+
 $(document).ready(function(){
+
+	
+	
 	$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs',onTabShow: function(tab, navigation, index) {
 		var $total = navigation.find('li').length;
 		var $current = index+1;
@@ -98,7 +120,8 @@ $(document).ready(function(){
 	}});
 
 
-	var count=0;
+	var count= $('input[name=count_elements_old]').val();
+	console.log(count);
 
 	$( "#title, #textarea, #uploadimage" ).draggable({
 		appendTo: "body",
@@ -111,7 +134,7 @@ $(document).ready(function(){
 		drop:function(event,ui){
 
 			var opt = ui.draggable.data('element-option');
-
+			console.log(count);
 
 			switch(opt){
 				case 'title':
@@ -160,11 +183,11 @@ $(document).ready(function(){
 
 				$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
 				$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-				$("#image-"+count).addClass("componente");
-				$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
-				$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
-				$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-				$(".remove-div-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$(this).data('pattern')+"'>");
+				$("#imagep-"+count).addClass("componente");
+				$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
+				$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
+				$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+				$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$(this).data('pattern')+"'>");
 
 				count ++;
 
@@ -181,16 +204,9 @@ $(document).ready(function(){
 	});
 
 
-	$("#form-create-oaca-develop").on('click','button.remove-div',function (e){
+	
 
-		var divDelete = $(this).data('parent');
 
-		$("."+divDelete).remove();
-
-	});
-
-	var textareaID;
-	var content_element
 
 	$( ".sortable:not(div.box-footer)" ).sortable({
 		axis: 'y',

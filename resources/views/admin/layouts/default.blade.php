@@ -48,6 +48,7 @@
 		<script src="/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
 		<script src="/vendor/jquery-validation/src/additional/lettersonly.js"></script>
 		<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" ></script>
+		
 		@stack('scripts')
 
 	</body>
