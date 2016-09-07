@@ -127,6 +127,15 @@
 
 </div>
 
+<div class="main-footer">
+	<div class="pull-right">
+		<img src="/asses/imgs/licencias_creative_commons/{{$oaca->licencia}}.png" alt="" style="margin-top:-11px;">
+	</div>
+	<strong>
+		Copyright © 2014-2015 SisGeoAca
+	</strong>
+</div>
+
 @endsection
 
 <!--Styles-->
