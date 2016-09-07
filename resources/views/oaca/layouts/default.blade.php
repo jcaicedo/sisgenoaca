@@ -39,7 +39,6 @@
 	<script src="/vendor/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 	<script src="/vendor/AdminLTE/plugins/fastclick/fastclick.js"></script>
 	<script src="/vendor/AdminLTE/dist/js/app.min.js"></script>
-	<script src="/vendor/AdminLTE/dist/js/demo.js"></script>
 	@stack('scripts')
 </body>
 </html>

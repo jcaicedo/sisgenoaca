@@ -87,7 +87,7 @@
 				$("body").removeClass(my_skins[i]);
 			});
 			$("body").addClass(cls);
-			store('skin', cls);
+			store('skin-plantilla', cls);
 			return false;
 		};
 		function store(name, val) {
@@ -107,7 +107,7 @@
 		};
 
 		function setup(){
-			var tmp = get('skin');
+			var tmp = get('skin-plantilla');
 			if (tmp){
 				change_skin(tmp);
 			}
