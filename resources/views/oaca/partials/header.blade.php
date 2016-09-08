@@ -21,8 +21,8 @@
 						<li role="presentation"><a role="menuitem" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal">Estilo Colores</a></li>
 						<li role="presentation">
 							<div>
-								<button class="btn btn-default btn-skin" data-skin="skin-blue">Blue</button>
-								<button class="btn btn-default btn-skin" data-skin="skin-default">Default</button>
+								<button class="btn btn-blue-menu btn-skin" data-skin="skin-blue">Blue</button>
+								<button class="btn btn-skin" data-skin="skin-default">Default</button>
 							</div>
 						</li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
