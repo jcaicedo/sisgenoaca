@@ -13,7 +13,7 @@
 		@if($element_introduction->type_element == 'title')
 		<div class="row">
 			<div class="col-md-12 title">
-				<h1>{{ $element_introduction->content }}</h1>
+				<h1 class="content-oaca">{{ $element_introduction->content }}</h1>
 			</div>
 		</div>
 		@endif
@@ -21,7 +21,7 @@
 		@if($element_introduction->type_element == 'textarea')
 		<div class="row ">
 			<div class="col-md-12 textarea">	
-				<p><?php echo $element_introduction->content ?></p>
+				<p class="content-oaca"><?php echo $element_introduction->content ?></p>
 			</div>
 		</div>
 		@endif

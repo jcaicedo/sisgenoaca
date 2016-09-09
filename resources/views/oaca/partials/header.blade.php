@@ -18,7 +18,19 @@
 				<li>
 					<a class="btn btn-default btn-default-gears dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						<li role="presentation"><a role="menuitem" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal">Accesibilidad</a></li>
+						<li role="presentation">
+							<a role="menuitem" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal">Accesibilidad</a>
+						</li>
+						<li>
+							<div>
+								<a href="#" class="btn btn-font-icon btn-plus-font">
+						<i class="fa fa-plus"></i>
+					</a>
+					<a href="#" class="btn btn-font-icon btn-minus-font">
+						<i class="fa fa-minus"></i>
+					</a>
+							</div>
+						</li>
 					</ul>
 				</li>
 				
@@ -197,8 +209,9 @@
 
 		$('.btn-plus-font').click(function(event) {
 			/* Act on the event */
-			console.log('hola');
-			$('p').css("font-size","+=2");
+			console.log($('p').css("font-size"));
+
+			$('p.content-oaca, h1.content-oaca').css("font-size","+=1");
 		});
 
 		$('.btn-minus-font').click(function(event) {
@@ -206,6 +219,8 @@
 			console.log('hola');
 			$('p').css("font-size","-=2");
 		});
+
+		
 
 	</script>
 	@endpush
