@@ -18,16 +18,7 @@
 				<li>
 					<a class="btn btn-default btn-default-gears dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-						<li role="presentation"><a role="menuitem" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal">Estilo Colores</a></li>
-						<li role="presentation">
-							<div class="col-md-12">
-								<button class="col-md-12 btn btn-blue-menu btn-skin" data-skin="skin-blue">Blue</button>
-								<button class="btn btn-default-menu btn-skin" data-skin="skin-default">Default</button>
-							</div>
-						</li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
-						<li role="presentation" class="divider"></li>
-						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+						<li role="presentation"><a role="menuitem" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal">Accesibilidad</a></li>
 					</ul>
 				</li>
 				
@@ -100,8 +91,11 @@
 					<h4 class="modal-title" id="myModalLabel">Tamaño de Letra</h4>
 				</div>
 				<div class="modal-body">
-					<a href="" class="btn btn-app">
-						<i class="fa fa-edit"></i>
+					<a href="#" class="btn btn-font-icon btn-plus-font">
+						<i class="fa fa-plus"></i>
+					</a>
+					<a href="#" class="btn btn-font-icon btn-minus-font">
+						<i class="fa fa-minus"></i>
 					</a>
 				</div>
 				<div class="modal-footer">
@@ -113,6 +107,39 @@
 	</div>
 
 
+	@push('styles')
+	<style>
+		.btn-plus-font, .btn-minus-font{
+			color: #fff;
+			background-color: #3f729b;
+			border-color: rgba(0,0,0,0.2);
+
+		}
+
+		.btn-font-icon {
+		  position: relative;
+		  padding-left: 44px;
+		  text-align: left;
+		  white-space: nowrap;
+		  overflow: hidden;
+		  text-overflow: ellipsis;
+		  height: 34px;
+		  width: 34px;
+		  padding: 0;
+		}
+		.btn-font-icon > :first-child {
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  bottom: 0;
+		  width: 32px;
+		  line-height: 34px;
+		  font-size: 1.6em;
+		  text-align: center;
+		  border-right: 0px solid rgba(0, 0, 0, 0.2);
+		}
+	</style>
+	
 	@push('scripts')
 	<script>
 		$(document).ready(function(e){
@@ -167,5 +194,18 @@
 			change_skin($(this).data('skin'));
 
 		});
+
+		$('.btn-plus-font').click(function(event) {
+			/* Act on the event */
+			console.log('hola');
+			$('p').css("font-size","+=2");
+		});
+
+		$('.btn-minus-font').click(function(event) {
+			/* Act on the event */
+			console.log('hola');
+			$('p').css("font-size","-=2");
+		});
+
 	</script>
 	@endpush
