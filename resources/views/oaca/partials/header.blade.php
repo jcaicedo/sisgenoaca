@@ -20,9 +20,9 @@
 					<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 						<li role="presentation"><a role="menuitem" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal">Estilo Colores</a></li>
 						<li role="presentation">
-							<div>
-								<button class="btn btn-blue-menu btn-skin" data-skin="skin-blue">Blue</button>
-								<button class="btn btn-skin" data-skin="skin-default">Default</button>
+							<div class="col-md-12">
+								<button class="col-md-12 btn btn-blue-menu btn-skin" data-skin="skin-blue">Blue</button>
+								<button class="btn btn-default-menu btn-skin" data-skin="skin-default">Default</button>
 							</div>
 						</li>
 						<li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
@@ -54,9 +54,55 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">Combinación de colores</h4>
 				</div>
+				<div class="modal-body" style="height:200px;">
+					
+					<div style="float: left; width: 13.3333%; padding: 5px; ">
+						<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 7px; background: #222d32;">
+								</span>
+								<span style="display:block; width: 80%; float: left; height: 7px; background:#222d32;" >
+								</span>
+								<span  style="display:block; width: 100%; float: right; height: 7px; background:#E08F8F; ">
+								</span>
+							</div>
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;">	
+								</span>
+								<span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;">							
+								</span>
+							</div>
+						</a>
+						<p class="text-center no-margin">Default</p>
+					</div>
+
+
+					<div style="float: left; width:13.33333%;padding:5px;">
+						<a data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 7px; background: #0E6AF8;">
+								</span>
+								<span  style="display:block; width: 80%; float: left; height: 7px;background:#0E6AF8;">
+								</span>
+								<span  style="display:block; width: 100%; float: right; height: 7px; background:#E08F8F; ">
+								</span>
+							</div>
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 20px; background:#0E6AF8;"></span>
+								<span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+							</div>
+						</a>
+						<p class="text-center no-margin">Blue</p>
+					</div>
+					
+				</div>
+				<div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Tamaño de Letra</h4>
+				</div>
 				<div class="modal-body">
-					<button class="btn btn-default btn-skin" data-skin="skin-blue">Blue</button>
-					<button class="btn btn-default btn-skin" data-skin="skin-default">Default</button>
+					<a href="" class="btn btn-app">
+						<i class="fa fa-edit"></i>
+					</a>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
