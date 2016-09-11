@@ -13,7 +13,7 @@
 		@if($element_introduction->type_element == 'title')
 		<div class="row">
 			<div class="col-md-12 title">
-				<h1 class="content-oaca">{{ $element_introduction->content }}</h1>
+				<h1 class="content-oaca-font-size">{{ $element_introduction->content }}</h1>
 			</div>
 		</div>
 		@endif
@@ -21,7 +21,7 @@
 		@if($element_introduction->type_element == 'textarea')
 		<div class="row ">
 			<div class="col-md-12 textarea">	
-				<p class="content-oaca"><?php echo $element_introduction->content ?></p>
+				<p><?php echo $element_introduction->content ?></p>
 			</div>
 		</div>
 		@endif
@@ -43,7 +43,7 @@
 
 	@foreach($content_develop as $key=>$content)
 	<section class="content develop-{{$key}} moment" style="display:none;">
-		<h2>{{$key}}</h2>
+		<h2 class="content-oaca-font-size">{{$key}}</h2>
 
 		@foreach($content as $key=>$element)
 
@@ -51,7 +51,7 @@
 		@if($element->type_element == 'title')
 		<div class="row">
 			<div class="col-md-12 title">
-				<h1>{{$element->content}}</h1>
+				<h1 class="content-oaca-font-size">{{$element->content}}</h1>
 			</div>
 		</div>
 		@endif
@@ -86,7 +86,7 @@
 
 	@foreach($content_close as $key=>$content)
 	<section class="content close-{{$key}} moment"  style="display:none;">
-		<h2>{{$key}}</h2>
+		<h2 class="content-oaca-font-size">{{$key}}</h2>
 
 		@foreach($content as $key=>$element)
 
@@ -94,7 +94,7 @@
 		@if($element->type_element == 'title')
 		<div class="row">
 			<div class="col-md-12 title">
-				<h1>{{$element->content}}</h1>
+				<h1 class="content-oaca-font-size">{{$element->content}}</h1>
 			</div>
 		</div>
 		@endif
@@ -153,6 +153,12 @@
 
 
 	$(document).ready(function (e) {
+
+		$('.textarea p').each(function(e){
+			
+			$(this).addClass('content-oaca-font-size');
+
+		});
 		
 		$('.btn-element-sidebar').click(function(argument) {
 			var content_section ='.'+$(this).data('element');

@@ -13,7 +13,7 @@
 			<span class="icon-bar"></span>
 		</a>
 
-		<div class="navbar-custom-menu">
+		{{-- <div class="navbar-custom-menu">
 			<ul class="nav navbar-nav dropdown">
 				<li>
 					<a class="btn btn-default btn-default-gears dropdown-toggle" type="button" id="menu1" data-toggle="dropdown"><i class="fa fa-gears"></i></a>
@@ -24,18 +24,18 @@
 						<li>
 							<div>
 								<a href="#" class="btn btn-font-icon btn-plus-font">
-						<i class="fa fa-plus"></i>
-					</a>
-					<a href="#" class="btn btn-font-icon btn-minus-font">
-						<i class="fa fa-minus"></i>
-					</a>
+									<i class="fa fa-plus"></i>
+								</a>
+								<a href="#" class="btn btn-font-icon btn-minus-font">
+									<i class="fa fa-minus"></i>
+								</a>
 							</div>
 						</li>
 					</ul>
 				</li>
 				
 			</ul>
-		</div>
+		</div> --}}
 	</nav>
 		{{-- <nav class="navbar navbar-inverse navbar-principal">
 			<div class="container-fluid">
@@ -43,9 +43,9 @@
 			</div>
 		</nav> --}}
 		<div class="image-principal" style="background-image: url('/assets/imgs/contents-img/plantillas/banner_principal1.png')">
-			<h1 class="title-oaca" >{{$oaca->title_oaca}}</h1>
-			<h2 class="title-moment">Motivación</h2>
-			<h3 class="title-pattern"></h3>
+			<h1 class="title-oaca content-oaca-font-size" >{{$oaca->title_oaca}}</h1>
+			<h2 class="title-moment content-oaca-font-size">Motivación</h2>
+			<h3 class="title-pattern content-oaca-font-size"></h3>
 		</div>
 	</header>
 
@@ -57,22 +57,22 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title" id="myModalLabel">Combinación de colores</h4>
 				</div>
-				<div class="modal-body" style="height:200px;">
+				<div class="modal-body" style="height:344px;">
 					
-					<div style="float: left; width: 13.3333%; padding: 5px; ">
+					<div style="float: left; width: 32.3333%; padding: 5px; margin: 0 27px; ">
 						<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
 							<div>
-								<span style="display:block; width: 20%; float: left; height: 7px; background: #222d32;">
+								<span style="display:block; width: 20%; float: left; height: 14px; background: #054c5f;">
 								</span>
-								<span style="display:block; width: 80%; float: left; height: 7px; background:#222d32;" >
+								<span style="display:block; width: 80%; float: left; height: 14px; background:#054c5f;" >
 								</span>
-								<span  style="display:block; width: 100%; float: right; height: 7px; background:#E08F8F; ">
+								<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
 								</span>
 							</div>
 							<div>
-								<span style="display:block; width: 20%; float: left; height: 20px; background: #222d32;">	
+								<span style="display:block; width: 20%; float: left; height: 53px; background: #054c5f;">	
 								</span>
-								<span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;">							
+								<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;">							
 								</span>
 							</div>
 						</a>
@@ -80,36 +80,72 @@
 					</div>
 
 
-					<div style="float: left; width:13.33333%;padding:5px;">
+					<div style="float: left; width:32.33333%;padding:5px; margin: 0 27px;">
 						<a data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
 							<div>
-								<span style="display:block; width: 20%; float: left; height: 7px; background: #0E6AF8;">
+								<span style="display:block; width: 20%; float: left; height: 14px; background: #202b61;">
 								</span>
-								<span  style="display:block; width: 80%; float: left; height: 7px;background:#0E6AF8;">
+								<span  style="display:block; width: 80%; float: left; height: 14px;background:#202b61;">
 								</span>
-								<span  style="display:block; width: 100%; float: right; height: 7px; background:#E08F8F; ">
+								<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
 								</span>
 							</div>
 							<div>
-								<span style="display:block; width: 20%; float: left; height: 20px; background:#0E6AF8;"></span>
-								<span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7;"></span>
+								<span style="display:block; width: 20%; float: left; height: 53px; background:#202b61;"></span>
+								<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;"></span>
 							</div>
 						</a>
-						<p class="text-center no-margin">Blue</p>
+						<p class="text-center no-margin">Deuteranopia</p>
+					</div>
+
+					<div style="float: left; width:32.33333%;padding:5px; margin: 0 27px;">
+						<a data-skin="skin-blue2" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 14px; background: #323a5d;">
+								</span>
+								<span  style="display:block; width: 80%; float: left; height: 14px;background:#323a5d;">
+								</span>
+								<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
+								</span>
+							</div>
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 53px; background:#323a5d;"></span>
+								<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;"></span>
+							</div>
+						</a>
+						<p class="text-center no-margin">Protanopia</p>
+					</div>
+
+					<div style="float: left; width:32.33333%;padding:5px; margin: 0 27px;">
+						<a data-skin="skin-blue3" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 14px; background: #064590 ;">
+								</span>
+								<span  style="display:block; width: 80%; float: left; height: 14px;background:#064590 ;">
+								</span>
+								<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
+								</span>
+							</div>
+							<div>
+								<span style="display:block; width: 20%; float: left; height: 53px; background:#064590 ;"></span>
+								<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;"></span>
+							</div>
+						</a>
+						<p class="text-center no-margin">Tritanopía</p>
 					</div>
 					
 				</div>
-				<div class="modal-header">
+				{{-- <div class="modal-header">
 					<h4 class="modal-title" id="myModalLabel">Tamaño de Letra</h4>
-				</div>
-				<div class="modal-body">
+				</div> --}}
+			{{-- 	<div class="modal-body">
 					<a href="#" class="btn btn-font-icon btn-plus-font">
 						<i class="fa fa-plus"></i>
 					</a>
 					<a href="#" class="btn btn-font-icon btn-minus-font">
 						<i class="fa fa-minus"></i>
 					</a>
-				</div>
+				</div> --}}
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-primary">Save changes</button>
@@ -129,26 +165,37 @@
 		}
 
 		.btn-font-icon {
-		  position: relative;
-		  padding-left: 44px;
-		  text-align: left;
-		  white-space: nowrap;
-		  overflow: hidden;
-		  text-overflow: ellipsis;
-		  height: 34px;
-		  width: 34px;
-		  padding: 0;
+			position: relative;
+			padding-left: 44px;
+			text-align: left;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 34px;
+			width: 34px;
+			padding: 0;
 		}
 		.btn-font-icon > :first-child {
-		  position: absolute;
-		  left: 0;
-		  top: 0;
-		  bottom: 0;
-		  width: 32px;
-		  line-height: 34px;
-		  font-size: 1.6em;
-		  text-align: center;
-		  border-right: 0px solid rgba(0, 0, 0, 0.2);
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			width: 32px;
+			line-height: 34px;
+			font-size: 1.6em;
+			text-align: center;
+			border-right: 0px solid rgba(0, 0, 0, 0.2);
+		}
+
+		.image-principal{
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+
+		.text-center{
+			font-size: 30px;
 		}
 	</style>
 	
@@ -163,6 +210,8 @@
 	<script>
 		var my_skins = [
 		"skin-blue",
+		"skin-blue2",
+		"skin-blue3",
 		"skin-default"
 		];
 
@@ -209,18 +258,22 @@
 
 		$('.btn-plus-font').click(function(event) {
 			/* Act on the event */
-			console.log($('p').css("font-size"));
 
-			$('p.content-oaca, h1.content-oaca').css("font-size","+=1");
+			$('.content-oaca-font-size').each(function(index){
+				$(this).css("font-size","+=1");
+			});
+
+			
 		});
 
 		$('.btn-minus-font').click(function(event) {
 			/* Act on the event */
-			console.log('hola');
-			$('p').css("font-size","-=2");
+			$('.content-oaca-font-size').each(function(index){
+				$(this).css("font-size","-=1");
+			});
 		});
 
-		
+
 
 	</script>
 	@endpush
