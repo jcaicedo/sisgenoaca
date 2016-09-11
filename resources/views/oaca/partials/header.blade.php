@@ -60,7 +60,7 @@
 				<div class="modal-body" style="height:344px;">
 					
 					<div style="float: left; width: 32.3333%; padding: 5px; margin: 0 27px; ">
-						<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
+						<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin"  tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal2" data-skincolor="color_skin_default">
 							<div>
 								<span style="display:block; width: 20%; float: left; height: 14px; background: #054c5f;">
 								</span>
@@ -76,76 +76,29 @@
 								</span>
 							</div>
 						</a>
-						<p class="text-center no-margin">Default</p>
+						<p class="text-center no-margin">Azul</p>
 					</div>
 
 
 					<div style="float: left; width:32.33333%;padding:5px; margin: 0 27px;">
-						<a data-skin="skin-blue" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
+						<a data-skin="skin-red" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal2" data-skincolor="color_skin_red">
 							<div>
-								<span style="display:block; width: 20%; float: left; height: 14px; background: #202b61;">
+								<span style="display:block; width: 20%; float: left; height: 14px; background: #7d000c;">
 								</span>
-								<span  style="display:block; width: 80%; float: left; height: 14px;background:#202b61;">
+								<span  style="display:block; width: 80%; float: left; height: 14px;background:#7d000c;">
 								</span>
 								<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
 								</span>
 							</div>
 							<div>
-								<span style="display:block; width: 20%; float: left; height: 53px; background:#202b61;"></span>
+								<span style="display:block; width: 20%; float: left; height: 53px; background:#7d000c;"></span>
 								<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;"></span>
 							</div>
 						</a>
-						<p class="text-center no-margin">Deuteranopia</p>
-					</div>
-
-					<div style="float: left; width:32.33333%;padding:5px; margin: 0 27px;">
-						<a data-skin="skin-blue2" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
-							<div>
-								<span style="display:block; width: 20%; float: left; height: 14px; background: #323a5d;">
-								</span>
-								<span  style="display:block; width: 80%; float: left; height: 14px;background:#323a5d;">
-								</span>
-								<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
-								</span>
-							</div>
-							<div>
-								<span style="display:block; width: 20%; float: left; height: 53px; background:#323a5d;"></span>
-								<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;"></span>
-							</div>
-						</a>
-						<p class="text-center no-margin">Protanopia</p>
-					</div>
-
-					<div style="float: left; width:32.33333%;padding:5px; margin: 0 27px;">
-						<a data-skin="skin-blue3" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin">
-							<div>
-								<span style="display:block; width: 20%; float: left; height: 14px; background: #064590 ;">
-								</span>
-								<span  style="display:block; width: 80%; float: left; height: 14px;background:#064590 ;">
-								</span>
-								<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
-								</span>
-							</div>
-							<div>
-								<span style="display:block; width: 20%; float: left; height: 53px; background:#064590 ;"></span>
-								<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;"></span>
-							</div>
-						</a>
-						<p class="text-center no-margin">Tritanopía</p>
+						<p class="text-center no-margin">Rojo</p>
 					</div>
 					
 				</div>
-				{{-- <div class="modal-header">
-					<h4 class="modal-title" id="myModalLabel">Tamaño de Letra</h4>
-				</div> --}}
-			{{-- 	<div class="modal-body">
-					<a href="#" class="btn btn-font-icon btn-plus-font">
-						<i class="fa fa-plus"></i>
-					</a>
-					<a href="#" class="btn btn-font-icon btn-minus-font">
-						<i class="fa fa-minus"></i>
-					</a>
-				</div> --}}
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					<button type="button" class="btn btn-primary">Save changes</button>
@@ -153,6 +106,108 @@
 			</div>
 		</div>
 	</div>
+
+
+	<!-- Modal Explicacion de Preview Daltonicos -->
+	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title content-oaca-font-size" id="myModalLabel">Visualización Personas Daltónicas</h4>
+					<p class="content-oaca-font-size" >Asi verán esta plantilla las personas Daltónicas según su condición</p>
+				</div>
+				<div class="modal-body" style="height:344px;">
+					
+
+					<div style="float: left; width: 32.3333%; padding: 5px; margin: 0 27px;">
+						{{-- 	<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin"> --}}
+						<div>
+							<span class="style-default-modal" style="display:block; width: 20%; float: left; height: 14px; background: #054c5f;">
+							</span>
+							<span class="style-default-modal" style="display:block; width: 80%; float: left; height: 14px; background:#054c5f;" >
+							</span>
+							<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
+							</span>
+						</div>
+						<div>
+							<span class="style-default-modal" style="display:block; width: 20%; float: left; height: 53px; background: #054c5f;">	
+							</span>
+							<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;">							
+							</span>
+						</div>
+						{{-- </a> --}}
+						<p class="text-center no-margin">Default</p>
+					</div>
+					<div style="float: left; width: 32.3333%; padding: 5px; margin: 0 27px;">
+						{{-- 	<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin"> --}}
+						<div>
+							<span class="style-deut-modal" style="display:block; width: 20%; float: left; height: 14px; background: #054c5f;">
+							</span>
+							<span class="style-deut-modal" style="display:block; width: 80%; float: left; height: 14px; background:#054c5f;" >
+							</span>
+							<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
+							</span>
+						</div>
+						<div>
+							<span class="style-deut-modal" style="display:block; width: 20%; float: left; height: 53px; background: #054c5f;">	
+							</span>
+							<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;">							
+							</span>
+						</div>
+						{{-- </a> --}}
+						<p class="text-center no-margin">Deuteranopia</p>
+					</div>
+					<div style="float: left; width: 32.3333%; padding: 5px; margin: 0 27px;">
+						{{-- 	<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin"> --}}
+						<div>
+							<span class="style-prota-modal" style="display:block; width: 20%; float: left; height: 14px; background: #054c5f;">
+							</span>
+							<span class="style-prota-modal" style="display:block; width: 80%; float: left; height: 14px; background:#054c5f;" >
+							</span>
+							<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
+							</span>
+						</div>
+						<div>
+							<span class="style-prota-modal" style="display:block; width: 20%; float: left; height: 53px; background: #054c5f;">	
+							</span>
+							<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;">							
+							</span>
+						</div>
+						{{-- </a> --}}
+						<p class="text-center no-margin">Protanopia</p>
+					</div>
+					<div style="float: left; width: 32.3333%; padding: 5px; margin: 0 27px;">
+						{{-- 	<a data-skin="skin-default" style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)" class="clearfix full-opacity-hover btn-skin"> --}}
+						<div>
+							<span class="style-trita-modal" style="display:block; width: 20%; float: left; height: 14px; background: #054c5f;">
+							</span>
+							<span class="style-trita-modal" style="display:block; width: 80%; float: left; height: 14px; background:#054c5f;" >
+							</span>
+							<span  style="display:block; width: 100%; float: right; height: 38px; background:#E08F8F; ">
+							</span>
+						</div>
+						<div>
+							<span class="style-trita-modal" style="display:block; width: 20%; float: left; height: 53px; background: #054c5f;">	
+							</span>
+							<span style="display:block; width: 80%; float: left; height: 53px; background: #f4f5f7;">							
+							</span>
+						</div>
+						{{-- </a> --}}
+						<p class="text-center no-margin">Tritanopía</p>
+					</div>
+
+
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 
 	@push('styles')
@@ -197,6 +252,8 @@
 		.text-center{
 			font-size: 30px;
 		}
+
+		.modal-title, #myModal2 div.modal-header p {text-align: center;}
 	</style>
 	
 	@push('scripts')
@@ -210,9 +267,7 @@
 	<script>
 		var my_skins = [
 		"skin-blue",
-		"skin-blue2",
-		"skin-blue3",
-		"skin-default"
+		"skin-red",
 		];
 
 
@@ -247,12 +302,26 @@
 			}
 		};
 
+		var colors_skins = {
+			color_skin_default:["#054c5f","#202b61","#323a5d","#064590"],
+			color_skin_red:["#7d000c","#100f0a","#01030c","#780002"]
 
+		};
+		var array_daltonic_color =[".style-default-modal",".style-deut-modal",".style-prota-modal",".style-trita-modal"];
 
 
 		$('.btn-skin').click(function(e){
 			e.preventDefault();
 			change_skin($(this).data('skin'));
+			var skincolor = $(this).data('skincolor');
+			$('#myModal2').on('show.bs.modal', function (e) {
+				$.each(array_daltonic_color, function(key, value){
+					$(value).each(function(){
+						$(this).css('background',colors_skins[skincolor][key]);
+					});
+				});
+				
+			});
 
 		});
 
@@ -273,6 +342,11 @@
 			});
 		});
 
+		
+
+
+
+		
 
 
 	</script>

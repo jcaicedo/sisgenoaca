@@ -41,7 +41,7 @@
 				<i style="font-size:7.6rem" class="fa fa-universal-access fa-5x"></i>
 			</a>
 			<ul>
-				{{-- <li><a class="btn-floating red btn-floating-universal-access"><i class="fa fa-universal-access"></i></a></li> --}}
+				<li><a class="btn-floating red btn-floating-universal-access" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-universal-access"></i></a></li>
 				<li><a class="btn-floating brown lighten-1 btn-floating-universal-access" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal"><i class="material-icons">invert_colors</i></a></li>
 				<li><a class="btn-minus-font btn-floating green btn-floating-universal-access"><i class="fa fa-minus"></i></a></li>
 				<li><a class="btn-floating blue btn-plus-font btn-floating-universal-access"><i class="fa fa-plus"></i></a></li>
