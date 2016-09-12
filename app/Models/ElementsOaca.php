@@ -34,6 +34,7 @@ class ElementsOaca extends Model
 	'content',
 	'area',
 	'position_order',
+	'contentchild',
 	'register_id',
 	'pattern_pedagogicaltechno',
 	];

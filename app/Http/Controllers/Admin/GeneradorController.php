@@ -317,7 +317,7 @@ class GeneradorController extends AdminController
 			return view('admin.oaca.objetos.create_oaca');
 		}
 		public function postPrueba(Request $request){
-			
+			dd($request->input('data'));
 		}
 
 		public function getPlantilla(){
