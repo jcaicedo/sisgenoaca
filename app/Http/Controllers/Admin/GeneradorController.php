@@ -314,7 +314,10 @@ class GeneradorController extends AdminController
 		}
 
 		public function getPrueba(){
-			return redirect('admin/oaca/objetos/edit-introduction/'.RegistroOaca::REGISTROID);
+			return view('admin.oaca.objetos.create_oaca');
+		}
+		public function postPrueba(Request $request){
+			
 		}
 
 		public function getPlantilla(){

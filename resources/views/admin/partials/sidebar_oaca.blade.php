@@ -32,7 +32,16 @@
 
 			<li class="header">{{trans('menu.optionspanel')}}</li>
 
-			<li id="title" data-element-option="title"  class="option" value="title" >
+			<li id="contenedor" data-element-option="contenedor"  class="option ui-state-default" value="contenedor" >
+				<a href="#">
+					<i class="fa fa-edit"></i>
+					<span >Contenedor</span>
+
+				</a>
+
+			</li>
+
+			<li id="title" data-element-option="title"  class="option ui-state-default" value="title" >
 				<a href="#">
 					<i class="fa fa-edit"></i>
 					<span >{{trans('menu.title')}}</span>
@@ -42,7 +51,7 @@
 
 			</li>
 
-			<li id="textarea"  data-element-option="textarea" class="option">
+			<li id="textarea"  data-element-option="textarea" class="option ui-state-default">
 				<a href="#">
 					<i class="fa fa-file-text-o"></i>
 					<span>{{trans('menu.textarea')}}</span>
@@ -51,7 +60,7 @@
 			</li>
 
 			
-			<li id="uploadimage" data-element-option="uploadimage" class="option">
+			<li id="uploadimage" data-element-option="uploadimage" class="option ui-state-default">
 				<a href="#">
 					<i class="fa fa-file-image-o"></i>
 					<span>{{trans('menu.uploadimage')}}</span>
