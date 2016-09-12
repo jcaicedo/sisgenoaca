@@ -32,7 +32,7 @@
 
 			<li class="header">{{trans('menu.optionspanel')}}</li>
 
-			<li id="contenedor" data-element-option="contenedor"  class="option ui-state-default" value="contenedor" >
+			<li id="contenedor" data-element-option="contenedor"  class="option ui-state-default content-child" value="contenedor" >
 				<a href="#">
 					<i class="fa fa-edit"></i>
 					<span >Contenedor</span>
