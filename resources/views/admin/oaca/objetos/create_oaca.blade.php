@@ -233,6 +233,10 @@
       .image-preview-content img{width: 50%; height: auto;}
 
     </style>
+    <style>
+      #sortable1, #sortable2, #sortable3 { list-style-type: none; margin: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}
+      #sortable1 li, #sortable2 li, #sortable3 li { margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+    </style>
     @endpush
 
     <!--Scripts-->
@@ -258,7 +262,7 @@
         }
       }).disableSelection();
 
-       
+
        $( ".sortable" ).sortable({
         connectWith: ".sidebar-menu"
       }).disableSelection();
