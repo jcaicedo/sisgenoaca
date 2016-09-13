@@ -31,9 +31,16 @@
 			</button>
 
 		</div>
+
 		<div class="content content-principal">
 			<div class="content contentchild sortable" id="contentchild0">
 
+			</div>
+		</div>
+			{{-- PREVIEW --}}
+		<div class="content preview">
+			<div class="content-preview">
+				
 			</div>
 		</div>
 
@@ -71,7 +78,7 @@
 <!-------------------------------------------------------------------------------->
 
 {{-- Modulos de elementos ocultos para clonar --}}
-<div class="content contentchild sortable contentfather-clone" id="contentchild1" style="display:none;">
+<div class="content sortable contentfather-clone nomostrar" id="contentchild1">
 
 </div>
 {{-- Modulo Title --}}
@@ -234,9 +241,8 @@
 					count++;
 					console.log(count);
 					var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
-					.css({
-						display: 'inherit'
-					})
+					.removeClass('nomostrar')
+					.addClass('contentchild')
 					.attr({
 						'id':'contentchild'+count
 					});
@@ -272,7 +278,7 @@
     		switch(type){
     			case 'title':
     			var title = $(".titulo-clone").clone().removeClass('titulo-clone');
-    			$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").appendTo(id_content);
+    			$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo(id_content);
     			$(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
     			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
     			$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
@@ -286,7 +292,7 @@
 
     			case 'textarea':
     			var textarea = $(".textareaclone").clone();
-    			$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").appendTo( id_content );
+    			$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo( id_content );
     			$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
     			$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
     			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
@@ -311,7 +317,7 @@
 
     			case 'uploadimage':
     			var uploadimage = $("div.uploadimage-clone").clone();
-    			$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo(id_content)
+    			$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content)
 
     			$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
     			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');

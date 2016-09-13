@@ -1,54 +1,70 @@
+var count_contentchild = 0;
 
 $("#preview-oaca").click(function(e){
  e.preventDefault();
-
  var countImage = 0;
 
  var content_btn =$(this).data('btn');
 
- $("#form-create-oaca .myinput").each(function(index){
+$(".contentchild").each(function(index, el) {
 
-   var element = $(this).data('element');
-   console.log(element);
-   switch(element){
+  var childcontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
+                              .addClass('contentchild')
+                              .removeClass('nomostrar')
+                              .css('display','inherit')
+                              .attr({
+                                   'id':'contentchild-preview'+index
+                                   });
 
-    case 'title':
-    $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
-    break;
+    var id_contentepreview = $(childcontent_preview).attr('id');
+    $(childcontent_preview).appendTo('.content-preview');
 
-    case 'textarea':
-    
-    var content_textarea = $('#'+$(this).attr('id')).summernote('code');
-    $(".content-preview").append('<br>'+content_textarea+'<br>');
-    var idContent = $(this).data('content');
-    $("#"+idContent).val(content_textarea);
-    break;
+    $(".myinput", el).each(function(index, el) {
+          console.log(id_contentepreview);
+          var element = $(el).data('element');
+          console.log(element);
+          switch(element){
+            case 'title':
+            console.log($(el).val());
+            $('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentepreview);
+            // $(id_contentepreview).append('<h2>'+$(el).val()+'</h2>');
+            break;
+            case 'textarea':
 
-    case 'image':
-    console.log($(this).attr('id'));
+              var content_textarea = $('#'+$(el).attr('id')).summernote('code');
+              $('<br>'+content_textarea+'<br>').appendTo('#'+id_contentepreview);
+              var idContent = $(el).data('content');
+              $("#"+idContent).val(content_textarea);
 
-    if($(this).val()!=''){
-      $(".content-preview").append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>');
+            break;
+            case 'image':
 
-      $("#"+$(this).attr('id')).html(function(){
-       readImage(this,countImage);
-       countImage ++;
-     });
-    }else{
+            console.log($(el).attr('id'));
 
-      var id_image = $(this).attr('id')+'-original';
-      var image = $('#'+id_image).clone();
-      $(".content-preview").append(image);
+                  if($(el).val()!=''){
+                    $('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentepreview);
 
+                    $("#"+$(el).attr('id')).html(function(){
+                     readImage(el,countImage);
+                     countImage ++;
+                   });
+                  }else{
+
+                    var id_image = $(el).attr('id')+'-original';
+                    var image = $('#'+id_image).clone();
+                    $('#'+id_contentepreview).append(image);
+
+                    
+                  }
+            break;
+          }
+    });
+   
       
-    }
-    break;
-
-  }
-
 });
+
     //Hidden elements from edit content
-    $(".sortable").hide();
+    $(".content-principal").hide();
     
     $(".preview").show();
 
