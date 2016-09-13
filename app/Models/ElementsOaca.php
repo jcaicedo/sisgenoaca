@@ -55,6 +55,22 @@ class ElementsOaca extends Model
 
 	}
 
+	public static function arrayContentChild($typeElement, $id){
+		$content = self::where('register_id','=',$id)
+		->where('moment','=',$typeElement)
+		->orderBy('position_order','asc')
+		->get();
+
+		$collect = [];
+		foreach ($content as $key => $value) {
+			# code...
+			$collect[$value->contentchild][]=$value;
+		}
+
+		return $collect;
+
+	}
+
 	public static function searchElementsDevelop($id){
 
 		$all = self::where('register_id','=',$id)

@@ -34,6 +34,7 @@ class GeneradorController extends AdminController
 
 	function getEditIntroduction($id){
 
+		$collectChild =ElementsOaca::arrayContentChild(ElementsOaca::INTRODUCTION, $id);
 
 		$registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
 		
@@ -45,6 +46,7 @@ class GeneradorController extends AdminController
 			"register_id" =>$id,
 			"moment"=>ElementsOaca::INTRODUCTION,
 			"contentIntroduction" => $content_Introduction,
+			"collectChild" => $collectChild,
 			"task_moment" => 'edit'
 			]);
 	}
@@ -75,6 +77,7 @@ class GeneradorController extends AdminController
 					$element->content = $value['content'];
 					$element->moment = ElementsOaca::INTRODUCTION;
 					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
 					$element->register_id =  $request->input('register_id');
 					$element->save();
 					$position ++;
@@ -85,6 +88,7 @@ class GeneradorController extends AdminController
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::INTRODUCTION;
 					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
 					$element->register_id =  $request->input('register_id');
 					
 					$filebackground = $request->file( $value['content']);
