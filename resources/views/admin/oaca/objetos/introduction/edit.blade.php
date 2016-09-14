@@ -42,41 +42,46 @@
 			</button>
 		</div>
 
-		<?php $count=0;?>
+		<?php $count=0;$count_element=0;?>
+
 		<div class="content content-principal">
 			@foreach($collectChild as $key=>$collect)
 			<div class="content contentchild sortable" id="contentchild{{$count}}">
 
 				@foreach($collect as $key=>$element)
+
 				@if(($element->type_element) == 'title')
-				<div class="title remove-div-{{$key}} tilte old">
+				<div class="title remove-div-{{$count_element}} tilte old">
 					<div class="box">
 						<div class="box-header with-border">
 							<h3 class="box-title">{{trans('admin.title')}}</h3>
 							<div class="box-tools pull-right">
-								<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}">
+								<button class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count_element}}" data-idelement="{{$element->id}}">
 									<i class="fa fa-close"></i>
 								</button>
 							</div>
 						</div>
 						<div class="box-body">
-							<input type="text" class="form-control componente myinput" data-element="title" data-position={{$key}} id="title-{{$key}}" name="data[{{$key}}][content]" value="{{$element->content}}">
-							<input type="hidden" name="data[{{$key}}][type]" value='title'>
-							<input type="hidden" name="data[{{$key}}][id]" value="{{$element->id}}">
+							<input type="text" class="form-control componente myinput" data-element="title" data-position={{$count_element}} id="title-{{$count_element}}" name="data[{{$count_element}}][content]" value="{{$element->content}}">
+							<input type="hidden" name="data[{{$count_element}}][type]" value='title'>
+							<input type="hidden" name="data[{{$count_element}}][id]" value="{{$element->id}}">
+							<input type='hidden' name='data[{{$count_element}}][contentchild]' value="{{ $element->contentchild }}">
+
 						</div>
 					</div>
 				</div>
+				<?php $count_element++;?>
 				@endif
 
 				@if(($element->type_element) == 'textarea')
 
-				<div class="textarea remove-div-{{$key}} old">
+				<div class="textarea remove-div-{{$count_element}} old">
 
 					<div class="box">
 						<div class="box-header with-border">
 							<h3 class="box-title">Textarea</h3>
 							<div class="box-tools pull-right">
-								<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}" >
+								<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count_element}}" data-idelement="{{$element->id}}" >
 									<i class="fa  fa-close"></i>
 								</button>
 								<button  type="button" class="btn btn-box-tool">
@@ -84,56 +89,61 @@
 								</button>
 							</div>
 						</div>
-						<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$key}} id="textarea{{$key}}" name="textarea" data-content="content-textarea{{$key}}">
+						<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$count_element}} id="textarea{{$count_element}}" name="textarea" data-content="content-textarea{{$count_element}}">
 							
 						</div>
 
-						<input type="hidden" name="textarea" id="input-textarea{{$key}}" value="{{$element->content}}" class="componente" >
-						<input type="hidden" name="data[{{$key}}][content]" id="content-textarea{{$key}}" value="pruab">
-						<input type="hidden" name="data[{{$key}}][type]" value="textarea">
-						<input type="hidden" name="data[{{$key}}][id]" value="{{$element->id}}">
+						<input type="hidden" name="textarea" id="input-textarea{{$count_element}}" value="{{$element->content}}" class="componente" >
+						<input type="hidden" name="data[{{$count_element}}][content]" id="content-textarea{{$count_element}}" value="pruab">
+						<input type="hidden" name="data[{{$count_element}}][type]" value="textarea">
+						<input type="hidden" name="data[{{$count_element}}][id]" value="{{$element->id}}">
+						<input type='hidden' name='data[{{$count_element}}][contentchild]' value="{{ $element->contentchild }}">
 					</div>
 
 				</div>
+
+				<?php $count_element++;?>
 				@endif
 
 				@if(($element->type_element) == 'image')
 				
-				<div class="uploadimage remove-div-{{$key}} old" >
+				<div class="uploadimage remove-div-{{$count_element}} old" >
 					<div class="box">
 						<div class="box-header with-border">
 							<h3 class="box-title">Image</h3>
-							<div class="image-preview-content" id="imagep-{{$key}}-original">
+							<div class="image-preview-content" id="imagep-{{$count_element}}-original">
 								<img src="{{$element->content}}" alt=""  >
 							</div>
 							
 							<div class="box-tools pull-right">
-								<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$key}}" data-idelement="{{$element->id}}">
+								<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count_element}}" data-idelement="{{$element->id}}">
 									<i class="fa fa-close"></i>
 								</button>
 							</div>
 						</div>
 						<div class=" box-body">
 							<div class="col-md-6">
-								<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$key}}" value="image-{{$key}}" name="image{{$key}}" id="imagep-{{$key}}" />
+								<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$count_element}}" value="image-{{$count_element}}" name="image{{$count_element}}" id="imagep-{{$count_element}}" />
 
 
-								<input type="hidden" id="image-{{$key}}" name="image" value="imagep-{{$key}}" class="componente">
+								<input type="hidden" id="image-{{$count_element}}" name="image" value="imagep-{{$count_element}}" class="componente">
 
-								<input type="hidden" name="data[{{$key}}][content]" value="image{{$key}}" >
-								<input type="hidden" name="data[{{$key}}][type]" value='image' >
-								<input type="hidden" name="data[{{$key}}][id]" value='{{$element->id}}' >
+								<input type="hidden" name="data[{{$count_element}}][content]" value="image{{$count_element}}" >
+								<input type="hidden" name="data[{{$count_element}}][type]" value='image' >
+								<input type="hidden" name="data[{{$count_element}}][id]" value='{{$element->id}}' >
+								<input type='hidden' name='data[{{$count_element}}][contentchild]' value="{{ $element->contentchild }}">
 							</div>
-							<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ='#imagep-{{$key}}'>{{trans('admin.btn-clear')}}</buttton>
+							<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ='#imagep-{{$count_element}}'>{{trans('admin.btn-clear')}}</buttton>
 						</div>
 					</div>
 				</div>
-
+					<?php $count_element++;?>
 
 				@endif
 				@endforeach
 
 			</div>
+			<?php $count++;?>
 			@endforeach
 		</div>
 
@@ -293,7 +303,8 @@
 	});
 
 
-	$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
+	$('input[name=count_elements_old]').val($('.content-principal .old').size()+1);
+	console.log($('.content-principal .old').size()+1);
 
 
 </script>
