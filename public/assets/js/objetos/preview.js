@@ -1,7 +1,7 @@
 var count_contentchild = 0;
 
-$("#preview-oaca").click(function(e){
- e.preventDefault();
+$("#preview-oaca").click(function(event){
+ event.preventDefault();
  var countImage = 0;
 
  var content_btn =$(this).data('btn');

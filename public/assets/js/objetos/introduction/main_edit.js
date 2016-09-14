@@ -1,69 +1,148 @@
+$("#preview-oaca").click(function(event) {
+  /* Act on the event */
 
-$("#preview-oaca").click(function(e){
- e.preventDefault();
+event.preventDefault();
+var countImage = 0;
 
- var countImage = 0;
+$(".contentchild").each(function(index, el) {
+ 
+var childcontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
+  .addClass('contentchild')
+  .removeClass('nomostrar')
+  .css('display','inherit')
+  .attr({
+   'id':'contentchild-preview'+index
+ });
 
- $("#form-create-oaca .myinput").each(function(index){
+  var id_contentepreview = $(childcontent_preview).attr('id');
+  $(childcontent_preview).appendTo('.content-preview');
 
-   var element = $(this).data('element');
+$(".myinput", el).each(function(index, el) {
+    console.log(id_contentepreview);
+    var element = $(el).data('element');
+    console.log(element);
+    switch(element){
+      case 'title':
+      console.log($(el).val());
+      $('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentepreview);
+            // $(id_contentepreview).append('<h2>'+$(el).val()+'</h2>');
+            break;
+            case 'textarea':
 
-   switch(element){
+            var content_textarea = $('#'+$(el).attr('id')).summernote('code');
+            $('<br>'+content_textarea+'<br>').appendTo('#'+id_contentepreview);
+            var idContent = $(el).data('content');
+            $("#"+idContent).val(content_textarea);
 
-    case 'title':
-    $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
-    break;
+            break;
+            case 'image':
 
-    case 'textarea':
+            console.log($(el).attr('id'));
 
-    var content_textarea = $('#'+$(this).attr('id')).summernote('code');
-    console.log(content_textarea);
-    $(".content-preview").append('<br>'+content_textarea+'<br>');
-    var idContent = $(this).data('content');
-    $("#"+idContent).val(content_textarea);
-    break;
+            if($(el).val()!=''){
+              $('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentepreview);
 
-    case 'image':
-    console.log($(this).attr('id'));
+              $("#"+$(el).attr('id')).html(function(){
+               readImage(el,countImage);
+               countImage ++;
+             });
+            }else{
 
-    if($(this).val()!=''){
-      $(".content-preview").append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'"></div>');
-
-      $("#"+$(this).attr('id')).html(function(){
-       readImage(this,countImage);
-       countImage ++;
-     });
-    }else{
-
-      var id_image = $(this).attr('id')+'-original';
-      var image = $('#'+id_image).clone();
-      $(".content-preview").append(image);
+              var id_image = $(el).attr('id')+'-original';
+              var image = $('#'+id_image).clone();
+              $('#'+id_contentepreview).append(image);
 
 
-    }
-    break;
+            }
+            break;
+          }
+        });
 
-  }
 
-});
-    //Hidden elements from edit content
-    $(".sortable").hide();
-    // $(".box-header-principal").hide();
+
+
+
+}); /*./each contentchild*/
+
+ //Hidden elements from edit content
+    $(".content-principal").hide();
     $(".preview").show();
+    $("#preview-oaca").hide();
+    $("#preview").show();
+    $("#processit").show();
 
 
-  });
 
-//Reset Preview and return to edit content
+}); /* ./ principal*/
 
-$('#preview').click(function(e){
-  e.preventDefault();
-  $(".content-preview").html("");
-  $(".sortable").show();
-  $('.box-header-principal').show();
-  $(".preview").hide();
 
-});
+
+
+// $("#preview-oaca").click(function(e){
+//  e.preventDefault();
+
+//  var countImage = 0;
+
+//  $("#form-create-oaca .myinput").each(function(index){
+
+//    var element = $(this).data('element');
+
+//    switch(element){
+
+//     case 'title':
+//     $(".content-preview").append('<h2>'+$(this).val()+'</h2>');
+//     break;
+
+//     case 'textarea':
+
+//     var content_textarea = $('#'+$(this).attr('id')).summernote('code');
+//     console.log(content_textarea);
+//     $(".content-preview").append('<br>'+content_textarea+'<br>');
+//     var idContent = $(this).data('content');
+//     $("#"+idContent).val(content_textarea);
+//     break;
+
+//     case 'image':
+//     console.log($(this).attr('id'));
+
+//     if($(this).val()!=''){
+//       $(".content-preview").append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'"></div>');
+
+//       $("#"+$(this).attr('id')).html(function(){
+//        readImage(this,countImage);
+//        countImage ++;
+//      });
+//     }else{
+
+//       var id_image = $(this).attr('id')+'-original';
+//       var image = $('#'+id_image).clone();
+//       $(".content-preview").append(image);
+
+
+//     }
+//     break;
+
+//   }
+
+// });
+//     //Hidden elements from edit content
+//     $(".sortable").hide();
+//     // $(".box-header-principal").hide();
+//     $(".preview").show();
+
+
+//   });
+
+// //Reset Preview and return to edit content
+
+// $('#preview').click(function(e){
+//   e.preventDefault();
+//   $(".content-preview").html("");
+//   $(".sortable").show();
+//   $('.box-header-principal').show();
+//   $(".preview").hide();
+
+// });
 
 
 
