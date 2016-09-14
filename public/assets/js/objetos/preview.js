@@ -6,67 +6,69 @@ $("#preview-oaca").click(function(e){
 
  var content_btn =$(this).data('btn');
 
-$(".contentchild").each(function(index, el) {
+ $(".contentchild").each(function(index, el) {
 
   var childcontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
-                              .addClass('contentchild')
-                              .removeClass('nomostrar')
-                              .css('display','inherit')
-                              .attr({
-                                   'id':'contentchild-preview'+index
-                                   });
+  .addClass('contentchild')
+  .removeClass('nomostrar')
+  .css('display','inherit')
+  .attr({
+   'id':'contentchild-preview'+index
+ });
 
-    var id_contentepreview = $(childcontent_preview).attr('id');
-    $(childcontent_preview).appendTo('.content-preview');
+  var id_contentepreview = $(childcontent_preview).attr('id');
+  $(childcontent_preview).appendTo('.content-preview');
 
-    $(".myinput", el).each(function(index, el) {
-          console.log(id_contentepreview);
-          var element = $(el).data('element');
-          console.log(element);
-          switch(element){
-            case 'title':
-            console.log($(el).val());
-            $('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentepreview);
+  $(".myinput", el).each(function(index, el) {
+    console.log(id_contentepreview);
+    var element = $(el).data('element');
+    console.log(element);
+    switch(element){
+      case 'title':
+      console.log($(el).val());
+      $('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentepreview);
             // $(id_contentepreview).append('<h2>'+$(el).val()+'</h2>');
             break;
             case 'textarea':
 
-              var content_textarea = $('#'+$(el).attr('id')).summernote('code');
-              $('<br>'+content_textarea+'<br>').appendTo('#'+id_contentepreview);
-              var idContent = $(el).data('content');
-              $("#"+idContent).val(content_textarea);
+            var content_textarea = $('#'+$(el).attr('id')).summernote('code');
+            $('<br>'+content_textarea+'<br>').appendTo('#'+id_contentepreview);
+            var idContent = $(el).data('content');
+            $("#"+idContent).val(content_textarea);
 
             break;
             case 'image':
 
             console.log($(el).attr('id'));
 
-                  if($(el).val()!=''){
-                    $('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentepreview);
+            if($(el).val()!=''){
+              $('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentepreview);
 
-                    $("#"+$(el).attr('id')).html(function(){
-                     readImage(el,countImage);
-                     countImage ++;
-                   });
-                  }else{
+              $("#"+$(el).attr('id')).html(function(){
+               readImage(el,countImage);
+               countImage ++;
+             });
+            }else{
 
-                    var id_image = $(el).attr('id')+'-original';
-                    var image = $('#'+id_image).clone();
-                    $('#'+id_contentepreview).append(image);
+              var id_image = $(el).attr('id')+'-original';
+              var image = $('#'+id_image).clone();
+              $('#'+id_contentepreview).append(image);
 
-                    
-                  }
+
+            }
             break;
           }
-    });
-   
-      
+        });
+
+
 });
 
     //Hidden elements from edit content
     $(".content-principal").hide();
-    
     $(".preview").show();
+    $("#preview-oaca").hide();
+    $("#preview").show();
+    $("#processit").show();
 
 
   });
@@ -76,9 +78,11 @@ $(".contentchild").each(function(index, el) {
 $('#preview').click(function(e){
   e.preventDefault();
   $(".content-preview").html("");
-  $(".sortable").show();
-  // $('.box-header-principal').show();
+  $(".content-principal").show();
   $(".preview").hide();
+  $("#preview-oaca").show();
+  $("#preview").hide();
+  $("#processit").hide();
 
 });
 

@@ -23,9 +23,13 @@
 
 			<a id="preview-oaca" class="btn btn-warning">
 				<i class="fa fa-eye"></i>
-				Visualizar
+				Preview
 			</a>
-			<button type="submit" class="btn btn-success" id="processit">
+			<a class="btn btn-warning nomostrar" id="preview">
+				<i class="fa fa-edit"></i>
+				Seguir Editando
+			</a>
+			<button type="submit" class="btn btn-success nomostrar" id="processit" >
 				<i class="fa fa-cogs"></i>
 				Procesar
 			</button>
@@ -37,7 +41,7 @@
 
 			</div>
 		</div>
-			{{-- PREVIEW --}}
+		{{-- PREVIEW --}}
 		<div class="content preview">
 			<div class="content-preview">
 				
@@ -182,8 +186,7 @@
 		color: blue;
 		text-align: center;
 	}
-	#preview-oaca{margin-left: 44%;}
-	.box-header-principal{padding-top: 0px;}
+	.box-header-principal{padding-top: 0px;text-align: center;}
 	.content-btn-preview{text-align: center;padding-top: 5px;}
 	.image-preview-content{text-align: center;}
 	.image-preview-content img{width: 50%; height: auto;}
@@ -197,74 +200,73 @@
 	.box{
 		border-radius:5px;
 	}
-	.box-header{
-		text-align: center;}
-
-	</style>
-	@endpush
-
-	<!--Scripts-->
 
 
-	@push('scripts')
-	<script src="/vendor/summernote/dist/summernote.js"></script>
-	<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
-	<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+</style>
+@endpush
+
+<!--Scripts-->
 
 
-	<script>
-		$(document).ready(function(){
+@push('scripts')
+<script src="/vendor/summernote/dist/summernote.js"></script>
+<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
+<script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
-			$("#myModal").modal('show'); /*Show Modal Automatic*/
 
-			var count =1;
-			$( "#title, #textarea, #uploadimage, #contenedor" ).draggable({
-				appendTo: "body",
-				helper: "clone"
-			});
-			
-			$("#contentchild0").droppable({
-				accept:'.option',
-				drop: function(event, ui){
+<script>
+	$(document).ready(function(){
 
-					console.log(ui.draggable.data('element-option'));
-					var type = ui.draggable.data('element-option');
-					var id_content =  '#'+$(this).attr('id');
-					newElement(type,id_content);
+		$("#myModal").modal('show'); /*Show Modal Automatic*/
 
-				}
-			});
+		var count =1;
+		$( "#title, #textarea, #uploadimage, #contenedor" ).draggable({
+			appendTo: "body",
+			helper: "clone"
+		});
 
-			$(".content-principal").droppable({
-				accept:'.content-child',
-				drop:function(event, ui){
-					count++;
-					console.log(count);
-					var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
-					.removeClass('nomostrar')
-					.addClass('contentchild')
-					.attr({
-						'id':'contentchild'+count
-					});
+		$("#contentchild0").droppable({
+			accept:'.option',
+			drop: function(event, ui){
 
-					$(content).appendTo(".content-principal");
+				console.log(ui.draggable.data('element-option'));
+				var type = ui.draggable.data('element-option');
+				var id_content =  '#'+$(this).attr('id');
+				newElement(type,id_content);
 
-					$(".contentchild").droppable({
-						accept:'.option',
-						drop: function(event, ui){
+			}
+		});
 
-							console.log(ui.draggable.data('element-option'));
-							var type = ui.draggable.data('element-option');
-							var id_content =  '#'+$(this).attr('id');
-							newElement(type,id_content);
+		$(".content-principal").droppable({
+			accept:'.content-child',
+			drop:function(event, ui){
+				count++;
+				console.log(count);
+				var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
+				.removeClass('nomostrar')
+				.addClass('contentchild')
+				.attr({
+					'id':'contentchild'+count
+				});
 
-						}
-					});
+				$(content).appendTo(".content-principal");
 
-				}
+				$(".contentchild").droppable({
+					accept:'.option',
+					drop: function(event, ui){
 
-				
-			});
+						console.log(ui.draggable.data('element-option'));
+						var type = ui.draggable.data('element-option');
+						var id_content =  '#'+$(this).attr('id');
+						newElement(type,id_content);
+
+					}
+				});
+
+			}
+
+
+		});
 
     // $(".contentchild").droppable({
     //   accept:'.option',
