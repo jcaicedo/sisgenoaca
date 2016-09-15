@@ -1,30 +1,30 @@
 $("#preview-oaca").click(function(event) {
   /* Act on the event */
 
-event.preventDefault();
-var countImage = 0;
+  event.preventDefault();
+  var countImage = 0;
 
-$(".contentchild").each(function(index, el) {
- 
-var childcontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
-  .addClass('contentchild')
-  .removeClass('nomostrar')
-  .css('display','inherit')
-  .attr({
-   'id':'contentchild-preview'+index
- });
+  $(".contentchild").each(function(index, el) {
+   
+    var childcontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
+    .addClass('contentchild')
+    .removeClass('nomostrar')
+    .css('display','inherit')
+    .attr({
+     'id':'contentchild-preview'+index
+   });
 
-  var id_contentepreview = $(childcontent_preview).attr('id');
-  $(childcontent_preview).appendTo('.content-preview');
+    var id_contentepreview = $(childcontent_preview).attr('id');
+    $(childcontent_preview).appendTo('.content-preview');
 
-$(".myinput", el).each(function(index, el) {
-    console.log(id_contentepreview);
-    var element = $(el).data('element');
-    console.log(element);
-    switch(element){
-      case 'title':
-      console.log($(el).val());
-      $('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentepreview);
+    $(".myinput", el).each(function(index, el) {
+      console.log(id_contentepreview);
+      var element = $(el).data('element');
+      console.log(element);
+      switch(element){
+        case 'title':
+        console.log($(el).val());
+        $('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentepreview);
             // $(id_contentepreview).append('<h2>'+$(el).val()+'</h2>');
             break;
             case 'textarea':
@@ -62,14 +62,14 @@ $(".myinput", el).each(function(index, el) {
 
 
 
-}); /*./each contentchild*/
+  }); /*./each contentchild*/
 
  //Hidden elements from edit content
-    $(".content-principal").hide();
-    $(".preview").show();
-    $("#preview-oaca").hide();
-    $("#preview").show();
-    $("#processit").show();
+ $(".content-principal").hide();
+ $(".preview").show();
+ $("#preview-oaca").hide();
+ $("#preview").show();
+ $("#processit").show();
 
 
 
@@ -125,53 +125,61 @@ $(document).ready(function (e) {
 				});
 
 
-			$( "#title, #textarea, #uploadimage, #contenedor" ).draggable({
-      appendTo: "body",
-      helper: "clone"
-    });
+       $( "#title, #textarea, #uploadimage, #contenedor" ).draggable({
+        appendTo: "body",
+        helper: "clone"
+      });
 
-    $(".contentchild").droppable({
-      accept:'.option',
-      drop: function(event, ui){
+       $(".contentchild").droppable({
+        accept:'.option',
+        drop: function(event, ui){
 
-        console.log(ui.draggable.data('element-option'));
-        var type = ui.draggable.data('element-option');
-        var id_content =  '#'+$(this).attr('id');
-        newElement(type,id_content);
+          console.log(ui.draggable.data('element-option'));
+          var type = ui.draggable.data('element-option');
+          var id_content =  '#'+$(this).attr('id');
+          newElement(type,id_content);
 
-      }
-    });
+        }
+      });
 
-    $(".content-principal").droppable({
-      accept:'.content-child',
-      drop:function(event, ui){
-        count++;
-        console.log(count);
-        var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
-        .removeClass('nomostrar')
-        .addClass('contentchild')
-        .attr({
-          'id':'contentchild'+count
-        });
+       $(".content-principal").droppable({
+        accept:'.content-child',
+        drop:function(event, ui){
+          count++;
+          console.log(count);
+          var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
+          .removeClass('nomostrar')
+          .addClass('contentchild')
+          .attr({
+            'id':'contentchild'+count
+          });
 
-        $(content).appendTo(".content-principal");
+          $(content).appendTo(".content-principal");
 
-        $(".contentchild").droppable({
-          accept:'.option',
-          drop: function(event, ui){
+          $(".contentchild").droppable({
+            accept:'.option',
+            drop: function(event, ui){
 
-            console.log(ui.draggable.data('element-option'));
-            var type = ui.draggable.data('element-option');
-            var id_content =  '#'+$(this).attr('id');
-            newElement(type,id_content);
+              console.log(ui.draggable.data('element-option'));
+              var type = ui.draggable.data('element-option');
+              var id_content =  '#'+$(this).attr('id');
+              newElement(type,id_content);
 
-          }
-        });
+            }
+          });
 
-      }
+          $( ".sortable:not(div.box-footer)" ).sortable({
+            axis: 'y',
+            opacity: 0.5,
+            tolerance: 'pointer',
+            handle: ".box-header"
+
+          });
+
+        }
 
 
-    });
+      });
 
     // $(".contentchild").droppable({
     //   accept:'.option',

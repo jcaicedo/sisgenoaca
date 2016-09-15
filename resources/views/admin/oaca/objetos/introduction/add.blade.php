@@ -262,6 +262,13 @@
 
 					}
 				});
+				$( ".sortable:not(div.box-footer)" ).sortable({
+					axis: 'y',
+					opacity: 0.5,
+					tolerance: 'pointer',
+					handle: ".box-header"
+
+				});
 
 			}
 
@@ -345,6 +352,14 @@
     		var divDelete = $(this).data('parent');
 
     		$("."+divDelete).remove();
+
+    	});
+
+    	$( ".sortable:not(div.box-footer)" ).sortable({
+    		axis: 'y',
+    		opacity: 0.5,
+    		tolerance: 'pointer',
+    		handle: ".box-header"
 
     	});
 
