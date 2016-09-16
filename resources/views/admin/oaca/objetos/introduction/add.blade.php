@@ -43,6 +43,8 @@
 		</div>
 		{{-- PREVIEW --}}
 		<div class="content preview">
+			<button type="button" id="btn-left-contentpreview" data-nextcontent="hola" class="btn btn-success btn-carousel-content">izquierda</button>
+			<button type="button" class="btn btn-success btn-carousel-content">derecha</button>
 			<div class="content-preview">
 				
 			</div>
@@ -361,6 +363,31 @@
     		tolerance: 'pointer',
     		handle: ".box-header"
 
+    	});
+
+
+    	$(".btn-carousel-content").click(function(){
+
+    		var $target = $("#"+$(this).data("nextcontent"));
+    		var $other = $target.siblings('.active');
+
+    		if (!$target.hasClass('active')) {
+    			$other.each(function(index, self) {
+    				var $this = $(this);
+    				$this.removeClass('active').animate({
+    					left: -($this.width())
+    				}, 500);
+    				console.log($this.width());
+    			});
+
+    			$target.addClass('active').show().css({
+    				right: ($target.width())
+    			}).animate({
+    				left: -0
+    			}, 500);
+    		}
+
+    		
     	});
 
     });

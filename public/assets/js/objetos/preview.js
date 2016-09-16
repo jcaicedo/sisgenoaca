@@ -11,7 +11,11 @@ $("#preview-oaca").click(function(event){
   var childcontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
   .addClass('contentchild')
   .removeClass('nomostrar')
-  .css('display','inherit')
+  .css({
+    'display':'none',
+    'position': 'absolute',
+    'width':'100%'
+  })
   .attr({
    'id':'contentchild-preview'+index
  });
@@ -62,6 +66,12 @@ $("#preview-oaca").click(function(event){
 
 
 });
+
+ $(".preview div.contentchild").first().attr("display","inherit").addClass("active").show();
+ var id_first_contentchild_preview = $(".preview div.contentchild").next().attr("id");
+ console.log(id_first_contentchild_preview);
+ $("button#btn-left-contentpreview").data("nextcontent",id_first_contentchild_preview);
+ console.log( $("button#btn-left-contentpreview").data("nextcontent"));
 
     //Hidden elements from edit content
     $(".content-principal").hide();
