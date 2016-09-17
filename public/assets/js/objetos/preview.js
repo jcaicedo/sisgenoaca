@@ -29,38 +29,38 @@ $("#preview-oaca").click(function(event){
       case 'title':
       console.log($(el).val());
       $('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentepreview);
-            // $(id_contentepreview).append('<h2>'+$(el).val()+'</h2>');
-            break;
-            case 'textarea':
+      /* $(id_contentepreview).append('<h2>'+$(el).val()+'</h2>');*/
+      break;
+      case 'textarea':
 
-            var content_textarea = $('#'+$(el).attr('id')).summernote('code');
-            $('<br>'+content_textarea+'<br>').appendTo('#'+id_contentepreview);
-            var idContent = $(el).data('content');
-            $("#"+idContent).val(content_textarea);
+      var content_textarea = $('#'+$(el).attr('id')).summernote('code');
+      $('<br>'+content_textarea+'<br>').appendTo('#'+id_contentepreview);
+      var idContent = $(el).data('content');
+      $("#"+idContent).val(content_textarea);
 
-            break;
-            case 'image':
+      break;
+      case 'image':
 
-            console.log($(el).attr('id'));
+      console.log($(el).attr('id'));
 
-            if($(el).val()!=''){
-              $('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentepreview);
+      if($(el).val()!=''){
+        $('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentepreview);
 
-              $("#"+$(el).attr('id')).html(function(){
-               readImage(el,countImage);
-               countImage ++;
-             });
-            }else{
+        $("#"+$(el).attr('id')).html(function(){
+         readImage(el,countImage);
+         countImage ++;
+       });
+      }else{
 
-              var id_image = $(el).attr('id')+'-original';
-              var image = $('#'+id_image).clone();
-              $('#'+id_contentepreview).append(image);
+        var id_image = $(el).attr('id')+'-original';
+        var image = $('#'+id_image).clone();
+        $('#'+id_contentepreview).append(image);
 
 
-            }
-            break;
-          }
-        });
+      }
+      break;
+    }
+  });
 
 
 });

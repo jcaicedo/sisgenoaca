@@ -11,7 +11,75 @@ $('.preview-oaca').click(function(e){
 
 	console.log(preview);
 
-	$(content_data+" .myinput").each(function(index){
+	$(content_data + " .contentchild").each(function(index,el){
+
+		var childrencontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
+		.addClass('contentchild')
+		.removeClass('nomostrar')
+		.css({
+			'display':'inherit'
+		})
+		.attr({
+			'id':'contentchild-preview'+index
+		});
+
+		var id_contentpreview = $(childrencontent_preview).attr('id');
+		$(childrencontent_preview).appendTo(content_preview);
+
+		$(".myinput",el).each(function(index, el){
+			console.log(id_contentpreview);
+			console.log(el);
+			var element = $(el).data('element');
+
+			switch(element){
+
+				case 'title':
+				$('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentpreview);
+				/*$(content_preview).append('<h2>'+$(this).val()+'</h2>');*/
+				break;
+
+				case 'textarea':
+
+				var content_textarea = $('#'+$(el).attr('id')).summernote('code');
+				$('<br>'+content_textarea+'<br>').appendTo('#'+id_contentpreview);
+				var idContent = $(el).data('content');
+				$("#"+idContent).val(content_textarea);
+				/*$(content_preview).append('<br>'+content_textarea+'<br>');
+				var idContent = $(el).data('content');
+				$("#"+idContent).val(content_textarea);*/
+				break;
+
+				case 'image':
+				if($(el).val()!=''){
+
+					$('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentpreview);
+
+					$("#"+$(el).attr('id')).html(function(){
+						readImage(el,countImage);
+						countImage ++;
+						/*$(content_preview).append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>');
+
+						$("#"+$(this).attr('id')).html(function(){
+
+							readImage(this,countImage);
+							countImage ++;*/
+						});
+				}else{
+
+					var id_image = $(el).attr('id')+'-original';
+					var image = $('#'+id_image).clone();
+					$('#'+id_contentepreview).append(image);
+				}
+				break;
+
+			}
+
+		});
+
+	});
+
+
+	/*$(content_data+" .myinput").each(function(index){
 
 		var element = $(this).data('element');
 		switch(element){
@@ -50,7 +118,7 @@ $('.preview-oaca').click(function(e){
 
 
 
-	});
+	});*/
 
 	$(content_data).hide();
 	$(preview).show();
