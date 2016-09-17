@@ -36,7 +36,7 @@
 				<i class="fa fa-edit"></i>
 				Seguir Editando
 			</a>
-			<button type="submit" class="btn btn-success nomosrar" id="processit">
+			<button type="submit" class="btn btn-success nomostrar" id="processit">
 				<i class="fa fa-cogs"></i>
 				Procesar
 			</button>
@@ -137,7 +137,7 @@
 						</div>
 					</div>
 				</div>
-					<?php $count_element++;?>
+				<?php $count_element++;?>
 
 				@endif
 				@endforeach
