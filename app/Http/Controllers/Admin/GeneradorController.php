@@ -123,7 +123,9 @@ class GeneradorController extends AdminController
 
 			}elseif ($request->input('task_moment') == 'edit') {
 
-				$content = ElementsOaca::searchElementsDevelop($request->input('register_id'));
+				$contentgeneral = ElementsOaca::searchElementsDevelop($request->input('register_id'));
+				$content = $contentgeneral[1];
+				$content2 = $contentgeneral[2];
 
 				
 
@@ -131,6 +133,7 @@ class GeneradorController extends AdminController
 					"register_id" =>$request->input('register_id'),
 					"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
 					"content_davelop" => $content,
+					"content2" => $content2,
 					"task_moment" => "edit"
 					]);
 				

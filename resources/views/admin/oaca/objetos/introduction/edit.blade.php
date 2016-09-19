@@ -65,7 +65,7 @@
 							<input type="text" class="form-control componente myinput" data-element="title" data-position={{$count_element}} id="title-{{$count_element}}" name="data[{{$count_element}}][content]" value="{{$element->content}}">
 							<input type="hidden" name="data[{{$count_element}}][type]" value='title'>
 							<input type="hidden" name="data[{{$count_element}}][id]" value="{{$element->id}}">
-							<input type='hidden' name='data[{{$count_element}}][contentchild]' value="{{ $element->contentchild }}">
+							<input type='hidden' name='data[{{$count_element}}][contentchild]' value="contentchild{{$count}}">
 
 						</div>
 					</div>
@@ -97,7 +97,7 @@
 						<input type="hidden" name="data[{{$count_element}}][content]" id="content-textarea{{$count_element}}" value="pruab">
 						<input type="hidden" name="data[{{$count_element}}][type]" value="textarea">
 						<input type="hidden" name="data[{{$count_element}}][id]" value="{{$element->id}}">
-						<input type='hidden' name='data[{{$count_element}}][contentchild]' value="{{ $element->contentchild }}">
+						<input type='hidden' name='data[{{$count_element}}][contentchild]' value="contentchild{{$count}}">
 					</div>
 
 				</div>
@@ -131,7 +131,7 @@
 								<input type="hidden" name="data[{{$count_element}}][content]" value="image{{$count_element}}" >
 								<input type="hidden" name="data[{{$count_element}}][type]" value='image' >
 								<input type="hidden" name="data[{{$count_element}}][id]" value='{{$element->id}}' >
-								<input type='hidden' name='data[{{$count_element}}][contentchild]' value="{{ $element->contentchild }}">
+								<input type='hidden' name='data[{{$count_element}}][contentchild]' value="contentchild{{$count}}">
 							</div>
 							<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ='#imagep-{{$count_element}}'>{{trans('admin.btn-clear')}}</buttton>
 						</div>

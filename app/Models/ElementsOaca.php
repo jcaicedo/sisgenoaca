@@ -79,33 +79,42 @@ class ElementsOaca extends Model
 		->get();
 
 		$collect = [];
+		$collect2 = [];
 
 		foreach ($all as $key => $value) {
 			
 			switch ($value->pattern_pedagogicaltechno) {
 				case 'explanation':
 				$collect['explanation'][]=$value;
+				$collect2['explanation'][$value->contentchild][]=$value;
 				break;
 				case 'exemplification':
 				$collect['exemplification'][]=$value;
+				$collect2['exemplification'][$value->contentchild][]=$value;
 				break;
 				case 'application':
 				$collect['application'][]=$value;
+				$collect2['application'][$value->contentchild][]=$value;
 				break;
 				case 'justification':
 				$collect['justification'][]=$value;
+				$collect2['justification'][$value->contentchild][]=$value;
 				break;
 				case 'compare':
 				$collect['compare'][]=$value;
+				$collect2['compare'][$value->contentchild][]=$value;
 				break;
 				case 'contrast':
 				$collect['contrast'][]=$value;
+				$collect2['contrast'][$value->contentchild][]=$value;
 				break;
 				case 'contextualization':
 				$collect['contextualization'][]=$value;
+				$collect2['contextualization'][$value->contentchild][]=$value;
 				break;
 				case 'generalization':
 				$collect['generalization'][]=$value;
+				$collect2['generalization'][$value->contentchild][]=$value;
 				break;
 				
 				default:
@@ -116,7 +125,10 @@ class ElementsOaca extends Model
 
 		}
 
-		return $collect;
+		$collectgeneral[1]=$collect;
+		$collectgeneral[2]=$collect2;
+		//dd($collectgeneral[1]);
+		return $collectgeneral;
 
 	}
 

@@ -1,6 +1,7 @@
 
 //Boton captura evento para mostrar los preview
 var countImage = 0;
+var count_childrenpreview =0;
 $('.preview-oaca').click(function(e){
 	e.preventDefault();
 	
@@ -20,9 +21,9 @@ $('.preview-oaca').click(function(e){
 			'display':'inherit'
 		})
 		.attr({
-			'id':'contentchild-preview'+index
+			'id':'contentchild-preview'+count_childrenpreview
 		});
-
+		count_childrenpreview++;
 		var id_contentpreview = $(childrencontent_preview).attr('id');
 		$(childrencontent_preview).appendTo(content_preview);
 
@@ -34,11 +35,14 @@ $('.preview-oaca').click(function(e){
 			switch(element){
 
 				case 'title':
+				console.log(id_contentpreview);
 				$('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentpreview);
 				/*$(content_preview).append('<h2>'+$(this).val()+'</h2>');*/
+				console.log('<h2>'+$(el).val()+'</h2>');
 				break;
 
 				case 'textarea':
+				console.log(id_contentpreview);
 
 				var content_textarea = $('#'+$(el).attr('id')).summernote('code');
 				$('<br>'+content_textarea+'<br>').appendTo('#'+id_contentpreview);
@@ -47,9 +51,12 @@ $('.preview-oaca').click(function(e){
 				/*$(content_preview).append('<br>'+content_textarea+'<br>');
 				var idContent = $(el).data('content');
 				$("#"+idContent).val(content_textarea);*/
+				console.log(content_textarea);
 				break;
 
 				case 'image':
+				console.log(id_contentpreview);
+				console.log('image');
 				if($(el).val()!=''){
 
 					$('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentpreview);
@@ -142,7 +149,7 @@ $('.btn-return-edit').click(function(e){
 	$(content_data).show();
 	$(content_btn).show();
 	$(preview).hide();
-	
+	count_childrenpreview = 0;
 
 
 	
@@ -219,8 +226,8 @@ $(document).ready(function(){
 			});
 
 			$(content).appendTo('#'+$(this).attr('id'));
-			console.log(content);
-			console.log('content_principal: '+$(this).attr('id')+' contentchild: '+$(content).attr('id'));
+			//console.log(content);
+			//console.log('content_principal: '+$(this).attr('id')+' contentchild: '+$(content).attr('id'));
 
 			$(".contentchild").droppable({
 				accept:'.option',
