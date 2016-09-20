@@ -223,12 +223,15 @@ class GeneradorController extends AdminController
 
 				$content = ElementsOaca::searchElementsClose($request->input('register_id'));
 
-				
+				$contentgeneral = ElementsOaca::searchElementsClose($request->input('register_id'));
+				$content = $contentgeneral[1];
+				$content2 = $contentgeneral[2];
 
 				return view('admin.oaca.objetos.close.edit',[
 					"register_id" =>$request->input('register_id'),
 					"pattern_array" => ElementsOaca::CLOSE_ARRAY,
-					"content_close" => $content
+					"content_close" => $content,
+					"content2" => $content2,
 					]);
 				
 			}

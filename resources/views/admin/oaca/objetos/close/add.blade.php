@@ -52,10 +52,12 @@
 					</div>
 
 
-					<div class="content sortable" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
+				
 
-
-
+					<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
+						<div class="content contentchild contentchildfirst sortable" id="contentchild{{$i}}" data-pattern="{{$pattern_array[$i-1]}}">
+							
+						</div>
 					</div>
 
 
@@ -105,6 +107,10 @@
 <!-------------------------------------------------------------------------------->
 
 {{-- Modulos de elementos ocultos para clonar --}}
+
+<div class="content sortable contentfather-clone nomostrar" id="contentchild1">
+
+</div>
 
 {{-- Modulo Title --}}
 
@@ -222,6 +228,13 @@
 	.box-header-principal{text-align: center;}
 	.image-preview-content{text-align: center;}
 	.image-preview-content img{width: 50%; height: auto;}
+
+	.contentchild{
+		border-radius: 25px;
+		border:2px solid #C8DAF0;
+		margin: 33px 3px;
+		background:#C8DAF0;
+	}
 
 
 </style>

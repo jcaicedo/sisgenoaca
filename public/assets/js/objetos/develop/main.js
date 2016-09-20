@@ -2,6 +2,7 @@
 //Boton captura evento para mostrar los preview
 var countImage = 0;
 var count_childrenpreview =0;
+
 $('.preview-oaca').click(function(e){
 	e.preventDefault();
 	
@@ -75,7 +76,7 @@ $('.preview-oaca').click(function(e){
 
 					var id_image = $(el).attr('id')+'-original';
 					var image = $('#'+id_image).clone();
-					$('#'+id_contentepreview).append(image);
+					$('#'+id_contentpreview).append(image);
 				}
 				break;
 

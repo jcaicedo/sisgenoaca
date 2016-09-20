@@ -141,25 +141,30 @@ class ElementsOaca extends Model
 		->get();
 
 		$collect = [];
+		$collect2 = [];
 
 		foreach ($all as $key => $value) {
 			
 			switch ($value->pattern_pedagogicaltechno) {
 				case 'systematization':
 				$collect['systematization'][]=$value;
+				$collect2['systematization'][$value->contentchild][]=$value;
 				break;
 				case 'investigation':
 				$collect['investigation'][]=$value;
+				$collect2['investigation'][$value->contentchild][]=$value;
 				break;
 				case 'evaluation':
 				$collect['evaluation'][]=$value;
+				$collect2['evaluation'][$value->contentchild][]=$value;
 				break;
 			}
 
 
 		}
-
-		return $collect;
+		$collectgeneral[1]=$collect;
+		$collectgeneral[2]=$collect2;
+		return $collectgeneral;
 
 	}
 

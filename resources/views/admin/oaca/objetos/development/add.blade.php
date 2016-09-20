@@ -61,7 +61,6 @@
 						<div class="content contentchild contentchildfirst sortable" id="contentchild{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
 
 						</div>
-
 					</div>
 
 
