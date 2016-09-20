@@ -71,7 +71,7 @@
 							@foreach($data as $key=> $element)
 
 							@if($element->type_element == 'title')
-							<div class="title remove-div-{{$count}} tilte old">
+							<div class="title remove-div-{{$count}}  old">
 								<div class="box">
 									<div class="box-header with-border">
 										<h3 class="box-title">{{trans('admin.title')}}</h3>
