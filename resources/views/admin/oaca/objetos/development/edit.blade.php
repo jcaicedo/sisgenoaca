@@ -67,9 +67,8 @@
 
 
 						@foreach($content2[$pattern_array[$i-1]] as $key=>$data)
-						@foreach($data as $key=> $element)
-
-						<div class="content contentchild contentchildfirst sortable" id="contentchild{{$count_element}}">
+						<div class="content contentchild contentchildfirst sortable" id="contentchild{{$count_element}}" data-pattern='{{$pattern_array[$i-1]}}'>
+							@foreach($data as $key=> $element)
 
 							@if($element->type_element == 'title')
 							<div class="title remove-div-{{$count}} tilte old">
@@ -166,9 +165,11 @@
 							@endif
 
 
+
+
+							@endforeach
+							<?php $count_element++; ?>
 						</div>
-						<?php $count_element++; ?>
-						@endforeach
 						@endforeach
 						@endif
 
@@ -226,6 +227,10 @@
 <!-------------------------------------------------------------------------------->
 
 {{-- Modulos de elementos ocultos para clonar --}}
+
+<div class="content sortable contentfather-clone nomostrar" id="contentchild1">
+
+</div>
 
 {{-- Modulo Title --}}
 

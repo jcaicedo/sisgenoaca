@@ -127,7 +127,7 @@ class GeneradorController extends AdminController
 				$content = $contentgeneral[1];
 				$content2 = $contentgeneral[2];
 
-				
+				//dd($content2);
 
 				return view('admin.oaca.objetos.development.edit',[
 					"register_id" =>$request->input('register_id'),

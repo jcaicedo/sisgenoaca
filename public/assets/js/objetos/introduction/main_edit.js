@@ -5,7 +5,7 @@ $("#preview-oaca").click(function(event) {
   var countImage = 0;
 
   $(".contentchild").each(function(index, el) {
-   
+
     var childcontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
     .addClass('contentchild')
     .removeClass('nomostrar')
@@ -136,7 +136,7 @@ $(document).ready(function (e) {
 
           console.log(ui.draggable.data('element-option'));
           var type = ui.draggable.data('element-option');
-          var id_content =  '#'+$(this).attr('id');
+          var id_content = $(this).attr('id');
           newElement(type,id_content);
 
         }
@@ -162,7 +162,7 @@ $(document).ready(function (e) {
 
               console.log(ui.draggable.data('element-option'));
               var type = ui.draggable.data('element-option');
-              var id_content =  '#'+$(this).attr('id');
+              var id_content = $(this).attr('id');
               newElement(type,id_content);
 
             }
@@ -193,7 +193,7 @@ $(document).ready(function (e) {
         switch(type){
           case 'title':
           var title = $(".titulo-clone").clone().removeClass('titulo-clone');
-          $(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo(id_content);
+          $(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo( '#'+id_content);
           $(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
           $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
           $("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
@@ -207,7 +207,7 @@ $(document).ready(function (e) {
 
           case 'textarea':
           var textarea = $(".textareaclone").clone();
-          $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo( id_content );
+          $(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo('#'+id_content );
           $(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
           $(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
           $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
@@ -232,7 +232,7 @@ $(document).ready(function (e) {
 
           case 'uploadimage':
           var uploadimage = $("div.uploadimage-clone").clone();
-          $(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content)
+          $(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo('#'+id_content)
 
           $(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
           $(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
