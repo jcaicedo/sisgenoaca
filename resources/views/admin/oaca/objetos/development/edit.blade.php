@@ -2,7 +2,7 @@
 @section('title',trans('admin.development'))
 @section('content')
 
-<?php set_time_limit(300)?>
+
 <div class="content-wrapper">
 {{-- 	<section class="content-header">
 		<h1>{{trans('admin.development')}}</h1>

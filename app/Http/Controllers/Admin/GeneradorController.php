@@ -268,6 +268,7 @@ class GeneradorController extends AdminController
 						$element->moment = ElementsOaca::CLOSE;
 						$element->pattern_pedagogicaltechno = $value['pattern'];
 						$element->position_order = $position;
+						$element->contentchild = $value['contentchild'];
 						$element->register_id =  $request->input('register_id');
 						$element->save();
 						$position ++;
@@ -280,6 +281,7 @@ class GeneradorController extends AdminController
 						$element->moment = ElementsOaca::CLOSE;
 						$element->pattern_pedagogicaltechno = $value['pattern'];
 						$element->position_order = $position;
+						$element->contentchild = $value['contentchild'];
 						$element->register_id =  $request->input('register_id');
 
 
