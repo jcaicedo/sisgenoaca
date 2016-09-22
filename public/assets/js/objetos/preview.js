@@ -70,10 +70,10 @@ $("#preview-oaca").click(function(event){
     $(".preview").show();
     $("#preview-oaca").hide();
     $("#preview").show();
-    $("#processit").show();
+   // $("#processit").show();
 
 
-  });
+ });
 
 //Reset Preview and return to edit content
 
@@ -84,7 +84,7 @@ $('#preview').click(function(e){
   $(".preview").hide();
   $("#preview-oaca").show();
   $("#preview").hide();
-  $("#processit").hide();
+  //$("#processit").hide();
 
 });
 

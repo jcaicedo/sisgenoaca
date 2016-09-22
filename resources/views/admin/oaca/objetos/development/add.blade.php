@@ -50,8 +50,8 @@
 					{{-- bontones de preview --}}
 					<div id="btn-prev{{$i}}" class="box-header box-header-principal">
 						<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
-							<i class="fa fa-eye"></i>
-							Visualizar
+							<i class="fa fa-eye fa-3x"></i>
+							<h3>Preview</h3>
 						</a>
 					</div>
 
@@ -69,8 +69,8 @@
 							<div class="content-btn-preview">
 
 								<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
-									<i class="fa fa-edit"></i>
-									Seguir Editando
+									<i class="fa fa-edit fa-3x"></i>
+									<h3>Seguir Editando</h3>
 								</a>
 							</div>
 						</div>
@@ -213,7 +213,7 @@
 	.btn-proccess{margin:0 auto; width: 200px;align:left;}
 	.preview{display: none; min-height:304px;}
 	.mark_background{background: #88AAAA}
-	.content-preview{padding-left: 5%; padding-right: 5%;padding-bottom: 5%;}
+	.content-preview{padding:15px;}
 	.content-preview h2{
 		color: blue;
 		text-align: center;
@@ -232,6 +232,9 @@
 	.box-header-principal{text-align: center;}
 	.image-preview-content{text-align: center;}
 	.image-preview-content img{width: 50%; height: auto;}
+
+	.preview-oaca h3, .btn-return-edit h3{float: left; margin-top: 11px;margin-left: 7px;}
+	.preview-oaca .fa-3x, .btn-return-edit .fa-3x{float: left;}
 
 	.contentchild{
 		border-radius: 25px;

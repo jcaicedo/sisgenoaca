@@ -29,16 +29,16 @@
 		
 		<div class="box-header box-header-principal">
 			<a id="preview-oaca" class="btn btn-warning">
-				<i class="fa fa-eye"></i>
-				Visualizar
+				<i class="fa fa-eye fa-3x"></i>
+				<h3>Preview</h3>
 			</a>
-			<a class="btn btn-warning nomostrar" id="preview">
-				<i class="fa fa-edit"></i>
-				Seguir Editando
+			<a class="btn btn-warning" id="preview">
+				<i class="fa fa-edit fa-3x"></i>
+				<h3>Seguir Editando</h3>
 			</a>
-			<button type="submit" class="btn btn-success nomostrar" id="processit">
-				<i class="fa fa-cogs"></i>
-				Procesar
+			<button type="submit" class="btn btn-success" id="processit">
+				<h3>{{trans('admin.development')}}</h3>
+				<i class="fa fa-hand-o-right fa-3x"></i>
 			</button>
 		</div>
 
@@ -248,7 +248,7 @@
 	.btn-proccess{margin:0 auto; width: 200px;align:left;}
 	.preview{display: none;}
 	.mark_background{background: #88AAAA}
-	.content-preview{padding:5%;}
+	/*.content-preview{padding:5%;}*/
 	.content-preview h2{
 		color: blue;
 		text-align: center;
@@ -257,6 +257,14 @@
 	.content-btn-preview{text-align: center;padding-top: 5px;}
 	.image-preview-content{text-align: center;}
 	.image-preview-content img{width: 50%; height: auto;}
+
+	#processit{float:right;}
+	#processit h3{float: left;margin-top: 11px;}
+	#processit .fa-3x{margin-left: 7px;}
+
+	#preview-oaca h3, #preview h3{float: left; margin-top: 11px;margin-left: 7px;}
+	#preview-oaca .fa-3x, #preview .fa-3x{float: left;}
+	
 	.contentchild{
 		border-radius: 25px;
 		border:2px solid #C8DAF0;

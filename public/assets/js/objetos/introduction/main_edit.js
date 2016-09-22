@@ -69,7 +69,7 @@ $("#preview-oaca").click(function(event) {
  $(".preview").show();
  $("#preview-oaca").hide();
  $("#preview").show();
- $("#processit").show();
+ //$("#processit").show();
 
 
 
@@ -82,7 +82,7 @@ $('#preview').click(function(e){
   $(".preview").hide();
   $("#preview-oaca").show();
   $("#preview").hide();
-  $("#processit").hide();
+  //$("#processit").hide();
 
 });
 
@@ -114,6 +114,7 @@ $(".btn-clear-input-image").click(function(e){
 
 $(document).ready(function (e) {
 	// body...
+  $("#preview").hide();
   var array_elements_delete = [];
   var count= $('input[name=count_elements_old]').val();
 
