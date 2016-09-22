@@ -58,6 +58,11 @@
 							<i class="fa fa-eye fa-3x"></i>
 							<h3>Preview</h3>
 						</a>
+						<button type="submit" class="btn btn-success" id="processit" >
+							<h3>{{trans('admin.close')}}</h3>
+							<i class="fa fa-hand-o-right fa-3x"></i>
+
+						</button>
 					</div>
 
 					
@@ -184,6 +189,11 @@
 									<i class="fa fa-edit fa-3x"></i>
 									<h3>Seguir Editando</h3>
 								</a>
+								<button type="submit" class="btn btn-success" id="processit" >
+									<h3>{{trans('admin.close')}}</h3>
+									<i class="fa fa-hand-o-right fa-3x"></i>
+
+								</button>
 
 								{{-- <button type="submit" class="btn btn-success">
 									<i class="fa fa-cogs"></i>
@@ -207,10 +217,10 @@
 				<ul class="pager wizard">
 					<li class="previous first" style="display:none;"><a href="#">First</a></li>
 					<li class="previous"><a href="#">Previous</a></li>
-					<button type="submit" class="btn btn-success">
+					{{-- <button type="submit" class="btn btn-success">
 						<i class="fa fa-cogs"></i>
 						Procesar
-					</button>
+					</button> --}}
 					<li class="next last" style="display:none;"><a href="#">Last</a></li>
 					<li class="next"><a href="#">Next</a></li>
 				</ul>
@@ -348,6 +358,10 @@
 	.box-header-principal{text-align: center;}
 	.image-preview-content{text-align: center;}
 	.image-preview-content img{width: 50%; height: auto;}
+
+	#processit{float:right;}
+	#processit h3{float: left;margin-top: 11px;}
+	#processit .fa-3x{margin-left: 7px;}
 
 	.preview-oaca h3, .btn-return-edit h3{float: left; margin-top: 11px;margin-left: 7px;}
 	.preview-oaca .fa-3x, .btn-return-edit .fa-3x{float: left;}
