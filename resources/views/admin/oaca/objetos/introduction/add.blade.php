@@ -40,7 +40,14 @@
 
 		<div class="content content-principal">
 			<div class="content contentchild sortable" id="contentchild0">
-
+				
+			<div class="box-header with-border">
+			
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
+			</div>
 			</div>
 		</div>
 		{{-- PREVIEW --}}
@@ -72,6 +79,16 @@
 
 {{-- Modulos de elementos ocultos para clonar --}}
 <div class="content sortable contentfather-clone nomostrar" id="contentchild1">
+	
+			<div>
+				<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
+			</div>
+			</div>
+			
+	
 
 </div>
 {{-- Modulo Title --}}
