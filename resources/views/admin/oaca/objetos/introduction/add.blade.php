@@ -45,18 +45,19 @@
 		</div>
 		{{-- PREVIEW --}}
 		<div class="content preview">
-			<div class="content-preview">
-				<div class="myclass">
-					<div>
+			<div class="content-preview regular slider">
+				
+				{{-- 	<div class="content sortable contentchild">
 						<h1>1</h1>
 					</div>	
-					<div>
+					<div class="content sortable contentchild">
 						<h1>2</h1>
 					</div>
-					<div>
+					<div class="content sortable contentchild"> 
 						<h1>3</h1>
-					</div>
-				</div>
+					</div> --}}
+					
+				
 			</div>
 		</div>
 	</form>
@@ -163,6 +164,7 @@
 
 <link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
 <link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
+<link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 
 
 <style>
@@ -199,6 +201,26 @@
 	.box{
 		border-radius:5px;
 	}
+		* {
+      box-sizing: border-box;
+    }
+	.slider {
+        width: 90%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+      margin: 0px 20px;
+    }
+
+    .slick-slide img {
+      width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
 
 
 </style>
@@ -210,15 +232,12 @@
 @push('scripts')
 <script src="/vendor/summernote/dist/summernote.js"></script>
 <script src="/vendor/slick-carousel/slick/slick.min.js"></script>
-<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 
 
 <script>
 	$(document).ready(function(){
-		$('.myclass').slick();
-
 		
 		$("#preview").hide();
 

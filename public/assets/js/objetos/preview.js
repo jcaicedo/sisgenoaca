@@ -63,6 +63,7 @@ $("#preview-oaca").click(function(event){
   });
 
 
+
 });
 
     //Hidden elements from edit content
@@ -71,7 +72,12 @@ $("#preview-oaca").click(function(event){
     $("#preview-oaca").hide();
     $("#preview").show();
    // $("#processit").show();
-
+$(".regular").slick({
+        dots: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1
+      });
    
 
 
@@ -81,6 +87,7 @@ $("#preview-oaca").click(function(event){
 
 $('#preview').click(function(e){
   e.preventDefault();
+  $(".regular").slick('unslick');
   $(".content-preview").html("");
   $(".content-principal").show();
   $(".preview").hide();
@@ -88,7 +95,9 @@ $('#preview').click(function(e){
   $("#preview").hide();
   //$("#processit").hide();
 
+
 });
+
 
 
 
