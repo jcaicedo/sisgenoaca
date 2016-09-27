@@ -39,34 +39,40 @@
 		</div>
 
 		<div class="content content-principal">
-			<div class="content contentchild sortable" id="contentchild0">
+			<div class="content contentchild sortable box" id="contentchild0">
+				<div class="box-header with-border">
+					
+					<div class="box-tools box-tools-content pull-right">
+						<button type="button" class="btn btn-box-tool">
+							<i class="fa fa-close"></i>
+						</button>
+						{{-- <button type="button" class="btn btn-box-tool" data-widget="collapse">
+							<i class="fa fa-minus"></i>
+						</button> --}}
+					</div>
+				</div>
 				
-			<div class="box-header with-border">
-			
-			<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
-					<i class="fa fa-close"></i>
-				</button>
-			</div>
+
 			</div>
 		</div>
 		{{-- PREVIEW --}}
 		<div class="content preview">
 			<div class="content-preview regular slider">
-				
-				{{-- 	<div class="content sortable contentchild">
-						<h1>1</h1>
-					</div>	
-					<div class="content sortable contentchild">
-						<h1>2</h1>
-					</div>
-					<div class="content sortable contentchild"> 
-						<h1>3</h1>
-					</div> --}}
-					
-				
+
+			{{-- 	<div class="content sortable contentchild">
+					<h1>1</h1>
+				</div>	
+				<div class="content sortable contentchild">
+					<h1>2</h1>
+				</div>
+				<div class="content sortable contentchild"> 
+					<h1>3</h1>
+				</div> --}}
+
+
 			</div>
 		</div>
+
 	</form>
 
 
@@ -79,16 +85,10 @@
 
 {{-- Modulos de elementos ocultos para clonar --}}
 <div class="content sortable contentfather-clone nomostrar" id="contentchild1">
-	
-			<div>
-				<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
-					<i class="fa fa-close"></i>
-				</button>
-			</div>
-			</div>
-			
-	
+
+
+
+
 
 </div>
 {{-- Modulo Title --}}
@@ -218,27 +218,30 @@
 	.box{
 		border-radius:5px;
 	}
-		* {
-      box-sizing: border-box;
-    }
+	* {
+		box-sizing: border-box;
+	}
 	.slider {
-        width: 90%;
-        margin: 100px auto;
-    }
+		width: 90%;
+		margin: 100px auto;
+	}
 
-    .slick-slide {
-      margin: 0px 20px;
-    }
+	.slick-slide {
+		margin: 0px 20px;
+	}
 
-    .slick-slide img {
-      width: 100%;
-    }
+	.slick-slide img {
+		width: 100%;
+	}
 
-    .slick-prev:before,
-    .slick-next:before {
-        color: black;
-    }
+	.slick-prev:before,
+	.slick-next:before {
+		color: black;
+	}
 
+	.box-tools-content{
+		top: -10px !important;
+	}
 
 </style>
 @endpush
@@ -255,7 +258,7 @@
 
 <script>
 	$(document).ready(function(){
-		
+
 		$("#preview").hide();
 
 		$("#myModal").modal('show'); /*Show Modal Automatic*/

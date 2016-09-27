@@ -72,12 +72,12 @@ $("#preview-oaca").click(function(event){
     $("#preview-oaca").hide();
     $("#preview").show();
    // $("#processit").show();
-$(".regular").slick({
-        dots: true,
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1
-      });
+   $(".regular").slick({
+    dots: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  });
    
 
 
