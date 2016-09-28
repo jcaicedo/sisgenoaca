@@ -80,6 +80,8 @@ $("#preview-oaca").click(function(event){
     slidesToShow: 1,
     slidesToScroll: 1
   });
+
+
    
 
 
@@ -125,6 +127,12 @@ $(".btn-clear-input-image").click(function(e){
   var id_image_input = $(this).data('content');
   $(id_image_input).val('');
 
+});
+
+$("#btn-slick-next").click(function(event) {
+  /* Act on the event */
+
+  $('.regular').slick('slickNext');
 });
 
 

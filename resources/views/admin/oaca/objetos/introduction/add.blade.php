@@ -20,7 +20,11 @@
 		<input type="hidden" name="elementos" value="" id="hidden_elementos">
 
 		<div class="box-header box-header-principal">
-
+			<a type="button" id="btn-slick-next" class="btn btn-warning">
+				<i class="fa fa-eye fa-3x"></i>
+				<h3>prev</h3>
+				
+			</a>
 			<a id="preview-oaca" class="btn btn-warning">
 				<i class="fa fa-eye fa-3x"></i>
 				<h3>Preview</h3>
