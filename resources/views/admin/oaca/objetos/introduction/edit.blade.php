@@ -47,6 +47,17 @@
 		<div class="content content-principal">
 			@foreach($collectChild as $key=>$collect)
 			<div class="content contentchild sortable" id="contentchild{{$count}}">
+				<div class="box-header with-border">
+
+					<div class="box-tools box-tools-content pull-right">
+						<button type="button" class="btn btn-box-tool remove-content" data-content = "#contentchild{{$count}}">
+							<i class="fa fa-close"></i>
+						</button>
+
+					</div>
+				</div>
+
+
 
 				@foreach($collect as $key=>$element)
 
@@ -273,6 +284,12 @@
 	}
 	.box{
 		border-radius:5px;
+	}
+
+
+
+	.box-tools-content{
+		top: -10px !important;
 	}
 
 

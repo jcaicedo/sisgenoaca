@@ -269,13 +269,43 @@ $(document).ready(function (e) {
 
        });
 
-				$( ".sortable:not(div.box-footer)" ).sortable({
-					axis: 'y',
-					opacity: 0.5,
-					tolerance: 'pointer',
-					handle: ".box-header"
+        $("#form-create-oaca").on('click','button.remove-content',function (e){
 
-				});
+          var divDelete = $(this).data('content');
+
+          $(divDelete+' button.remove-div').each(function(index, el){
+
+            if($(el).data('idelement')){
+              array_elements_delete.push($(el).data('idelement'));
+              $('#elementos-delete').val(array_elements_delete);
+              console.log($('#elementos-delete').val());
+            }
+          });
+
+          $(divDelete).remove();
+
+        });
 
 
-			});
+        $('#form-create-oaca').submit(function(event) {
+
+          $("#form-create-oaca [name='textarea']").each(function(index) {
+            var idcontent = $(this).data('content');
+
+            var content = $(this).summernote('code');
+
+            $('#'+idcontent).val(content);
+          });
+
+        });
+
+        $( ".sortable:not(div.box-footer)" ).sortable({
+         axis: 'y',
+         opacity: 0.5,
+         tolerance: 'pointer',
+         handle: ".box-header"
+
+       });
+
+
+      });
