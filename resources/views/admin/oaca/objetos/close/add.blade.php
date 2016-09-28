@@ -109,7 +109,15 @@
 {{-- Modulos de elementos ocultos para clonar --}}
 
 <div class="content sortable contentfather-clone nomostrar" id="contentchild1">
+	<div class="box-header with-border">
 
+		<div class="box-tools box-tools-content pull-right">
+			<button type="button" class="btn btn-box-tool remove-content">
+				<i class="fa fa-close"></i>
+			</button>
+
+		</div>
+	</div>
 </div>
 
 {{-- Modulo Title --}}
@@ -239,6 +247,10 @@
 		background:#C8DAF0;
 	}
 
+	.box-tools-content{
+		top: -10px !important;
+	}
+
 
 </style>
 @endpush
@@ -273,6 +285,14 @@
 		var divDelete = $(this).data('parent');
 
 		$("."+divDelete).remove();
+
+	});
+
+	$("#form-create-oaca-close").on('click','button.remove-content',function (e){
+
+		var divDelete = $(this).data('content');
+
+		$(divDelete).remove();
 
 	});
 

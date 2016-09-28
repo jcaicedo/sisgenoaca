@@ -18,6 +18,8 @@ $("#preview-oaca").click(function(event){
    'id':'contentchild-preview'+index
  });
 
+  childcontent_preview.find('div.box-header').remove();
+
   var id_contentepreview = $(childcontent_preview).attr('id');
   $(childcontent_preview).appendTo('.content-preview');
 

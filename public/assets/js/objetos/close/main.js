@@ -24,7 +24,11 @@ $('.preview-oaca').click(function(e){
 		.attr({
 			'id':'contentchild-preview'+count_childrenpreview
 		});
+
+		childrencontent_preview.find('div.box-header').remove();
+
 		count_childrenpreview++;
+		
 		var id_contentpreview = $(childrencontent_preview).attr('id');
 		$(childrencontent_preview).appendTo(content_preview);
 
@@ -224,6 +228,10 @@ $(document).ready(function(){
 			.attr({
 				'id':'contentchild'+count,
 				'data-pattern':$(this).data('pattern')
+			});
+
+			content.find('button').attr({
+				"data-content":"#contentchild"+count
 			});
 
 			$(content).appendTo('#'+$(this).attr('id'));

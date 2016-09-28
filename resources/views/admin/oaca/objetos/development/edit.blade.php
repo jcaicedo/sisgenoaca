@@ -67,12 +67,23 @@
 
 					
 					<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
+
 						
 						@if(isset($content_davelop[$pattern_array[$i-1]]))
 
 
 						@foreach($content2[$pattern_array[$i-1]] as $key=>$data)
 						<div class="content contentchild contentchildfirst sortable" id="contentchild{{$count_element}}" data-pattern='{{$pattern_array[$i-1]}}'>
+
+							<div class="box-header with-border">
+
+								<div class="box-tools box-tools-content pull-right">
+									<button type="button" class="btn btn-box-tool remove-content" data-content = "#contentchild{{$count_element}}">
+										<i class="fa fa-close"></i>
+									</button>
+
+								</div>
+							</div>
 							@foreach($data as $key=> $element)
 
 							@if($element->type_element == 'title')
@@ -239,7 +250,15 @@
 {{-- Modulos de elementos ocultos para clonar --}}
 
 <div class="content sortable contentfather-clone nomostrar" id="contentchild1">
+	<div class="box-header with-border">
 
+		<div class="box-tools box-tools-content pull-right">
+			<button type="button" class="btn btn-box-tool remove-content">
+				<i class="fa fa-close"></i>
+			</button>
+
+		</div>
+	</div>
 </div>
 
 {{-- Modulo Title --}}
@@ -373,6 +392,10 @@
 		background:#C8DAF0;
 	}
 
+	.box-tools-content{
+		top: -10px !important;
+	}
+
 </style>
 @endpush
 
@@ -440,6 +463,23 @@
 
 
 		$("."+divDelete).remove();
+
+	});
+
+	$("#form-create-oaca-develop").on('click','button.remove-content',function (e){
+
+		var divDelete = $(this).data('content');
+
+		$(divDelete+' button.remove-div').each(function(index, el){
+
+			if($(el).data('idelement')){
+				array_elements_delete.push($(el).data('idelement'));
+				$('#elementos-delete').val(array_elements_delete);
+				console.log($('#elementos-delete').val());
+			}
+		});
+
+		$(divDelete).remove();
 
 	});
 
