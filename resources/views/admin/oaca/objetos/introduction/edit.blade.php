@@ -161,7 +161,17 @@
 
 
 		<div class="content preview">
-			<div class="content-preview">
+			<div class="box-header box-header-preview">
+				<a class="btn btn-primary" id="btn-slick-prev">
+					<i class="fa fa-caret-square-o-left fa-3x"></i>
+
+				</a>
+				<a class="btn btn-primary" id="btn-slick-next">
+					<i class="fa fa-caret-square-o-right fa-3x"></i>
+
+				</a>
+			</div>
+			<div class="content-preview regular slider">
 				
 			</div>
 		</div>
@@ -252,6 +262,8 @@
 
 
 <link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
+<link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
+<link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 
 <style>
 	.nomostrar{display:none;}
@@ -275,6 +287,10 @@
 
 	#preview-oaca h3, #preview h3{float: left; margin-top: 11px;margin-left: 7px;}
 	#preview-oaca .fa-3x, #preview .fa-3x{float: left;}
+	.box-header-preview{
+		text-align: center;
+	}
+
 	
 	.contentchild{
 		border-radius: 25px;
@@ -286,7 +302,26 @@
 		border-radius:5px;
 	}
 
+	* {
+		box-sizing: border-box;
+	}
+	.slider {
+		width: 90%;
+		margin: 50px auto;
+	}
 
+	.slick-slide {
+		margin: 0px 20px;
+	}
+
+	.slick-slide img {
+		width: 100%;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		color: black;
+	}
 
 	.box-tools-content{
 		top: -10px !important;
@@ -302,6 +337,7 @@
 @push('scripts')
 <script src="/vendor/summernote/dist/summernote.js"></script>
 <!--<script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>-->
+<script src="/vendor/slick-carousel/slick/slick.min.js"></script>
 <script type="text/javascript"  src="/assets/js/objetos/introduction/main_edit.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
 

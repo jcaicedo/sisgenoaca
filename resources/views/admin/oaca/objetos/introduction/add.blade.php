@@ -20,11 +20,6 @@
 		<input type="hidden" name="elementos" value="" id="hidden_elementos">
 
 		<div class="box-header box-header-principal">
-			<a type="button" id="btn-slick-next" class="btn btn-warning">
-				<i class="fa fa-eye fa-3x"></i>
-				<h3>prev</h3>
-				
-			</a>
 			<a id="preview-oaca" class="btn btn-warning">
 				<i class="fa fa-eye fa-3x"></i>
 				<h3>Preview</h3>
@@ -51,6 +46,16 @@
 		</div>
 		{{-- PREVIEW --}}
 		<div class="content preview">
+			<div class="box-header box-header-preview">
+				<a class="btn btn-primary" id="btn-slick-prev">
+					<i class="fa fa-caret-square-o-left fa-3x"></i>
+
+				</a>
+				<a class="btn btn-primary" id="btn-slick-next">
+					<i class="fa fa-caret-square-o-right fa-3x"></i>
+
+				</a>
+			</div>
 			<div class="content-preview regular slider">
 
 			{{-- 	<div class="content sortable contentchild">
@@ -205,6 +210,10 @@
 	#preview-oaca h3, #preview h3{float: left; margin-top: 11px;margin-left: 7px;}
 	#preview-oaca .fa-3x, #preview .fa-3x{float: left;}
 
+	.box-header-preview{
+		text-align: center;
+	}
+
 
 
 	.contentchild{
@@ -221,7 +230,7 @@
 	}
 	.slider {
 		width: 90%;
-		margin: 100px auto;
+		margin: 50px auto;
 	}
 
 	.slick-slide {

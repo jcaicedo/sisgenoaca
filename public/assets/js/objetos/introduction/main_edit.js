@@ -13,7 +13,7 @@ $("#preview-oaca").click(function(event) {
     .attr({
      'id':'contentchild-preview'+index
    });
-
+    childcontent_preview.find('div.box-header').remove();
     var id_contentepreview = $(childcontent_preview).attr('id');
     $(childcontent_preview).appendTo('.content-preview');
 
@@ -70,6 +70,15 @@ $("#preview-oaca").click(function(event) {
  $("#preview-oaca").hide();
  $("#preview").show();
  //$("#processit").show();
+ $(".regular").slick({
+  dots: true,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  adaptiveHeight: true,
+  arrows: false,
+
+});
 
 
 
@@ -77,6 +86,7 @@ $("#preview-oaca").click(function(event) {
 
 $('#preview').click(function(e){
   e.preventDefault();
+  $(".regular").slick('unslick');
   $(".content-preview").html("");
   $(".content-principal").show();
   $(".preview").hide();
@@ -109,6 +119,17 @@ $(".btn-clear-input-image").click(function(e){
 });
 
 
+$("#btn-slick-next").click(function(event) {
+  /* Act on the event */
+
+  $('.regular').slick('slickNext');
+});
+
+$("#btn-slick-prev").click(function(event) {
+  /* Act on the event */
+
+  $('.regular').slick('slickPrev');
+});
 
 
 

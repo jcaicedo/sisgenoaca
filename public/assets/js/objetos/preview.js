@@ -78,7 +78,10 @@ $("#preview-oaca").click(function(event){
     dots: true,
     infinite: true,
     slidesToShow: 1,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    adaptiveHeight: true,
+    arrows: false,
+
   });
 
 
@@ -135,4 +138,9 @@ $("#btn-slick-next").click(function(event) {
   $('.regular').slick('slickNext');
 });
 
+$("#btn-slick-prev").click(function(event) {
+  /* Act on the event */
+
+  $('.regular').slick('slickPrev');
+});
 
