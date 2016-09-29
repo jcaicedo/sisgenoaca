@@ -176,6 +176,10 @@ $(document).ready(function (e) {
             'id':'contentchild'+count
           });
 
+          content.find('button').attr({
+            "data-content":"#contentchild"+count
+          });
+
           $(content).appendTo(".content-principal");
 
           $(".contentchild").droppable({

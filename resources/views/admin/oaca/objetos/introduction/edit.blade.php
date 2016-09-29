@@ -190,7 +190,15 @@
 
 {{-- Modulos de elementos ocultos para clonar --}}
 <div class="content sortable contentfather-clone nomostrar" id="contentchild1">
+	<div class="box-header with-border">
 
+		<div class="box-tools box-tools-content pull-right">
+			<button type="button" class="btn btn-box-tool remove-content">
+				<i class="fa fa-close"></i>
+			</button>
+
+		</div>
+	</div>
 </div>
 {{-- Modulo Title --}}
 
