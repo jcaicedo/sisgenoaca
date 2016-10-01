@@ -71,6 +71,9 @@
 									<a href="{{ url("admin/oaca/objetos/edit-introduction/{$registry->id}") }}" class="btn btn-sm btn-default">
 										<i class="fa fa-newspaper-o"></i>
 									</a>
+									<a href="{{ url("oaca/view/{$registry->id}")}}" class="btn btn-default" target="_blank">
+										<i class="fa fa-desktop"></i>
+									</a>
 									<a href="{{ url("admin/oaca/registry/{$registry->id}/delete")}}" class="btn btn-default">
 										<i class="fa fa-trash-o"></i>
 									</a>

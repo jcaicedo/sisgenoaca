@@ -47,7 +47,6 @@
 
 		@foreach($content as $key=>$element)
 
-
 		@if($element->type_element == 'title')
 		<div class="row">
 			<div class="col-md-12 title">
