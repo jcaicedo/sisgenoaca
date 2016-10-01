@@ -11,8 +11,6 @@ $('.preview-oaca').click(function(e){
 	var content_btn = $(this).data('btn');
 	var content_preview = $(this).data('contentprev');
 
-	console.log(preview);
-
 	$(content_data + " .contentchild").each(function(index,el){
 
 		var childrencontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
@@ -33,35 +31,23 @@ $('.preview-oaca').click(function(e){
 		$(childrencontent_preview).appendTo(content_preview);
 
 		$(".myinput",el).each(function(index, el){
-			console.log(id_contentpreview);
-			console.log(el);
+
 			var element = $(el).data('element');
 
 			switch(element){
 
 				case 'title':
-				console.log(id_contentpreview);
 				$('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentpreview);
-				/*$(content_preview).append('<h2>'+$(this).val()+'</h2>');*/
-				console.log('<h2>'+$(el).val()+'</h2>');
 				break;
 
 				case 'textarea':
-				console.log(id_contentpreview);
-
 				var content_textarea = $('#'+$(el).attr('id')).summernote('code');
 				$('<br>'+content_textarea+'<br>').appendTo('#'+id_contentpreview);
 				var idContent = $(el).data('content');
 				$("#"+idContent).val(content_textarea);
-				/*$(content_preview).append('<br>'+content_textarea+'<br>');
-				var idContent = $(el).data('content');
-				$("#"+idContent).val(content_textarea);*/
-				console.log(content_textarea);
 				break;
 
 				case 'image':
-				console.log(id_contentpreview);
-				console.log('image');
 				if($(el).val()!=''){
 
 					$('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentpreview);
@@ -91,49 +77,17 @@ $('.preview-oaca').click(function(e){
 	});
 
 
-	/*$(content_data+" .myinput").each(function(index){
-
-		var element = $(this).data('element');
-		switch(element){
-
-			case 'title':
-			$(content_preview).append('<h2>'+$(this).val()+'</h2>');
-			break;
-
-			case 'textarea':
-
-			var content_textarea = $('#'+$(this).attr('id')).summernote('code');
-			$(content_preview).append('<br>'+content_textarea+'<br>');
-			var idContent = $(this).data('content');
-			$("#"+idContent).val(content_textarea);
-			break;
-
-			case 'image':
-			if($(this).val()!=''){
-
-				$(content_preview).append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>');
-
-				$("#"+$(this).attr('id')).html(function(){
-
-					readImage(this,countImage);
-					countImage ++;
-				});
-			}else{
-
-				var id_image = $(this).attr('id')+'-original';
-				var image = $('#'+id_image).clone();
-				$(content_preview).append(image);
-			}
-			break;
-
-		}
-
-
-
-	});*/
-
 	$(content_data).hide();
 	$(preview).show();
+	console.log(content_preview);
+	$(content_preview).slick({
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		arrows: false,
+	});
 	$(content_btn).hide();
 
 
@@ -148,16 +102,16 @@ $('.btn-return-edit').click(function(e){
 	var content_data = $(this).data('content');
 	var content_btn = $(this).data('btn');
 	var content_preview = $(this).data('contentprev');
-	console.log(content_preview);
 
+	$(content_preview).slick('unslick');
 	$(content_preview).html("");
 	$(content_data).show();
 	$(content_btn).show();
 	$(preview).hide();
-	count_childrenpreview = 0;
+//	count_childrenpreview = 0;
 
 
-	
+
 
 
 
@@ -201,7 +155,7 @@ $(document).ready(function(){
 
 
 	var count= $('input[name=count_elements_old]').val();
-	console.log(count);
+
 
 	$( "#title, #textarea, #uploadimage, #contenedor" ).draggable({
 		appendTo: "body",
@@ -221,7 +175,7 @@ $(document).ready(function(){
 		accept:'.content-child',
 		drop:function(event, ui){
 			count++;
-			console.log(count);
+
 			var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
 			.removeClass('nomostrar')
 			.addClass('contentchild')
@@ -235,14 +189,10 @@ $(document).ready(function(){
 			});
 
 			$(content).appendTo('#'+$(this).attr('id'));
-			//console.log(content);
-			//console.log('content_principal: '+$(this).attr('id')+' contentchild: '+$(content).attr('id'));
-
+			
 			$(".contentchild").droppable({
 				accept:'.option',
 				drop:function(event, ui){
-					console.log(ui.draggable.data('element-option'));
-					console.log($(this).attr('id'));
 					var type = ui.draggable.data('element-option');
 					var id_content = $(this).attr('id');
 					newElement(type,id_content);
@@ -263,7 +213,6 @@ $(document).ready(function(){
 
 	var newElement = function(type, id_content){
 		if(type!='contenedor'){
-			console.log($(id_content));
 			switch(type){
 				case 'title':
 				var title = $(".titulo-clone").clone().removeClass('titulo-clone');
