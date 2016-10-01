@@ -276,6 +276,30 @@
 		color: black;
 	}
 
+	.box{
+		border-radius:5px;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	.slider {
+		width: 90%;
+		margin: 50px auto;
+	}
+
+	.slick-slide {
+		margin: 0px 20px;
+	}
+
+	.slick-slide img {
+		width: 100%;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		color: black;
+	}
+
 
 </style>
 @endpush

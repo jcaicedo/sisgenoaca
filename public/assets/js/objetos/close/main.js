@@ -90,7 +90,6 @@ $('.preview-oaca').click(function(e){
 
 	});
 
-
 	$(content_data).hide();
 	$(preview).show();
 	$(content_preview).slick({
