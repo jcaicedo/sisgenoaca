@@ -328,7 +328,6 @@
 <link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 
 
-
 <style>
 	.nomostrar{display:none;}
 	.mostrar{display: block;}
@@ -367,6 +366,30 @@
 	.box-tools-content{
 		top: -10px !important;
 	}
+	.box{
+		border-radius:5px;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	.slider {
+		width: 90%;
+		margin: 50px auto;
+	}
+
+	.slick-slide {
+		margin: 0px 20px;
+	}
+
+	.slick-slide img {
+		width: 100%;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		color: black;
+	}
+
 
 	.box{
 		border-radius:5px;
