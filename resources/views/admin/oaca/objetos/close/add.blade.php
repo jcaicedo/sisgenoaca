@@ -210,6 +210,8 @@
 
 <link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
 <link href="/assets/css/style_steps.css" rel="stylesheet">
+<link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
+<link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 
 
 <style>
@@ -250,6 +252,29 @@
 	.box-tools-content{
 		top: -10px !important;
 	}
+	.box{
+		border-radius:5px;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	.slider {
+		width: 90%;
+		margin: 50px auto;
+	}
+
+	.slick-slide {
+		margin: 0px 20px;
+	}
+
+	.slick-slide img {
+		width: 100%;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		color: black;
+	}
 
 
 </style>
@@ -266,6 +291,7 @@
 <script type="text/javascript" src="/assets/js/objetos/close/main.js" ></script>
 <script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
 </script>
+<script src="/vendor/slick-carousel/slick/slick.min.js"></script>
 
 <script>
 	$('#form-create-oaca-close').submit(function(event) {

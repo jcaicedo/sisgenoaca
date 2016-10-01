@@ -91,49 +91,16 @@ $('.preview-oaca').click(function(e){
 	});
 
 
-	/*$(content_data+" .myinput").each(function(index){
-
-		var element = $(this).data('element');
-		switch(element){
-
-			case 'title':
-			$(content_preview).append('<h2>'+$(this).val()+'</h2>');
-			break;
-
-			case 'textarea':
-
-			var content_textarea = $('#'+$(this).attr('id')).summernote('code');
-			$(content_preview).append('<br>'+content_textarea+'<br>');
-			var idContent = $(this).data('content');
-			$("#"+idContent).val(content_textarea);
-			break;
-
-			case 'image':
-			if($(this).val()!=''){
-
-				$(content_preview).append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>');
-
-				$("#"+$(this).attr('id')).html(function(){
-
-					readImage(this,countImage);
-					countImage ++;
-				});
-			}else{
-
-				var id_image = $(this).attr('id')+'-original';
-				var image = $('#'+id_image).clone();
-				$(content_preview).append(image);
-			}
-			break;
-
-		}
-
-
-
-	});*/
-
 	$(content_data).hide();
 	$(preview).show();
+	$(content_preview).slick({
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		arrows: false,
+	});
 	$(content_btn).hide();
 
 
@@ -150,11 +117,12 @@ $('.btn-return-edit').click(function(e){
 	var content_preview = $(this).data('contentprev');
 	console.log(content_preview);
 
+	$(content_preview).slick('unslick');
 	$(content_preview).html("");
 	$(content_data).show();
 	$(content_btn).show();
 	$(preview).hide();
-	count_childrenpreview = 0;
+
 
 
 	
