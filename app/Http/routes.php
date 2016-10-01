@@ -66,10 +66,12 @@ Route::group(['middleware' => 'web'],function(){
 
     Route::group(['namespace'=>'Oaca','prefix'=>'oaca'],function(){
 
-        Route::controller('/','OacaController');
+       Route::get('view/{id}',['uses'=>'OacaController@viewOaca']);
+       Route::controller('/','OacaController');
+       
 
 
-    });
+   });
 });
 
 Route::get('usuario/registro/',['uses'=>'UsersController@index']);

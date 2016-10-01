@@ -37,17 +37,17 @@
 							<section data-step="0"></section>
 							<br>
 
-							<div class="form-group col-xs-12">
+							<div class="form-group col-xs-12 col-md-4 col-lg-4">
 								<label for="identificator">{{trans('admin.identificator')}}<span> *</span></label>
 								<input type="text" class="form-control" id="identificator" name="identificator" placeholder="{{trans('admin.placeholderIdentificator')}}" value="{{$content_register->identificator}}">
 							</div>
 
-							<div class="form-group col-xs-12">
+							<div class="form-group col-xs-12 col-md-4 col-lg-4">
 								<label for="title">{{trans('admin.title')}}<span> *</span></label>
 								<input type="text" class="form-control" id="title" name="title" placeholder="{{trans('admin.placeholderTitle')}}" value="{{$content_register->title}}">
 							</div>
 
-							<div class="form-group col-xs-12">
+							<div class="form-group col-xs-12 col-md-4 col-lg-4">
 								<label for="language">{{trans('admin.language')}}<span> *</span></label>
 								<div>
 									<select name="language" id="language" class="form-control" required="">
