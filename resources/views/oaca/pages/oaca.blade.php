@@ -8,6 +8,8 @@
 
 	<section class="content introduction moment">
 
+		
+
 		@foreach($content_introduction as $key=>$element_introduction)
 
 		@if($element_introduction->type_element == 'title')
@@ -21,7 +23,7 @@
 		@if($element_introduction->type_element == 'textarea')
 		<div class="row ">
 			<div class="col-md-12 textarea">	
-				<p><?php echo $element_introduction->content ?></p>
+				<p>{{print_r($element_introduction->content) }}</p>
 			</div>
 		</div>
 		@endif
@@ -35,6 +37,10 @@
 		@endif
 
 		@endforeach
+
+
+
+
 	</section>
 
 	<!--./INTRODUCTION-->
@@ -58,7 +64,7 @@
 		@if($element->type_element == 'textarea')
 		<div class="row">
 			<div class="col-md-12 textarea">
-				<p><?php echo $element->content ?></p>
+				<p>{{ print_r ($element->content)}}</p>
 			</div>
 		</div>
 		@endif
@@ -101,7 +107,7 @@
 		@if($element->type_element == 'textarea')
 		<div class="row">
 			<div class="col-md-12 textarea">
-				<p><?php echo $element->content ?></p>
+				<p> {{print_r ($element->content)}} </p>
 			</div>
 		</div>
 		@endif
@@ -121,7 +127,6 @@
 	@endforeach
 
 	<!--./CLOSE-->
-	
 
 
 </div>
@@ -140,13 +145,12 @@
 <!--Styles-->
 @push('styles')
 
-<style>
-	
-</style>
+<link rel="stylesheet" type="text/css" href="/vendor/flexslider/flexslider.css">
 
 <!--Scripts-->
 @push('scripts')
 <script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<script type="text/javascript" src="/vendor/flexslider/jquery.flexslider.js"></script>
 
 <script>
 
@@ -154,11 +158,11 @@
 	$(document).ready(function (e) {
 
 		$('.textarea p').each(function(e){
-			
+
 			$(this).addClass('content-oaca-font-size');
 
 		});
-		
+
 		$('.btn-element-sidebar').click(function(argument) {
 			var content_section ='.'+$(this).data('element');
 			var title = $(this).data('title');

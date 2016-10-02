@@ -5,98 +5,98 @@
 <div class="content-wrapper">
 
 	{{-- <section class="content-header">
-		<h1>{{trans('admin.close')}}</h1>
-	</section> --}}
+	<h1>{{trans('admin.close')}}</h1>
+</section> --}}
 
-	<div class="box-header box-header-principal">
-		<h1 >{{trans('admin.close')}}
-			<div class="box-tool pull-right">
+<div class="box-header box-header-principal">
+	<h1 >{{trans('admin.close')}}
+		<div class="box-tool pull-right">
 			{{-- 	<a id="preview-oaca" class="btn btn-warning">
-					<i class="fa fa-eye"></i>
-					Visualizar
-				</a> --}}
-			</div>
-		</h1>
-		
-
+			<i class="fa fa-eye"></i>
+			Visualizar
+		</a> --}}
 	</div>
+</h1>
 
-	<form action="{{url('/admin/oaca/objetos/close')}}" method="post"  role="form" id="form-create-oaca-close" enctype="multipart/form-data" >
+
+</div>
+
+<form action="{{url('/admin/oaca/objetos/close')}}" method="post"  role="form" id="form-create-oaca-close" enctype="multipart/form-data" >
+	
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">
+	<input type="hidden" name="register_id" value="{{$register_id}}">
+	<input type="hidden" name="count_elements_old" value="5" id="count_elements_old">
+
+	<div id="rootwizard" class="tabbable tabs-left">
 		
-		<input type="hidden" name="_token" value="{{ csrf_token() }}">
-		<input type="hidden" name="register_id" value="{{$register_id}}">
-		<input type="hidden" name="count_elements_old" value="5" id="count_elements_old">
+		<ul class="nav bav-tabs">
+			<li><a href="#tab1" data-toggle="tab">{{trans('admin.systematization')}}</a></li>
+			<li><a href="#tab2" data-toggle="tab">{{trans('admin.investigation')}}</a></li>
+			<li><a href="#tab3" data-toggle="tab">{{trans('admin.evaluation')}}</a></li>
+		</ul>
+		<div id="bar" class="progress progress-info progress-striped">
+			<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 57.1429%;"></div>
+		</div>
 
-		<div id="rootwizard" class="tabbable tabs-left">
-			
-			<ul class="nav bav-tabs">
-				<li><a href="#tab1" data-toggle="tab">{{trans('admin.systematization')}}</a></li>
-				<li><a href="#tab2" data-toggle="tab">{{trans('admin.investigation')}}</a></li>
-				<li><a href="#tab3" data-toggle="tab">{{trans('admin.evaluation')}}</a></li>
-			</ul>
-			<div id="bar" class="progress progress-info progress-striped">
-				<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 57.1429%;"></div>
+		<div class="tab-content">
+
+			@for($i=1;$i<4;$i++)
+
+			<div class="tab-pane" id="tab{{$i}}">
+				{{-- botones de preview --}}
+				<div id="btn-prev{{$i}}" class="box-header box-header-principal">
+					<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
+						<i class="fa fa-eye fa-3x"></i>
+						<h3>Preview</h3>
+					</a>
+				</div>
+
+
+
+
+				<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
+					<div class="content contentchild contentchildfirst sortable" id="contentchild{{$i}}" data-pattern="{{$pattern_array[$i-1]}}">
+						
+					</div>
+				</div>
+
+
+				<div class="preview" id="prev{{$i}}">
+					<div class="box-header">
+						<div class="content-btn-preview" >
+
+							<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
+								<i class="fa fa-edit fa-3x"></i>
+								<h3>Seguir Editando</h3>
+							</a>
+						</div>
+					</div>
+
+
+
+					<div class="content-preview" id="content-prev{{$i}}">
+
+					</div>
+				</div>
 			</div>
 
-			<div class="tab-content">
+			@endfor
 
-				@for($i=1;$i<4;$i++)
-
-				<div class="tab-pane" id="tab{{$i}}">
-					{{-- botones de preview --}}
-					<div id="btn-prev{{$i}}" class="box-header box-header-principal">
-						<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
-							<i class="fa fa-eye fa-3x"></i>
-							<h3>Preview</h3>
-						</a>
-					</div>
-
-
-
-
-					<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
-						<div class="content contentchild contentchildfirst sortable" id="contentchild{{$i}}" data-pattern="{{$pattern_array[$i-1]}}">
-							
-						</div>
-					</div>
-
-
-					<div class="preview" id="prev{{$i}}">
-						<div class="box-header">
-							<div class="content-btn-preview" >
-
-								<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
-									<i class="fa fa-edit fa-3x"></i>
-									<h3>Seguir Editando</h3>
-								</a>
-							</div>
-						</div>
-
-
-
-						<div class="content-preview" id="content-prev{{$i}}">
-
-						</div>
-					</div>
-				</div>
-
-				@endfor
-
-				<div class="footer">
-					<ul class="pager wizard">
-						<li class="previous first" style="display:none;"><a href="#">First</a></li>
-						<li class="previous"><a href="#">Previous</a></li>
-						<button type="submit" class="btn btn-success">
-							<i class="fa fa-cogs"></i>
-							Procesar
-						</button>
-						<li class="next last" style="display:none;"><a href="#">Last</a></li>
-						<li class="next"><a href="#">Next</a></li>
-					</ul>
-				</div>
+			<div class="footer">
+				<ul class="pager wizard">
+					<li class="previous first" style="display:none;"><a href="#">First</a></li>
+					<li class="previous"><a href="#">Previous</a></li>
+					<button type="submit" class="btn btn-success">
+						<i class="fa fa-cogs"></i>
+						Procesar
+					</button>
+					<li class="next last" style="display:none;"><a href="#">Last</a></li>
+					<li class="next"><a href="#">Next</a></li>
+				</ul>
 			</div>
 		</div>
-	</form>
+	</div>
+</form>
 
 
 </div>
