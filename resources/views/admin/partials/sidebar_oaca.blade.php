@@ -66,6 +66,13 @@
 					<span>{{trans('menu.uploadimage')}}</span>
 				</a>
 			</li>
+
+			<li id="select-simple" data-element-option="select-simple" class="option ui-state-default">
+				<a href="#">
+					<i class="fa fa-reorder"></i>
+					<span>Selección Simple</span>
+				</a>
+			</li>
 			
 
 

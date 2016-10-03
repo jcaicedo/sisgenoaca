@@ -328,7 +328,10 @@ class GeneradorController extends AdminController
 		}
 
 		public function getPrueba(){
-			return view('admin.oaca.objetos.create_oaca');
+			return view('admin.oaca.objetos.introduction.add',[
+				"register_id" =>ElementsOaca::UUID_REGISTER,
+				"moment"=>ElementsOaca::INTRODUCTION,
+				"task_moment" => 'edit']);
 		}
 		public function postPrueba(Request $request){
 			dd($request->input('data'));

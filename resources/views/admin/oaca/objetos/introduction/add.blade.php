@@ -154,6 +154,26 @@
 	</div>
 </div>
 
+<!--modulo seleccion simple-->
+
+<div class="select-simple select-simple-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3>Selección Simple</h3>
+			<div class="box-tools pull-right">
+				<button class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
+			</div>
+		</div>
+		<div class="box-body">
+			<textarea rows="4" cols="100%" class="form-control componente">
+
+			</textarea>
+		</div>
+	</div>
+</div>
+
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -271,7 +291,7 @@
 		$("#myModal").modal('show'); /*Show Modal Automatic*/
 
 		var count =1;
-		$( "#title, #textarea, #uploadimage, #contenedor" ).draggable({
+		$( "#title, #textarea, #uploadimage, #contenedor, #select-simple" ).draggable({
 			appendTo: "body",
 			helper: "clone"
 		});
@@ -375,7 +395,7 @@
 
 					case 'uploadimage':
 					var uploadimage = $("div.uploadimage-clone").clone();
-					$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content)
+					$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
 
 					$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
 					$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
@@ -387,6 +407,11 @@
 
 					count ++;
 
+					break;
+
+					case 'select-simple':
+					var selectsimple = $("div.select-simple-clone").clone();
+					$(selectsimple).removeClass("nomostrar select-simple-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
 					break;
 
 
