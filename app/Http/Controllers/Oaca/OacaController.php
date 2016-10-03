@@ -13,20 +13,20 @@ class OacaController extends Controller
 {
 
 
-	function viewOaca($id = 0 ){
-		
+	function viewOaca($id = 0){
 		$oaca = RegistroOaca::find($id);
 		$content_introduction = ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION, $id);
 
 		$content_develop = ElementsOaca::searchElementsDevelop($id);
 		$content_close = ElementsOaca::searchElementsClose($id);
+		//dd($content_develop[1]);
 		return view('oaca.pages.oaca',[
 			'oaca'=>$oaca,
 			'content_introduction' => $content_introduction,
 			"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
-			"content_develop" => $content_develop,	
+			"content_develop" => $content_develop[1],	
 			"pattern_array" => ElementsOaca::CLOSE_ARRAY,
-			"content_close" => $content_close
+			"content_close" => $content_close[1]
 			]);
 	}
 
