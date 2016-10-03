@@ -24,12 +24,11 @@ class OacaController extends Controller
 		//dd( $collectChild_introduction);
 		return view('oaca.pages.oaca',[
 			'oaca'=>$oaca,
-			'content_introduction' => $content_introduction,
-			'$collectChild_introduction' = $collectChild_introduction,
+			'collectChild_introduction' => $collectChild_introduction,
 			"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
 			"content_develop" => $content_develop[2],	
 			"pattern_array" => ElementsOaca::CLOSE_ARRAY,
-			"content_close" => $content_close[1]
+			"content_close" => $content_close[2]
 			]);
 	}
 

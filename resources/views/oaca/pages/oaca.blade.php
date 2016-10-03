@@ -56,7 +56,7 @@
 
 	<section class="content develop-{{$key}} moment" style="display:none;">
 		<h2 class="content-oaca-font-size">{{$key}}</h2>
-		<div class="flexslider">
+		<div class="flexslider flexslider_deelop">
 			<ul class="slides">
 				@foreach($content_child as $key_child=>$content)
 				<li>
@@ -101,40 +101,46 @@
 	<!--CLOSE-->
 
 
-	@foreach($content_close as $key=>$content)
+	@foreach($content_close as $key=>$content_child)
 	<section class="content close-{{$key}} moment"  style="display:none;">
 		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<div class="flexslider">
+			<ul class="slides">
+				@foreach($content_child as $key_child=>$content)
+				<li>
+					@foreach($content as $key=>$element)
 
-		@foreach($content as $key=>$element)
+
+					@if($element->type_element == 'title')
+					<div class="row">
+						<div class="col-md-12 title">
+							<h1 class="content-oaca-font-size">{{$element->content}}</h1>
+						</div>
+					</div>
+					@endif
+
+					@if($element->type_element == 'textarea')
+					<div class="row">
+						<div class="col-md-12 textarea">
+							<p> {{print_r ($element->content)}} </p>
+						</div>
+					</div>
+					@endif
+
+					@if($element->type_element == 'image')
+					<div class="row">
+						<div class="col-md-12 image">
+							<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
+						</div>
+					</div>
+					@endif
 
 
-		@if($element->type_element == 'title')
-		<div class="row">
-			<div class="col-md-12 title">
-				<h1 class="content-oaca-font-size">{{$element->content}}</h1>
-			</div>
+					@endforeach
+				</li>
+				@endforeach
+			</ul>
 		</div>
-		@endif
-
-		@if($element->type_element == 'textarea')
-		<div class="row">
-			<div class="col-md-12 textarea">
-				<p> {{print_r ($element->content)}} </p>
-			</div>
-		</div>
-		@endif
-
-		@if($element->type_element == 'image')
-		<div class="row">
-			<div class="col-md-12 image">
-				<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
-			</div>
-		</div>
-		@endif
-
-
-		@endforeach
-
 	</section>
 	@endforeach
 
@@ -192,10 +198,10 @@
 		});
 
 
-		$('.flexslider').flexslider({
+		$('.flexslider, .flexslider_deelop').flexslider({
 			animation: "slide",
 			animationLoop:true,
-			slidershow: true
+			slideshow: false,
 
 		});
 		
