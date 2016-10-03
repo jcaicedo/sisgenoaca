@@ -202,6 +202,7 @@
 			animation: "slide",
 			animationLoop:true,
 			slideshow: false,
+			smoothHeight: true,
 
 		});
 		
