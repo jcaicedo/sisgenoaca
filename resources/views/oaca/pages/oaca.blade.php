@@ -8,72 +8,90 @@
 
 	<section class="content introduction moment">
 
-		@foreach($content_introduction as $key=>$element_introduction)
+		
+		<div class="flexslider flexslider-motivation">
+			<ul class="slides">
+				@foreach($collectChild_introduction as $key=>$collect)
+				<li>
+					@foreach($collect as $key=>$element_introduction)
 
-		@if($element_introduction->type_element == 'title')
-		<div class="row">
-			<div class="col-md-12 title">
-				<h1 class="content-oaca-font-size">{{ $element_introduction->content }}</h1>
-			</div>
+					@if($element_introduction->type_element == 'title')
+					<div class="row">
+						<div class="col-md-12 title">
+							<h1 class="content-oaca-font-size">{{ $element_introduction->content }}</h1>
+						</div>
+					</div>
+					@endif
+
+					@if($element_introduction->type_element == 'textarea')
+					<div class="row ">
+						<div class="col-md-12 textarea">	
+							<p>{{print_r($element_introduction->content) }}</p>
+						</div>
+					</div>
+					@endif
+
+					@if($element_introduction->type_element == 'image')
+					<div class="row">
+						<div class="col-md-12 image">
+							<img src="{{ $element_introduction->content }}" alt="" style="width:50%; height:auto">
+						</div>
+					</div>
+					@endif
+
+					@endforeach
+				</li>
+				@endforeach
+
+			</ul>
 		</div>
-		@endif
 
-		@if($element_introduction->type_element == 'textarea')
-		<div class="row ">
-			<div class="col-md-12 textarea">	
-				<p><?php echo $element_introduction->content ?></p>
-			</div>
-		</div>
-		@endif
-
-		@if($element_introduction->type_element == 'image')
-		<div class="row">
-			<div class="col-md-12 image">
-				<img src="{{ $element_introduction->content }}" alt="" style="width:50%; height:auto">
-			</div>
-		</div>
-		@endif
-
-		@endforeach
 	</section>
 
 	<!--./INTRODUCTION-->
 	<!--DEVELOP-->
 
 
-	@foreach($content_develop as $key=>$content)
+	@foreach($content_develop as $key=>$content_child)
+
 	<section class="content develop-{{$key}} moment" style="display:none;">
 		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<div class="flexslider flexslider_develop">
+			<ul class="slides">
+				@foreach($content_child as $key_child=>$content)
+				<li>
+					@foreach($content as $key=>$element)
 
-		@foreach($content as $key=>$element)
+					@if($element->type_element == 'title')
+					<div class="row">
+						<div class="col-md-12 title">
+							<h1 class="content-oaca-font-size">{{$element->content}}</h1>
+						</div>
+					</div>
+					@endif
 
-		@if($element->type_element == 'title')
-		<div class="row">
-			<div class="col-md-12 title">
-				<h1 class="content-oaca-font-size">{{$element->content}}</h1>
-			</div>
+					@if($element->type_element == 'textarea')
+					<div class="row">
+						<div class="col-md-12 textarea">
+							<p>{{ print_r ($element->content)}}</p>
+						</div>
+					</div>
+					@endif
+
+					@if($element->type_element == 'image')
+					<div class="row">
+						<div class="col-md-12 image">
+							<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
+						</div>
+					</div>
+					@endif
+
+
+					@endforeach
+				</li>
+				@endforeach
+			</ul>
 		</div>
-		@endif
-
-		@if($element->type_element == 'textarea')
-		<div class="row">
-			<div class="col-md-12 textarea">
-				<p><?php echo $element->content ?></p>
-			</div>
-		</div>
-		@endif
-
-		@if($element->type_element == 'image')
-		<div class="row">
-			<div class="col-md-12 image">
-				<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
-			</div>
-		</div>
-		@endif
-
-
-		@endforeach
-
 	</section>
 	@endforeach
 
@@ -83,45 +101,50 @@
 	<!--CLOSE-->
 
 
-	@foreach($content_close as $key=>$content)
+	@foreach($content_close as $key=>$content_child)
 	<section class="content close-{{$key}} moment"  style="display:none;">
 		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<div class="flexslider">
+			<ul class="slides">
+				@foreach($content_child as $key_child=>$content)
+				<li>
+					@foreach($content as $key=>$element)
 
-		@foreach($content as $key=>$element)
+
+					@if($element->type_element == 'title')
+					<div class="row">
+						<div class="col-md-12 title">
+							<h1 class="content-oaca-font-size">{{$element->content}}</h1>
+						</div>
+					</div>
+					@endif
+
+					@if($element->type_element == 'textarea')
+					<div class="row">
+						<div class="col-md-12 textarea">
+							<p> {{print_r ($element->content)}} </p>
+						</div>
+					</div>
+					@endif
+
+					@if($element->type_element == 'image')
+					<div class="row">
+						<div class="col-md-12 image">
+							<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
+						</div>
+					</div>
+					@endif
 
 
-		@if($element->type_element == 'title')
-		<div class="row">
-			<div class="col-md-12 title">
-				<h1 class="content-oaca-font-size">{{$element->content}}</h1>
-			</div>
+					@endforeach
+				</li>
+				@endforeach
+			</ul>
 		</div>
-		@endif
-
-		@if($element->type_element == 'textarea')
-		<div class="row">
-			<div class="col-md-12 textarea">
-				<p><?php echo $element->content ?></p>
-			</div>
-		</div>
-		@endif
-
-		@if($element->type_element == 'image')
-		<div class="row">
-			<div class="col-md-12 image">
-				<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
-			</div>
-		</div>
-		@endif
-
-
-		@endforeach
-
 	</section>
 	@endforeach
 
 	<!--./CLOSE-->
-	
 
 
 </div>
@@ -140,26 +163,36 @@
 <!--Styles-->
 @push('styles')
 
-<style>
-	
-</style>
+<link rel="stylesheet" type="text/css" href="/vendor/flexslider/flexslider.css">
 
 <!--Scripts-->
 @push('scripts')
 <script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- FlexSlider -->
+<script defer src="/vendor/flexslider/jquery.flexslider.js"></script>
+
 
 <script>
 
 
 	$(document).ready(function (e) {
 
+		$('.flexslider-motivation').flexslider({
+			animation: "slide",
+			animationLoop:true,
+			slideshow: false,
+			smoothHeight: true,
+
+		});
+
 		$('.textarea p').each(function(e){
-			
+
 			$(this).addClass('content-oaca-font-size');
 
 		});
-		
+
 		$('.btn-element-sidebar').click(function(argument) {
+
 			var content_section ='.'+$(this).data('element');
 			var title = $(this).data('title');
 			var subtitle = $(this).data('subtitle');
@@ -170,10 +203,27 @@
 			$(".moment").hide();
 			$(content_section).show();
 
+			if($(this).data('flexslider')=='0'){
+				var carousel = $(content_section).find("div.flexslider");
+				$(carousel).flexslider({
+					animation: "slide",
+					animationLoop:true,
+					slideshow: false,
+					smoothHeight: true,
+				});
+
+				$(this).data('flexslider','1');
+			}
+
 			console.log($(this).data('element'));
 		});
 
 
+		
+		
 
 	});
 </script>
+
+
+
