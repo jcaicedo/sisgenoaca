@@ -77,9 +77,9 @@
 									<a href="{{ url("admin/oaca/registry/{$registry->id}/delete")}}" class="btn btn-default">
 										<i class="fa fa-trash-o"></i>
 									</a>
-									<a href="{{ url("oaca/view/{$registry->id}")}}" class="btn btn-default">
+									{{-- <a href="{{ url("oaca/view/{$registry->id}")}}" class="btn btn-default">
 										<i class="fa fa-desktop"></i>
-									</a>
+									</a> --}}
 								</td>
 							</tr>
 							@endforeach
