@@ -9,7 +9,7 @@
 	<section class="content introduction moment">
 
 		
-		<div class="flexslider">
+		<div class="flexslider flexslider-motivation">
 			<ul class="slides">
 				@foreach($collectChild_introduction as $key=>$collect)
 				<li>
@@ -56,7 +56,7 @@
 
 	<section class="content develop-{{$key}} moment" style="display:none;">
 		<h2 class="content-oaca-font-size">{{$key}}</h2>
-		<div class="flexslider flexslider_deelop">
+		<div class="flexslider flexslider_develop">
 			<ul class="slides">
 				@foreach($content_child as $key_child=>$content)
 				<li>
@@ -177,6 +177,14 @@
 
 	$(document).ready(function (e) {
 
+		$('.flexslider-motivation').flexslider({
+			animation: "slide",
+			animationLoop:true,
+			slideshow: false,
+			smoothHeight: true,
+
+		});
+
 		$('.textarea p').each(function(e){
 
 			$(this).addClass('content-oaca-font-size');
@@ -184,6 +192,7 @@
 		});
 
 		$('.btn-element-sidebar').click(function(argument) {
+
 			var content_section ='.'+$(this).data('element');
 			var title = $(this).data('title');
 			var subtitle = $(this).data('subtitle');
@@ -194,17 +203,23 @@
 			$(".moment").hide();
 			$(content_section).show();
 
+			if($(this).data('flexslider')=='0'){
+				var carousel = $(content_section).find("div.flexslider");
+				$(carousel).flexslider({
+					animation: "slide",
+					animationLoop:true,
+					slideshow: false,
+					smoothHeight: true,
+				});
+
+				$(this).data('flexslider','1');
+			}
+
 			console.log($(this).data('element'));
 		});
 
 
-		$('.flexslider, .flexslider_deelop').flexslider({
-			animation: "slide",
-			animationLoop:true,
-			slideshow: false,
-			smoothHeight: true,
-
-		});
+		
 		
 
 	});
