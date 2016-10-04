@@ -5,7 +5,7 @@
 			<ul class="sidebar-menu">
 				<li class="header content-oaca-font-size">MENÚ PRINCIPAL</li>
 				<li class="treeview">
-					<a href="#" class="btn-element-sidebar" data-element="introduction" data-title="Motivación" data-subtitle="Motivación">
+					<a href="#" class="btn-element-sidebar" data-element="introduction" data-title="Motivación" data-subtitle="Motivación" data-flexslider="1">
 						<span class="content-oaca-font-size">{{trans('admin.motivation')}}</span>
 					</a>
 				</li>
@@ -16,49 +16,49 @@
 					</a>
 					<ul class="treeview-menu">
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-explanation" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.explanation')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-explanation" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.explanation')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.explanation')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-exemplification" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.exemplification')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-exemplification" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.exemplification')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.exemplification')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-application" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.application')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-application" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.application')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.application')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-justification" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.justification')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-justification" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.justification')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.justification')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-compare" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.compare')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-compare" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.compare')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.compare')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-contrast" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.contrast')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-contrast" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.contrast')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.contrast')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-contextualization" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.contextualization')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-contextualization" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.contextualization')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.contextualization')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-generalization" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.generalization')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="develop-generalization" data-title="{{trans('admin.development')}}" data-subtitle="{{trans('admin.generalization')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.generalization')}}
 							</a>
@@ -72,19 +72,19 @@
 					</a>
 					<ul class="treeview-menu">
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="close-systematization" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.systematization')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="close-systematization" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.systematization')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.systematization')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="close-investigation" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.investigation')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="close-investigation" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.investigation')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.investigation')}}
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="close-evaluation" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.evaluation')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="close-evaluation" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.evaluation')}}" data-flexslider="0">
 								<i class="fa fa-circle-o"></i>
 								{{trans('admin.evaluation')}}
 							</a>
