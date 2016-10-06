@@ -16,7 +16,7 @@ class ElementsContents extends Migration
 
             $table->increments('id');
             $table->string('type_element');
-            $table->longText('content');
+            $table->longText('content')->nullable();
             $table->string('moment');
             $table->string('pattern_pedagogicaltechno')->nullable();
             $table->integer('position_order');
@@ -41,6 +41,6 @@ class ElementsContents extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExist('elements');
     }
 }

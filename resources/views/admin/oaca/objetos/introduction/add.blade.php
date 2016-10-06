@@ -167,9 +167,39 @@
 			</div>
 		</div>
 		<div class="box-body">
-			<textarea rows="4" cols="100%" class="form-control componente">
-
-			</textarea>
+			<div class="form-group">
+				<textarea class="form-control" rows="3" placeholder="Ingrese Pregunta..."></textarea>
+				<div class="col-xs-5 input-group input-group-select-simple">
+					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
+					<span class="input-group-addon">
+						<input type="radio" name="radio1" id="radio1"></input>
+					</span>
+					<span class="input-group-addon">
+						<i class="fa fa-close"></i>
+					</span>
+				</div>
+				<div class="col-xs-5 input-group input-group-select-simple">
+					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
+					<span class="input-group-addon">
+						<input type="radio" name="radio2" id="radio2"></input>
+					</span>
+					<span class="input-group-addon">
+						<i class="fa fa-close"></i>
+					</span>
+				</div>
+				<div class="col-xs-5 input-group input-group-select-simple">
+					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
+					<span class="input-group-addon">
+						<input type="radio" name="radio3" id="radio3"></input>
+					</span>
+					<span class="input-group-addon">
+						<i class="fa fa-close"></i>
+					</span>
+				</div>
+				
+				
+				
+			</div>	
 		</div>
 	</div>
 </div>
@@ -269,6 +299,8 @@
 	.box-tools-content{
 		top: -10px !important;
 	}
+
+	.input-group-select-simple{margin-top: 18px;}
 
 </style>
 @endpush
@@ -412,6 +444,11 @@
 					case 'select-simple':
 					var selectsimple = $("div.select-simple-clone").clone();
 					$(selectsimple).removeClass("nomostrar select-simple-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
+					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][content]' value=''>");
+					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][type]' value='selectsimple'>");
+					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id]' value=''>");
+					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+
 					break;
 
 
