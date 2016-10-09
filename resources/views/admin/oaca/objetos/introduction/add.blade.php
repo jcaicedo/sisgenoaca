@@ -235,6 +235,7 @@
 <link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
 <link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
 <link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+<link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
 
 
 <style>
@@ -313,6 +314,8 @@
 <script src="/vendor/slick-carousel/slick/slick.min.js"></script>
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+
+
 
 
 <script>
