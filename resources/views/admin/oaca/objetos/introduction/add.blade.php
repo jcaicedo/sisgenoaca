@@ -37,11 +37,11 @@
 
 		</div>
 
+		{{-- CONTENEDOR PARA AGREGAR LOS ELEMENTOS --}}
 		<div class="content content-principal">
 			<div class="content contentchild sortable box" id="contentchild0">
 				
 				
-
 			</div>
 		</div>
 		{{-- PREVIEW --}}
@@ -172,7 +172,10 @@
 				<div class="col-xs-5 input-group input-group-select-simple">
 					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
-						<input type="radio" name="radio1" id="radio1"></input>
+						<label>
+							<input type="radio" name="r1" class="minimal" checked>
+						</label>
+						
 					</span>
 					<span class="input-group-addon">
 						<i class="fa fa-close"></i>
@@ -181,7 +184,7 @@
 				<div class="col-xs-5 input-group input-group-select-simple">
 					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
-						<input type="radio" name="radio2" id="radio2"></input>
+						<input type="radio" name="r1" class="minimal">
 					</span>
 					<span class="input-group-addon">
 						<i class="fa fa-close"></i>
@@ -190,7 +193,7 @@
 				<div class="col-xs-5 input-group input-group-select-simple">
 					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
-						<input type="radio" name="radio3" id="radio3"></input>
+						<input type="radio" name="r1" class="minimal" >
 					</span>
 					<span class="input-group-addon">
 						<i class="fa fa-close"></i>
@@ -314,6 +317,8 @@
 <script src="/vendor/slick-carousel/slick/slick.min.js"></script>
 <script type="text/javascript"  src="/assets/js/objetos/preview.js" ></script>
 <script type="text/javascript" src="/vendor/jqueryte/dist/jquery-te-1.4.0.min.js" charset="utf-8"></script>
+<!-- iCheck 1.0.1 -->
+<script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 
 
 
@@ -321,17 +326,52 @@
 <script>
 	$(document).ready(function(){
 
-		$("#preview").hide();
+//iCheck for checkbox and radio inputs
+/*$('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+	checkboxClass: 'icheckbox_minimal-blue',
+	radioClass: 'iradio_minimal-blue'
+});*/
+$("#preview").hide();
 
-		$("#myModal").modal('show'); /*Show Modal Automatic*/
+$("#myModal").modal('show'); /*Show Modal Automatic*/
 
-		var count =1;
-		$( "#title, #textarea, #uploadimage, #contenedor, #select-simple" ).draggable({
-			appendTo: "body",
-			helper: "clone"
+var count =1;
+$( "#title, #textarea, #uploadimage, #contenedor, #select-simple" ).draggable({
+	appendTo: "body",
+	helper: "clone"
+});
+
+$("#contentchild0").droppable({
+	accept:'.option',
+	drop: function(event, ui){
+
+		console.log(ui.draggable.data('element-option'));
+		var type = ui.draggable.data('element-option');
+		var id_content =  '#'+$(this).attr('id');
+		newElement(type,id_content);
+
+	}
+});
+
+$(".content-principal").droppable({
+	accept:'.content-child',
+	drop:function(event, ui){
+		count++;
+		console.log(count);
+		var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
+		.removeClass('nomostrar')
+		.addClass('contentchild')
+		.attr({
+			'id':'contentchild'+count
 		});
 
-		$("#contentchild0").droppable({
+		content.find('button').attr({
+			"data-content":"#contentchild"+count
+		});
+
+		$(content).appendTo(".content-principal");
+
+		$(".contentchild").droppable({
 			accept:'.option',
 			drop: function(event, ui){
 
@@ -342,169 +382,148 @@
 
 			}
 		});
-
-		$(".content-principal").droppable({
-			accept:'.content-child',
-			drop:function(event, ui){
-				count++;
-				console.log(count);
-				var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
-				.removeClass('nomostrar')
-				.addClass('contentchild')
-				.attr({
-					'id':'contentchild'+count
-				});
-
-				content.find('button').attr({
-					"data-content":"#contentchild"+count
-				});
-
-				$(content).appendTo(".content-principal");
-
-				$(".contentchild").droppable({
-					accept:'.option',
-					drop: function(event, ui){
-
-						console.log(ui.draggable.data('element-option'));
-						var type = ui.draggable.data('element-option');
-						var id_content =  '#'+$(this).attr('id');
-						newElement(type,id_content);
-
-					}
-				});
-				$( ".sortable:not(div.box-footer)" ).sortable({
-					axis: 'y',
-					opacity: 0.5,
-					tolerance: 'pointer',
-					handle: ".box-header"
-
-				});
-
-			}/*./drop */
-
+		$( ".sortable:not(div.box-footer)" ).sortable({
+			axis: 'y',
+			opacity: 0.5,
+			tolerance: 'pointer',
+			handle: ".box-header"
 
 		});
 
-		var newElement = function(type, id_content){
-			if(type!='contenedor'){
-
-				switch(type){
-					case 'title':
-					var title = $(".titulo-clone").clone().removeClass('titulo-clone');
-					$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo(id_content);
-					$(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
-					$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-					$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
-					$("#title-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-					$("#title-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+	}/*./drop */
 
 
-					count ++;
+});
 
-					break;
+var newElement = function(type, id_content){
+	if(type!='contenedor'){
 
-					case 'textarea':
-					var textarea = $(".textareaclone").clone();
-					$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo( id_content );
-					$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
-					$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
-					$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-					$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
-					$("#textarea"+count).after("<input type='hidden' name='data["+count+"][type]'  value='textarea'>");
-					$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-					$("#textarea"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
-
-
-					$('#textarea'+count).summernote({
-						height: 300,               
-						minHeight: null,             
-						maxHeight: null,             
-						focus: true,
-						maximumImageFileSize: 512*1024  
-					});
+		switch(type){
+			case 'title':
+			var title = $(".titulo-clone").clone().removeClass('titulo-clone');
+			$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo(id_content);
+			$(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
+			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+			$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
+			$("#title-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+			$("#title-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
 
 
-					count ++;
+			count ++;
 
-					break;
+			break;
 
-					case 'uploadimage':
-					var uploadimage = $("div.uploadimage-clone").clone();
-					$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
-
-					$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
-					$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-					$("#imagep-"+count).addClass("componente");
-					$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
-					$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
-					$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-					$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
-
-					count ++;
-
-					break;
-
-					case 'select-simple':
-					var selectsimple = $("div.select-simple-clone").clone();
-					$(selectsimple).removeClass("nomostrar select-simple-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
-					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][content]' value=''>");
-					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][type]' value='selectsimple'>");
-					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id]' value=''>");
-					$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
-
-					break;
+			case 'textarea':
+			var textarea = $(".textareaclone").clone();
+			$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo( id_content );
+			$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
+			$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
+			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
+			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][type]'  value='textarea'>");
+			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
 
 
-				}}
-
-			};
-
-
-
-			$("#form-create-oaca").on('click','button.remove-div',function (e){
-
-				var divDelete = $(this).data('parent');
-
-				$("."+divDelete).remove();
-
-			});
-
-			$("#form-create-oaca").on('click','button.remove-content',function (e){
-
-				var divDelete = $(this).data('content');
-
-				$(divDelete).remove();
-
+			$('#textarea'+count).summernote({
+				height: 300,               
+				minHeight: null,             
+				maxHeight: null,             
+				focus: true,
+				maximumImageFileSize: 512*1024  
 			});
 
 
+			count ++;
 
-			$( ".sortable:not(div.box-footer)" ).sortable({
-				axis: 'y',
-				opacity: 0.5,
-				tolerance: 'pointer',
-				handle: ".box-header"
+			break;
 
-			});
+			case 'uploadimage':
+			var uploadimage = $("div.uploadimage-clone").clone();
+			$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
 
-			$('#form-create-oaca').submit(function(event) {
+			$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
+			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+			$("#imagep-"+count).addClass("componente");
+			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
+			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
+			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
 
-				$("#form-create-oaca [name='textarea']").each(function(index) {
-					var idcontent = $(this).data('content');
+			count ++;
 
-					var content = $(this).summernote('code');
+			break;
 
-					$('#'+idcontent).val(content);
+			case 'select-simple':
+			var selectsimple = $("div.select-simple-clone").clone();
+			$(selectsimple).removeClass("nomostrar select-simple-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
+			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][content]' value=''>");
+			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][type]' value='selectsimple'>");
+			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id]' value=''>");
+			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+
+			$(".remove-div-"+count+' input.minimal').each(function(index){
+				$(this).attr({'name':'data['+count+'][checked]'});
+
+				$(this).iCheck({
+					checkboxClass: 'icheckbox_minimal-blue',
+					radioClass: 'iradio_minimal-blue'
 				});
-
 			});
+			count++;
+			break;
 
 
+		}}
+
+	};
+
+
+
+	$("#form-create-oaca").on('click','button.remove-div',function (e){
+
+		var divDelete = $(this).data('parent');
+
+		$("."+divDelete).remove();
+
+	});
+
+	$("#form-create-oaca").on('click','button.remove-content',function (e){
+
+		var divDelete = $(this).data('content');
+
+		$(divDelete).remove();
+
+	});
+
+
+
+	$( ".sortable:not(div.box-footer)" ).sortable({
+		axis: 'y',
+		opacity: 0.5,
+		tolerance: 'pointer',
+		handle: ".box-header"
+
+	});
+
+	$('#form-create-oaca').submit(function(event) {
+
+		$("#form-create-oaca [name='textarea']").each(function(index) {
+			var idcontent = $(this).data('content');
+
+			var content = $(this).summernote('code');
+
+			$('#'+idcontent).val(content);
 		});
 
+	});
 
 
-	</script>
-	<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
-	</script>
-	@endpush
+});
+
+
+
+</script>
+<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" >
+</script>
+@endpush
