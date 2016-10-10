@@ -120,6 +120,9 @@ class GeneradorController extends AdminController
 					$element->contentchild = $value['contentchild'];
 					$element->register_id =  $request->input('register_id');
 					$element->save();
+
+					$selectsimple = SelectSimpleElements::firstOrNew(['id'=>])
+
 					$position ++;
 				}
 			}}
