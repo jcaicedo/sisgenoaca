@@ -168,12 +168,12 @@
 		</div>
 		<div class="box-body">
 			<div class="form-group">
-				<textarea class="form-control" rows="3" placeholder="Ingrese Pregunta..."></textarea>
+				<textarea class="form-control" name="" rows="3" placeholder="Ingrese Pregunta..."></textarea>
 				<div class="col-xs-5 input-group input-group-select-simple">
-					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
+					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
 						<label>
-							<input type="radio" name="r1" class="minimal" checked>
+							<input type="radio" name="r1" class="minimal"  value="1" checked>
 						</label>
 						
 					</span>
@@ -182,18 +182,18 @@
 					</span>
 				</div>
 				<div class="col-xs-5 input-group input-group-select-simple">
-					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
+					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
-						<input type="radio" name="r1" class="minimal">
+						<input type="radio" name="r1" class="minimal" value="2" >
 					</span>
 					<span class="input-group-addon">
 						<i class="fa fa-close"></i>
 					</span>
 				</div>
 				<div class="col-xs-5 input-group input-group-select-simple">
-					<input class="form-control" type="text" placeholder="Ingrese respuesta..."/>
+					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
-						<input type="radio" name="r1" class="minimal" >
+						<input type="radio" name="r1" class="minimal" value="3"  >
 					</span>
 					<span class="input-group-addon">
 						<i class="fa fa-close"></i>
@@ -462,7 +462,7 @@ var newElement = function(type, id_content){
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id]' value=''>");
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
 
-			$(".remove-div-"+count+' input.minimal').each(function(index){
+			$(".remove-div-"+count+" input.minimal").each(function(index){
 				$(this).attr({'name':'data['+count+'][checked]'});
 
 				$(this).iCheck({
@@ -470,53 +470,61 @@ var newElement = function(type, id_content){
 					radioClass: 'iradio_minimal-blue'
 				});
 			});
+
+			$(".remove-div-"+count+" input.answer").each(function(index){
+				$(this).attr({'name':'data['+count+'][answers][]'});
+			});
+
+			$('.remove-div-'+count+' textarea').attr({'name':'data['+count+'][question]'});
+
 			count++;
 			break;
 
 
-		}}
+		}
+	}
 
-	};
+};
 
 
 
-	$("#form-create-oaca").on('click','button.remove-div',function (e){
+$("#form-create-oaca").on('click','button.remove-div',function (e){
 
-		var divDelete = $(this).data('parent');
+	var divDelete = $(this).data('parent');
 
-		$("."+divDelete).remove();
+	$("."+divDelete).remove();
 
+});
+
+$("#form-create-oaca").on('click','button.remove-content',function (e){
+
+	var divDelete = $(this).data('content');
+
+	$(divDelete).remove();
+
+});
+
+
+
+$( ".sortable:not(div.box-footer)" ).sortable({
+	axis: 'y',
+	opacity: 0.5,
+	tolerance: 'pointer',
+	handle: ".box-header"
+
+});
+
+$('#form-create-oaca').submit(function(event) {
+
+	$("#form-create-oaca [name='textarea']").each(function(index) {
+		var idcontent = $(this).data('content');
+
+		var content = $(this).summernote('code');
+
+		$('#'+idcontent).val(content);
 	});
 
-	$("#form-create-oaca").on('click','button.remove-content',function (e){
-
-		var divDelete = $(this).data('content');
-
-		$(divDelete).remove();
-
-	});
-
-
-
-	$( ".sortable:not(div.box-footer)" ).sortable({
-		axis: 'y',
-		opacity: 0.5,
-		tolerance: 'pointer',
-		handle: ".box-header"
-
-	});
-
-	$('#form-create-oaca').submit(function(event) {
-
-		$("#form-create-oaca [name='textarea']").each(function(index) {
-			var idcontent = $(this).data('content');
-
-			var content = $(this).summernote('code');
-
-			$('#'+idcontent).val(content);
-		});
-
-	});
+});
 
 
 });

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
+use App\Models\SelectSimpleElements;
 //use App\Content;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -59,7 +60,7 @@ class GeneradorController extends AdminController
 	}
 
 	function postIntroduction(Request $request){
-		dd($request->input('data'));
+		//dd($request->input('data'));
 		
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
@@ -71,7 +72,7 @@ class GeneradorController extends AdminController
 
 			foreach ($request->input('data') as $key => $value) {
 
-				if($value['type']!='image'){
+				if($value['type']!='image' || $value['type']!='selectsimple'){
 					$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
@@ -109,6 +110,17 @@ class GeneradorController extends AdminController
 					}
 					
 
+				}else if($value['type'] == 'selectsimple'){
+
+					$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::INTRODUCTION;
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
 				}
 			}}
 
