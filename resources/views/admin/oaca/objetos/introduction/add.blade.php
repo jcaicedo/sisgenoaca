@@ -87,7 +87,7 @@
 	<div class="box-header with-border">
 
 		<div class="box-tools box-tools-content pull-right">
-			<button type="button" class="btn btn-box-tool remove-content">
+			<button type="button" class="btn btn-box-tool remove-content btn-close">
 				<i class="fa fa-close"></i>
 			</button>
 
@@ -101,7 +101,7 @@
 		<div class="box-header with-border">
 			<h3 class="box-title">Titulo</h3>
 			<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
+				<button type="button" class="btn btn-box-tool btn-close">
 					<i class="fa fa-close"></i>
 				</button>
 			</div>
@@ -119,12 +119,12 @@
 		<div class="box-header with-border">
 			<h3 class="box-title">Textarea</h3>
 			<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
+				<button type="button" class="btn btn-box-tool btn-close">
 					<i class="fa  fa-close"></i>
 				</button>
-				<button  type="button" class="btn btn-box-tool">
+				{{-- <button  type="button" class="btn btn-box-tool">
 					<i class="fa  fa-paint-brush"></i>
-				</button>
+				</button> --}}
 			</div>
 		</div>
 		<div class="box-body edit-textarea">
@@ -143,7 +143,7 @@
 		<div class="box-header with-border">
 			<h3 class="box-title">Image</h3>
 			<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
+				<button type="button" class="btn btn-box-tool btn-close">
 					<i class="fa fa-close"></i>
 				</button>
 			</div>
@@ -159,15 +159,19 @@
 <div class="select-simple select-simple-clone nomostrar">
 	<div class="box">
 		<div class="box-header with-border">
-			<h3>Selección Simple</h3>
+			<h3 class="box-title">Selección Simple</h3>
 			<div class="box-tools pull-right">
-				<button class="btn btn-box-tool btn-header">
+				<button  type="button" class="btn btn-box-tool btn-add-input-select">
+					<i class="fa  fa-plus"></i>
+				</button>
+				<button type="button" class="btn btn-box-tool  btn-close">
 					<i class="fa fa-close"></i>
 				</button>
+				
 			</div>
 		</div>
 		<div class="box-body">
-			<div class="form-group">
+			<div class="form-group content-div-input">
 				<textarea class="form-control" name="question" rows="3" placeholder="Ingrese Pregunta..."></textarea>
 				<div class="col-xs-5 input-group input-group-select-simple" style="width: 38.666667%;">
 					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
@@ -234,6 +238,21 @@
 	</div>
 </div>
 
+
+<!--div.input select -->
+
+<div class="col-xs-5 input-group input-group-select-simple input-group-select-simple-clone nomostrar">
+	<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
+	<span class="input-group-addon">
+		<input type="radio" name="r1" class="minimal" value="3"  >
+	</span>
+	<span class="input-group-addon">
+		<button type="button" class="btn btn-box-tool remove-input-select">
+			<i class="fa fa-close"></i>
+		</button>
+
+	</span>
+</div>
 
 @endsection
 
@@ -355,7 +374,7 @@ $("#contentchild0").droppable({
 	accept:'.option',
 	drop: function(event, ui){
 
-		console.log(ui.draggable.data('element-option'));
+		/*console.log(ui.draggable.data('element-option'));*/
 		var type = ui.draggable.data('element-option');
 		var id_content =  '#'+$(this).attr('id');
 		newElement(type,id_content);
@@ -367,7 +386,7 @@ $(".content-principal").droppable({
 	accept:'.content-child',
 	drop:function(event, ui){
 		count++;
-		console.log(count);
+		//console.log(count);
 		var content = $(".contentfather-clone").clone().removeClass('contentfather-clone')
 		.removeClass('nomostrar')
 		.addClass('contentchild')
@@ -385,7 +404,7 @@ $(".content-principal").droppable({
 			accept:'.option',
 			drop: function(event, ui){
 
-				console.log(ui.draggable.data('element-option'));
+				//console.log(ui.draggable.data('element-option'));
 				var type = ui.draggable.data('element-option');
 				var id_content =  '#'+$(this).attr('id');
 				newElement(type,id_content);
@@ -413,7 +432,7 @@ var newElement = function(type, id_content){
 			var title = $(".titulo-clone").clone().removeClass('titulo-clone');
 			$(title).removeClass("nomostrar").attr({'id':'remove-div-'+count}).addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo(id_content);
 			$(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
-			$(".remove-div-"+count).find('button').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button.btn-close').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
 			$("#title-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 			$("#title-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
@@ -428,7 +447,7 @@ var newElement = function(type, id_content){
 			$(textarea).removeClass("nomostrar").removeClass("textareaclone").attr({'id':'remove-div-'+count}).addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo( id_content );
 			$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
 			$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
-			$(".remove-div-"+count).find('button').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button.btn-close').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
 			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][type]'  value='textarea'>");
 			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
@@ -453,7 +472,7 @@ var newElement = function(type, id_content){
 			$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").attr({"id":"remove-div-"+count}).addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
 
 			$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
-			$(".remove-div-"+count).find('button').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button.btn-close').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$("#imagep-"+count).addClass("componente");
 			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
 			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
@@ -468,7 +487,8 @@ var newElement = function(type, id_content){
 			var selectsimple = $("div.select-simple-clone").clone();
 			$(selectsimple).removeClass("nomostrar select-simple-clone").attr({'id':'remove-div-'+count}).addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
 
-			$(".remove-div-"+count).find('button.btn-header').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button.btn-close').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button.btn-add-input-select').attr({"data-parent":"#remove-div-"+count,"data-count":count});
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][content]' value=''>");
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][type]' value='selectsimple'>");
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id]' value=''>");
@@ -477,7 +497,7 @@ var newElement = function(type, id_content){
 
 
 			$(".remove-div-"+count+" div.input-group-select-simple").each(function(index){
-				console.log(index);
+				
 				$(this).find('input.minimal').attr({'name':'data['+count+'][checked]'});
 				$(this).find('input.minimal').iCheck({
 					checkboxClass: 'icheckbox_minimal-blue',
@@ -486,6 +506,7 @@ var newElement = function(type, id_content){
 
 				$(this).attr({'id':'input-group-select-simple-'+count_input_select});
 				$(this).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count_input_select}).addClass("remove-div");
+				$(this).find('textarea').attr({'name':'data['+count+'][answers][]'});
 				count_input_select++;
 
 			});
@@ -506,7 +527,26 @@ var newElement = function(type, id_content){
 
 };
 
+$('#form-create-oaca').on('click','button.btn-add-input-select',function(e){
+	var id_content_select = $(this).data('parent');
+	var count_history = $(this).data('count');
 
+	var content_div_input_select = $(".input-group-select-simple-clone").clone().removeClass("input-group-select-simple-clone").removeClass("nomostrar");
+	$(content_div_input_select).find('input.minimal').attr({"name":'data['+count_history+'][checked]'});
+	$(content_div_input_select).find('input.minimal').iCheck({
+		checkboxClass: 'icheckbox_minimal-blue',
+		radioClass: 'iradio_minimal-blue'
+	});
+
+	$(content_div_input_select).attr({'id':'input-group-select-simple-'+count_input_select});
+	$(content_div_input_select).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count_input_select}).addClass("remove-div");
+	count_input_select++;
+	$(content_div_input_select).find('input.answer').attr({'name':'data['+count_history+'][answers][]'});
+
+	$(content_div_input_select).appendTo($(id_content_select).find('div.content-div-input'));
+
+
+});
 
 $("#form-create-oaca").on('click','button.remove-div',function (e){
 
@@ -523,6 +563,8 @@ $("#form-create-oaca").on('click','button.remove-content',function (e){
 	$(divDelete).remove();
 
 });
+
+
 
 
 
@@ -545,6 +587,8 @@ $('#form-create-oaca').submit(function(event) {
 	});
 
 });
+
+
 
 
 });
