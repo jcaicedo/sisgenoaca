@@ -169,7 +169,7 @@
 		<div class="box-body">
 			<div class="form-group">
 				<textarea class="form-control" name="question" rows="3" placeholder="Ingrese Pregunta..."></textarea>
-				<div class="col-xs-5 input-group input-group-select-simple">
+				<div class="col-xs-5 input-group input-group-select-simple" style="width: 38.666667%;">
 					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
 						
@@ -177,22 +177,22 @@
 
 						
 					</span>
-					<span class="input-group-addon">
+					{{-- <span class="input-group-addon">
 						<button type="button" class="btn btn-box-tool remove-input-select">
 							<i class="fa fa-close"></i>
 						</button>
-					</span>
+					</span> --}}
 				</div>
-				<div class="col-xs-5 input-group input-group-select-simple">
+				<div class="col-xs-5 input-group input-group-select-simple" style="width: 38.666667%;">
 					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
 						<input type="radio" name="r1" class="minimal" value="2" >
 					</span>
-					<span class="input-group-addon">
+					{{-- <span class="input-group-addon">
 						<button type="button" class="btn btn-box-tool remove-input-select">
 							<i class="fa fa-close"></i>
 						</button>
-					</span>
+					</span> --}}
 				</div>
 				<div class="col-xs-5 input-group input-group-select-simple">
 					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
@@ -345,6 +345,7 @@ $("#preview").hide();
 $("#myModal").modal('show'); /*Show Modal Automatic*/
 
 var count =1;
+var count_input_select =1;
 $( "#title, #textarea, #uploadimage, #contenedor, #select-simple" ).draggable({
 	appendTo: "body",
 	helper: "clone"
@@ -474,26 +475,18 @@ var newElement = function(type, id_content){
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id_selectsimple]' value=''>");
 
-			/*$(".remove-div-"+count+" input.minimal").each(function(index){
-				$(this).attr({'name':'data['+count+'][checked]'});
-
-				$(this).iCheck({
-					checkboxClass: 'icheckbox_minimal-blue',
-					radioClass: 'iradio_minimal-blue'
-				});
-			});*/
-
 
 			$(".remove-div-"+count+" div.input-group-select-simple").each(function(index){
-
+				console.log(index);
 				$(this).find('input.minimal').attr({'name':'data['+count+'][checked]'});
 				$(this).find('input.minimal').iCheck({
 					checkboxClass: 'icheckbox_minimal-blue',
 					radioClass: 'iradio_minimal-blue'
 				});
 
-				$(this).attr({'id':'input-group-select-simple-'+count});
-				$(this).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count}).addClass("remove-div");
+				$(this).attr({'id':'input-group-select-simple-'+count_input_select});
+				$(this).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count_input_select}).addClass("remove-div");
+				count_input_select++;
 
 			});
 
