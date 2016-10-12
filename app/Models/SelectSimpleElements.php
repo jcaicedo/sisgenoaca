@@ -10,7 +10,7 @@ class SelectSimpleElements extends Model
 	protected $table = 'select_simple';
 
 	protected $fillable = [
-	'id_elements',
+	'id_element',
 	'content',
 	'type_response'
 	];

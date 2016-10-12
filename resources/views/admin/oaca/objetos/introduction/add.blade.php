@@ -161,24 +161,26 @@
 		<div class="box-header with-border">
 			<h3>Selección Simple</h3>
 			<div class="box-tools pull-right">
-				<button class="btn btn-box-tool">
+				<button class="btn btn-box-tool btn-header">
 					<i class="fa fa-close"></i>
 				</button>
 			</div>
 		</div>
 		<div class="box-body">
 			<div class="form-group">
-				<textarea class="form-control" name="" rows="3" placeholder="Ingrese Pregunta..."></textarea>
+				<textarea class="form-control" name="question" rows="3" placeholder="Ingrese Pregunta..."></textarea>
 				<div class="col-xs-5 input-group input-group-select-simple">
 					<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
 					<span class="input-group-addon">
-						<label>
-							<input type="radio" name="r1" class="minimal"  value="1" checked>
-						</label>
+						
+						<input type="radio" name="r1" class="minimal"  value="1" checked>
+
 						
 					</span>
 					<span class="input-group-addon">
-						<i class="fa fa-close"></i>
+						<button type="button" class="btn btn-box-tool remove-input-select">
+							<i class="fa fa-close"></i>
+						</button>
 					</span>
 				</div>
 				<div class="col-xs-5 input-group input-group-select-simple">
@@ -187,7 +189,9 @@
 						<input type="radio" name="r1" class="minimal" value="2" >
 					</span>
 					<span class="input-group-addon">
-						<i class="fa fa-close"></i>
+						<button type="button" class="btn btn-box-tool remove-input-select">
+							<i class="fa fa-close"></i>
+						</button>
 					</span>
 				</div>
 				<div class="col-xs-5 input-group input-group-select-simple">
@@ -196,7 +200,10 @@
 						<input type="radio" name="r1" class="minimal" value="3"  >
 					</span>
 					<span class="input-group-addon">
-						<i class="fa fa-close"></i>
+						<button type="button" class="btn btn-box-tool remove-input-select">
+							<i class="fa fa-close"></i>
+						</button>
+						
 					</span>
 				</div>
 				
@@ -306,6 +313,8 @@
 
 	.input-group-select-simple{margin-top: 18px;}
 
+	.input-group-addon{padding-top: 0px; padding-bottom: 0px;}
+
 </style>
 @endpush
 
@@ -401,9 +410,9 @@ var newElement = function(type, id_content){
 		switch(type){
 			case 'title':
 			var title = $(".titulo-clone").clone().removeClass('titulo-clone');
-			$(title).removeClass("nomostrar").addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo(id_content);
+			$(title).removeClass("nomostrar").attr({'id':'remove-div-'+count}).addClass("remove-div-"+count).addClass("title").data('contentchild',id_content).appendTo(id_content);
 			$(".remove-div-"+count).find('input').attr({"data-element":"title","id":"title-"+count,"name":"data["+count+"][content]"}).addClass("myinput");
-			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$("#title-"+count).after("<input type='hidden' name='data["+count+"][type]' value='title'>");
 			$("#title-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 			$("#title-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
@@ -415,10 +424,10 @@ var newElement = function(type, id_content){
 
 			case 'textarea':
 			var textarea = $(".textareaclone").clone();
-			$(textarea).removeClass("nomostrar").removeClass("textareaclone").addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo( id_content );
+			$(textarea).removeClass("nomostrar").removeClass("textareaclone").attr({'id':'remove-div-'+count}).addClass("remove-div-"+count).addClass("textarea").data('contentchild',id_content).appendTo( id_content );
 			$(".remove-div-"+count).find('.edit-textarea').attr({"data-element":"textarea",'data-content':'content-textarea'+count,'id':'textarea'+count,"name":"textarea"}).addClass("myinput");
 			$(".remove-div-"+count).find("input#input-textarea"+count).addClass('componente');
-			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][content]' id='content-textarea"+count+"' value='pruab'>");
 			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][type]'  value='textarea'>");
 			$("#textarea"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
@@ -440,10 +449,10 @@ var newElement = function(type, id_content){
 
 			case 'uploadimage':
 			var uploadimage = $("div.uploadimage-clone").clone();
-			$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
+			$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").attr({"id":"remove-div-"+count}).addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
 
 			$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
-			$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+			$(".remove-div-"+count).find('button').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$("#imagep-"+count).addClass("componente");
 			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
 			$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
@@ -456,20 +465,38 @@ var newElement = function(type, id_content){
 
 			case 'select-simple':
 			var selectsimple = $("div.select-simple-clone").clone();
-			$(selectsimple).removeClass("nomostrar select-simple-clone").addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
+			$(selectsimple).removeClass("nomostrar select-simple-clone").attr({'id':'remove-div-'+count}).addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
+
+			$(".remove-div-"+count).find('button.btn-header').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][content]' value=''>");
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][type]' value='selectsimple'>");
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id]' value=''>");
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][id_selectsimple]' value=''>");
 
-			$(".remove-div-"+count+" input.minimal").each(function(index){
+			/*$(".remove-div-"+count+" input.minimal").each(function(index){
 				$(this).attr({'name':'data['+count+'][checked]'});
 
 				$(this).iCheck({
 					checkboxClass: 'icheckbox_minimal-blue',
 					radioClass: 'iradio_minimal-blue'
 				});
+			});*/
+
+
+			$(".remove-div-"+count+" div.input-group-select-simple").each(function(index){
+
+				$(this).find('input.minimal').attr({'name':'data['+count+'][checked]'});
+				$(this).find('input.minimal').iCheck({
+					checkboxClass: 'icheckbox_minimal-blue',
+					radioClass: 'iradio_minimal-blue'
+				});
+
+				$(this).attr({'id':'input-group-select-simple-'+count});
+				$(this).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count}).addClass("remove-div");
+
 			});
+
 
 			$(".remove-div-"+count+" input.answer").each(function(index){
 				$(this).attr({'name':'data['+count+'][answers][]'});
@@ -492,7 +519,7 @@ $("#form-create-oaca").on('click','button.remove-div',function (e){
 
 	var divDelete = $(this).data('parent');
 
-	$("."+divDelete).remove();
+	$(divDelete).remove();
 
 });
 

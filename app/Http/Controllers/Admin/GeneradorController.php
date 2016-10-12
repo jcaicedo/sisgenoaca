@@ -60,7 +60,7 @@ class GeneradorController extends AdminController
 	}
 
 	function postIntroduction(Request $request){
-		//dd($request->input('data'));
+	//dd($request->input('data'));
 		
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
@@ -72,7 +72,8 @@ class GeneradorController extends AdminController
 
 			foreach ($request->input('data') as $key => $value) {
 
-				if($value['type']!='image' || $value['type']!='selectsimple'){
+				if($value['type']=='textarea' || $value['type']=='title'){
+					
 					$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
@@ -114,14 +115,30 @@ class GeneradorController extends AdminController
 
 					$element = ElementsOaca::firstOrNew(['id' => $value['id']]);
 					$element->type_element = $value['type'];
-					$element->content = $value['content'];
+					$element->content = $value['question'];
 					$element->moment = ElementsOaca::INTRODUCTION;
 					$element->position_order = $position;
 					$element->contentchild = $value['contentchild'];
 					$element->register_id =  $request->input('register_id');
 					$element->save();
 
-					$selectsimple = SelectSimpleElements::firstOrNew(['id'=>])
+					$selectelements = SelectSimpleElements::where('id_element',$element->id)->get();
+
+					foreach ($selectelements as $key => $selectelement) {
+						# code...
+						$selectelement->delete();
+					}
+					foreach ($value['answers'] as $key => $word) {
+						$selectsimplelement = new SelectSimpleElements();
+						$selectsimplelement->id_element = $element->id;
+						$selectsimplelement->type_response = ($key+1 ==($value['checked']) )?1:0;
+						$selectsimplelement->content = $word;
+						$selectsimplelement->save();
+
+					}
+
+
+
 
 					$position ++;
 				}
