@@ -513,10 +513,10 @@ var newElement = function(type, id_content){
 			$(".remove-div-"+count+" div.input-group-select-simple").each(function(index){
 				
 				$(this).find('input.minimal').attr({'name':'data['+count+'][checked]'});
-				$(this).find('input.minimal').iCheck({
-					checkboxClass: 'icheckbox_minimal-blue',
-					radioClass: 'iradio_minimal-blue'
-				});
+				// $(this).find('input.minimal').iCheck({
+				// 	checkboxClass: 'icheckbox_minimal-blue',
+				// 	radioClass: 'iradio_minimal-blue'
+				// });
 
 				$(this).attr({'id':'input-group-select-simple-'+count_input_select});
 				$(this).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count_input_select}).addClass("remove-div");
@@ -547,10 +547,11 @@ $('#form-create-oaca').on('click','button.btn-add-input-select',function(e){
 
 	var content_div_input_select = $(".input-group-select-simple-clone").clone().removeClass("input-group-select-simple-clone").removeClass("nomostrar");
 	$(content_div_input_select).find('input.minimal').attr({"name":'data['+count_history+'][checked]'});
-	$(content_div_input_select).find('input.minimal').iCheck({
-		checkboxClass: 'icheckbox_minimal-blue',
-		radioClass: 'iradio_minimal-blue'
-	});
+	
+	// $(content_div_input_select).find('input.minimal').iCheck({
+	// 	checkboxClass: 'icheckbox_minimal-blue',
+	// 	radioClass: 'iradio_minimal-blue'
+	// });
 
 	$(content_div_input_select).attr({'id':'input-group-select-simple-'+count_input_select});
 	$(content_div_input_select).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count_input_select}).addClass("remove-div");
@@ -563,7 +564,8 @@ $('#form-create-oaca').on('click','button.btn-add-input-select',function(e){
 });
 
 $("#form-create-oaca").on('click','button.remove-div',function (e){
-
+	e.preventDefault();
+	console.log('button delete');
 	var divDelete = $(this).data('parent');
 
 	$(divDelete).remove();
