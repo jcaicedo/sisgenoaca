@@ -254,6 +254,19 @@
 	</span>
 </div>
 
+{{-- Contenedor preview select simple --}}
+
+<div class="box preview-select-simple-clone nomostrar">
+	<div class="box-header with-border">
+		<h3>pregunta</h3>
+	</div>
+	<div class="box-body">
+		<div class="form-group">
+			
+		</div>
+	</div>
+</div>
+
 @endsection
 
 
@@ -487,6 +500,7 @@ var newElement = function(type, id_content){
 			var selectsimple = $("div.select-simple-clone").clone();
 			$(selectsimple).removeClass("nomostrar select-simple-clone").attr({'id':'remove-div-'+count}).addClass("remove-div-"+count).data('contentchild',id_content).appendTo(id_content);
 
+			$(".remove-div-"+count).find('textarea').attr({"data-element":"selectsimple","id":"selectsimple-"+count,"name":"data["+count+"][question]"}).addClass("myinput");
 			$(".remove-div-"+count).find('button.btn-close').attr({"data-parent":"#remove-div-"+count}).addClass('remove-div');
 			$(".remove-div-"+count).find('button.btn-add-input-select').attr({"data-parent":"#remove-div-"+count,"data-count":count});
 			$(selectsimple).find('div.box-body').after("<input type='hidden' name='data["+count+"][content]' value=''>");
@@ -516,7 +530,7 @@ var newElement = function(type, id_content){
 				$(this).attr({'name':'data['+count+'][answers][]'});
 			});
 
-			$('.remove-div-'+count+' textarea').attr({'name':'data['+count+'][question]'});
+			/*			$('.remove-div-'+count+' textarea').attr({'name':'data['+count+'][question]'});*/
 
 			count++;
 			break;
