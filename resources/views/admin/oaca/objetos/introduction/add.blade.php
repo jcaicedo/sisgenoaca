@@ -243,7 +243,7 @@
 
 <div class="col-xs-5 input-group input-group-select-simple input-group-select-simple-clone nomostrar">
 	<input class="form-control answer" type="text" placeholder="Ingrese respuesta..."/>
-	<span class="input-group-addon">
+	<span class="input-group-addon" style="position: relative;">
 		<input type="radio" name="r1" class="minimal" value="3"  >
 	</span>
 	<span class="input-group-addon">
@@ -513,10 +513,10 @@ var newElement = function(type, id_content){
 			$(".remove-div-"+count+" div.input-group-select-simple").each(function(index){
 				
 				$(this).find('input.minimal').attr({'name':'data['+count+'][checked]'});
-				// $(this).find('input.minimal').iCheck({
-				// 	checkboxClass: 'icheckbox_minimal-blue',
-				// 	radioClass: 'iradio_minimal-blue'
-				// });
+				$(this).find('input.minimal').iCheck({
+					checkboxClass: 'icheckbox_minimal-blue',
+					radioClass: 'iradio_minimal-blue'
+				});
 
 				$(this).attr({'id':'input-group-select-simple-'+count_input_select});
 				$(this).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count_input_select}).addClass("remove-div");
@@ -542,16 +542,19 @@ var newElement = function(type, id_content){
 };
 
 $('#form-create-oaca').on('click','button.btn-add-input-select',function(e){
+
 	var id_content_select = $(this).data('parent');
 	var count_history = $(this).data('count');
+	var value_last_input = parseInt($(id_content_select+" input.minimal").last().val())+1;
+
 
 	var content_div_input_select = $(".input-group-select-simple-clone").clone().removeClass("input-group-select-simple-clone").removeClass("nomostrar");
-	$(content_div_input_select).find('input.minimal').attr({"name":'data['+count_history+'][checked]'});
+	$(content_div_input_select).find('input.minimal').attr({"name":'data['+count_history+'][checked]'}).val(value_last_input);
 	
-	// $(content_div_input_select).find('input.minimal').iCheck({
-	// 	checkboxClass: 'icheckbox_minimal-blue',
-	// 	radioClass: 'iradio_minimal-blue'
-	// });
+	$(content_div_input_select).find('input.minimal').iCheck({
+		
+		radioClass: 'iradio_minimal-blue'
+	});
 
 	$(content_div_input_select).attr({'id':'input-group-select-simple-'+count_input_select});
 	$(content_div_input_select).find('button.remove-input-select').attr({'data-parent':'#input-group-select-simple-'+count_input_select}).addClass("remove-div");
