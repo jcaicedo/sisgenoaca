@@ -116,5 +116,7 @@ return [
     'plantilla' => 'Plantilla',
     'create_plantilla' => 'Crear Plantilla',
     'select_plantilla' => 'Seleccionar Plantilla',
+    'mental_images' => 'Imágenes Mentales',
+    'attention' => 'Atención',
 
     ];
