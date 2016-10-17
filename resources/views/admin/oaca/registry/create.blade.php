@@ -32,22 +32,65 @@
 
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 						{!! csrf_field() !!}
-						<div class="box-body" id="general-features">
-							<h4>{{trans('admin.generalfeatures')}}</h4>
-							<section data-step="0"></section>
-							<br>
 
-							<div class="form-group col-xs-12 col-md-4 col-lg-4">
-								<label for="identificator">{{trans('admin.identificator')}}<span> *</span></label>
-								<input type="text" class="form-control" id="identificator" name="identificator" placeholder="{{trans('admin.placeholderIdentificator')}}">
+						<div class="box-body" id="select_pattern">
+							<h4>{{trans('admin.select_pattern')}}</h4>
+							<br>
+							<p>Selección un patrón tecnopedagógico a utilizar. Cada una tiene su explicación
+								para su mejor elección.</p>
+
+								<div class="form-group">
+									
+									<div class="col-md-2">
+										<input class="minimal" name="patter" type="radio">
+									</div>
+									<div class="col-md-4">
+										<div class="box box-default collapsed-box">
+											<div class="box-header with-border">
+												<h3 class="box-title">Expandable</h3>
+
+												<div class="box-tools pull-right">
+													<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
+													</button>
+												</div>
+												<!-- /.box-tools -->
+											</div>
+											<!-- /.box-header -->
+											<div class="box-body">
+												The body of the box
+											</div>
+											<!-- /.box-body -->
+										</div>
+										<!-- /.box -->
+									</div>
+									
+
+
+									
+								</div>
+
 							</div>
 
-							<div class="form-group col-xs-12 col-md-4 col-lg-4">
+
+
+
+
+							<div class="box-body" id="general-features">
+								<h4>{{trans('admin.generalfeatures')}}</h4>
+								{{-- <section data-step="0"></section> --}}
+								<br>
+
+						{{-- 	<div class="form-group col-xs-12 col-md-4 col-lg-4">
+								<label for="identificator">{{trans('admin.identificator')}}<span> *</span></label>
+								<input type="text" class="form-control" id="identificator" name="identificator" placeholder="{{trans('admin.placeholderIdentificator')}}">
+							</div> --}}
+
+							<div class="form-group col-xs-12 col-md-4 col-lg-6">
 								<label for="title">{{trans('admin.title')}}<span> *</span></label>
 								<input type="text" class="form-control" id="title" name="title" placeholder="{{trans('admin.placeholderTitle')}}" >
 							</div>
 
-							<div class="form-group col-xs-12 col-md-4 col-lg-4">
+							<div class="form-group col-xs-12 col-md-4 col-lg-6">
 								<label for="language">{{trans('admin.language')}}<span> *</span></label>
 								<div>
 									<select name="language" id="language" class="form-control" required="">
@@ -535,6 +578,7 @@
 	.content-img-copyright{ overflow: hidden; line-height: 200px; }
 
 </style>
+<link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
 
 @endpush
 
@@ -543,7 +587,8 @@
 <script type="text/javascript"  src="/assets/js/register/main.js" ></script>
 <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
-
+<!-- iCheck 1.0.1 -->
+<script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 
 <script>
 
@@ -689,35 +734,43 @@
 <script>
 
 	$(document).ready(function ($) {
-		$('ol').selectable({
-			selected: function( event, ui ) {
-				$('.input_plantilla').each(function(){
-					$(this).remove();
-				});
-				var idPlantilla = $( ".ui-selected", this ).find('img').attr('name');
-				$( ".ui-selected", this ).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='"+idPlantilla+"'>");
 
-			},
-			stop: function(event, ui){
-				$(".ui-selected:first",this).each(function(){
-					$(this).siblings().removeClass("ui-selected");
+		  //iCheck for checkbox and radio inputs
+		  $('input[type="radio"].minimal').iCheck({
+		  	checkboxClass: 'icheckbox_minimal-blue',
+		  	radioClass: 'iradio_minimal-blue'
+		  });
 
-				});
-			}
+
+		  $('ol').selectable({
+		  	selected: function( event, ui ) {
+		  		$('.input_plantilla').each(function(){
+		  			$(this).remove();
+		  		});
+		  		var idPlantilla = $( ".ui-selected", this ).find('img').attr('name');
+		  		$( ".ui-selected", this ).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='"+idPlantilla+"'>");
+
+		  	},
+		  	stop: function(event, ui){
+		  		$(".ui-selected:first",this).each(function(){
+		  			$(this).siblings().removeClass("ui-selected");
+
+		  		});
+		  	}
+		  });
+
 		});
-		
-	});
 
-</script>
+	</script>
 
-<script>
-	$( function() {
-		$( "#selectable-copyright" ).selectable({
-			selected: function(event, ui){
-				console.log( $(ui.selected).data('licencia'));
-				$("#licencia").val($(ui.selected).data('licencia'));
-			}
-		});
-	} );
-</script>
-@endpush
+	<script>
+		$( function() {
+			$( "#selectable-copyright" ).selectable({
+				selected: function(event, ui){
+					console.log( $(ui.selected).data('licencia'));
+					$("#licencia").val($(ui.selected).data('licencia'));
+				}
+			});
+		} );
+	</script>
+	@endpush

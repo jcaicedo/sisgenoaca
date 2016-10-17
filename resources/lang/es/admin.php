@@ -118,5 +118,6 @@ return [
     'select_plantilla' => 'Seleccionar Plantilla',
     'mental_images' => 'Imágenes Mentales',
     'attention' => 'Atención',
+    'select_pattern' => 'Seleccione Patrón',
 
     ];
