@@ -27,8 +27,7 @@ class RegistryOacaController extends Controller
 	}
 	public function postCreate(Request $request){
 
-		//$content = serialize($request->input());
-		//dd($request->input('licencia'));
+		dd($request->input('patter'));
 		$content = json_encode($request->input());
 
 		$content_register = new RegistroOaca();

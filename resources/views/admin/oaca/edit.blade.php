@@ -2,6 +2,7 @@
 @section('title','Registro OACA')
 @section('content')
 
+
 <div class="content-wrapper">
 	<section class="content-header">
 		<h1>{{trans('admin.newOaca')}}</h1>
@@ -68,7 +69,7 @@
 									<i class="fa fa-plus"></i>
 								</button>
 							</div>
-							
+
 						</div>
 
 					</div>
@@ -512,45 +513,45 @@
 		/*Button Back*/
 
 		$(".btn-back").click(function(e) {
-			// body...
-			e.preventDefault();
+// body...
+e.preventDefault();
 
-			var content_body = $('.btn-back').data('body');
+var content_body = $('.btn-back').data('body');
 
-			switch(content_body){
+switch(content_body){
 
-				case 'lifecycle':
-				$(this).hide();
-				$('#'+content_body).hide();
-				$('#general-features').show();
-				$('.btn-next').data('body','general-features');
-				break;
+	case 'lifecycle':
+	$(this).hide();
+	$('#'+content_body).hide();
+	$('#general-features').show();
+	$('.btn-next').data('body','general-features');
+	break;
 
-				case 'educational':
-				$(this).data('body','lifecycle');
-				$('#'+content_body).hide();
-				$('#lifecycle').show();
-				$('.btn-next').data('body','lifecycle');
-				break;
+	case 'educational':
+	$(this).data('body','lifecycle');
+	$('#'+content_body).hide();
+	$('#lifecycle').show();
+	$('.btn-next').data('body','lifecycle');
+	break;
 
-				case 'copyright':
-				$(this).data('body','educational');
-				$('#'+content_body).hide();
-				$('#educational').show();
-				$('.btn-next').data('body','educational').show();
-				$('.btn-save').hide();
-				break;
-			}
+	case 'copyright':
+	$(this).data('body','educational');
+	$('#'+content_body).hide();
+	$('#educational').show();
+	$('.btn-next').data('body','educational').show();
+	$('.btn-save').hide();
+	break;
+}
 
 
-		});
+});
 
 		$('#form_register').on('click','button.btn-remove',function(e) {
-			// body...
-			e.preventDefault();
+// body...
+e.preventDefault();
 
-			$('#'+$(this).data('parent')).remove();
-		});
+$('#'+$(this).data('parent')).remove();
+});
 
 	});
 </script>

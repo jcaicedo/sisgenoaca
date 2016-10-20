@@ -41,13 +41,13 @@
 
 								<div class="form-group">
 									
-									<div class="col-md-2">
-										<input class="minimal" name="patter" type="radio">
+									<div class="col-md-1 col-md-offset-2">
+										<input class="minimal" name="patter" value="1" type="radio">
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-6">
 										<div class="box box-default collapsed-box">
 											<div class="box-header with-border">
-												<h3 class="box-title">Expandable</h3>
+												<h3 class="box-title">DARC</h3>
 
 												<div class="box-tools pull-right">
 													<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-plus"></i>
@@ -57,7 +57,7 @@
 											</div>
 											<!-- /.box-header -->
 											<div class="box-body">
-												The body of the box
+												Explicación de patrón DARC.
 											</div>
 											<!-- /.box-body -->
 										</div>
