@@ -14,10 +14,10 @@ class CreateRegistryPattern extends Migration
     {
         Schema::create('registry_pattern',function(Blueprint $table){
 
-            $table->uuid('id_registry')
-            ->unsigned();
+            $table->uuid('id_registry');
+
             $table->integer('id_pattern')
-            ->unsigned();
+            ->unsigned();           
 
             $table->foreign('id_registry')
             ->references('id')
@@ -27,7 +27,7 @@ class CreateRegistryPattern extends Migration
             $table->foreign('id_pattern')
             ->references('id')
             ->on('patterns')
-            ->onDelete('cascade')
+            ->onDelete('cascade');
         });
     }
 

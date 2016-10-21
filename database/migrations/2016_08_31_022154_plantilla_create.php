@@ -35,6 +35,6 @@ class PlantillaCreate extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExist('plantillas');
     }
 }

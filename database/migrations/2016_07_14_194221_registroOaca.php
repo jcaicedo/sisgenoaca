@@ -37,6 +37,6 @@ class RegistroOaca extends Migration
      */
     public function down()
     {
-        //
+         Schema::dropIfExist('registrooaca');
     }
 }

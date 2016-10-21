@@ -24,6 +24,6 @@ class AlterUserAddAvatar extends Migration
      */
     public function down()
     {
-        //
+        
     }
 }
