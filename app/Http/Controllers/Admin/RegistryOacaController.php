@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
+use App\Models\Patterns;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -27,7 +28,9 @@ class RegistryOacaController extends Controller
 	}
 	public function postCreate(Request $request){
 
-		dd($request->input('patter'));
+		/*
+		*Registro de formulario
+		*/
 		$content = json_encode($request->input());
 
 		$content_register = new RegistroOaca();
@@ -40,7 +43,11 @@ class RegistryOacaController extends Controller
 
 		$content_register->save();
 
+		/*
+		*Registro de pattern seleccionado
+		*/
 		
+		$pattern = 
 
 		return view('admin.oaca.objetos.motivation.add',[
 			"register_id"=>$content_register->id,
