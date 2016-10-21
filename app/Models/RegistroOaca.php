@@ -46,4 +46,9 @@ class RegistroOaca extends Model
 		return $query;
 	}
 
+	public function registry_pattern()
+	{
+		return $this->hasMany('App\Models\RegistryPattern', 'id_registry');
+	}
+
 }

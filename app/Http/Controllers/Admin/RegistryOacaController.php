@@ -40,53 +40,48 @@ class RegistryOacaController extends Controller
 
 		$content_register->save();
 
-		/*return view('admin.oaca.objetos.introduction.add',[
+		
+
+		return view('admin.oaca.objetos.motivation.add',[
 			"register_id"=>$content_register->id,
-			"area"=>ElementsOaca::INTRODUCTION,
+			"pattern_array" => ElementsOaca::MOTIVATION_ARRAY,
 			"task_moment" => "create"
-
-			]);*/
-
-			return view('admin.oaca.objetos.motivation.add',[
-				"register_id"=>$content_register->id,
-				"pattern_array" => ElementsOaca::MOTIVATION_ARRAY,
-				"task_moment" => "create"
-				]);
-		}
+			]);
+	}
 
 		//////////////////
 
-		public function getEdit($id){
-			$registro =  RegistroOaca::find($id);
+	public function getEdit($id){
+		$registro =  RegistroOaca::find($id);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
-			$content_regiter=json_decode($registro->content_register);
-			return view('admin.oaca.registry.edit',['registro'=>$registro,'content_register'=>$content_regiter]);
-
-		}
-
-		public function postEdit(Request $request){
-			$register_edited = RegistroOaca::find($request->input('register_id'));
-			$content = json_encode($request->input());
-			$register_edited->content_register = $content;
-			$register_edited->title_oaca = $request->input('title');
-			$register_edited->user_id = $request->input('user_id');
-			$register_edited->plantilla = $request->input('plantilla');
-			$register_edited->licencia  = $request->input('licencia');
-			
-			$register_edited->save();
-
-			return redirect('/admin/oaca/registry/registrys');
-
-
-		}
-
-		public function delete(Request $request, $id)
-		{
-
-			$registry = RegistroOaca::find($id);
-			$registry->delete();
-			$request->session()->flash('flash_message','Registro Eliminado');
-			return redirect('admin/oaca/registry/registrys');
-		}
+		$content_regiter=json_decode($registro->content_register);
+		return view('admin.oaca.registry.edit',['registro'=>$registro,'content_register'=>$content_regiter]);
 
 	}
+
+	public function postEdit(Request $request){
+		$register_edited = RegistroOaca::find($request->input('register_id'));
+		$content = json_encode($request->input());
+		$register_edited->content_register = $content;
+		$register_edited->title_oaca = $request->input('title');
+		$register_edited->user_id = $request->input('user_id');
+		$register_edited->plantilla = $request->input('plantilla');
+		$register_edited->licencia  = $request->input('licencia');
+		
+		$register_edited->save();
+
+		return redirect('/admin/oaca/registry/registrys');
+
+
+	}
+
+	public function delete(Request $request, $id)
+	{
+
+		$registry = RegistroOaca::find($id);
+		$registry->delete();
+		$request->session()->flash('flash_message','Registro Eliminado');
+		return redirect('admin/oaca/registry/registrys');
+	}
+
+}
