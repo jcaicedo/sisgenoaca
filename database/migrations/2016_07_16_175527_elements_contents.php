@@ -41,6 +41,6 @@ class ElementsContents extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('elements');
+        Schema::dropIfExists('elements');
     }
 }

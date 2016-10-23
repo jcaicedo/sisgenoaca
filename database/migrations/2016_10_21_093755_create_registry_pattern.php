@@ -17,17 +17,20 @@ class CreateRegistryPattern extends Migration
             $table->uuid('id_registry');
 
             $table->integer('id_pattern')
-            ->unsigned();           
+            ->unsigned()
+            ->nullable();
 
             $table->foreign('id_registry')
             ->references('id')
             ->on('registrooaca')
-            ->onDelete('cascade');
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
 
             $table->foreign('id_pattern')
             ->references('id')
             ->on('patterns')
-            ->onDelete('cascade');
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 
@@ -38,6 +41,6 @@ class CreateRegistryPattern extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('registry_pattern');
+        Schema::dropIfExists('registry_pattern');
     }
 }

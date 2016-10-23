@@ -7,7 +7,7 @@
 		<div class="form-group">
 
 			<div class="col-md-1 col-md-offset-2">
-				<input class="minimal" name="patter" value="1" type="radio">
+				<input class="minimal" name="pattern" value="1" type="radio">
 			</div>
 			<div class="col-md-6">
 				<div class="box box-default collapsed-box">

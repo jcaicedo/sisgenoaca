@@ -24,7 +24,7 @@
 				<div class="box box-primary">
 					<div class="box-header with-border">
 						<h3 class="box-title">Registro Nuevo Oaca</h3>
-					</div> 
+					</div>
 					<!--/-box-header-->
 					<!-- form start-->
 
@@ -32,16 +32,16 @@
 
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 						{!! csrf_field() !!}
-						
+
 					@include('admin.oaca.registry.create.pattern')
 					@include('admin.oaca.registry.create.general_features')
 					@include('admin.oaca.registry.create.lifecycle')
 					@include('admin.oaca.registry.create.educational')
 					@include('admin.oaca.registry.create.copyright')
 					@include('admin.oaca.registry.create.selectable_plantilla')
-						
 
-					
+
+
 
 					<div class="box-footer">
 						<button class="btn btn-danger btn-back nomostrar" data-body="general-features" >
@@ -49,8 +49,8 @@
 							&nbsp;{{trans('admin.back')}}
 						</button>
 						<button type="button" class="btn btn-primary btn-next pull-right" data-body="select-pattern">
-							<i class="fa fa-hand-o-right"></i>	
-							&nbsp;{{trans('admin.next')}}	
+							<i class="fa fa-hand-o-right"></i>
+							&nbsp;{{trans('admin.next')}}
 						</button>
 						<button type="submit" class="btn btn-success btn-save  pull-right nomostrar">
 							<i class="fa fa-save"></i>

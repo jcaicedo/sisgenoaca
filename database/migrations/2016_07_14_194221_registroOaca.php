@@ -25,8 +25,8 @@ class RegistroOaca extends Migration
             ->on('users')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-            
-            
+
+
         });
     }
 
@@ -37,6 +37,6 @@ class RegistroOaca extends Migration
      */
     public function down()
     {
-         Schema::dropIfExist('registrooaca');
+         Schema::dropIfExists('registrooaca');
     }
 }

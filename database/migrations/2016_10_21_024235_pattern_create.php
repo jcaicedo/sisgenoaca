@@ -19,7 +19,7 @@ class PatternCreate extends Migration
         $table->longText('description')->nullable();
         $table->timestamps();
 
-    });   
+    });
  }
 
     /**
@@ -29,6 +29,6 @@ class PatternCreate extends Migration
      */
     public function down()
     {
-       Schema::dropIfExist('patterns');
+       Schema::dropIfExists('patterns');
    }
 }

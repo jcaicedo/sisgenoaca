@@ -39,6 +39,6 @@ class SelectSimpleElements extends Migration
      */
     public function down()
     {
-        Schema::dropIfExist('select_simple');
+        Schema::dropIfExists('select_simple');
     }
 }

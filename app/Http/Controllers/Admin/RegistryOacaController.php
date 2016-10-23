@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
 use App\Models\Patterns;
+use App\Models\RegistryPattern;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -46,8 +47,12 @@ class RegistryOacaController extends Controller
 		/*
 		*Registro de pattern seleccionado
 		*/
-		
-		$pattern = 
+		$id_pattern = $request->input('pattern');
+
+		//dd($content_register->id);
+		$pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
+		$pattern->save();
+	
 
 		return view('admin.oaca.objetos.motivation.add',[
 			"register_id"=>$content_register->id,
@@ -74,7 +79,7 @@ class RegistryOacaController extends Controller
 		$register_edited->user_id = $request->input('user_id');
 		$register_edited->plantilla = $request->input('plantilla');
 		$register_edited->licencia  = $request->input('licencia');
-		
+
 		$register_edited->save();
 
 		return redirect('/admin/oaca/registry/registrys');
