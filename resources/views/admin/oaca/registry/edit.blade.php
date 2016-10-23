@@ -33,7 +33,7 @@
 								<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 								<input type="hidden" name="register_id" value="{{$registro->id}}">
 
-
+								@include('admin.oaca.registry.edit.pattern')
 								@include('admin.oaca.registry.edit.general_features')
 								@include('admin.oaca.registry.edit.lifecycle')
 								@include('admin.oaca.registry.edit.educational')
@@ -41,11 +41,11 @@
 								@include('admin.oaca.registry.edit.selectable_plantilla')
 
 								<div class="box-footer">
-									<button class="btn btn-danger btn-back nomostrar" data-body="lifecycle" >
+									<button class="btn btn-danger btn-back nomostrar" data-body="general-features" >
 										<i class="fa fa-hand-o-left"></i>
 										&nbsp;{{trans('admin.back')}}
 									</button>
-									<button type="button" class="btn btn-primary btn-next pull-right" data-body="general-features">
+									<button type="button" class="btn btn-primary btn-next pull-right" data-body="select-pattern">
 										<i class="fa fa-hand-o-right"></i>
 										&nbsp;{{trans('admin.next')}}
 									</button>
@@ -93,6 +93,7 @@
 		.content-img-copyright{ overflow: hidden; line-height: 200px; }
 
 		</style>
+		<link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
 
 	@endpush
 
@@ -102,7 +103,8 @@
 		<script type="text/javascript"  src="/assets/js/register/edit/main.js" ></script>
 		<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
-
+		<!-- iCheck 1.0.1 -->
+		<script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 
 		<script>
 

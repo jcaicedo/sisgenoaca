@@ -52,7 +52,7 @@ class RegistryOacaController extends Controller
 		//dd($content_register->id);
 		$pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
 		$pattern->save();
-	
+
 
 		return view('admin.oaca.objetos.motivation.add',[
 			"register_id"=>$content_register->id,
@@ -65,6 +65,7 @@ class RegistryOacaController extends Controller
 
 	public function getEdit($id){
 		$registro =  RegistroOaca::find($id);
+		//dd($registro->registry_pattern->id_pattern);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_regiter=json_decode($registro->content_register);
 		return view('admin.oaca.registry.edit',['registro'=>$registro,'content_register'=>$content_regiter]);

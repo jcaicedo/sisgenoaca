@@ -1,4 +1,4 @@
-<div class="box-body" id="general-features">
+<div class="box-body nomostrar" id="general-features">
   <h4>{{trans('admin.generalfeatures')}}</h4>
   <section data-step="0"></section>
   <br>

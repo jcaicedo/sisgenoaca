@@ -49,6 +49,46 @@ $(document).ready(function(){
   });
 
 
+
+  $('#form_register').on('click','button.btn-remove',function(e) {
+    // body...
+    e.preventDefault();
+
+    $('#'+$(this).data('parent')).remove();
+  });
+
+  //iCheck for checkbox and radio inputs
+  $('input[type="radio"].minimal').iCheck({
+   checkboxClass: 'icheckbox_minimal-blue',
+   radioClass: 'iradio_minimal-blue'
+  });
+
+  $('ol').selectable({
+    selected: function( event, ui ) {
+      $('.input_plantilla').each(function(){
+        $(this).remove();
+      });
+      var idPlantilla = $( ".ui-selected", this ).find('img').attr('name');
+      $( ".ui-selected", this ).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='"+idPlantilla+"'>");
+
+    },
+    stop: function(event, ui){
+      $(".ui-selected:first",this).each(function(){
+        $(this).siblings().removeClass("ui-selected");
+
+      });
+    }
+  });
+
+
+
+
+});
+
+///////////////////////////////////////////////////
+//////Botones de nex y back///////////////////////
+///////////////////////////////////////////////////
+
   /*Buttom Next*/
   $('.btn-next').click(function(e){
     e.preventDefault();
@@ -57,6 +97,13 @@ $(document).ready(function(){
     var content_body = $('.btn-next').data('body');
 
     switch(content_body){
+
+      case 'select-pattern':
+  		$('.btn-next').data('body','general-features');
+  		$('#'+content_body).hide();
+  		$('#general-features').show();
+  		$('.btn-back').data('body','general-features').show();
+  		break;
 
       case 'general-features':
       $('.btn-next').data('body','lifecycle');
@@ -100,8 +147,15 @@ $(document).ready(function(){
 
     switch(content_body){
 
-      case 'lifecycle':
+      case 'general-features':
       $(this).hide();
+      $('#'+content_body).hide();
+      $('#select-pattern').show();
+      $('.btn-next').data('body','select-pattern');
+      break;
+
+      case 'lifecycle':
+      $(this).data('body','general-features');
       $('#'+content_body).hide();
       $('#general-features').show();
       $('.btn-next').data('body','general-features');
@@ -133,32 +187,3 @@ $(document).ready(function(){
 
 
   });
-
-  $('#form_register').on('click','button.btn-remove',function(e) {
-    // body...
-    e.preventDefault();
-
-    $('#'+$(this).data('parent')).remove();
-  });
-
-  $('ol').selectable({
-    selected: function( event, ui ) {
-      $('.input_plantilla').each(function(){
-        $(this).remove();
-      });
-      var idPlantilla = $( ".ui-selected", this ).find('img').attr('name');
-      $( ".ui-selected", this ).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='"+idPlantilla+"'>");
-
-    },
-    stop: function(event, ui){
-      $(".ui-selected:first",this).each(function(){
-        $(this).siblings().removeClass("ui-selected");
-
-      });
-    }
-  });
-
-
-
-
-});
