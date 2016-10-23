@@ -35,10 +35,10 @@
 
 
 					@include('admin.oaca.registry.create.pattern')
-					@include('admin.oaca.registry.create.referencias')
 					@include('admin.oaca.registry.create.general_features')
 					@include('admin.oaca.registry.create.lifecycle')
 					@include('admin.oaca.registry.create.educational')
+					@include('admin.oaca.registry.create.referencias')
 					@include('admin.oaca.registry.create.copyright')
 					@include('admin.oaca.registry.create.selectable_plantilla')
 
