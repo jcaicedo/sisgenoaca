@@ -33,7 +33,9 @@
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 						{!! csrf_field() !!}
 
+
 					@include('admin.oaca.registry.create.pattern')
+					@include('admin.oaca.registry.create.referencias')
 					@include('admin.oaca.registry.create.general_features')
 					@include('admin.oaca.registry.create.lifecycle')
 					@include('admin.oaca.registry.create.educational')
