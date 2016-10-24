@@ -120,6 +120,13 @@ $(document).ready(function(){
       break;
 
       case 'educational':
+  		$('.btn-next').data('body','references');
+  		$('#'+content_body).hide();
+  		$('#references').show();
+  		$('.btn-back').data('body','references');
+  		break;
+
+      case 'references':
       $('.btn-next').data('body','copyright');
       $('#'+content_body).hide();
       $('#copyright').show();
@@ -168,11 +175,18 @@ $(document).ready(function(){
       $('.btn-next').data('body','lifecycle');
       break;
 
-      case 'copyright':
+      case 'references':
       $(this).data('body','educational');
       $('#'+content_body).hide();
       $('#educational').show();
       $('.btn-next').data('body','educational');
+      break;
+
+      case 'copyright':
+      $(this).data('body','references');
+      $('#'+content_body).hide();
+      $('#references').show();
+      $('.btn-next').data('body','references');
       break;
 
       case 'selectable_plantilla':

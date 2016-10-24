@@ -33,10 +33,12 @@
 								<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 								<input type="hidden" name="register_id" value="{{$registro->id}}">
 
+
 								@include('admin.oaca.registry.edit.pattern')
 								@include('admin.oaca.registry.edit.general_features')
 								@include('admin.oaca.registry.edit.lifecycle')
 								@include('admin.oaca.registry.edit.educational')
+								@include('admin.oaca.registry.edit.referencias')
 								@include('admin.oaca.registry.edit.copyright')
 								@include('admin.oaca.registry.edit.selectable_plantilla')
 
@@ -118,7 +120,7 @@
 			// 	}
 			// });
 			//
-			 var count = {{count($content_register->words_key)}};
+			var count = {{count($content_register->words_key)}};
 			// var count_words_key=2;
 			//
 			//
