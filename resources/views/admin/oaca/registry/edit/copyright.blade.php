@@ -1,6 +1,6 @@
 {{-- Derechos de Autor --}}
 <div class="box-body nomostrar" id="copyright">
-  <input type="hidden" name="licencia" id="licencia" value="">
+  <input type="hidden" name="licencia" id="licencia" value="{{$registro->licencia}}">
   <h4>{{trans('admin.copyright')}}</h4>
   <br>
   <ol id="selectable-copyright">
