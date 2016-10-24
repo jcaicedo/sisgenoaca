@@ -283,7 +283,7 @@
 		$( function() {
 			$( "#selectable-copyright" ).selectable({
 				selected: function(event, ui){
-					console.log( $(ui.selected).data('licencia'));
+					console.log('Aqui: '+ $(ui.selected).data('licencia'));
 					$("#licencia").val($(ui.selected).data('licencia'));
 				}
 			});

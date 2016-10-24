@@ -81,7 +81,7 @@ class RegistryOacaController extends Controller
 		$register_edited->user_id = $request->input('user_id');
 		$register_edited->plantilla = $request->input('plantilla');
 		$register_edited->licencia  = $request->input('licencia');
-		
+	//	dd( $request->input('licencia'));
 		$register_edited->save();
 
 		return redirect('/admin/oaca/registry/registrys');
