@@ -19,7 +19,7 @@
 								</select>
 							</div>
 						</div>
-
+						<!--Modulo de colaboradores-->
 						<div class="form-group">
 							<label for="colaborator">{{trans('admin.title_colaborators')}}<span> *</span></label>
 							<button type="button" class="btn btn-box-tool btn-colaborators">
@@ -69,6 +69,10 @@
 											<div class="col-md-6">
 												<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
 												<input type="text" name="colaborator[0][organization]" id="organization0" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
+											</div>
+											<div class="col-md-12">
+												<label for="image_organization">{{trans('admin.image_organization')}}</label>
+												<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control" >
 											</div>
 										</div>
 									</div>

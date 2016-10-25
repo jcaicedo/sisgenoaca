@@ -30,6 +30,7 @@ jQuery(document).ready(function($) {
 		colaboratorbox.find("input[id='email']").attr({'id':'email'+count,'name':'colaborator['+count+'][email]'});
 		colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
 		colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
+		colaboratorbox.find("input[id='image_organization']").attr({'id':'image_organization'+count,'name':'colaborator['+count+'][image_organization]'});
 
 
 		count ++;

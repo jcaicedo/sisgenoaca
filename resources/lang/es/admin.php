@@ -119,5 +119,6 @@ return [
     'mental_images' => 'Imágenes Mentales',
     'attention' => 'Atención',
     'select_pattern' => 'Seleccione Patrón',
+    'image_organization' => 'Imagen de la Organización',
 
     ];

@@ -28,7 +28,7 @@
 					<!--/-box-header-->
 					<!-- form start-->
 
-					<form  method="post" id="form_register" role="form">
+					<form  method="post" id="form_register" role="form" enctype="multipart/form-data" >
 
 						<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 						{!! csrf_field() !!}
