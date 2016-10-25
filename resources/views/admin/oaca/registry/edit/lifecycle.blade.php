@@ -73,6 +73,12 @@
               <label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
               <input type="text" name="colaborator[{{$key}}][organization]" id="organization{{$key}}" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}" value="{{$colaborator->organization}}">
             </div>
+
+            <div class="col-md-12">
+              <img src="/assets/imgs/contents-img/registry/Colaborators/{{$colaborator->image_organization}}" alt="" />
+              <label for="image_organization">{{trans('admin.image_organization')}}</label>
+              <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control" >
+            </div>
           </div>
         </div>
       </div>

@@ -30,9 +30,24 @@ class RegistryOacaController extends Controller
 		/*
 		*Registro de formulario
 		*/
-//dd($request->file('colaborator'));
+
+		/*
+		*Guardado de imágenes de logo de la organizacion en los colaboradores
+		*/
+		if(!empty($request->file('colaborator'))){
+			foreach ($request->file('colaborator') as $key => $value) {
+				$name = $value["image_organization"]->getClientOriginalName();
+				//assets/imgs/contents-img/registry/colaborators
+				$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
+				$value["image_organization"]->move($url,$name);
+
+			}
+
+		}
+		//dd($request->input('colaborator'));
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
+
 
 		$content_register->content_register = $content;
 		$content_register->title_oaca = $request->input('title');
@@ -51,19 +66,7 @@ class RegistryOacaController extends Controller
 		$pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
 		$pattern->save();
 
-		/*
-		*Guardado de imágenes de logo de la organizacion en los colaboradores
-		*/
-		if(!empty($request->file('colaborator'))){
-			foreach ($request->file('colaborator') as $key => $value) {
-				$name = $value["image_organization"]->getClientOriginalName();
-				//assets/imgs/contents-img/registry/colaborators
-				$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
-				$value["image_organization"]->move($url,$name);
-				
-			}
 
-		}
 
 		return view('admin.oaca.objetos.motivation.add',[
 			"register_id"=>$content_register->id,
