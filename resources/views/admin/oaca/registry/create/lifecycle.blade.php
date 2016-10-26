@@ -70,7 +70,7 @@
 												<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
 												<input type="text" name="colaborator[0][organization]" id="organization0" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
 											</div>
-											<div class="col-md-12">
+											<div class="col-md-12 div_content_image_organization_colaborators">
 												<label for="image_organization">{{trans('admin.image_organization')}}</label>
 												<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control image_organization_file" >
 												<input type="hidden" name="colaborator[0][image_organization_colaborator]" id="image_organization_colaborator0" class="form-control image_organization_colaborator" >
