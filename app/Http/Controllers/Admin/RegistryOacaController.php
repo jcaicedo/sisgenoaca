@@ -26,7 +26,7 @@ class RegistryOacaController extends Controller
 		return view('admin.oaca.registry.create');
 	}
 	public function postCreate(Request $request){
-
+		//dd($request->input());
 		/*
 		*Registro de formulario
 		*/
@@ -44,7 +44,7 @@ class RegistryOacaController extends Controller
 			}
 
 		}
-		//dd($request->input('colaborator'));
+
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
 
@@ -81,11 +81,11 @@ class RegistryOacaController extends Controller
 		$registro =  RegistroOaca::find($id);
 		//dd($registro->registry_pattern->id_pattern);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
-		$content_regiter=json_decode($registro->content_register);
-	//	dd($registro->licencia);
+		$content_register=json_decode($registro->content_register);
+	//	dd($content_register);
 		return view('admin.oaca.registry.edit',[
 			'registro'=>$registro,
-			'content_register'=>$content_regiter
+			'content_register'=>$content_register
 		]);
 
 	}

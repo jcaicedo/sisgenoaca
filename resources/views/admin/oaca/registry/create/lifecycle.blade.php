@@ -72,7 +72,8 @@
 											</div>
 											<div class="col-md-12">
 												<label for="image_organization">{{trans('admin.image_organization')}}</label>
-												<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control" >
+												<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control image_organization_file" >
+												<input type="hidden" name="colaborator[0][image_organization_colaborator]" id="image_organization_colaborator0" class="form-control image_organization_colaborator" >
 											</div>
 										</div>
 									</div>

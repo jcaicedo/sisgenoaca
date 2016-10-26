@@ -93,6 +93,7 @@
 		#selectable-copyright li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 241px; }
 		#selectable-copyright li img{ height: auto; width:180px; }
 		.content-img-copyright{ overflow: hidden; line-height: 200px; }
+		.div_content_image_organization_colaborators{margin-top: 29px;}
 
 		</style>
 		<link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">

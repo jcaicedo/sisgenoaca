@@ -31,6 +31,7 @@ jQuery(document).ready(function($) {
 		colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
 		colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
 		colaboratorbox.find("input[id='image_organization']").attr({'id':'image_organization'+count,'name':'colaborator['+count+'][image_organization]'});
+		colaboratorbox.find("input[id='image_organization_colaborator']").attr({'id':'image_organization_colaborator'+count,'name':'colaborator['+count+'][image_organization_colaborator]'});
 
 
 		count ++;
@@ -192,5 +193,16 @@ $(".btn-back").click(function(e) {
 
 			}
 
+
+		});
+
+
+		$('#form_register').submit(function(event) {
+			
+		$("input[name='colaborator[0][image_organization_colaborator]']").val($("#image_organization0").val().split('\\').pop());
+		$('input.image_colaborator_file').each(function(el){
+			var name_image = $(this).val().split('\\').pop();
+			$(this).siblings('.image_organization_colaborator').val(name_image);
+		});
 
 		});

@@ -30,4 +30,3 @@ class UserTableSeeder extends Seeder
     	factory(App\Users::class,10)->create();
     }
 }
-
