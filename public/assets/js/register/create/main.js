@@ -197,12 +197,13 @@ $(".btn-back").click(function(e) {
 		});
 
 
-		$('#form_register').submit(function(event) {
-			
-		$("input[name='colaborator[0][image_organization_colaborator]']").val($("#image_organization0").val().split('\\').pop());
-		$('input.image_colaborator_file').each(function(el){
-			var name_image = $(this).val().split('\\').pop();
-			$(this).siblings('.image_organization_colaborator').val(name_image);
-		});
-
-		});
+	// 	$('#form_register').submit(function(event) {
+	//
+	// //	$("input[name='colaborator[0][image_organization_colaborator]']").val($("#image_organization0").val().split('\\').pop());
+	//
+	// 	$('input.image_colaborator_file').each(function(el){
+	// 		var name_image = $(this).val().split('\\').pop();
+	// 		$(this).siblings('.image_organization_colaborator').val(name_image);
+	// 	});
+	//
+	// 	});

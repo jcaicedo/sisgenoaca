@@ -84,7 +84,7 @@ class RegistryOacaController extends Controller
 
 	public function getEdit($id){
 		$registro =  RegistroOaca::find($id);
-
+		//dd($registro->registry_image_colaborators);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_register=json_decode($registro->content_register);
 		//	dd($content_register);
@@ -96,6 +96,8 @@ class RegistryOacaController extends Controller
 	}
 
 	public function postEdit(Request $request){
+		//dd($request->file('colaborator') );
+
 
 		$register_edited = RegistroOaca::find($request->input('register_id'));
 		$content = json_encode($request->input());
@@ -106,6 +108,38 @@ class RegistryOacaController extends Controller
 		$register_edited->licencia  = $request->input('licencia');
 		//	dd( $request->input('licencia'));
 		$register_edited->save();
+
+		foreach ($request->input('colaborator') as $key => $value) {
+			$id_image = $value['image_organization_content']['id'];
+			if($value['image_organization_content']['name']){
+				$image = 	$request->file('colaborator');
+				$name_image = $image[$key]['image_organization_content']['image']->getClientOriginalName();
+				$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
+				$image[$key]['image_organization_content']['image']->move($url,$name_image);
+
+				$image_colaborator = ImagesColaborators::firstOrCreate(['id'=>$id_image]);
+				$image_colaborator->name=$name_image;
+				$image_colaborator->path='/assets/imgs/contents-img/registry/colaborators/'.$name_image;
+				$image_colaborator->save();
+
+				/*save relation registry images colaborators*/
+				$relation = RegistryImagesColaborators::firstOrNew([
+					'id_image_colaborator'=>$image_colaborator->id,
+					'id_registry' => $register_edited->id
+
+				]);
+				$relation->save();
+
+				// $relation->id_registry =$request->$register_edited->id;
+				// $relation->id_image_colaborator = $image_colaborator->id;
+				// $relation->save();
+
+			}
+
+
+		}
+
+
 
 		return redirect('/admin/oaca/registry/registrys');
 

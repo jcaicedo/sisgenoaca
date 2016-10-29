@@ -28,7 +28,7 @@
 							<!--/-box-header-->
 							<!-- form start-->
 
-							<form  method="post" id="form_register" role="form">
+							<form  method="post" id="form_register" role="form" enctype="multipart/form-data">
 								{!! csrf_field() !!}
 								<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
 								<input type="hidden" name="register_id" value="{{$registro->id}}">
@@ -121,7 +121,7 @@
 			// 	}
 			// });
 			//
-			var count = {{count($content_register->words_key)}};
+		//	var count = {{count($content_register->words_key)}};
 			// var count_words_key=2;
 			//
 			//
