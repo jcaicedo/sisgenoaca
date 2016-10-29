@@ -26,11 +26,6 @@ class RegistryOacaController extends Controller
 		return view('admin.oaca.registry.create');
 	}
 	public function postCreate(Request $request){
-		//dd($request->input());
-		/*
-		*Registro de formulario
-		*/
-
 		/*
 		*Guardado de imágenes de logo de la organizacion en los colaboradores
 		*/

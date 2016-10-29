@@ -76,8 +76,8 @@
 
               <div class="col-md-12 div_content_image_organization_colaborators">
                 <label for="image_organization">{{trans('admin.image_organization')}}</label>
-                <img src="/assets/imgs/contents-img/registry/colaborators/{{$colaborator->image_organization_colaborator}}" class="form-control" alt="" style="height:auto !important;width:10% !important;"/>
-                <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control" >
+                <img src="/assets/imgs/contents-img/registry/colaborators/{{$colaborator->image_organization_colaborator}}" class="form-control" alt="" style="height:auto !important;width:13em !important; margin-bottom:15px;"/>
+                <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control" style="width:37%;" >
               </div>
             </div>
           </div>
