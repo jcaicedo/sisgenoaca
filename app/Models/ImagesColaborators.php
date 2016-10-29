@@ -13,5 +13,9 @@ class ImagesColaborators extends Model
     'path'
     ];
 
-    public $timestamps = false;public $timestamps = false;
+    public $timestamps = false;
+
+    public function registry_image_colaborators(){
+        return $this->hasOne('App\Models\RegistryImagesColaborators','id_image_colaborator');
+    }
 }

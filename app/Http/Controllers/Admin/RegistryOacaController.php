@@ -6,6 +6,8 @@ use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
 use App\Models\Patterns;
 use App\Models\RegistryPattern;
+use App\Models\ImagesColaborators;
+use App\Models\RegistryImagesColaborators;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -26,24 +28,9 @@ class RegistryOacaController extends Controller
 		return view('admin.oaca.registry.create');
 	}
 	public function postCreate(Request $request){
-		/*
-		*Guardado de imágenes de logo de la organizacion en los colaboradores
-		*/
-		if(!empty($request->file('colaborator'))){
-			foreach ($request->file('colaborator') as $key => $value) {
-				$name = $value["image_organization"]->getClientOriginalName();
-				//assets/imgs/contents-img/registry/colaborators
-				$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
-				$value["image_organization"]->move($url,$name);
-
-			}
-
-		}
 
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
-
-
 		$content_register->content_register = $content;
 		$content_register->title_oaca = $request->input('title');
 		$content_register->user_id = $request->input('user_id');
@@ -61,6 +48,29 @@ class RegistryOacaController extends Controller
 		$pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
 		$pattern->save();
 
+		/*
+		*Guardado de imágenes de logo de la organizacion en los colaboradores
+		*/
+		if(!empty($request->file('colaborator'))){
+			foreach ($request->file('colaborator') as $key => $value) {
+				$name = $value["image_organization"]->getClientOriginalName();
+				//assets/imgs/contents-img/registry/colaborators
+				$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
+				$value["image_organization"]->move($url,$name);
+				/*save image colaborators*/
+				$image_colaborator = new ImagesColaborators;
+				$image_colaborator->name=$name;
+				$image_colaborator->path='/assets/imgs/contents-img/registry/colaborators'.$name;
+				$image_colaborator->save();
+
+				/*save relation registry images colaborators*/
+				$relation = new RegistryImagesColaborators;
+				$relation->id_registry = $content_register->id;
+				$relation->id_image_colaborator = $image_colaborator->id;
+				$relation->save();
+			}
+
+		}
 
 
 		return view('admin.oaca.objetos.motivation.add',[
