@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
 		colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
 		colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
 		colaboratorbox.find("input[id='image_organization']").attr({'id':'image_organization'+count,'name':'colaborator['+count+'][image_organization]'});
-		colaboratorbox.find("input[id='image_organization_colaborator']").attr({'id':'image_organization_colaborator'+count,'name':'colaborator['+count+'][image_organization_colaborator]'});
+		colaboratorbox.find("input[id='id_colaborator']").attr({'id':'id_colaborator'+count,'name':'colaborator['+count+'][id]'});
 
 
 		count ++;

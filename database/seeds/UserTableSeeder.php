@@ -15,9 +15,9 @@ class UserTableSeeder extends Seeder
     protected function initialize(){
     	$this->records=[
     		'id'=>1,
-    		'name'=>'Julio',
-    		'username'=>'julio',
-    		'email'=>'caicedo.julio@gmail.com',
+    		'name'=>'admin',
+    		'username'=>'admin',
+    		'email'=>'admin@sisgeoaca.com',
     		'password' => bcrypt('adminadmin'),
 
     	];

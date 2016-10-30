@@ -39,6 +39,7 @@
 									</div>
 									<br>
 									<div class="box-body">
+										  <input type="hidden" name="colaborator[0][id]" value="">
 										<div class="form-group">
 											<div class="col-md-4">
 												<label for="">{{trans('admin.typecontribution')}}</label>

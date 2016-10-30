@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class RegistryImageColaborators extends Migration
+class RegistryPattern extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,9 @@ class RegistryImageColaborators extends Migration
      */
     public function up()
     {
-        Schema::create('registry_image_colaborators',function(Blueprint $table){
+        Schema::create('registry_pattern',function(Blueprint $table){
           $table->uuid('id_registry');
-
-          $table->integer('id_image_colaborator')
-          ->unsigned()
-          ->nullable();
+          $table->integer('id_pattern')->unsigned();
 
           $table->foreign('id_registry')
           ->references('id')
@@ -25,9 +22,9 @@ class RegistryImageColaborators extends Migration
           ->onDelete('cascade')
           ->onUpdate('cascade');
 
-          $table->foreign('id_image_colaborator')
+          $table->foreign('id_pattern')
           ->references('id')
-          ->on('image_colaborators')
+          ->on('patterns')
           ->onDelete('cascade')
           ->onUpdate('cascade');
 
@@ -41,6 +38,6 @@ class RegistryImageColaborators extends Migration
      */
     public function down()
     {
-         Schema::dropIfExists('registry_image_colaborators');
+         Schema::dropIfExists('registry_pattern');
     }
 }

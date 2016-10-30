@@ -9,11 +9,13 @@ class Patterns extends Model
 	protected $table = 'patterns';
 
 	protected $fillable=[
-	'id',
-	'name',
-	'description'
+		'id',
+		'name',
+		'description'
 	];
 
+	public $timestamps = false;
+	
 	public function registry_pattern()
 	{
 		return $this->hasMany('App\Models\RegistryPattern', 'id_pattern');
