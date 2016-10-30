@@ -84,7 +84,7 @@ class RegistryOacaController extends Controller
 
 	public function getEdit($id){
 		$registro =  RegistroOaca::find($id);
-		 dd($registro->registry_image_colaborators);
+		 //dd($registro->registry_image_colaborators);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_register=json_decode($registro->content_register);
 		//	dd($content_register);
@@ -96,7 +96,7 @@ class RegistryOacaController extends Controller
 	}
 
 	public function postEdit(Request $request){
-
+		dd($request->input());
 		$array_images = [];
 		$register_edited = RegistroOaca::find($request->input('register_id'));
 		$content = json_encode($request->input());
@@ -124,7 +124,7 @@ class RegistryOacaController extends Controller
 				$image_colaborator->name=$name_image;
 				$image_colaborator->path='/assets/imgs/contents-img/registry/colaborators/'.$name_image;
 				$image_colaborator->save();
-				printf($image_colaborator);
+			//	printf($image_colaborator);
 				/*save relation registry images colaborators*/
 				$relation = RegistryImagesColaborators::firstOrNew([
 					'id_image_colaborator'=>$image_colaborator->id,
@@ -132,7 +132,7 @@ class RegistryOacaController extends Controller
 
 				]);
 				$relation->save();
-				printf($relation);
+			//	printf($relation);
 				$array_images[$key]=$image_colaborator;
 			}else{
 				$array_images[$key]=$id_image;
@@ -141,7 +141,7 @@ class RegistryOacaController extends Controller
 
 		//ImagesColaborators::deleteImagesArray($array_images,$id_registry);
 
-		dd('stop');
+		//dd('stop');
 		return redirect('/admin/oaca/registry/registrys');
 
 

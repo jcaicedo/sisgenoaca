@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var count = $('div.box-colaborator').size();
+var count = $('div.box-colaborator').size()+1;
 console.log(count);
 
   $(".ui-state-default").each(function(){
