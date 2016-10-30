@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\RegistryImagesColaborators;
+use Storage;
 
 class ImagesColaborators extends Model
 {
@@ -21,8 +22,9 @@ class ImagesColaborators extends Model
     }
 
     public static function deleteImagesArray($array_images=[]){
+        
         $query = self::whereNotIn('id',$array_images)
                     ->delete();
-        
+
     }
 }

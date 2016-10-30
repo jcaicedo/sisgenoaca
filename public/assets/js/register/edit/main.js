@@ -4,7 +4,7 @@ var count = $('div.box-colaborator').size();
 console.log(count);
 
   $(".ui-state-default").each(function(){
-    console.log($(this).data('value'));
+    //console.log($(this).data('value'));
     if($(this).data('value') == $("#number_plantilla").val()){
       $(this).addClass('ui-selected');
     //  console.log({{$registro->plantilla}});
@@ -48,7 +48,7 @@ console.log(count);
     count ++;
 
     $('.content-box-colaborators').append(colaboratorbox);
-    console.log(colaboratorbox.html());
+    //console.log(colaboratorbox.html());
 
   });
 
