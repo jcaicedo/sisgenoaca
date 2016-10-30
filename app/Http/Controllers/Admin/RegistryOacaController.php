@@ -8,6 +8,7 @@ use App\Models\Patterns;
 use App\Models\RegistryPattern;
 use App\Models\ImagesColaborators;
 use App\Models\RegistryImagesColaborators;
+use App\Models\Colaborators;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -28,6 +29,9 @@ class RegistryOacaController extends Controller
 		return view('admin.oaca.registry.create');
 	}
 	public function postCreate(Request $request){
+		//dd($request->input('colaborator'));
+
+
 
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
@@ -48,27 +52,26 @@ class RegistryOacaController extends Controller
 		$pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
 		$pattern->save();
 
-		/*
-		*Guardado de imágenes de logo de la organizacion en los colaboradores
-		*/
-		if(!empty($request->file('colaborator'))){
-			foreach ($request->file('colaborator') as $key => $value) {
-				$name = $value["image_organization"]->getClientOriginalName();
-				//assets/imgs/contents-img/registry/colaborators
-				$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
-				$value["image_organization"]->move($url,$name);
-				/*save image colaborators*/
-				$image_colaborator = new ImagesColaborators;
-				$image_colaborator->name=$name;
-				$image_colaborator->path='/assets/imgs/contents-img/registry/colaborators/'.$name;
-				$image_colaborator->save();
 
-				/*save relation registry images colaborators*/
-				$relation = new RegistryImagesColaborators;
-				$relation->id_registry = $content_register->id;
-				$relation->id_image_colaborator = $image_colaborator->id;
-				$relation->save();
+		foreach ($request->input('colaborator') as $key => $colaborator) {
+
+			$newcolaborator = new Colaborators();
+			$newcolaborator->id_registry = $content_register->id;
+			$newcolaborator->name = $colaborator['name'];
+			$newcolaborator->lastname = $colaborator['lastname'];
+			$newcolaborator->typecontribution = $colaborator['typecontribution'];
+			$newcolaborator->email = $colaborator['email'];
+			$newcolaborator->organization = $colaborator['organization'];
+
+			if(!empty($request->file('colaborator')[$key]["image_organization"])){
+					$nameImage = $request->file('colaborator')[$key]["image_organization"]->getClientOriginalName();
+					$url = public_path().'/assets/imgs/contents-img/registry/colaborators';
+					$request->file('colaborator')[$key]["image_organization"]->move($url,$nameImage);
+
+					$newcolaborator->image_organization = '/assets/imgs/contents-img/registry/colaborators/'.$nameImage;
 			}
+			$newcolaborator->save();
+
 
 		}
 
@@ -90,7 +93,8 @@ class RegistryOacaController extends Controller
 		//dd($registro->registry_image_colaborators);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_register=json_decode($registro->content_register);
-			dd($content_register->colaborator);
+	//	$content_register->colaborator[0];
+
 		return view('admin.oaca.registry.edit',[
 			'registro'=>$registro,
 			'content_register'=>$content_register
@@ -112,37 +116,59 @@ class RegistryOacaController extends Controller
 		//	dd( $request->input('licencia'));
 		$register_edited->save();
 
-		foreach ($request->input('colaborator') as $key => $value) {
-			$id_image = $value['image_organization_content']['id'];
-			if($value['image_organization_content']['name']){
-				$image = 	$request->file('colaborator');
-				$name_image = $image[$key]['image_organization_content']['image']->getClientOriginalName();
-				$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
-				$image[$key]['image_organization_content']['image']->move($url,$name_image);
+		// foreach ($request->input('colaborator') as $key => $value) {
+		// 	$id_image = $value['image_organization_content']['id'];
+		// 	if($value['image_organization_content']['name']){
+		// 		$image = 	$request->file('colaborator');
+		// 		$name_image = $image[$key]['image_organization_content']['image']->getClientOriginalName();
+		// 		$url= public_path().'/assets/imgs/contents-img/registry/colaborators';
+		// 		$image[$key]['image_organization_content']['image']->move($url,$name_image);
+		//
+		// 		$image_colaborator = ImagesColaborators::firstOrCreate(['id'=>$id_image]);
+		// 		$image_colaborator->name=$name_image;
+		// 		$image_colaborator->path='/assets/imgs/contents-img/registry/colaborators/'.$name_image;
+		// 		$image_colaborator->save();
+		//
+		// 		/*save relation registry images colaborators*/
+		// 		$relation = RegistryImagesColaborators::firstOrNew([
+		// 			'id_image_colaborator'=>$image_colaborator->id,
+		// 			'id_registry' => $register_edited->id
+		//
+		// 		]);
+		// 		$relation->save();
+		//
+		// 		// $relation->id_registry =$request->$register_edited->id;
+		// 		// $relation->id_image_colaborator = $image_colaborator->id;
+		// 		// $relation->save();
+		//
+		// 	}
+		//
+		//
+		// }
 
-				$image_colaborator = ImagesColaborators::firstOrCreate(['id'=>$id_image]);
-				$image_colaborator->name=$name_image;
-				$image_colaborator->path='/assets/imgs/contents-img/registry/colaborators/'.$name_image;
-				$image_colaborator->save();
+		foreach ($request->input('colaborator') as $key => $colaborator) {
 
-				/*save relation registry images colaborators*/
-				$relation = RegistryImagesColaborators::firstOrNew([
-					'id_image_colaborator'=>$image_colaborator->id,
-					'id_registry' => $register_edited->id
+			$newcolaborator = Colaborators::firstOrNew(['id'=>$colaborator['id']]);
+			printf($newcolaborator);
+			$newcolaborator->id_registry = $register_edited->id;
+			$newcolaborator->name = $colaborator['name'];
+			$newcolaborator->lastname = $colaborator['lastname'];
+			$newcolaborator->typecontribution = $colaborator['typecontribution'];
+			$newcolaborator->email = $colaborator['email'];
+			$newcolaborator->organization = $colaborator['organization'];
 
-				]);
-				$relation->save();
+			if(!empty($request->file('colaborator')[$key]["image_organization"])){
+					$nameImage = $request->file('colaborator')[$key]["image_organization"]->getClientOriginalName();
+					$url = public_path().'/assets/imgs/contents-img/registry/colaborators';
+					$request->file('colaborator')[$key]["image_organization"]->move($url,$nameImage);
 
-				// $relation->id_registry =$request->$register_edited->id;
-				// $relation->id_image_colaborator = $image_colaborator->id;
-				// $relation->save();
-
+					$newcolaborator->image_organization = '/assets/imgs/contents-img/registry/colaborators/'.$nameImage;
 			}
+			$newcolaborator->save();
 
 
 		}
-
-
+		dd('stop');
 
 		return redirect('/admin/oaca/registry/registrys');
 

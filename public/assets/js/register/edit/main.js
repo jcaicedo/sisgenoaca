@@ -41,9 +41,8 @@ console.log(count);
     colaboratorbox.find("input[id='email']").attr({'id':'email'+count,'name':'colaborator['+count+'][email]'});
     colaboratorbox.find("input[id='organization']").attr({'id':'organization'+count,'name':'colaborator['+count+'][organization]'});
     colaboratorbox.find("select[id='typecontribution']").attr({'id':'typecontribution'+count,'name':'colaborator['+count+'][typecontribution]'});
-    colaboratorbox.find("input[id='image_organization']").attr({'id':'image_organization'+count,'name':'colaborator['+count+'][image_organization_content][image]'});
-    colaboratorbox.find("input[id='image_organization_content_id']").attr({'id':'image_organization_content'+count,'name':'colaborator['+count+'][image_organization_content][id]'});
-    colaboratorbox.find("input[id='image_organization_content_name']").attr({'id':'image_organization_content'+count,'name':'colaborator['+count+'][image_organization_content][name]'});
+    colaboratorbox.find("input[id='image_organization']").attr({'id':'image_organization'+count,'name':'colaborator['+count+'][image_organization]'});
+    colaboratorbox.find("input[id='id_colaborator']").attr({'id':'id_colaborator'+count,'name':'colaborator['+count+'][id]'});
 
     count ++;
 
@@ -207,13 +206,13 @@ console.log(count);
   });
 
 
-  	$('#form_register').submit(function(event) {
-
-  //	$("input[name='colaborator[0][image_organization_colaborator]']").val($("#image_organization0").val().split('\\').pop());
-
-  	$('input.image_colaborator_file').each(function(el){
-  		var name_image = $(this).val().split('\\').pop();
-  		$(this).siblings('.image_organization_colaborator_name').val(name_image);
-  	});
-
-  	});
+  // 	$('#form_register').submit(function(event) {
+  //
+  // //	$("input[name='colaborator[0][image_organization_colaborator]']").val($("#image_organization0").val().split('\\').pop());
+  //
+  // 	$('input.image_colaborator_file').each(function(el){
+  // 		var name_image = $(this).val().split('\\').pop();
+  // 		$(this).siblings('.image_organization_colaborator_name').val(name_image);
+  // 	});
+  //
+  // 	});

@@ -27,7 +27,7 @@
     </button>
     <br>
     <div class="content-box-colaborators">
-      @foreach($content_register->colaborator as $key=>$colaborator)
+      @foreach($registro->colaborators as $key=>$colaborator)
 
         <div class="box box-colaborator" id="divcolaborator{{$key}}" >
           <div class="box-header">
@@ -42,6 +42,7 @@
           </div>
           <br>
           <div class="box-body">
+            <input type="hidden" name="colaborator[{{$key}}][id]" value="{{$colaborator->id}}">
             <div class="form-group">
               <div class="col-md-4">
                 <label for="">{{trans('admin.typecontribution')}}</label>
@@ -76,10 +77,8 @@
 
               <div class="col-md-12 div_content_image_organization_colaborators">
                 <label for="image_organization">{{trans('admin.image_organization')}}</label>
-                {{-- <img src="{{$registro->registry_image_colaborators[$key]->images_colaborators->path}}" class="form-control" alt="" style="height:auto !important;width:13em !important; margin-bottom:15px;"/> --}}
-                {{-- <input type="hidden" name="colaborator[{{$key}}][image_organization_content][id]" value="{{$registro->registry_image_colaborators[$key]->id_image_colaborator}}">
-                <input type="hidden" name="colaborator[{{$key}}][image_organization_content][name]" value="" class="image_organization_colaborator_name"> --}}
-                <input type="file" name="colaborator[{{$key}}][image_organization_content][image]" id="image_organization{{$key}}" class="form-control" style="width:37%;" >
+                <img src="{{$colaborator->image_organization}}" class="form-control" alt="" style="height:auto !important;width:13em !important; margin-bottom:15px;"/> 
+                <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control" style="width:37%;" >
               </div>
             </div>
           </div>

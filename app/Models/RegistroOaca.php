@@ -55,4 +55,8 @@ class RegistroOaca extends Model
 		return $this->hasMany('App\Models\RegistryImagesColaborators','id_registry');
 	}
 
+	public function colaborators(){
+		return $this->hasMany('App\Models\Colaborators','id_registry');
+	}
+
 }
