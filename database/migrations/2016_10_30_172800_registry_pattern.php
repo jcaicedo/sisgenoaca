@@ -13,6 +13,7 @@ class RegistryPattern extends Migration
     public function up()
     {
         Schema::create('registry_pattern',function(Blueprint $table){
+          $table->increments('id')->index();
           $table->uuid('id_registry');
           $table->integer('id_pattern')->unsigned();
 

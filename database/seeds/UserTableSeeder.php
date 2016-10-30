@@ -19,6 +19,7 @@ class UserTableSeeder extends Seeder
     		'username'=>'admin',
     		'email'=>'admin@sisgeoaca.com',
     		'password' => bcrypt('adminadmin'),
+        'avatar_image'=>'/assets/imgs/profiles/image_profile.jpg'
 
     	];
     }

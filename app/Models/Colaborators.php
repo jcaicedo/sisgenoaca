@@ -23,4 +23,11 @@ class Colaborators extends Model
       return $this->belongsTo('App\Models\RegistroOaca','id_registry');
     }
 
+    public static function deleteNotColaborators($array_colaborators,$id_registry){
+      $query = self::where('id_registry',$id_registry)
+                    ->whereNotIn('id',$array_colaborators)
+                    ->delete();
+
+    }
+
 }

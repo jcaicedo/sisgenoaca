@@ -6,8 +6,6 @@ use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
 use App\Models\Patterns;
 use App\Models\RegistryPattern;
-use App\Models\ImagesColaborators;
-use App\Models\RegistryImagesColaborators;
 use App\Models\Colaborators;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -30,8 +28,6 @@ class RegistryOacaController extends Controller
 	}
 	public function postCreate(Request $request){
 		//dd($request->input('colaborator'));
-
-
 
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
@@ -56,7 +52,7 @@ class RegistryOacaController extends Controller
 		foreach ($request->input('colaborator') as $key => $colaborator) {
 
 			$image = $request->file('colaborator')[$key]["image_organization"];
-			$this->saveColaborators($colaborator,$content_register->id, $image);
+		 	$this->saveColaborators($colaborator,$content_register->id, $image);
 
 		}
 
@@ -74,12 +70,8 @@ class RegistryOacaController extends Controller
 
 	public function getEdit($id){
 		$registro =  RegistroOaca::find($id);
-
-		//dd($registro->registry_image_colaborators);
 		//Hacer json_decode del content->register para convertir el contenido del registro en un array
 		$content_register=json_decode($registro->content_register);
-	//	$content_register->colaborator[0];
-
 		return view('admin.oaca.registry.edit',[
 			'registro'=>$registro,
 			'content_register'=>$content_register
@@ -89,6 +81,7 @@ class RegistryOacaController extends Controller
 
 	public function postEdit(Request $request){
 
+		$array_colaborators = [];
 		$register_edited = RegistroOaca::find($request->input('register_id'));
 		$content = json_encode($request->input());
 		$register_edited->content_register = $content;
@@ -96,15 +89,19 @@ class RegistryOacaController extends Controller
 		$register_edited->user_id = $request->input('user_id');
 		$register_edited->plantilla = $request->input('plantilla');
 		$register_edited->licencia  = $request->input('licencia');
-		//	dd( $request->input('licencia'));
 		$register_edited->save();
 
 		foreach ($request->input('colaborator') as $key => $colaborator) {
 			$image = $request->file('colaborator')[$key]["image_organization"];
-			$this->saveColaborators($colaborator,$register_edited->id, $image);
+			$saved = $this->saveColaborators($colaborator,$register_edited->id, $image);
+			$array_colaborators[$key] = $saved->id;
 		}
+		Colaborators::deleteNotColaborators($array_colaborators,$register_edited->id);
+		$id_pattern = $request->input('pattern');
 
-
+		$relation_pattern = RegistryPattern::firstOrCreate(['id_registry'=>$register_edited->id]);
+		$relation_pattern->id_pattern = $id_pattern;
+		$relation_pattern->save();
 		return redirect('/admin/oaca/registry/registrys');
 
 
@@ -120,7 +117,7 @@ class RegistryOacaController extends Controller
 	}
 
 	public function saveColaborators($colaborator, $id_registry, $image){
-//dd($colaborator);
+		//dd($colaborator);
 		$newcolaborator = Colaborators::firstOrNew(['id'=>$colaborator['id']]);
 		$newcolaborator->id_registry = $id_registry;
 		$newcolaborator->name = $colaborator['name'];
@@ -130,13 +127,17 @@ class RegistryOacaController extends Controller
 		$newcolaborator->organization = $colaborator['organization'];
 
 		if(!empty($image)){
-				$nameImage = $image->getClientOriginalName();
-				$url = public_path().'/assets/imgs/contents-img/registry/colaborators';
-				$image->move($url,$nameImage);
+			$nameImage = $image->getClientOriginalName();
+			$url = public_path().'/assets/imgs/contents-img/registry/colaborators';
+			$image->move($url,$nameImage);
 
-				$newcolaborator->image_organization = '/assets/imgs/contents-img/registry/colaborators/'.$nameImage;
+			$newcolaborator->image_organization = '/assets/imgs/contents-img/registry/colaborators/'.$nameImage;
 		}
 		$newcolaborator->save();
+
+		return $newcolaborator;
+
+
 	}
 
 }
