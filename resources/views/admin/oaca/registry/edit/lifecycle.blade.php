@@ -77,7 +77,14 @@
 
               <div class="col-md-12 div_content_image_organization_colaborators">
                 <label for="image_organization">{{trans('admin.image_organization')}}</label>
-                <img src="{{$colaborator->image_organization}}" class="form-control" alt="" style="height:auto !important;width:13em !important; margin-bottom:15px;"/> 
+                @if (!empty($colaborator->image_organization))
+                  <img src="{{$colaborator->image_organization}}" class="form-control" alt="" style="height:auto !important;width:13em !important; margin-bottom:15px;"/>
+                @else
+                  <p>
+                    no contiene imagen de la organización
+                  </p>
+                @endif
+
                 <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control" style="width:37%;" >
               </div>
             </div>
