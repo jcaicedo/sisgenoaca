@@ -56,8 +56,6 @@
 
 
 <!--modulo image-->
-
-
 <div class="uploadimage uploadimage-clone nomostrar">
 	<div class="box">
 		<div class="box-header with-border">
@@ -70,6 +68,24 @@
 		</div>
 		<div class=" box-body">
 			<input class="form-control" type="file" accept="image/*" />
+		</div>
+	</div>
+</div>
+
+
+<!--modulo hotpotatoes-->
+<div class="uploadhotpotatoes uploadhotpotatoes-clone nomostrar">
+	<div class="box">
+		<div class="box-header with-border">
+			<h3 class="box-title">Componente HotPotatoes</h3>
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool">
+					<i class="fa fa-close"></i>
+				</button>
+			</div>
+		</div>
+		<div class=" box-body">
+			<input class="form-control" type="file" accept="text/html" />
 		</div>
 	</div>
 </div>

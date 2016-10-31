@@ -67,7 +67,7 @@
 				</a>
 			</li>
 
-			<li id="hotpotato" data-element-option="hotpotato" class="option ui-state-default">
+			<li id="uploadhotpotatoes" data-element-option="uploadhotpotatoes" class="option ui-state-default">
 				<a href="#">
 					<i class="fa  fa-cubes"></i>
 					<span>Actividad Hot Potato</span>
