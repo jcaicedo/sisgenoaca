@@ -1,6 +1,6 @@
 <aside class="main-sidebar" style="position: fixed;">
 	<section class="sidebar">
-		
+
 		<!--Panel izquierdo-->
 
 
@@ -28,7 +28,7 @@
 		<!-- /.search form -->
 
 		<ul class="sidebar-menu">
-			
+
 
 			<li class="header">{{trans('menu.optionspanel')}}</li>
 
@@ -59,7 +59,7 @@
 
 			</li>
 
-			
+
 			<li id="uploadimage" data-element-option="uploadimage" class="option ui-state-default">
 				<a href="#">
 					<i class="fa fa-file-image-o"></i>
@@ -67,13 +67,21 @@
 				</a>
 			</li>
 
-			<li id="select-simple" data-element-option="select-simple" class="option ui-state-default">
+			<li id="hotpotato" data-element-option="hotpotato" class="option ui-state-default">
+				<a href="#">
+					<i class="fa  fa-cubes"></i>
+					<span>Actividad Hot Potato</span>
+				</a>
+			</li>
+
+			{{-- <li id="select-simple" data-element-option="select-simple" class="option ui-state-default">
 				<a href="#">
 					<i class="fa fa-reorder"></i>
 					<span>Selección Simple</span>
 				</a>
-			</li>
-			
+			</li> --}}
+
+
 
 
 		</ul>

@@ -29,7 +29,7 @@
 	<input type="hidden" name="elementos-delete" value="" id="elementos-delete">
 
 	<div id="rootwizard" class="tabbable tabs-left">
-		
+
 		<ul class="nav bav-tabs">
 			<li><a href="#tab1" data-toggle="tab">{{trans('admin.systematization')}}</a></li>
 			<li><a href="#tab2" data-toggle="tab">{{trans('admin.investigation')}}</a></li>
@@ -54,9 +54,9 @@
 					</a>
 				</div>
 
-				
+
 				<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
-					
+
 					@if(isset($content_close[$pattern_array[$i-1]]))
 					@foreach($content2[$pattern_array[$i-1]] as $key=>$data)
 
@@ -71,7 +71,7 @@
 
 							</div>
 						</div>
-						
+
 						@foreach($data as $key=>$element)
 
 						@if($element->type_element == 'title')
@@ -93,7 +93,7 @@
 									<input type='hidden' name='data[{{$count}}][contentchild]' value="contentchild{{$count_element}}">
 								</div>
 							</div>
-						</div>			
+						</div>
 						<?php $count++;?>
 						@endif
 
@@ -148,7 +148,7 @@
 								</div>
 								<div class=" box-body">
 									<div class="col-md-6">
-										<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" />
+										<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" accept="image/*"/>
 
 
 										<input type="hidden" id="image-{{$count}}" name="image" value="imagep-{{$count}}" class="componente">
@@ -182,7 +182,7 @@
 							<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
 								<i class="fa fa-edit fa-3x"></i>
 								<h3>Seguir Editando</h3>
-							</a>			
+							</a>
 						</div>
 					</div>
 
@@ -221,79 +221,8 @@
 <!-------------------------------------------------------------------------------->
 
 {{-- Modulos de elementos ocultos para clonar --}}
-
-<div class="content sortable contentfather-clone nomostrar" id="contentchild1">
-	<div class="box-header with-border">
-
-		<div class="box-tools box-tools-content pull-right">
-			<button type="button" class="btn btn-box-tool remove-content">
-				<i class="fa fa-close"></i>
-			</button>
-
-		</div>
-	</div>
-</div>
-
-{{-- Modulo Title --}}
-
-<div class="titulo-clone nomostrar">
-	<div class="box">
-		<div class="box-header with-border">
-			<h3 class="box-title">Titulo</h3>
-			<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
-					<i class="fa fa-close"></i>
-				</button>
-			</div>
-		</div>
-		<div class="box-body">
-			<input type="text" class="form-control componente"> 
-		</div>
-	</div>
-</div>
-
-{{-- Modulo Textarea --}}
-<div class="textareaclone nomostrar  ">
-
-	<div class="box">
-		<div class="box-header with-border">
-			<h3 class="box-title">Textarea</h3>
-			<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
-					<i class="fa  fa-close"></i>
-				</button>
-				<button  type="button" class="btn btn-box-tool">
-					<i class="fa  fa-paint-brush"></i>
-				</button>
-			</div>
-		</div>
-		<div class="box-body edit-textarea">
-
-		</div>
-	</div>
-
-</div>
-
-
-<!--modulo image-->
-
-
-<div class="uploadimage uploadimage-clone nomostrar">
-	<div class="box">
-		<div class="box-header with-border">
-			<h3 class="box-title">Image</h3>
-			<div class="box-tools pull-right">
-				<button type="button" class="btn btn-box-tool">
-					<i class="fa fa-close"></i>
-				</button>
-			</div>
-		</div>
-		<div class=" box-body">
-			<input class="form-control" type="file" />
-		</div>
-	</div>
-</div>
-
+@include('admin.oaca.objetos.includes.clone_elements')
+{{-- ------------------------------------------------ --}}
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -451,9 +380,9 @@
 
 
 		$('#'+textarea_id).summernote({
-			height: 300,               
-			minHeight: null,             
-			maxHeight: null,             
+			height: 300,
+			minHeight: null,
+			maxHeight: null,
 			focus: true,
 			maximumImageFileSize: 512*1024
 		});

@@ -13,7 +13,7 @@ use Session;
 class GeneradorController extends AdminController
 {
 
-	
+
 
 
 	function getEditIntroduction($id){
@@ -486,20 +486,16 @@ function getIntroduction(){
 
 		}
 
-
-
-
 		public function getEditoaca(){
 
 			return view('admin.oaca.objetos.edit');
 		}
 
 		public function getPrueba(){
-			return view('admin.oaca.objetos.introduction.add',[
-				"register_id" =>ElementsOaca::UUID_REGISTER,
-				"moment"=>ElementsOaca::INTRODUCTION,
-				"task_moment" => 'edit']);
+			return view('admin.oaca.objetos.prueba');
 			}
+
+
 			public function postPrueba(Request $request){
 				dd($request->input('data'));
 			}
