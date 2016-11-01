@@ -180,9 +180,6 @@
 							<?php $count++;?>
 							@endif
 
-
-
-
 							@endforeach
 							<?php $count_element++; ?>
 						</div>
@@ -348,6 +345,11 @@
 		color: black;
 	}
 
+	.iframe_hotpotato{
+		width: 100%;
+		height: 500px;
+
+	}
 </style>
 @endpush
 
