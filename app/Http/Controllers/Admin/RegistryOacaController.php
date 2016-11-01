@@ -27,8 +27,8 @@ class RegistryOacaController extends Controller
 		return view('admin.oaca.registry.create');
 	}
 	public function postCreate(Request $request){
-		//dd($request->input('colaborator'));
 
+		//dd($request->input('colaborator'));
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
 		$content_register->content_register = $content;
@@ -144,7 +144,7 @@ class RegistryOacaController extends Controller
 	////////////////////////////////////////////////////////////
 
 	public function saveColaborators($colaborator, $id_registry, $image){
-		
+
 		$newcolaborator = Colaborators::firstOrNew(['id'=>$colaborator['id']]);
 		$newcolaborator->id_registry = $id_registry;
 		$newcolaborator->name = $colaborator['name'];
