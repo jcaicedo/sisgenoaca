@@ -345,6 +345,12 @@
 		color: black;
 	}
 
+	.iframe_hotpotato{
+		width: 100%;
+		height: 500px;
+
+	}
+
 </style>
 @endpush
 

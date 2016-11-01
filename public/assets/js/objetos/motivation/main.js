@@ -1,6 +1,7 @@
 
 //Boton captura evento para mostrar los preview
 var countImage = 0;
+var countHtml = 0;
 var count_childrenpreview =0;
 
 $('.preview-oaca').click(function(e){
@@ -55,12 +56,6 @@ $('.preview-oaca').click(function(e){
 					$("#"+$(el).attr('id')).html(function(){
 						readImage(el,countImage);
 						countImage ++;
-						/*$(content_preview).append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>');
-
-						$("#"+$(this).attr('id')).html(function(){
-
-							readImage(this,countImage);
-							countImage ++;*/
 						});
 				}else{
 
@@ -69,6 +64,18 @@ $('.preview-oaca').click(function(e){
 					$('#'+id_contentpreview).append(image);
 				}
 				break;
+
+				case 'filehtlml':
+				if($(el).val()!=''){
+					$('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>').appendTo('#'+id_contentpreview);
+
+					$("#"+$(el).attr('id')).html(function(){
+						readHtml(el,countHtml);
+						countHtml ++;
+						});
+				}
+				break;
+
 
 			}
 
@@ -79,15 +86,19 @@ $('.preview-oaca').click(function(e){
 
 	$(content_data).hide();
 	$(preview).show();
-	console.log(content_preview);
-	$(content_preview).slick({
-		dots: true,
-		infinite: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		adaptiveHeight: true,
-		arrows: false,
-	});
+	//console.log(content_preview);
+	setTimeout(function(){
+		$(content_preview).slick({
+			dots: true,
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			arrows: false,
+		});
+
+	},2000);
+
 	$(content_btn).hide();
 
 
@@ -125,8 +136,23 @@ function readImage (input, id) {
 
 		reader.onload = function (e){
 			$('#loadimage'+id).attr('src', e.target.result);
-
+	console.log(e.target.result);
 		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+function readHtml (input, id) {
+
+	if(input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function (e){
+			$('#loadhtml'+id).attr('src', e.target.result);
+			console.log(e.target.result);
+		}
+
 		reader.readAsDataURL(input.files[0]);
 	}
 }
