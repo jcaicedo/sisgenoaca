@@ -91,7 +91,7 @@ class GeneradorController extends AdminController
 					}
 					break;
 
-					case 'filehtlml':
+					case 'filehtml':
 					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::MOTIVATION;

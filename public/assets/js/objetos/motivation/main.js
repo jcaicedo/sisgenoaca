@@ -65,7 +65,7 @@ $('.preview-oaca').click(function(e){
 				}
 				break;
 
-				case 'filehtlml':
+				case 'filehtml':
 				if($(el).val()!=''){
 					$('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>').appendTo('#'+id_contentpreview);
 
@@ -73,6 +73,11 @@ $('.preview-oaca').click(function(e){
 						readHtml(el,countHtml);
 						countHtml ++;
 						});
+				}else{
+					var url_filehtml = $('#'+$(el).attr('id')+'-original').data('content');
+				console.log(url_filehtml);
+					$('#'+id_contentpreview).append('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="'+url_filehtml+'" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>');
+
 				}
 				break;
 
@@ -306,7 +311,7 @@ $(document).ready(function(){
 				$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
 				$("#filehtlmlp-"+count).addClass("componente");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][content]' value='filehtlml"+count+"'>");
-				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][type]' value='filehtlml'>");
+				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][type]' value='filehtml'>");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$('#'+id_content).data('pattern')+"'>");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
