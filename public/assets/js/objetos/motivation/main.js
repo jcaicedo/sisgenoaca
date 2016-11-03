@@ -50,7 +50,7 @@ $('.preview-oaca').click(function(e){
 
 				case 'image':
 				if($(el).val()!=''){
-console.log('entrando en image');
+					console.log('entrando en image');
 					$('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentpreview);
 
 					$("#"+$(el).attr('id')).html(function(){
@@ -58,7 +58,7 @@ console.log('entrando en image');
 						countImage ++;
 					});
 				}else{
-console.log('entrando en image original');
+					console.log('entrando en image original');
 					var id_image = $(el).attr('id')+'-original';
 					var image = $('#'+id_image).clone();
 					$('#'+id_contentpreview).append(image);
@@ -95,14 +95,14 @@ console.log('entrando en image original');
 	$(preview).show();
 	//console.log(content_preview);
 	setTimeout(function(){
-	$(content_preview).slick({
-		dots: true,
-		infinite: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		adaptiveHeight: true,
-		arrows: false,
-	});
+		$(content_preview).slick({
+			dots: true,
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			adaptiveHeight: true,
+			arrows: false,
+		});
 
 	},2000);
 
