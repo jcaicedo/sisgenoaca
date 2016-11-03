@@ -50,15 +50,15 @@ $('.preview-oaca').click(function(e){
 
 				case 'image':
 				if($(el).val()!=''){
-
+console.log('entrando en image');
 					$('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentpreview);
 
 					$("#"+$(el).attr('id')).html(function(){
 						readImage(el,countImage);
 						countImage ++;
-						});
+					});
 				}else{
-
+console.log('entrando en image original');
 					var id_image = $(el).attr('id')+'-original';
 					var image = $('#'+id_image).clone();
 					$('#'+id_contentpreview).append(image);
@@ -67,15 +67,17 @@ $('.preview-oaca').click(function(e){
 
 				case 'filehtml':
 				if($(el).val()!=''){
+					console.log('entrando en html');
 					$('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>').appendTo('#'+id_contentpreview);
-
+					console.log('aqui html');
 					$("#"+$(el).attr('id')).html(function(){
 						readHtml(el,countHtml);
 						countHtml ++;
-						});
+					});
 				}else{
+					console.log('entrando en image original');
 					var url_filehtml = $('#'+$(el).attr('id')+'-original').data('content');
-				console.log(url_filehtml);
+					console.log(url_filehtml);
 					$('#'+id_contentpreview).append('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="'+url_filehtml+'" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>');
 
 				}
@@ -93,14 +95,14 @@ $('.preview-oaca').click(function(e){
 	$(preview).show();
 	//console.log(content_preview);
 	setTimeout(function(){
-		$(content_preview).slick({
-			dots: true,
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: true,
-			arrows: false,
-		});
+	$(content_preview).slick({
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		arrows: false,
+	});
 
 	},2000);
 
@@ -124,7 +126,7 @@ $('.btn-return-edit').click(function(e){
 	$(content_data).show();
 	$(content_btn).show();
 	$(preview).hide();
-//	count_childrenpreview = 0;
+	//	count_childrenpreview = 0;
 
 
 
@@ -141,7 +143,7 @@ function readImage (input, id) {
 
 		reader.onload = function (e){
 			$('#loadimage'+id).attr('src', e.target.result);
-	console.log(e.target.result);
+			console.log(e.target.result);
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -307,14 +309,15 @@ $(document).ready(function(){
 				case 'uploadhotpotatoes':
 				var uploadhotpotatoes = $("div.uploadhotpotatoes-clone").clone();
 				$(uploadhotpotatoes).removeClass("nomostrar").removeClass("uploadhotpotatoes-clone").addClass("remove-div-"+count).appendTo("#"+id_content);
-				$(".remove-div-"+count).find('input').attr({"data-element":"filehtlml","data-position":count,'value':'filehtlml-'+count,"name":"filehtlml"+count,"id":'filehtlmlp-'+count}).addClass("myinput");
+				$(".remove-div-"+count).find('input').attr({"data-element":"filehtml","data-position":count,'value':'filehtml-'+count,"name":"filehtml"+count,"id":'filehtmlp-'+count}).addClass("myinput");
 				$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
-				$("#filehtlmlp-"+count).addClass("componente");
-				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][content]' value='filehtlml"+count+"'>");
-				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][type]' value='filehtml'>");
-				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
-				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$('#'+id_content).data('pattern')+"'>");
-				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+				$("#filehtmlp-"+count).addClass("componente");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][content]' value='filehtml"+count+"'>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][type]' value='filehtml'>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$('#'+id_content).data('pattern')+"'>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+				count++;
 				break;
 
 
