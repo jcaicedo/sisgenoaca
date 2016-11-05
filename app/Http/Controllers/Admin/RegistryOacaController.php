@@ -24,7 +24,7 @@ class RegistryOacaController extends Controller
 	}
 
 	public function getCreate(){
-		return view('admin.oaca.registry.create');
+		return view('admin.oaca.registry.create2');
 	}
 	public function postCreate(Request $request){
 

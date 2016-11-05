@@ -1,6 +1,6 @@
 <!--Referencias y Bibliografias-->
 
-<div class="box-body nomostrar" id="references">
+<div class="box-body " id="references">
   <h4>Referencias y Bibliografías</h4>
   <br>
   <div class="form-group col-md-12">
