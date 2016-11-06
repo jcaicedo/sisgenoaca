@@ -7,6 +7,7 @@
 	<h1>{{trans('admin.development')}}</h1>
 </section> --}}
 
+@include('admin.oaca.objetos.includes.wizard')
 
 <div class="box-header">
 	<h1 >{{trans('admin.motivation')}}

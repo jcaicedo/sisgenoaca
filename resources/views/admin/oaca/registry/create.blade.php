@@ -93,7 +93,7 @@
                           <div class="tab-pane" id="tab8">
                             <br>
                             <br>
-                            {{-- <h3><strong>Step 8</strong> - Save Form</h3> --}}
+
                             <br>
                             <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Registro Completado</strong></h1>
                             <p class="text-center">Antes de continuar puede revisar los datos del Registro
@@ -158,7 +158,6 @@
   @endpush
   @push('scripts')
     {{-- <script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script> --}}
-    {{-- <script type="text/javascript"  src="/assets/js/register/main.js" ></script> --}}
     <script type="text/javascript"  src="/assets/js/register/create/main.js" ></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
