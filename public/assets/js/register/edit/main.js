@@ -12,7 +12,8 @@ console.log(count);
   });
 
 //  var count = {{count($content_register->words_key)}};
-  var count_words_key=2;
+  var count_words_key=$(".box-wordkey").length;
+
 
 
   /*add Words Key*/
