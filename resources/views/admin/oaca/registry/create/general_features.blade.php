@@ -1,13 +1,6 @@
 <div class="box-body" id="general-features">
-	<h4>{{trans('admin.generalfeatures')}}</h4>
-	{{-- <section data-step="0"></section> --}}
+	{{-- <h4>{{trans('admin.generalfeatures')}}</h4> --}}
 	<br>
-
-	{{-- 	<div class="form-group col-xs-12 col-md-4 col-lg-4">
-	<label for="identificator">{{trans('admin.identificator')}}<span> *</span></label>
-	<input type="text" class="form-control" id="identificator" name="identificator" placeholder="{{trans('admin.placeholderIdentificator')}}">
-</div> --}}
-
 <div class="form-group col-xs-12 col-md-4 col-lg-6">
 	<label for="title">{{trans('admin.title')}}<span> *</span></label>
 	<input type="text" class="form-control" id="title" name="title" placeholder="{{trans('admin.placeholderTitle')}}" >

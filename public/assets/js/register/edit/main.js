@@ -83,7 +83,20 @@ console.log(count);
     }
   });
 
+  $(".next-step").click(function (e) {
+    console.log('hola');
+    var $active = $('.wizard .form-wizard li.active');
+    console.log($active);
+    $active.next().removeClass('disabled');
+    nextTab($active);
 
+  });
+  $(".prev-step").click(function (e) {
+
+    var $active = $('.wizard .form-wizard li.active');
+    prevTab($active);
+
+  });
 
 
 });
@@ -92,127 +105,9 @@ console.log(count);
 //////Botones de nex y back///////////////////////
 ///////////////////////////////////////////////////
 
-  /*Buttom Next*/
-  $('.btn-next').click(function(e){
-    e.preventDefault();
-
-
-    var content_body = $('.btn-next').data('body');
-
-    switch(content_body){
-
-      case 'select-pattern':
-  		$('.btn-next').data('body','general-features');
-  		$('#'+content_body).hide();
-  		$('#general-features').show();
-  		$('.btn-back').data('body','general-features').show();
-  		break;
-
-      case 'general-features':
-      $('.btn-next').data('body','lifecycle');
-      $('#'+content_body).hide();
-      $('#lifecycle').show();
-      $('.btn-back').data('body','lifecycle').show();
-      break;
-
-      case 'lifecycle':
-      $('.btn-next').data('body','educational');
-      $('#'+content_body).hide();
-      $('#educational').show();
-      $('.btn-back').data('body','educational');
-      break;
-
-      case 'educational':
-  		$('.btn-next').data('body','references');
-  		$('#'+content_body).hide();
-  		$('#references').show();
-  		$('.btn-back').data('body','references');
-  		break;
-
-      case 'references':
-      $('.btn-next').data('body','copyright');
-      $('#'+content_body).hide();
-      $('#copyright').show();
-      $('.btn-back').data('body','copyright');
-      break;
-
-      case 'copyright':
-      $('.btn-next').data('body','selectable_plantilla');
-      $('#'+content_body).hide();
-      $('#selectable_plantilla').show();
-      $(this).hide();
-      $('.btn-back').data('body','selectable_plantilla');
-      $('.btn-save').show();
-    }
-
-  });
-
-  /*Button Back*/
-
-  $(".btn-back").click(function(e) {
-    // body...
-    e.preventDefault();
-
-    var content_body = $('.btn-back').data('body');
-
-    switch(content_body){
-
-      case 'general-features':
-      $(this).hide();
-      $('#'+content_body).hide();
-      $('#select-pattern').show();
-      $('.btn-next').data('body','select-pattern');
-      break;
-
-      case 'lifecycle':
-      $(this).data('body','general-features');
-      $('#'+content_body).hide();
-      $('#general-features').show();
-      $('.btn-next').data('body','general-features');
-      break;
-
-      case 'educational':
-      $(this).data('body','lifecycle');
-      $('#'+content_body).hide();
-      $('#lifecycle').show();
-      $('.btn-next').data('body','lifecycle');
-      break;
-
-      case 'references':
-      $(this).data('body','educational');
-      $('#'+content_body).hide();
-      $('#educational').show();
-      $('.btn-next').data('body','educational');
-      break;
-
-      case 'copyright':
-      $(this).data('body','references');
-      $('#'+content_body).hide();
-      $('#references').show();
-      $('.btn-next').data('body','references');
-      break;
-
-      case 'selectable_plantilla':
-      $(this).data('body','copyright');
-      $('#'+content_body).hide();
-      $('#copyright').show();
-      $('.btn-next').data('body','copyright').show();
-      $('.btn-save').hide();
-      break;
-
-    }
-
-
-  });
-
-
-  // 	$('#form_register').submit(function(event) {
-  //
-  // //	$("input[name='colaborator[0][image_organization_colaborator]']").val($("#image_organization0").val().split('\\').pop());
-  //
-  // 	$('input.image_colaborator_file').each(function(el){
-  // 		var name_image = $(this).val().split('\\').pop();
-  // 		$(this).siblings('.image_organization_colaborator_name').val(name_image);
-  // 	});
-  //
-  // 	});
+function nextTab(elem) {
+  $(elem).next().find('a[data-toggle="tab"]').click();
+}
+function prevTab(elem) {
+  $(elem).prev().find('a[data-toggle="tab"]').click();
+}

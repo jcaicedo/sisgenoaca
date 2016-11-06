@@ -1,7 +1,7 @@
 <!--Referencias y Bibliografias-->
 
 <div class="box-body " id="references">
-  <h4>Referencias y Bibliografías</h4>
+  {{-- <h4>Referencias y Bibliografías</h4> --}}
   <br>
   <div class="form-group col-md-12">
     <label for="referencias"><span>*</span>Introduzca las referencias y bibliografías</label>

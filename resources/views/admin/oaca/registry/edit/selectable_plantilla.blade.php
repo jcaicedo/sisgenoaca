@@ -1,7 +1,7 @@
 {{-- Seleccion de Plantilla --}}
 
-<div class="box-body nomostrar" id="selectable_plantilla">
-  <h4 style="text-align:center;">{{trans('admin.select_plantilla')}}</h4>
+<div class="box-body" id="selectable_plantilla">
+  {{-- <h4 style="text-align:center;">{{trans('admin.select_plantilla')}}</h4> --}}
   <br>
   <input type="hidden" id="number_plantilla" value="{{$registro->plantilla}}" >
   <ol id="selectable" name="selectable">

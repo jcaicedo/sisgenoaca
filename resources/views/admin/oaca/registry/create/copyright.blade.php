@@ -2,7 +2,7 @@
 
 					<div class="box-body " id="copyright">
 						<input type="hidden" name="licencia" id="licencia" value="">
-						<h4>{{trans('admin.copyright')}}</h4>
+						{{-- <h4>{{trans('admin.copyright')}}</h4> --}}
 						<br>
 						<ol id="selectable-copyright">
 							<li class="ui-widget-content" data-licencia="by-nc">
