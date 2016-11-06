@@ -22,7 +22,7 @@
 			<a href="#tab7" data-toggle="tab"> <span class="step">7</span> <span class="title">Plantilla</span> </a>
 		</li>
 		<li data-target="#step8">
-			<a href="#tab8" data-toggle="tab"> <span class="step">8</span> <span class="title">Derechos de Autor</span> </a>
+			<a href="#tab8" data-toggle="tab"> <span class="step">8</span> <span class="title">Creación de OACA</span> </a>
 		</li>
 	</ul>
 	<div class="clearfix"></div>

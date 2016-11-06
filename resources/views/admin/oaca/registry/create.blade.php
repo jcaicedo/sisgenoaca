@@ -88,20 +88,27 @@
                             <h3><strong>7</strong> - Derechos de Autor</h3>
 
                             @include('admin.oaca.registry.create.selectable_plantilla')
-                            
+
                           </div>
                           <div class="tab-pane" id="tab8">
                             <br>
-                            <h3><strong>Step 8</strong> - Save Form</h3>
                             <br>
-                            <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Complete</strong></h1>
-                            <h4 class="text-center">Click next to finish</h4>
+                            {{-- <h3><strong>Step 8</strong> - Save Form</h3> --}}
+                            <br>
+                            <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Registro Completado</strong></h1>
+                            <p class="text-center">Antes de continuar puede revisar los datos del Registro
+                                                    o hacer click en "Crear OACA" para continuar</p>
+
                             <br>
                             <br>
-                            <button type="submit" class="btn btn-success btn-save  pull-right ">
-                              <i class="fa fa-save"></i>
-                              Guardar
-                            </button>
+                            <div class="text-center">
+                              <button type="submit" class="btn btn-success btn-lg btn-save" style="font-size:30px;">
+                                <i class="fa  fa-cube fa-1x"></i>
+                                CREAR OACA
+
+                              </button>
+                            </div>
+
                           </div>
                         </div>
                         <div class="form-actions form-actions-btn">
