@@ -93,69 +93,73 @@
                           </div>
                           <div class="tab-pane" id="tab8">
                             <br>
-                            <h3><strong>Step 8</strong> - Save Form</h3>
+                            {{-- <h3><strong>Step 8</strong> - Save Form</h3> --}}
                             <br>
-                            <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Complete</strong></h1>
-                            <h4 class="text-center">Click next to finish</h4>
-                            <br>
-                            <br>
-                            <button type="submit" class="btn btn-success btn-save  pull-right ">
-                              <i class="fa fa-save"></i>
-                              Guardar
-                            </button>
-                          </div>
-                        </div>
-                        <div class="form-actions form-actions-btn">
-                          <div class="row">
-                            <div class="col-sm-12">
-                              <ul class="pager wizard no-margin">
-                                <li class="previous">
-                                  <a href="#" class="btn btn-lg btn-default prev-step"> Previous </a>
-                                </li>
-                                <li class="next">
-                                  <a href="#" class="btn btn-lg txt-color-darken next-step"> Next </a>
-                                </li>
-                              </ul>
+                            <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Edición Compleatada!</strong></h1>
+                            <p class="text-center">Antes de continuar puede revisar los datos del Registro
+                              o hacer click en "GUARDAR CAMBIOS" para continuar</p>
+
+                              <br>
+                              <br>
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg btn-save" style="font-size:30px;">
+                                  <i class="fa  fa-cube fa-1x"></i>
+                                  GUARDAR CAMBIOS
+
+                                </button>
+                              </div>
+                            </div>
+                            <div class="form-actions form-actions-btn">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <ul class="pager wizard no-margin">
+                                    <li class="previous">
+                                      <a href="#" class="btn btn-lg btn-default prev-step"> Previous </a>
+                                    </li>
+                                    <li class="next">
+                                      <a href="#" class="btn btn-lg txt-color-darken next-step"> Next </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        </form>
                       </div>
-                    </form>
+
+                    </div>
+                    <!-- end widget content -->
+
                   </div>
+                  <!-- end widget div -->
 
                 </div>
-                <!-- end widget content -->
+                <!-- end widget -->
 
-              </div>
-              <!-- end widget div -->
-
+              </article>
             </div>
-            <!-- end widget -->
+          </div>
 
-          </article>
+
         </div>
-      </div>
-
-
-    </div>
 
 
 
-  @endsection
-  @include('admin.oaca.registry.edit.elements_hide')
+      @endsection
+      @include('admin.oaca.registry.edit.elements_hide')
 
-  @push('styles')
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="/assets/css/registry/master.css">
-    <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
+      @push('styles')
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="/assets/css/registry/master.css">
+        <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
 
-  @endpush
-  @push('scripts')
-    {{-- <script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script> --}}
-    {{-- <script type="text/javascript"  src="/assets/js/register/main.js" ></script> --}}
-    <script type="text/javascript"  src="/assets/js/register/edit/main.js" ></script>
-    <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+      @endpush
+      @push('scripts')
+        {{-- <script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script> --}}
+        {{-- <script type="text/javascript"  src="/assets/js/register/main.js" ></script> --}}
+        <script type="text/javascript"  src="/assets/js/register/edit/main.js" ></script>
+        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
-    <!-- iCheck 1.0.1 -->
-    <script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
-  @endpush
+        <!-- iCheck 1.0.1 -->
+        <script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
+      @endpush

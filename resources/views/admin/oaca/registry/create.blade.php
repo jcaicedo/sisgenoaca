@@ -116,10 +116,10 @@
                             <div class="col-sm-12">
                               <ul class="pager wizard no-margin">
                                 <li class="previous">
-                                  <a href="#" class="btn btn-lg btn-default prev-step"> Previous </a>
+                                  <a href="#" class="btn btn-lg btn-default prev-step"> Atrás </a>
                                 </li>
                                 <li class="next">
-                                  <a href="#" class="btn btn-lg txt-color-darken next-step"> Next </a>
+                                  <a href="#" class="btn btn-lg txt-color-darken next-step"> Siguiente </a>
                                 </li>
                               </ul>
                             </div>
