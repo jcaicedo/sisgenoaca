@@ -24,11 +24,11 @@ class RegistryOacaController extends Controller
 	}
 
 	public function getCreate(){
-		return view('admin.oaca.registry.create2');
+		return view('admin.oaca.registry.create');
 	}
 	public function postCreate(Request $request){
 
-		//dd($request->input('colaborator'));
+	//	dd($request->input());
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
 		$content_register->content_register = $content;

@@ -34,7 +34,9 @@
 
                   <div class="row">
                     <form  novalidate="novalidate"  method="post" id="form_register" role="form" enctype="multipart/form-data">
-                      <div id="bootstrap-wizard-1" class="col-sm-12">
+                      <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                      {!! csrf_field() !!}
+                      <div id="bootstrap-wizard-1" class="col-sm-12 wizard">
                         <div class="form-bootstrapWizard">
                           <ul class="bootstrapWizard form-wizard">
                             <li class="active" data-target="#step1">
@@ -69,140 +71,36 @@
                             <br>
                             <h3><strong>1 </strong> - Selección de Patrón</h3>
                             @include('admin.oaca.registry.create.pattern')
-
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous disabled">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                           <div class="tab-pane" id="tab2">
                             <br>
                             <h3><strong>2</strong> - Características Generales</h3>
                             @include('admin.oaca.registry.create.general_features')
-
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next disabled">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                           <div class="tab-pane" id="tab3">
                             <br>
                             <h3><strong>3</strong> - Ciclo de Vida</h3>
                             @include('admin.oaca.registry.create.lifecycle')
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next disabled">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                           <div class="tab-pane" id="tab4">
                             <br>
                             <h3><strong>4</strong> - Educacional</h3>
                             @include('admin.oaca.registry.create.educational')
-
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next disabled">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                           <div class="tab-pane" id="tab5">
                             <br>
                             <h3><strong>5</strong> - Referencias</h3>
                             @include('admin.oaca.registry.create.referencias')
-
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next disabled">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                           <div class="tab-pane" id="tab6">
                             <br>
                             <h3><strong>6</strong> - Derechos de Autor</h3>
                             @include('admin.oaca.registry.create.copyright')
-
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next disabled">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                           <div class="tab-pane" id="tab7">
                             <br>
                             <h3><strong>7</strong> - Derechos de Autor</h3>
                             @include('admin.oaca.registry.create.selectable_plantilla')
-
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next disabled">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
-                            </div>
                           </div>
                           <div class="tab-pane" id="tab8">
                             <br>
@@ -212,23 +110,25 @@
                             <h4 class="text-center">Click next to finish</h4>
                             <br>
                             <br>
-                            <div class="form-actions">
-                              <div class="row">
-                                <div class="col-sm-12">
-                                  <ul class="pager wizard no-margin">
-                                    <li class="previous">
-                                      <a href="#" class="btn btn-lg btn-default"> Previous </a>
-                                    </li>
-                                    <li class="next disabled">
-                                      <a href="#" class="btn btn-lg txt-color-darken"> Next </a>
-                                    </li>
-                                  </ul>
-                                </div>
-                              </div>
+                            <button type="submit" class="btn btn-success btn-save  pull-right ">
+          										<i class="fa fa-save"></i>
+          										Guardar
+          									</button>
+                          </div>
+                        </div>
+                        <div class="form-actions">
+                          <div class="row">
+                            <div class="col-sm-12">
+                              <ul class="pager wizard no-margin">
+                                <li class="previous disabled">
+                                  <a href="#" class="btn btn-lg btn-default prev-step"> Previous </a>
+                                </li>
+                                <li class="next">
+                                  <a href="#" class="btn btn-lg txt-color-darken next-step"> Next </a>
+                                </li>
+                              </ul>
                             </div>
                           </div>
-
-
                         </div>
                       </div>
                     </form>
@@ -253,7 +153,7 @@
 
 
   @endsection
-@include('admin.oaca.registry.create.elements_hide')
+  @include('admin.oaca.registry.create.elements_hide')
 
   @push('styles')
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
@@ -276,124 +176,130 @@
     ///////////////////
     /*Start Wizard*/
 
-.bootstrapWizard {
-    display: block;
-    list-style: none;
-    padding: 0;
-    position: relative;
-    width: 100%
-}
 
-.bootstrapWizard a:hover,.bootstrapWizard a:active,.bootstrapWizard a:focus {
-    text-decoration: none
-}
+    .bootstrapWizard {
+      display: block;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      width: 100%
+    }
 
-.bootstrapWizard li {
-    display: block;
-    float: left;
-    width: 12%;
-    text-align: center;
-    padding-left: 0
-}
+    .bootstrapWizard a:hover,.bootstrapWizard a:active,.bootstrapWizard a:focus {
+      text-decoration: none
+    }
 
-.bootstrapWizard li:before {
-    border-top: 3px solid #55606E;
-    content: "";
-    display: block;
-    font-size: 0;
-    overflow: hidden;
-    position: relative;
-    top: 11px;
-    right: 1px;
-    width: 100%;
-    z-index: 1
-}
+    .bootstrapWizard li {
+      display: block;
+      float: left;
+      width: 12%;
+      text-align: center;
+      padding-left: 0
+    }
 
-.bootstrapWizard li:first-child:before {
-    left: 50%;
-    max-width: 50%
-}
+    .bootstrapWizard li:before {
+      border-top: 3px solid #55606E;
+      content: "";
+      display: block;
+      font-size: 0;
+      overflow: hidden;
+      position: relative;
+      top: 11px;
+      right: 1px;
+      width: 100%;
+      z-index: 1
+    }
 
-.bootstrapWizard li:last-child:before {
-    max-width: 50%;
-    width: 50%
-}
+    .bootstrapWizard li:first-child:before {
+      left: 50%;
+      max-width: 50%
+    }
 
-.bootstrapWizard li.complete .step {
-    background: #0aa66e;
-    padding: 1px 6px;
-    border: 3px solid #55606E
-}
+    .bootstrapWizard li:last-child:before {
+      max-width: 50%;
+      width: 50%
+    }
 
-.bootstrapWizard li .step i {
-    font-size: 10px;
-    font-weight: 400;
-    position: relative;
-    top: -1.5px
-}
+    .bootstrapWizard li.complete .step {
+      background: #0aa66e;
+      padding: 1px 6px;
+      border: 3px solid #55606E
+    }
 
-.bootstrapWizard li .step {
-    background: #B2B5B9;
-    color: #fff;
-    display: inline;
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 12px;
-    padding: 7px 13px;
-    border: 3px solid transparent;
-    border-radius: 50%;
-    line-height: normal;
-    position: relative;
-    text-align: center;
-    z-index: 2;
-    transition: all .1s linear 0s
-}
+    .bootstrapWizard li .step i {
+      font-size: 10px;
+      font-weight: 400;
+      position: relative;
+      top: -1.5px
+    }
 
-.bootstrapWizard li.active .step,.bootstrapWizard li.active.complete .step {
-    background: #0091d9;
-    color: #fff;
-    font-weight: 700;
-    padding: 7px 13px;
-    font-size: 15px;
-    border-radius: 50%;
-    border: 3px solid #55606E
-}
+    .bootstrapWizard li .step {
+      background: #B2B5B9;
+      color: #fff;
+      display: inline;
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 12px;
+      padding: 7px 13px;
+      border: 3px solid transparent;
+      border-radius: 50%;
+      line-height: normal;
+      position: relative;
+      text-align: center;
+      z-index: 2;
+      transition: all .1s linear 0s
+    }
 
-.bootstrapWizard li.complete .title,.bootstrapWizard li.active .title {
-    color: #2B3D53
-}
+    .bootstrapWizard li.active .step,.bootstrapWizard li.active.complete .step {
+      background: #0091d9;
+      color: #fff;
+      font-weight: 700;
+      padding: 7px 13px;
+      font-size: 15px;
+      border-radius: 50%;
+      border: 3px solid #55606E
+    }
 
-.bootstrapWizard li .title {
-    color: #bfbfbf;
-    display: block;
-    font-size: 13px;
-    line-height: 15px;
-    max-width: 100%;
-    position: relative;
-    table-layout: fixed;
-    text-align: center;
-    top: 20px;
-    word-wrap: break-word;
-    z-index: 104
-}
+    .bootstrapWizard li.complete .title,.bootstrapWizard li.active .title {
+      color: #2B3D53
+    }
 
-.wizard-actions {
-    display: block;
-    list-style: none;
-    padding: 0;
-    position: relative;
-    width: 100%
-}
+    .bootstrapWizard li .title {
+      color: #bfbfbf;
+      display: block;
+      font-size: 13px;
+      line-height: 15px;
+      max-width: 100%;
+      position: relative;
+      table-layout: fixed;
+      text-align: center;
+      top: 20px;
+      word-wrap: break-word;
+      z-index: 104
+    }
 
-.wizard-actions li {
-    display: inline
-}
+    .wizard-actions {
+      display: block;
+      list-style: none;
+      padding: 0;
+      position: relative;
+      width: 100%
+    }
 
-.tab-content.transparent {
-    background-color: transparent
-}
+    .wizard-actions li {
+      display: inline
+    }
 
-/*End Wizard*/
+    .tab-content.transparent {
+      background-color: transparent
+    }
+    .tab-content{
+      padding-left: 2em;padding-right: 2em;
+    }
+
+
+
+    /*End Wizard*/
 
     </style>
     <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
@@ -421,29 +327,18 @@
 
     <script type="text/javascript">
     $(document).ready(function () {
-      //Initialize tooltips
-      $('.nav-tabs > li a[title]').tooltip();
-
-      //Wizard
-      $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
-
-        var $target = $(e.target);
-
-        if ($target.parent().hasClass('disabled')) {
-          return false;
-        }
-      });
 
       $(".next-step").click(function (e) {
-
-        var $active = $('.wizard .nav-tabs li.active');
+        console.log('hola');
+        var $active = $('.wizard .form-wizard li.active');
+        console.log($active);
         $active.next().removeClass('disabled');
         nextTab($active);
 
       });
       $(".prev-step").click(function (e) {
 
-        var $active = $('.wizard .nav-tabs li.active');
+        var $active = $('.wizard .form-wizard li.active');
         prevTab($active);
 
       });
