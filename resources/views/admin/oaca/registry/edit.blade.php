@@ -34,8 +34,9 @@
 
                   <div class="row">
                     <form  novalidate="novalidate"  method="post" id="form_register" role="form" enctype="multipart/form-data">
-                      <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
                       {!! csrf_field() !!}
+                      <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                      <input type="hidden" name="register_id" value="{{$registro->id}}">
                       <div id="bootstrap-wizard-1" class="col-sm-12 wizard">
 
                         @include('admin.oaca.registry.include.wizard')
