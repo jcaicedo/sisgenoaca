@@ -4,9 +4,13 @@
 
 
 		<div class="content-wrapper">
-			{{-- 	<section class="content-header">
-			<h1>{{trans('admin.development')}}</h1>
-		</section> --}}
+			<div class="row">
+
+				<h1 class="text-center">EDICIÓN DE OACA</h1>
+
+			</div>
+
+@include('admin.oaca.objetos.includes.wizard')
 
 		<div class="box-header">
 			<h1 >{{trans('admin.motivation')}}
@@ -233,7 +237,7 @@
 									</button>
 									<ul>
 
-										
+
 									</ul>
 
 									{{-- <button type="submit" class="btn btn-success">
