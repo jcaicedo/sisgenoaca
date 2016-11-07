@@ -3,24 +3,24 @@
   <div id="bootstrap-wizard-1" class="col-sm-12">
     <div class="form-bootstrapWizard">
       <ul class="bootstrapWizard form-wizard">
-        <li class="" data-target="#step1">
-         <span class="step">1</span> <span class="title">Registro</span>
+        <li class="" id="registro">
+         <span class="step"> <i class="fa fa-check fa-lg"></i> </span> <span class="title">Registro</span>
         </li>
-        <li data-target="#step2" class="active">
-         <span class="step">2</span> <span class="title">Motivación</span>
+        <li class="active" id="motivation">
+         <span class="step"> <i class="fa  fa-hand-pointer-o fa-3x"></i> </span> <span class="title">Motivación</span>
         </li>
-        <li data-target="#step3" class="">
-        <span class="step">3</span> <span class="title">Domain Setup</span>
+        <li  class="" id="development">
+        <span class="step"> <i class="fa  fa-hand-peace-o fa-3x"></i> </span> <span class="title">Desarrollo</span>
         </li>
-        <li data-target="#step3" class="">
-        <span class="step">4</span> <span class="title">Domain Setup</span>
+        <li  class="" id="close">
+        <span class="step"> <i class="fa  fa-hand-rock-o fa-3x"></i> </span> <span class="title">Cierre Integrador</span>
         </li>
-        <li data-target="#step3" class="">
+        {{-- <li data-target="#step3" class="">
         <span class="step">5</span> <span class="title">Domain Setup</span>
         </li>
         <li data-target="#step4">
         <span class="step">6</span> <span class="title">Save Form</span>
-        </li>
+        </li> --}}
       </ul>
       <div class="clearfix"></div>
     </div>
@@ -81,7 +81,7 @@
 }
 
 .bootstrapWizard li .step i {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 400;
   position: relative;
   top: -1.5px
@@ -91,7 +91,7 @@
   background: #B2B5B9;
   color: #fff;
   display: inline;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   line-height: 12px;
   padding: 7px 13px;
