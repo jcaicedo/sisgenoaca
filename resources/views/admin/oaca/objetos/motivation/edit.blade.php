@@ -65,6 +65,7 @@
 
 					</div>
 
+					{{-- botones de preview --}}
 					<div  class="box-header box-header-principal box-btn-header-principal{{$i}}">
 
 						<button type="submit" class="btn btn-success text-center" id="processit" >

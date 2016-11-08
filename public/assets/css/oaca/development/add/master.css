@@ -1,9 +1,9 @@
 .nomostrar{display:none;}
 .mostrar{display: block;}
 .btn-proccess{margin:0 auto; width: 200px;align:left;}
-.preview{display: none;min-height:304px;}
+.preview{display: none; min-height:304px;}
 .mark_background{background: #88AAAA}
-.content-preview{padding-left:15px;}
+.content-preview{padding:15px;}
 .content-preview h2{
   color: blue;
   text-align: center;
@@ -15,6 +15,7 @@
   padding-bottom: 8px;
 }
 
+
 .callout{margin: 0 !important; min-height:0;}
 
 .options-textarea{
@@ -23,6 +24,7 @@
 .box-header-btn{
   background: #CCCBCB;
 }
+
 .content-header{margin-bottom: 14px;}
 .content-btn-preview{text-align: center;}
 .box-header-principal{text-align: center;}
@@ -46,6 +48,7 @@
 .box-tools-content{
   top: -10px !important;
 }
+
 .box{
   border-radius:5px;
 }

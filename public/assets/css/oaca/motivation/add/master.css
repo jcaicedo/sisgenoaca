@@ -8,6 +8,12 @@
   color: blue;
   text-align: center;
 }
+
+.pager{
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-bottom: 8px;
+}
 .callout{margin: 0 !important; min-height:0;}
 
 .options-textarea{

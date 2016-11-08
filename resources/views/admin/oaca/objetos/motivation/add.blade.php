@@ -4,11 +4,8 @@
 
 		<div class="content-wrapper">
 			<div class="row">
-
 				<h1 class="text-center">CREACIÓN DE OACA</h1>
-
 			</div>
-
 
 			@include('admin.oaca.objetos.includes.wizard')
 
@@ -52,13 +49,9 @@
 								<i class="fa fa-eye fa-3x"></i>
 								<h3>Preview</h3>
 							</a>
-							{{-- <button type="submit" class="btn btn-success" id="processit" >
-							<h3>{{trans('admin.motivation')}}</h3>
-							<i class="fa fa-hand-o-right fa-3x"></i>
-
-						</button> --}}
 					</div>
-
+					
+		<!--CONTENEDOR PRINCIPAL-->
 					<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
 
 						<div class="content contentchild contentchildfirst sortable" id="contentchild{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
@@ -76,6 +69,7 @@
 						</button>
 					</div>
 
+					{{-- contenedor Preview --}}
 
 					<div class="preview" id="prev{{$i}}">
 						<div class="box-header">
@@ -85,50 +79,42 @@
 									<i class="fa fa-edit fa-3x"></i>
 									<h3>Seguir Editando</h3>
 								</a>
-								{{-- <button type="submit" class="btn btn-success" id="processit" >
-									<h3>{{trans('admin.motivation')}}</h3>
-									<i class="fa fa-hand-o-right fa-3x"></i>
 
-								</button> --}}
-							</div>
 						</div>
-						<div class="content-preview" id="content-prev{{$i}}">
-							<!--Contenedor del preview-->
-						</div>
-	{{-- bontones de preview --}}
-						<div class="box-header">
-							<div class="content-btn-preview">
+					</div>
+					<div class="content-preview" id="content-prev{{$i}}">
+						<!--Contenedor del preview-->
+					</div>
 
-								{{-- <a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn="#btn-prev{{$i}}" data-contentprev="#content-prev{{$i}}">
-									<i class="fa fa-edit fa-3x"></i>
-									<h3>Seguir Editando</h3>
-								</a> --}}
-								<button type="submit" class="btn btn-success" id="processit" >
-									<h3>{{trans('admin.development')}}</h3>
-									<i class="fa fa-hand-o-right fa-3x"></i>
-
-								</button>
-							</div>
-						</div>
+					{{-- bontones de preview --}}
+					<div class="box-header">
+						<div class="content-btn-preview">
+						<button type="submit" class="btn btn-success" id="processit" >
+							<h3>{{trans('admin.development')}}</h3>
+							<i class="fa fa-hand-o-right fa-3x"></i>
+						</button>
 					</div>
 				</div>
 
-			@endfor
-
-			<div class="footer">
-				<ul class="pager wizard">
-					{{-- <li class="previous first" style="display:none;"><a href="#">First</a></li> --}}
-					<li class="previous"><a href="#">Previous</a></li>
-
-					{{-- <button type="submit" class="btn btn-success">
-					<i class="fa fa-cogs"></i>
-					Procesar
-				</button> --}}
-				{{-- <li class="next last" style="display:none;"><a href="#">Last</a></li> --}}
-				<li class="next"><a href="#">Next</a></li>
-			</ul>
+			</div>
 		</div>
-	</div>
+
+	@endfor
+
+	<div class="footer">
+		<ul class="pager wizard">
+			{{-- <li class="previous first" style="display:none;"><a href="#">First</a></li> --}}
+			<li class="previous"><a href="#">Previous</a></li>
+
+			{{-- <button type="submit" class="btn btn-success">
+			<i class="fa fa-cogs"></i>
+			Procesar
+		</button> --}}
+		{{-- <li class="next last" style="display:none;"><a href="#">Last</a></li> --}}
+		<li class="next"><a href="#">Next</a></li>
+	</ul>
+</div>
+</div>
 </div>
 </form>
 
@@ -169,8 +155,6 @@
 
 <!--Styles-->
 @push('styles')
-
-
 	<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
 	<link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
 	<link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
