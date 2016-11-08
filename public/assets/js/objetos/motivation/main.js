@@ -119,6 +119,7 @@ $('.btn-return-edit').click(function(e){
 	var preview = $(this).data('prev');
 	var content_data = $(this).data('content');
 	var content_btn = $(this).data('btn');
+	console.log(content_btn);
 	var content_preview = $(this).data('contentprev');
 
 	$(content_preview).slick('unslick');

@@ -95,7 +95,7 @@
 						<div class="content-preview" id="content-prev{{$i}}">
 							<!--Contenedor del preview-->
 						</div>
-
+	{{-- bontones de preview --}}
 						<div class="box-header">
 							<div class="content-btn-preview">
 
