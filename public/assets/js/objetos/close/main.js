@@ -87,7 +87,7 @@ $('.preview-oaca').click(function(e){
 	$(content_data).hide();
 	$(preview).show();
 	//console.log(content_preview);
-	setTimeout(function(){
+	// setTimeout(function(){
 		$(content_preview).slick({
 			dots: true,
 			infinite: true,
@@ -97,7 +97,7 @@ $('.preview-oaca').click(function(e){
 			arrows: false,
 		});
 
-	},2000);
+	// },2000);
 
 	$(content_btn).hide();
 
@@ -178,6 +178,9 @@ $(document).ready(function(){
 		var $percent = ($current/$total) * 100;
 		$('#rootwizard .progress-bar').css({width:$percent+'%'});
 	}});
+
+	$("ul.bootstrapWizard li.active").removeClass("active");
+	$("ul.bootstrapWizard li#close").addClass("active");
 
 
 	var count= $('input[name=count_elements_old]').val();

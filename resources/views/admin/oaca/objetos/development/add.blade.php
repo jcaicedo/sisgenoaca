@@ -49,7 +49,7 @@
 
 					<div class="tab-pane" id="tab{{$i}}">
 
-						{{-- bontones de preview --}}
+						{{-- bontones de preview content principal --}}
 						<div class="box-header box-header-principal box-btn-header-principal{{$i}}">
 							<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
 								<i class="fa fa-eye fa-3x"></i>
@@ -59,13 +59,12 @@
 
 						<!--CONTENEDOR PRINCIPAL-->
 						<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
-
 							<div class="content contentchild contentchildfirst sortable" id="contentchild{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
 
 							</div>
 						</div>
 
-						{{-- bontones de preview --}}
+						{{-- bontones de preview content principal --}}
 						<div class="box-header box-header-principal box-btn-header-principal{{$i}}">
 							<button type="submit" class="btn btn-success text-center" id="processit" >
 								<h3>{{trans('admin.close')}}</h3>
