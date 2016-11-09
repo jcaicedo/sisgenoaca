@@ -26,7 +26,7 @@ class GeneradorController extends AdminController
 
 	function postMotivation(Request $request){
 
-	//	dd($request->input('data'));
+		//dd($request->input('data'));
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
 
