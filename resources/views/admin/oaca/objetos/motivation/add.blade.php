@@ -11,7 +11,7 @@
 
 			<div class="box-header">
 				<h1 class="text-center" >{{trans('admin.motivation')}}
-					<button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-info"></i></button>
+					<button type="button" class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-info"></i></button>
 				</h1>
 			</div>
 
@@ -124,25 +124,8 @@
 @include('admin.oaca.objetos.includes.clone_elements')
 {{-- ------------------------------------------------ --}}
 
+@include('admin.oaca.objetos.includes.modals.motivation.info_momento')
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-			</div>
-			<div class="modal-body">
-				...
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 @endsection
@@ -167,21 +150,25 @@
 	}
 
 	.btn-circle.btn-lg {
-  width: 38px;
-  height: 38px;
-  padding: 7px 14px;
-  font-size: 25px;
-  line-height: 0.33;
-  border-radius: 25px;
-}
-.btn-circle.btn-xl {
-  width: 70px;
-  height: 70px;
-  padding: 10px 16px;
-  font-size: 24px;
-  line-height: 1.33;
-  border-radius: 35px;
-}
+		width: 38px;
+		height: 38px;
+		padding: 7px 14px;
+		font-size: 25px;
+		line-height: 0.33;
+		border-radius: 25px;
+	}
+	.btn-circle.btn-xl {
+		width: 70px;
+		height: 70px;
+		padding: 10px 16px;
+		font-size: 24px;
+		line-height: 1.33;
+		border-radius: 35px;
+	}
+
+	.modal-dialog{
+		width: 1200px !important;
+	}
 	</style>
 @endpush
 
