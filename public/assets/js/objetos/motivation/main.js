@@ -76,9 +76,7 @@ $('.preview-oaca').click(function(e){
 				}else{
 					var id_html = $(el).attr('id')+'-original';
 					var name_html = $('#'+id_html).data('content');
-					//var html = $('#'+id_html).clone();
 					var html = '<div class="html-preview-content"><iframe src="'+name_html+'" class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>'
-
 					$('#'+id_contentpreview).append(html);
 				}
 				break;

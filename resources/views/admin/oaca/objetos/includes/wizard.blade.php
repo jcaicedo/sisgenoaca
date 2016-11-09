@@ -15,12 +15,12 @@
         <li  class="" id="close">
         <span class="step"> <i class="fa  fa-hand-rock-o fa-3x"></i> </span> <span class="title">Cierre Integrador</span>
         </li>
-        {{-- <li data-target="#step3" class="">
-        <span class="step">5</span> <span class="title">Domain Setup</span>
+        <li data-target="finalizar" class="">
+        <span class="step"> <i class="fa fa-cubes fa-3x"></i></span> <span class="title">Finalizar</span>
         </li>
-        <li data-target="#step4">
-        <span class="step">6</span> <span class="title">Save Form</span>
-        </li> --}}
+      {{-- <li data-target="#step4">
+      <span class="step">6</span> <span class="title">Save Form</span>
+    </li> --}}
       </ul>
       <div class="clearfix"></div>
     </div>
@@ -46,9 +46,12 @@
 .bootstrapWizard li {
   display: block;
   float: left;
-  width: 25%;
+  width: 20%;
   text-align: center;
   padding-left: 0
+}
+.bootstrapWizard li#registro .step {
+  background: green;
 }
 
 .bootstrapWizard li:before {
@@ -94,7 +97,7 @@
   font-size: 13px;
   font-weight: 700;
   line-height: 12px;
-  padding: 7px 13px;
+  padding: 7px 11px;
   border: 3px solid transparent;
   border-radius: 50%;
   line-height: normal;
