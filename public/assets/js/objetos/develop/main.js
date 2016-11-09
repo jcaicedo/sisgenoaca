@@ -96,7 +96,7 @@ $('.preview-oaca').click(function(e){
 			adaptiveHeight: true,
 			arrows: false,
 		});
-	// 
+	//
 	// },2000);
 
 	$(content_btn).hide();
