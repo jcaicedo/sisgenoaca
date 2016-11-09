@@ -56,7 +56,7 @@ $('.preview-oaca').click(function(e){
 					$("#"+$(el).attr('id')).html(function(){
 						readImage(el,countImage);
 						countImage ++;
-						});
+					});
 				}else{
 
 					var id_image = $(el).attr('id')+'-original';
@@ -72,7 +72,7 @@ $('.preview-oaca').click(function(e){
 					$("#"+$(el).attr('id')).html(function(){
 						readHtml(el,countHtml);
 						countHtml ++;
-						});
+					});
 				}
 				break;
 
@@ -88,14 +88,14 @@ $('.preview-oaca').click(function(e){
 	$(preview).show();
 	//console.log(content_preview);
 	// setTimeout(function(){
-		$(content_preview).slick({
-			dots: true,
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: true,
-			arrows: false,
-		});
+	$(content_preview).slick({
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		arrows: false,
+	});
 
 	// },2000);
 
@@ -119,7 +119,7 @@ $('.btn-return-edit').click(function(e){
 	$(content_data).show();
 	$(content_btn).show();
 	$(preview).hide();
-//	count_childrenpreview = 0;
+	//	count_childrenpreview = 0;
 
 
 
@@ -136,7 +136,7 @@ function readImage (input, id) {
 
 		reader.onload = function (e){
 			$('#loadimage'+id).attr('src', e.target.result);
-	console.log(e.target.result);
+			console.log(e.target.result);
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -313,6 +313,7 @@ $(document).ready(function(){
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$('#'+id_content).data('pattern')+"'>");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+				count ++;
 				break;
 
 
