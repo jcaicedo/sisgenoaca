@@ -6,6 +6,7 @@ use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
 use App\Models\Patterns;
 use App\Models\RegistryPattern;
+use App\Models\PublicsOaca;
 use App\Models\Colaborators;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -56,6 +57,9 @@ class RegistryOacaController extends Controller
 
 		}
 
+		$status_public = new PublicsOaca();
+		$status_public->register_id = $content_register->id;
+		$status_public->save();
 
 		return view('admin.oaca.objetos.motivation.add',[
 			"register_id"=>$content_register->id,

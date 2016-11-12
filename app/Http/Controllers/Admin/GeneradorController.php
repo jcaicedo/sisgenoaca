@@ -36,31 +36,31 @@ class GeneradorController extends AdminController
 			foreach ($request->input('data') as $key => $value) {
 				$type_element_input = $value['type'];
 
-			switch ($type_element_input) {
-				case 'title':
-				$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
-				$element->type_element = $value['type'];
-				$element->content = $value['content'];
-				$element->moment = ElementsOaca::MOTIVATION;
-				$element->pattern_pedagogicaltechno = $value['pattern'];
-				$element->position_order = $position;
-				$element->contentchild = $value['contentchild'];
-				$element->register_id =  $request->input('register_id');
-				$element->save();
-				$position ++;
+				switch ($type_element_input) {
+					case 'title':
+					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::MOTIVATION;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
 					break;
 
-				case'textarea':
-				$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
-				$element->type_element = $value['type'];
-				$element->content = $value['content'];
-				$element->moment = ElementsOaca::MOTIVATION;
-				$element->pattern_pedagogicaltechno = $value['pattern'];
-				$element->position_order = $position;
-				$element->contentchild = $value['contentchild'];
-				$element->register_id =  $request->input('register_id');
-				$element->save();
-				$position ++;
+					case'textarea':
+					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::MOTIVATION;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
 					break;
 
 					case 'image':
@@ -118,7 +118,7 @@ class GeneradorController extends AdminController
 						$position ++;
 					}
 					break;
-			}
+				}
 
 			}
 		}
@@ -264,7 +264,8 @@ class GeneradorController extends AdminController
 
 			return view('admin.oaca.objetos.close.add',[
 				"register_id" =>$request->input('register_id'),
-				"pattern_array" => ElementsOaca::CLOSE_ARRAY
+				"pattern_array" => ElementsOaca::CLOSE_ARRAY,
+				"task_moment" => "create"
 
 			]);
 
@@ -281,6 +282,7 @@ class GeneradorController extends AdminController
 				"pattern_array" => ElementsOaca::CLOSE_ARRAY,
 				"content_close" => $content,
 				"content2" => $content2,
+				"task_moment" => "edit"
 			]);
 
 		}
@@ -350,19 +352,22 @@ class GeneradorController extends AdminController
 						$element->save();
 						$position ++;
 					}
-
-
-
-
 				}
-
 			}
+		}
+
+		if($request->input('task_moment')=='create'){
+				return view('admin.oaca.objetos.finish.finish_create',[
+					'register_id'=>$request->input('register_id')
+				]);
+		}elseif($request->input('task_moment')=='edit'){
+						return view('admin.oaca.objetos.finish.finish_edit',[
+							'register_id'=>$request->input('register_id')
+						]);
 		}
 
 
 
-
-		return redirect ('/admin');
 
 
 
@@ -374,7 +379,9 @@ class GeneradorController extends AdminController
 	}
 
 	public function getPrueba(){
-		return view('admin.oaca.objetos.prueba');
+		return view('admin.oaca.objetos.finish.finish_create',[
+			'register_id'=>'9f21852b-990b-303a-a24d-45ffd98e4832'
+		]);
 	}
 
 

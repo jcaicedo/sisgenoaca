@@ -132,6 +132,7 @@
 @endsection
 
 
+
 <!--Styles-->
 @push('styles')
 	<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
