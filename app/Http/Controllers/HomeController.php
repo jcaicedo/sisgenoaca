@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.oaca.create_oaca');
+        return view('front.home');
     }
 
     public function getLogout()

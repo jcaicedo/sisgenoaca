@@ -20,10 +20,10 @@
                     <div class="row">
                       <h3 class="text-center">Si ya terminó de crear el OACA puede hacer click en <strong>Ver OACA</strong></h3>
                       <div class="text-center">
-                        <button class="btn btn-primary text-center" type="button" name="button_ver" style="font-size:24px;">
+                        <a href="{{ url("oaca/view/{$registry->id}")}}" target="_blank" class="btn btn-primary text-center" type="button" name="button_ver" style="font-size:24px;">
                           <i class="fa fa-external-link fa-1x"></i>
                           Ver OACA
-                        </button>
+                        </a>
                       </div>
                     </div>
 
