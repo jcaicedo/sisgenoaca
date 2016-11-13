@@ -129,7 +129,7 @@
             <span><img src="assets/imgs/home/logo.png" alt="" style="height:350px;" /></span>
             <h2> <strong>SISGEOACAA</strong></h2>
             <span>Sistema de Gestión de Objetos de Aprendizaje de Contenidos Abiertos Accesibles</span>
-            <span><a class="btn btn-primary btn-lg" href="#">Get Started</a></span>
+            <span><a class="btn btn-primary btn-lg" href="#fh5co-feature-product">Get Started</a></span>
           </div>
         </div>
 
