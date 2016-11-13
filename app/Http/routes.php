@@ -57,7 +57,7 @@ Route::group(['middleware' => 'web'],function(){
 
             Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
             Route::controller('objetos','GeneradorController');
-            Route::controller('status/publics','PublicsOacaController');
+        
 
 
 

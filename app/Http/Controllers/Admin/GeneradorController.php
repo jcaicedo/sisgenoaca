@@ -304,6 +304,7 @@ class GeneradorController extends AdminController
 	function postClose(Request $request){
 
 		//dd($request->input('data'));
+		$registry = RegistroOaca::find($request->input('register_id'));
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
 
@@ -358,19 +359,21 @@ class GeneradorController extends AdminController
 
 		if($request->input('task_moment')=='create'){
 				return view('admin.oaca.objetos.finish.finish_create',[
-					'register_id'=>$request->input('register_id')
+					'registry'=>$registry
 				]);
 		}elseif($request->input('task_moment')=='edit'){
 						return view('admin.oaca.objetos.finish.finish_edit',[
-							'register_id'=>$request->input('register_id')
+								'registry'=>$registry
 						]);
 		}
+	}
 
 
-
-
-
-
+	public function getStatus($status,$register_id){
+		$register= RegistroOaca::find($register_id);
+		$register->status = $status=="true"?'1':'0';
+		$register->save();
+		return $register;
 	}
 
 	public function getEditoaca(){
