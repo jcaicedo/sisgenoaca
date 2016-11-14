@@ -12,12 +12,7 @@
 
 			<div class="box-header box-header-principal">
 				<h1 class="text-center">{{trans('admin.close')}}
-					<div class="box-tool pull-right">
-						{{-- 	<a id="preview-oaca" class="btn btn-warning">
-						<i class="fa fa-eye"></i>
-						Visualizar
-					</a> --}}
-				</div>
+					<button type="button" class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-info"></i></button>
 			</h1>
 		</div>
 
@@ -119,23 +114,7 @@
 {{-- ------------------------------------------------ --}}
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Modal title</h4>
-			</div>
-			<div class="modal-body">
-				...
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			</div>
-		</div>
-	</div>
-</div>
+@include('admin.oaca.objetos.includes.modals.close.info_momento')
 
 
 @endsection
@@ -146,10 +125,42 @@
 
 
 	<link href="/vendor/summernote/dist/summernote.css" rel="stylesheet">
-	<link href="/assets/css/style_steps.css" rel="stylesheet">
 	<link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
 	<link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/oaca/close/add/master.css" media="screen" title="no title">
+
+	<style media="screen">
+	.btn-circle {
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 6px 0;
+		font-size: 12px;
+		line-height: 1.428571429;
+		border-radius: 15px;
+	}
+
+	.btn-circle.btn-lg {
+		width: 38px;
+		height: 38px;
+		padding: 7px 14px;
+		font-size: 25px;
+		line-height: 0.33;
+		border-radius: 25px;
+	}
+	.btn-circle.btn-xl {
+		width: 70px;
+		height: 70px;
+		padding: 10px 16px;
+		font-size: 24px;
+		line-height: 1.33;
+		border-radius: 35px;
+	}
+
+	.modal-dialog{
+		width: 1200px !important;
+	}
+	</style>
 
 @endpush
 
