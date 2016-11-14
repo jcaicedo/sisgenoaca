@@ -72,8 +72,8 @@
 							<button type="submit" class="btn btn-success text-center" id="processit" >
 								<h3>{{trans('admin.close')}}</h3>
 								<i class="fa fa-hand-o-right fa-3x"></i>
-
 							</button>
+							<a href="{{url('admin/oaca/objetos/back-oaca/'.$register_id.'/motivation')}}">atras</a>
 						</div>
 
 

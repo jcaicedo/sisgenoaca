@@ -138,8 +138,6 @@ class GeneradorController extends AdminController
 			$content = $contentgeneral[1];
 			$content2 = $contentgeneral[2];
 
-			//dd($content2);
-
 			return view('admin.oaca.objetos.development.edit',[
 				"register_id" =>$request->input('register_id'),
 				"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
@@ -153,10 +151,6 @@ class GeneradorController extends AdminController
 
 
 	}
-
-
-
-
 
 	function getEditMotivation($id){
 
@@ -358,13 +352,13 @@ class GeneradorController extends AdminController
 		}
 
 		if($request->input('task_moment')=='create'){
-				return view('admin.oaca.objetos.finish.finish_create',[
-					'registry'=>$registry
-				]);
+			return view('admin.oaca.objetos.finish.finish_create',[
+				'registry'=>$registry
+			]);
 		}elseif($request->input('task_moment')=='edit'){
-						return view('admin.oaca.objetos.finish.finish_edit',[
-								'registry'=>$registry
-						]);
+			return view('admin.oaca.objetos.finish.finish_edit',[
+				'registry'=>$registry
+			]);
 		}
 	}
 
@@ -392,12 +386,42 @@ class GeneradorController extends AdminController
 		dd($request->input('data'));
 	}
 
-	public function getPlantilla(){
-		return view('admin.oaca.registry.select_plantilla');
-	}
 
-	public function postPlantilla(Request $request){
-		dd($request->input('plantilla'));
+
+	public function getBackOaca($id,$moment){
+
+		switch ($moment) {
+			case 'motivation':
+			// $collectChild =ElementsOaca::arrayContentChild(ElementsOaca::INTRODUCTION, $id);
+			// $registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
+			// $content_Introduction= ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION, $id);
+			$contentgeneral = ElementsOaca::searchElementsMotivation($id);
+			$content = $contentgeneral[1];
+			$content2 = $contentgeneral[2];
+			return view('admin.oaca.objetos.motivation.edit',[
+				"register_id" =>$id,
+				"pattern_array" => ElementsOaca::MOTIVATION_ARRAY,
+				"content_motivation" => $content,
+				"content2" => $content2,
+				"task_moment" => "edit"
+			]);
+
+			break;
+
+			case 'development':
+			$contentgeneral = ElementsOaca::searchElementsDevelop($id);
+			$content = $contentgeneral[1];
+			$content2 = $contentgeneral[2];
+
+			return view('admin.oaca.objetos.development.edit',[
+				"register_id" =>$id,
+				"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
+				"content_davelop" => $content,
+				"content2" => $content2,
+				"task_moment" => "edit"
+			]);
+			break;
+		}
 	}
 
 }
