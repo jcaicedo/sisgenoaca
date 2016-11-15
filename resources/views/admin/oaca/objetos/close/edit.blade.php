@@ -14,7 +14,7 @@
 
 			<div class="box-header box-header-principal">
 				<h1 class="text-center">{{trans('admin.close')}}
-					<button type="button" class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-info"></i></button>			
+					<button type="button" class="btn btn-info btn-circle btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-info"></i></button>
 			</h1>
 		</div>
 
@@ -62,8 +62,11 @@
 
 						{{-- botones de preview --}}
 						<div  class="box-header box-header-principal box-btn-header-principal{{$i}}">
-
-							<button type="submit" class="btn btn-success text-center" id="processit" >
+							<a href="#" class="btn btn-default text-center back-momento" >
+								<i class="fa  fa-hand-o-left fa-3x"></i>
+								<h3>{{trans('admin.motivation')}}</h3>
+							</a>
+							<button type="submit" class="btn btn-success text-center processit" >
 								<h3>TERMINAR</h3>
 								<i class="fa fa-hand-o-right fa-3x"></i>
 
@@ -90,6 +93,10 @@
 							{{-- bontones de preview --}}
 							<div class="box-header">
 								<div class="content-btn-preview">
+									<a href="#" class="btn btn-default text-center back-momento" >
+										<i class="fa  fa-hand-o-left fa-3x left"></i>
+										<h3>{{trans('admin.motivation')}}</h3>
+									</a>
 									<button type="submit" class="btn btn-success" id="processit" >
 										<h3>FINALIZAR</h3>
 										<i class="fa fa-hand-o-right fa-3x"></i>

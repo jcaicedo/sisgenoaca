@@ -56,7 +56,11 @@
 
 						{{-- bontones de preview content principal --}}
 						<div class="box-header box-header-principal box-btn-header-principal{{$i}}">
-							<button type="submit" class="btn btn-success text-center" id="processit" >
+							<a type="submit" class="btn btn-default text-center back-momento">
+								<h3>{{trans('admin.motivation')}}</h3>
+								<i class="fa fa-hand-o-left fa-3x"></i>
+							</a>
+							<button type="submit" class="btn btn-success text-center processit">
 								<h3>Terminar</h3>
 								<i class="fa fa-hand-o-right fa-3x"></i>
 							</button>
@@ -85,7 +89,11 @@
 							{{-- bontones de preview --}}
 							<div class="box-header">
 								<div class="content-btn-preview">
-									<button type="submit" class="btn btn-success text-center" id="processit" >
+									<a href="#" class="btn btn-default text-center back-momento" >
+										<i class="fa  fa-hand-o-left fa-3x left"></i>
+										<h3>{{trans('admin.motivation')}}</h3>
+									</a>
+									<button type="submit" class="btn btn-success text-center processit">
 										<h3>TERMINAR</h3>
 										<i class="fa fa-hand-o-right fa-3x"></i>
 									</button>

@@ -29,8 +29,15 @@
 .image-preview-content{text-align: center;}
 .image-preview-content img{width: 50%; height: auto;}
 
-#processit h3{float: left;margin-top: 11px;}
-#processit .fa-3x{margin-left: 7px;}
+/*#processit{float:right;}*/
+.processit h3{float: left;margin-top: 11px;}
+.processit .fa-3x{margin-left: 7px;}
+
+.back-momento h3{float:right;margin-top: 11px;}
+.back-momento .fa-3x{margin-right: 7px;}
+
+.back-momento{margin-right: 10px;}
+.processit {margin-left: 10px !important;}
 
 .preview-oaca h3, .btn-return-edit h3{float: left; margin-top: 11px;margin-left: 7px;}
 .preview-oaca .fa-3x, .btn-return-edit .fa-3x{float: left;}
