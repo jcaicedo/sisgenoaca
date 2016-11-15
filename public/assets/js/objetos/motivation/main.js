@@ -50,7 +50,7 @@ $('.preview-oaca').click(function(e){
 
 				case 'image':
 				if($(el).val()!=''){
-					console.log('entrando en image');
+
 					$('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentpreview);
 
 					$("#"+$(el).attr('id')).html(function(){
@@ -58,7 +58,7 @@ $('.preview-oaca').click(function(e){
 						countImage ++;
 					});
 				}else{
-					console.log('entrando en image original');
+
 					var id_image = $(el).attr('id')+'-original';
 					var image = $('#'+id_image).clone();
 					$('#'+id_contentpreview).append(image);
@@ -67,19 +67,17 @@ $('.preview-oaca').click(function(e){
 
 				case 'filehtml':
 				if($(el).val()!=''){
-					console.log('entrando en html');
 					$('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>').appendTo('#'+id_contentpreview);
-					console.log('aqui html');
+
 					$("#"+$(el).attr('id')).html(function(){
 						readHtml(el,countHtml);
 						countHtml ++;
 					});
 				}else{
-					console.log('entrando en image original');
-					var url_filehtml = $('#'+$(el).attr('id')+'-original').data('content');
-					console.log(url_filehtml);
-					$('#'+id_contentpreview).append('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="'+url_filehtml+'" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>');
-
+					var id_html = $(el).attr('id')+'-original';
+					var name_html = $('#'+id_html).data('content');
+					var html = '<div class="html-preview-content"><iframe src="'+name_html+'" class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>'
+					$('#'+id_contentpreview).append(html);
 				}
 				break;
 
@@ -94,17 +92,17 @@ $('.preview-oaca').click(function(e){
 	$(content_data).hide();
 	$(preview).show();
 	//console.log(content_preview);
-	setTimeout(function(){
-		$(content_preview).slick({
-			dots: true,
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: true,
-			arrows: false,
-		});
+	// setTimeout(function(){
+	$(content_preview).slick({
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		arrows: false,
+	});
 
-	},2000);
+	// },2000);
 
 	$(content_btn).hide();
 
@@ -143,7 +141,7 @@ function readImage (input, id) {
 
 		reader.onload = function (e){
 			$('#loadimage'+id).attr('src', e.target.result);
-			console.log(e.target.result);
+			// console.log(e.target.result);
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -157,7 +155,7 @@ function readHtml (input, id) {
 
 		reader.onload = function (e){
 			$('#loadhtml'+id).attr('src', e.target.result);
-			console.log(e.target.result);
+			// console.log(e.target.result);
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -317,7 +315,7 @@ $(document).ready(function(){
 				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$('#'+id_content).data('pattern')+"'>");
 				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
-				count++;
+				count ++;
 				break;
 
 

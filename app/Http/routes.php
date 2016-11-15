@@ -37,13 +37,13 @@
 Route::group(['middleware' => 'web'],function(){
     Route::auth();
 
-    Route::get('/home', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
 
 
     Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth']],function(){
 
         Route::get('/',['uses'=>'AdminController@index']);
-        
+
 
         Route::group(['prefix'=>'oaca'],function(){
 
@@ -52,11 +52,12 @@ Route::group(['middleware' => 'web'],function(){
             Route::get('registry/{id}/delete','RegistryOacaController@delete')
             ->where(['id' => '[a-f0-9\-]+']);
             Route::controller('registry','RegistryOacaController');
-            
+
             //Controladores de los elementos de los OACA
 
             Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
             Route::controller('objetos','GeneradorController');
+
 
 
 
@@ -80,4 +81,3 @@ Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
 Route::resource('log','LogController');
 
 Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);
-

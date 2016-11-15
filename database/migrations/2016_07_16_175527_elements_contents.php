@@ -20,6 +20,7 @@ class ElementsContents extends Migration
             $table->string('moment');
             $table->string('pattern_pedagogicaltechno')->nullable();
             $table->integer('position_order');
+            $table->string('contentchild')->nullable();
             $table->uuid('register_id')->required();
             $table->foreign('register_id')
             ->references('id')

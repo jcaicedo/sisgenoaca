@@ -55,4 +55,8 @@ class RegistroOaca extends Model
 		return $this->hasMany('App\Models\Colaborators','id_registry');
 	}
 
+	public function statusPublic(){
+		return $this->belongsTo('App\Models\PublicsOaca','register_id');
+	}
+
 }

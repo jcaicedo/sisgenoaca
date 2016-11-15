@@ -1,8 +1,8 @@
 {{-- Derechos de Autor --}}
 
-					<div class="box-body nomostrar" id="copyright">
+					<div class="box-body " id="copyright">
 						<input type="hidden" name="licencia" id="licencia" value="">
-						<h4>{{trans('admin.copyright')}}</h4>
+						{{-- <h4>{{trans('admin.copyright')}}</h4> --}}
 						<br>
 						<ol id="selectable-copyright">
 							<li class="ui-widget-content" data-licencia="by-nc">
@@ -22,7 +22,7 @@
 										Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, y aunque en sus nuevas creaciones deban reconocerle su autoría y no puedan ser utilizadas de manera comercial, no tienen que estar bajo una licencia con los mismos términos.
 									</p>
 								</div>
-								
+
 							</li>
 							<li class="ui-widget-content" data-licencia="by-nc-nd">
 								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
@@ -31,7 +31,7 @@
 								<div class="col-md-9" style="overflow:hidden;">
 									<h2>
 										<b>
-											Reconocimiento-NoComercial-CompartirIgual 
+											Reconocimiento-NoComercial-CompartirIgual
 											CC BY-NC-SA
 
 										</b>
@@ -40,7 +40,7 @@
 										Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, siempre y cuando le reconozcan la autoría y sus nuevas creaciones estén bajo una licencia con los mismos términos.
 									</p>
 								</div>
-								
+
 							</li>
 							<li class="ui-widget-content" data-licencia="by-nc-sa">
 								<div class="col-md-3 content-img-copyright"  style="overflow:hidden;">
@@ -49,7 +49,7 @@
 								<div class="col-md-9" style="overflow:hidden;">
 									<h2>
 										<b>
-											Reconocimiento-NoComercial-SinObraDerivada 
+											Reconocimiento-NoComercial-SinObraDerivada
 											CC BY-NC-ND
 
 										</b>
@@ -58,9 +58,9 @@
 										Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente.
 									</p>
 								</div>
-								
+
 							</li>
-							
+
 						</ol>
 
 					</div>

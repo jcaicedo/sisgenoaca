@@ -120,5 +120,7 @@ return [
     'attention' => 'Atención',
     'select_pattern' => 'Seleccione Patrón',
     'image_organization' => 'Imagen de la Organización',
+    'finish_create_oaca_title'=>'Finalizar Creación',
+    'exit'=>'Salir',
 
     ];

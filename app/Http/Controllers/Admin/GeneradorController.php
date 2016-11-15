@@ -26,7 +26,7 @@ class GeneradorController extends AdminController
 
 	function postMotivation(Request $request){
 
-	//	dd($request->input('data'));
+		//dd($request->input('data'));
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
 
@@ -36,31 +36,31 @@ class GeneradorController extends AdminController
 			foreach ($request->input('data') as $key => $value) {
 				$type_element_input = $value['type'];
 
-			switch ($type_element_input) {
-				case 'title':
-				$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
-				$element->type_element = $value['type'];
-				$element->content = $value['content'];
-				$element->moment = ElementsOaca::MOTIVATION;
-				$element->pattern_pedagogicaltechno = $value['pattern'];
-				$element->position_order = $position;
-				$element->contentchild = $value['contentchild'];
-				$element->register_id =  $request->input('register_id');
-				$element->save();
-				$position ++;
+				switch ($type_element_input) {
+					case 'title':
+					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::MOTIVATION;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
 					break;
 
-				case'textarea':
-				$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
-				$element->type_element = $value['type'];
-				$element->content = $value['content'];
-				$element->moment = ElementsOaca::MOTIVATION;
-				$element->pattern_pedagogicaltechno = $value['pattern'];
-				$element->position_order = $position;
-				$element->contentchild = $value['contentchild'];
-				$element->register_id =  $request->input('register_id');
-				$element->save();
-				$position ++;
+					case'textarea':
+					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::MOTIVATION;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
 					break;
 
 					case 'image':
@@ -118,7 +118,7 @@ class GeneradorController extends AdminController
 						$position ++;
 					}
 					break;
-			}
+				}
 
 			}
 		}
@@ -138,8 +138,6 @@ class GeneradorController extends AdminController
 			$content = $contentgeneral[1];
 			$content2 = $contentgeneral[2];
 
-			//dd($content2);
-
 			return view('admin.oaca.objetos.development.edit',[
 				"register_id" =>$request->input('register_id'),
 				"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
@@ -153,10 +151,6 @@ class GeneradorController extends AdminController
 
 
 	}
-
-
-
-
 
 	function getEditMotivation($id){
 
@@ -264,7 +258,8 @@ class GeneradorController extends AdminController
 
 			return view('admin.oaca.objetos.close.add',[
 				"register_id" =>$request->input('register_id'),
-				"pattern_array" => ElementsOaca::CLOSE_ARRAY
+				"pattern_array" => ElementsOaca::CLOSE_ARRAY,
+				"task_moment" => "create"
 
 			]);
 
@@ -281,6 +276,7 @@ class GeneradorController extends AdminController
 				"pattern_array" => ElementsOaca::CLOSE_ARRAY,
 				"content_close" => $content,
 				"content2" => $content2,
+				"task_moment" => "edit"
 			]);
 
 		}
@@ -302,6 +298,7 @@ class GeneradorController extends AdminController
 	function postClose(Request $request){
 
 		//dd($request->input('data'));
+		$registry = RegistroOaca::find($request->input('register_id'));
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
 
@@ -350,22 +347,27 @@ class GeneradorController extends AdminController
 						$element->save();
 						$position ++;
 					}
-
-
-
-
 				}
-
 			}
 		}
 
+		if($request->input('task_moment')=='create'){
+			return view('admin.oaca.objetos.finish.finish_create',[
+				'registry'=>$registry
+			]);
+		}elseif($request->input('task_moment')=='edit'){
+			return view('admin.oaca.objetos.finish.finish_edit',[
+				'registry'=>$registry
+			]);
+		}
+	}
 
 
-
-		return redirect ('/admin');
-
-
-
+	public function getStatus($status,$register_id){
+		$register= RegistroOaca::find($register_id);
+		$register->status = $status=="true"?'1':'0';
+		$register->save();
+		return $register;
 	}
 
 	public function getEditoaca(){
@@ -374,7 +376,9 @@ class GeneradorController extends AdminController
 	}
 
 	public function getPrueba(){
-		return view('admin.oaca.objetos.prueba');
+		return view('admin.oaca.objetos.finish.finish_create',[
+			'register_id'=>'9f21852b-990b-303a-a24d-45ffd98e4832'
+		]);
 	}
 
 
@@ -382,12 +386,42 @@ class GeneradorController extends AdminController
 		dd($request->input('data'));
 	}
 
-	public function getPlantilla(){
-		return view('admin.oaca.registry.select_plantilla');
-	}
 
-	public function postPlantilla(Request $request){
-		dd($request->input('plantilla'));
+
+	public function getBackOaca($id,$moment){
+
+		switch ($moment) {
+			case 'motivation':
+			// $collectChild =ElementsOaca::arrayContentChild(ElementsOaca::INTRODUCTION, $id);
+			// $registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
+			// $content_Introduction= ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION, $id);
+			$contentgeneral = ElementsOaca::searchElementsMotivation($id);
+			$content = $contentgeneral[1];
+			$content2 = $contentgeneral[2];
+			return view('admin.oaca.objetos.motivation.edit',[
+				"register_id" =>$id,
+				"pattern_array" => ElementsOaca::MOTIVATION_ARRAY,
+				"content_motivation" => $content,
+				"content2" => $content2,
+				"task_moment" => "edit"
+			]);
+
+			break;
+
+			case 'development':
+			$contentgeneral = ElementsOaca::searchElementsDevelop($id);
+			$content = $contentgeneral[1];
+			$content2 = $contentgeneral[2];
+
+			return view('admin.oaca.objetos.development.edit',[
+				"register_id" =>$id,
+				"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
+				"content_davelop" => $content,
+				"content2" => $content2,
+				"task_moment" => "edit"
+			]);
+			break;
+		}
 	}
 
 }

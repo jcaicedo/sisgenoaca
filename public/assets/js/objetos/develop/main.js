@@ -56,7 +56,7 @@ $('.preview-oaca').click(function(e){
 					$("#"+$(el).attr('id')).html(function(){
 						readImage(el,countImage);
 						countImage ++;
-						});
+					});
 				}else{
 
 					var id_image = $(el).attr('id')+'-original';
@@ -72,7 +72,13 @@ $('.preview-oaca').click(function(e){
 					$("#"+$(el).attr('id')).html(function(){
 						readHtml(el,countHtml);
 						countHtml ++;
-						});
+					});
+				}else{
+					var id_html = $(el).attr('id')+'-original';
+					var name_html = $('#'+id_html).data('content');
+					var html = '<div class="html-preview-content"><iframe src="'+name_html+'" class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>'
+					$('#'+id_contentpreview).append(html);
+
 				}
 				break;
 
@@ -87,17 +93,17 @@ $('.preview-oaca').click(function(e){
 	$(content_data).hide();
 	$(preview).show();
 	//console.log(content_preview);
-	setTimeout(function(){
-		$(content_preview).slick({
-			dots: true,
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			adaptiveHeight: true,
-			arrows: false,
-		});
-
-	},2000);
+	// setTimeout(function(){
+	$(content_preview).slick({
+		dots: true,
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		adaptiveHeight: true,
+		arrows: false,
+	});
+	//
+	// },2000);
 
 	$(content_btn).hide();
 
@@ -119,7 +125,7 @@ $('.btn-return-edit').click(function(e){
 	$(content_data).show();
 	$(content_btn).show();
 	$(preview).hide();
-//	count_childrenpreview = 0;
+	//	count_childrenpreview = 0;
 
 
 
@@ -136,7 +142,7 @@ function readImage (input, id) {
 
 		reader.onload = function (e){
 			$('#loadimage'+id).attr('src', e.target.result);
-	console.log(e.target.result);
+			console.log(e.target.result);
 		}
 
 		reader.readAsDataURL(input.files[0]);
@@ -179,6 +185,8 @@ $(document).ready(function(){
 		$('#rootwizard .progress-bar').css({width:$percent+'%'});
 	}});
 
+	$("ul.bootstrapWizard li.active").removeClass("active");
+	$("ul.bootstrapWizard li#development").addClass("active");
 
 	var count= $('input[name=count_elements_old]').val();
 
@@ -310,6 +318,7 @@ $(document).ready(function(){
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$('#'+id_content).data('pattern')+"'>");
 				$("#filehtlmlp-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+				count ++;
 				break;
 
 
@@ -327,5 +336,8 @@ $(document).ready(function(){
 		handle: ".box-header"
 
 	});
+
+
+
 
 });

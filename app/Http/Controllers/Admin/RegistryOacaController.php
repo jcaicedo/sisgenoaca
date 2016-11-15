@@ -28,7 +28,7 @@ class RegistryOacaController extends Controller
 	}
 	public function postCreate(Request $request){
 
-		//dd($request->input('colaborator'));
+	//	dd($request->input());
 		$content = json_encode($request->input());
 		$content_register = new RegistroOaca();
 		$content_register->content_register = $content;
@@ -55,7 +55,6 @@ class RegistryOacaController extends Controller
 		 	$this->saveColaborators($colaborator,$content_register->id, $image);
 
 		}
-
 
 		return view('admin.oaca.objetos.motivation.add',[
 			"register_id"=>$content_register->id,

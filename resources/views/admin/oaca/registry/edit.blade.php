@@ -1,133 +1,165 @@
 @extends('admin.layouts.default')
 @section('title','Registro OACA')
-	@section('content')
-
-		<div class="content-wrapper">
-			<section class="content-header">
-				<h1>{{trans('admin.newOaca')}}</h1>
-				<ol class="breadcrumb">
-					<li>
-						<a href="/admin/oaca/registry/registrys">
-							<i class="fa fa-dashboard"></i>
-							Incio
-						</a>
-					</li>
-					<li class="active">
-						Registro OACA
-					</li>
-				</ol>
-			</section>
-
-			<section class="content">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="box box-primary">
-							<div class="box-header with-border">
-								<h3 class="box-title">Registro Nuevo Oaca</h3>
-							</div>
-							<!--/-box-header-->
-							<!-- form start-->
-
-							<form  method="post" id="form_register" role="form" enctype="multipart/form-data">
-								{!! csrf_field() !!}
-								<input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
-								<input type="hidden" name="register_id" value="{{$registro->id}}">
+  @section('content')
 
 
-								@include('admin.oaca.registry.edit.pattern')
-								@include('admin.oaca.registry.edit.general_features')
-								@include('admin.oaca.registry.edit.lifecycle')
-								@include('admin.oaca.registry.edit.educational')
-								@include('admin.oaca.registry.edit.referencias')
-								@include('admin.oaca.registry.edit.copyright')
-								@include('admin.oaca.registry.edit.selectable_plantilla')
-
-								<div class="box-footer">
-									<button class="btn btn-danger btn-back nomostrar" data-body="general-features" >
-										<i class="fa fa-hand-o-left"></i>
-										&nbsp;{{trans('admin.back')}}
-									</button>
-									<button type="button" class="btn btn-primary btn-next pull-right" data-body="select-pattern">
-										<i class="fa fa-hand-o-right"></i>
-										&nbsp;{{trans('admin.next')}}
-									</button>
-									<button type="submit" class="btn btn-success btn-save  pull-right nomostrar">
-										<i class="fa fa-save"></i>
-										Guardar
-									</button>
-								</div>
+    <div class="content-wrapper">
+      <section class="content-header">
+        <h1>{{trans('admin.newOaca')}}</h1>
+        <ol class="breadcrumb">
+          <li>
+            <a href="/admin">
+              <i class="fa fa-dashboard"></i>
+              Incio
+            </a>
+          </li>
+          <li class="active">
+            Registro OACA
+          </li>
+        </ol>
+      </section>
 
 
-							</form>
-						</div>
-					</div>
-				</div>
-			</section>
+      <div class="content">
+        <div class="row">
+          <article class="col-sm-12 col-md-12 col-lg-12 sortable-grid ui-sortable">
+            <div id="wid-id-0" class=" box box-primary">
+              <div class="box-header with-border">
+                <h3 class="box-title">Registro Nuevo Oaca</h3>
+              </div>
+              <!-- widget div-->
+              <div role="content">
+                <!-- widget content -->
+                <div class="widget-body">
+
+                  <div class="row">
+                    <form  novalidate="novalidate"  method="post" id="form_register" role="form" enctype="multipart/form-data">
+                      {!! csrf_field() !!}
+                      <input type="hidden" name="user_id" value="{{ Auth::user()->id}}">
+                      <input type="hidden" name="register_id" value="{{$registro->id}}">
+                      <div id="bootstrap-wizard-1" class="col-sm-12 wizard">
+
+                        @include('admin.oaca.registry.include.wizard')
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="tab1">
+                            <br>
+                            <h3><strong>1 </strong> - Selección de Patrón</h3>
+
+                            @include('admin.oaca.registry.edit.pattern')
+
+                          </div>
+                          <div class="tab-pane" id="tab2">
+                            <br>
+                            <h3><strong>2</strong> - Características Generales</h3>
+
+                            @include('admin.oaca.registry.edit.general_features')
+
+                          </div>
+                          <div class="tab-pane" id="tab3">
+                            <br>
+                            <h3><strong>3</strong> - Ciclo de Vida</h3>
+
+                            @include('admin.oaca.registry.edit.lifecycle')
+
+                          </div>
+                          <div class="tab-pane" id="tab4">
+                            <br>
+                            <h3><strong>4</strong> - Educacional</h3>
+
+                            @include('admin.oaca.registry.edit.educational')
+
+                          </div>
+                          <div class="tab-pane" id="tab5">
+                            <br>
+                            <h3><strong>5</strong> - Referencias</h3>
+
+                            @include('admin.oaca.registry.edit.referencias')
+
+                          </div>
+                          <div class="tab-pane" id="tab6">
+                            <br>
+                            <h3><strong>6</strong> - Derechos de Autor</h3>
+
+                            @include('admin.oaca.registry.edit.copyright')
+
+                          </div>
+                          <div class="tab-pane" id="tab7">
+                            <br>
+                            <h3><strong>7</strong> - Derechos de Autor</h3>
+
+                            @include('admin.oaca.registry.edit.selectable_plantilla')
+
+                          </div>
+                          <div class="tab-pane" id="tab8">
+                            <br>
+                            {{-- <h3><strong>Step 8</strong> - Save Form</h3> --}}
+                            <br>
+                            <h1 class="text-center text-success"><strong><i class="fa fa-check fa-lg"></i> Edición Compleatada!</strong></h1>
+                            <p class="text-center">Antes de continuar puede revisar los datos del Registro
+                              o hacer click en "GUARDAR CAMBIOS" para continuar</p>
+
+                              <br>
+                              <br>
+                              <div class="text-center">
+                                <button type="submit" class="btn btn-success btn-lg btn-save" style="font-size:30px;">
+                                  <i class="fa  fa-cube fa-1x"></i>
+                                  GUARDAR CAMBIOS
+
+                                </button>
+                              </div>
+                            </div>
+                            <div class="form-actions form-actions-btn">
+                              <div class="row">
+                                <div class="col-sm-12">
+                                  <ul class="pager wizard no-margin">
+                                    <li class="previous">
+                                      <a href="#" class="btn btn-lg btn-default prev-step"> Atrás </a>
+                                    </li>
+                                    <li class="next">
+                                      <a href="#" class="btn btn-lg txt-color-darken next-step"> Siguiente </a>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+                    <!-- end widget content -->
+
+                  </div>
+                  <!-- end widget div -->
+
+                </div>
+                <!-- end widget -->
+
+              </article>
+            </div>
+          </div>
+
+
+        </div>
 
 
 
-		</div>
+      @endsection
+      @include('admin.oaca.registry.edit.elements_hide')
 
-		@include('admin.oaca.registry.edit.elements_hide')
+      @push('styles')
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+        <link rel="stylesheet" href="/assets/css/registry/master.css">
+        <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
 
+      @endpush
+      @push('scripts')
+        {{-- <script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script> --}}
+        {{-- <script type="text/javascript"  src="/assets/js/register/main.js" ></script> --}}
+        <script type="text/javascript"  src="/assets/js/register/edit/main.js" ></script>
+        <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
-
-
-	@endsection
-
-	@push('styles')
-		<link rel="stylesheet" href="/vendor/bootstrapvalidator/dist/css/bootstrapValidator.min.css">
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
-
-		<style>
-		.nomostrar{display: none;}
-		#feedback { font-size: 1.4em; }
-		#selectable .ui-selecting { background: #FECA40; }
-		#selectable .ui-selected { background: #F39814; color: white; }
-		#selectable {  margin: 0 auto; list-style-type: none; padding: 0; width: 1050px; }
-		#selectable li { padding: 15px; float: left; width: 500px; height: auto; font-size: 4em; text-align: center; margin:10px; }
-
-		#selectable-copyright .ui-selecting { background: #FECA40; }
-		#selectable-copyright .ui-selected { background: #F39814; color: white; }
-		#selectable-copyright { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-		#selectable-copyright li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 241px; }
-		#selectable-copyright li img{ height: auto; width:180px; }
-		.content-img-copyright{ overflow: hidden; line-height: 200px; }
-		.div_content_image_organization_colaborators{margin-top: 29px;}
-
-		</style>
-		<link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
-
-	@endpush
-
-	@push('scripts')
-		<script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script>
-		<script type="text/javascript"  src="/assets/js/register/main.js" ></script>
-		<script type="text/javascript"  src="/assets/js/register/edit/main.js" ></script>
-		<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-
-		<!-- iCheck 1.0.1 -->
-		<script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
-
-	
-
-		<script>
-		$( function() {
-			$( "#selectable-copyright" ).selectable({
-				selected: function(event, ui){
-					console.log('Aqui: '+ $(ui.selected).data('licencia'));
-					$("#licencia").val($(ui.selected).data('licencia'));
-				}
-			});
-
-
-
-
-		} );
-
-
-
-		</script>
-
-
-	@endpush
+        <!-- iCheck 1.0.1 -->
+        <script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
+      @endpush

@@ -19,6 +19,7 @@ class CreateUser extends Migration
             $table->string('username');
             $table->string('email')->unique();
             $table->string('password',60);
+            $table->string('avatar_image',255);
             $table->rememberToken();
             $table->timestamps();
         });

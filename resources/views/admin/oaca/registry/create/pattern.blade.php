@@ -1,5 +1,6 @@
-<div class="box-body" id="select-pattern">
-	<h4>{{trans('admin.select_pattern')}}</h4>
+
+<div class="box-body"  id="select-pattern">
+	{{-- <h4>{{trans('admin.select_pattern')}}</h4> --}}
 	<br>
 	<p>Selección un patrón tecnopedagógico a utilizar. Cada una tiene su explicación
 		para su mejor elección.</p>

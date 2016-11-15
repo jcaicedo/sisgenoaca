@@ -1,6 +1,6 @@
 <!-- Educativo -->
-<div class="box-body nomostrar" id="educational">
-  <h4>{{trans('admin.educational')}}</h4>
+<div class="box-body " id="educational">
+  {{-- <h4>{{trans('admin.educational')}}</h4> --}}
   <br>
 
   <div class="form-group">

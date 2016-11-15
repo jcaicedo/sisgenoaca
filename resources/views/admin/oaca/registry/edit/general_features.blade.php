@@ -1,5 +1,5 @@
-<div class="box-body nomostrar" id="general-features">
-  <h4>{{trans('admin.generalfeatures')}}</h4>
+<div class="box-body " id="general-features">
+  {{-- <h4>{{trans('admin.generalfeatures')}}</h4> --}}
   <section data-step="0"></section>
   <br>
 
@@ -36,17 +36,17 @@
 
   @foreach($content_register->words_key as $key=>$word)
   @if($key == 0)
-  <div class="form-group col-md-12 box-wordkey" id="divwordkey{{$key+1}}">
+  <div class="form-group col-md-12 box-wordkey" id="divwordkey{{$key}}">
     <div class="col-md-6">
       <input type="text" class="form-control" id="words_key1" name="words_key[]"  placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$word}}">
     </div>
   </div>
   @else
-  <div class="form-group col-md-12 box-wordkey" id="divwordkey{{$key+1}}" >
+  <div class="form-group col-md-12 box-wordkey" id="divwordkey{{$key}}" >
     <div class="col-md-6">
-      <input type="text" class="form-control" id="words_key{{$key+1}}" name="words_key[]"  placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$word}}">
+      <input type="text" class="form-control" id="words_key{{$key}}" name="words_key[]"  placeholder="{{trans('admin.placeholderWordKey')}}" value="{{$word}}">
     </div>
-    <button type="button" class="btn btn-box-tool btn-remove" data-parent="divwordkey{{$key+1}}">
+    <button type="button" class="btn btn-box-tool btn-remove" data-parent="divwordkey{{$key}}">
       <i class="fa fa-close"></i>
     </button>
   </div>

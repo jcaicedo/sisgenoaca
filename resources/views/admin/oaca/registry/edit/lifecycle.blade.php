@@ -1,7 +1,7 @@
 <!---CICLO DE VIDA-->
 
-<div class="box-body nomostrar" id="lifecycle">
-  <h4>{{trans('admin.lifecycle')}}</h4>
+<div class="box-body " id="lifecycle">
+  {{-- <h4>{{trans('admin.lifecycle')}}</h4> --}}
   <br>
   <div class="form-group col-xs-12 col-sm-6">
     <label for="version">{{trans('admin.version')}}<span> *</span></label>
