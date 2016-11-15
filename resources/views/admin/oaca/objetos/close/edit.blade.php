@@ -64,7 +64,7 @@
 						<div  class="box-header box-header-principal box-btn-header-principal{{$i}}">
 							<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/development')}}" class="btn btn-default text-center back-momento" >
 								<i class="fa  fa-hand-o-left fa-3x"></i>
-								<h3>{{trans('admin.motivation')}}</h3>
+								<h3>{{trans('admin.development')}}</h3>
 							</a>
 							<button type="submit" class="btn btn-success text-center processit" >
 								<h3>TERMINAR</h3>
@@ -95,7 +95,7 @@
 								<div class="content-btn-preview">
 									<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/development')}}" class="btn btn-default text-center back-momento" >
 										<i class="fa  fa-hand-o-left fa-3x left"></i>
-										<h3>{{trans('admin.motivation')}}</h3>
+										<h3>{{trans('admin.development')}}</h3>
 									</a>
 									<button type="submit" class="btn btn-success" id="processit" >
 										<h3>FINALIZAR</h3>
