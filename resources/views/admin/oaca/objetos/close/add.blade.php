@@ -56,7 +56,7 @@
 
 						{{-- bontones de preview content principal --}}
 						<div class="box-header box-header-principal box-btn-header-principal{{$i}}">
-							<a type="submit" class="btn btn-default text-center back-momento">
+							<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/motivation')}}" class="btn btn-default text-center back-momento">
 								<h3>{{trans('admin.motivation')}}</h3>
 								<i class="fa fa-hand-o-left fa-3x"></i>
 							</a>
@@ -89,7 +89,7 @@
 							{{-- bontones de preview --}}
 							<div class="box-header">
 								<div class="content-btn-preview">
-									<a href="#" class="btn btn-default text-center back-momento" >
+									<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/development')}}" class="btn btn-default text-center back-momento" >
 										<i class="fa  fa-hand-o-left fa-3x left"></i>
 										<h3>{{trans('admin.motivation')}}</h3>
 									</a>
