@@ -450,15 +450,18 @@ class GeneradorController extends AdminController
 		return view('admin.oaca.objetos.edit');
 	}
 
-	public function getPrueba(){
-		return view('admin.oaca.objetos.finish.finish_create',[
-			'register_id'=>'9f21852b-990b-303a-a24d-45ffd98e4832'
-		]);
+	public function getPrueba($register_id){
+
+	$register= ElementsOaca::find($register_id);
+	$newRegister = $register->replicate();
+	$newRegister->save();
+
+	dd($newRegister);
 	}
 
 
 	public function postPrueba(Request $request){
-		dd($request->input('data'));
+
 	}
 
 
