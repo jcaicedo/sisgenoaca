@@ -3,7 +3,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
 use App\Models\SelectSimpleElements;
-//use App\Content;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -187,13 +186,6 @@ class GeneradorController extends AdminController
 	}
 
 
-
-
-
-
-
-
-
 	function postDevelopment(Request $request){
 
 		//dd($request->input('data'));
@@ -204,8 +196,10 @@ class GeneradorController extends AdminController
 
 		if ($request->input('data')) {
 			foreach ($request->input('data') as $key => $value) {
-				if($value['type']!='image'){
+				$type_element_input = $value['type'];
 
+				switch ($type_element_input) {
+					case 'title':
 					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
@@ -216,10 +210,22 @@ class GeneradorController extends AdminController
 					$element->register_id =  $request->input('register_id');
 					$element->save();
 					$position ++;
+					break;
 
+					case'textarea':
+					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::DEVELOPMENT;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
+					break;
 
-				}else if($value['type']== 'image'){
-
+					case 'image':
 					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::DEVELOPMENT;
@@ -245,14 +251,40 @@ class GeneradorController extends AdminController
 						$element->save();
 						$position ++;
 					}
+					break;
+
+					case 'filehtml':
+					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element->type_element = $value['type'];
+					$element->moment = ElementsOaca::DEVELOPMENT;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
 
 
 
+					$filebackground = $request->file( $value['content']);
 
+					if($filebackground != null){
+						$namebackground = $filebackground->getClientOriginalName();
+						$public_path = public_path();
+						$url = $public_path.'/assets/files';
+						$filebackground->move($url, $namebackground);
+						$element->content = '/assets/files/'.$namebackground;
+						$element->save();
+						$position ++;
+					}else{
+
+						$element->save();
+						$position ++;
+					}
+					break;
 				}
 
 			}
 		}
+
 
 		if($request->input('task_moment') == 'create'){
 
@@ -265,16 +297,13 @@ class GeneradorController extends AdminController
 
 		}elseif ($request->input('task_moment') == 'edit') {
 
-			$content = ElementsOaca::searchElementsClose($request->input('register_id'));
-
 			$contentgeneral = ElementsOaca::searchElementsClose($request->input('register_id'));
 			$content = $contentgeneral[1];
 			$content2 = $contentgeneral[2];
-
 			return view('admin.oaca.objetos.close.edit',[
 				"register_id" =>$request->input('register_id'),
 				"pattern_array" => ElementsOaca::CLOSE_ARRAY,
-				"content_close" => $content,
+				"content_davelop" => $content,
 				"content2" => $content2,
 				"task_moment" => "edit"
 			]);
@@ -298,7 +327,6 @@ class GeneradorController extends AdminController
 	function postClose(Request $request){
 
 		//dd($request->input('data'));
-		$registry = RegistroOaca::find($request->input('register_id'));
 		$Arr = explode(",",$request->input('elementos-delete'));
 		$collection = ElementsOaca::destroy($Arr);
 
@@ -306,8 +334,10 @@ class GeneradorController extends AdminController
 
 		if ($request->input('data')) {
 			foreach ($request->input('data') as $key => $value) {
-				if($value['type']!='image'){
+				$type_element_input = $value['type'];
 
+				switch ($type_element_input) {
+					case 'title':
 					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
@@ -318,10 +348,22 @@ class GeneradorController extends AdminController
 					$element->register_id =  $request->input('register_id');
 					$element->save();
 					$position ++;
+					break;
 
+					case'textarea':
+					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element->type_element = $value['type'];
+					$element->content = $value['content'];
+					$element->moment = ElementsOaca::CLOSE;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+					$element->save();
+					$position ++;
+					break;
 
-				}else if($value['type']== 'image'){
-
+					case 'image':
 					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::CLOSE;
@@ -347,9 +389,41 @@ class GeneradorController extends AdminController
 						$element->save();
 						$position ++;
 					}
+					break;
+
+					case 'filehtml':
+					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element->type_element = $value['type'];
+					$element->moment = ElementsOaca::CLOSE;
+					$element->pattern_pedagogicaltechno = $value['pattern'];
+					$element->position_order = $position;
+					$element->contentchild = $value['contentchild'];
+					$element->register_id =  $request->input('register_id');
+
+
+
+					$filebackground = $request->file( $value['content']);
+
+					if($filebackground != null){
+						$namebackground = $filebackground->getClientOriginalName();
+						$public_path = public_path();
+						$url = $public_path.'/assets/files';
+						$filebackground->move($url, $namebackground);
+						$element->content = '/assets/files/'.$namebackground;
+						$element->save();
+						$position ++;
+					}else{
+
+						$element->save();
+						$position ++;
+					}
+					break;
 				}
+
 			}
 		}
+
+		$registry = RegistroOaca::find($request->input('register_id'));
 
 		if($request->input('task_moment')=='create'){
 			return view('admin.oaca.objetos.finish.finish_create',[

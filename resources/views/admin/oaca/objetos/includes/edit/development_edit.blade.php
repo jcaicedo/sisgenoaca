@@ -110,6 +110,39 @@
 							<?php $count++;?>
 							@endif
 
+							@if ($element->type_element == 'filehtml')
+								<div class="uploadhotpotatoes remove-div-{{$count}} old">
+									<div class="box">
+										<div class="box-header with-border">
+											<h3 class="box-title">Actividad Hot Potatoes</h3>
+											<div class="filehtml-preview-content" id="filehtmlp-{{$count}}-original" data-content="{{$element->content}}">
+												<h2>Html Actual: {{$element->content}}</h2>
+											</div>
+											<div class="box-tools pull-right">
+												<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" datal-idelement="{{$element->id}}">
+													<i class="fa fa-close"></i>
+												</button>
+											</div>
+										</div>
+										<div class="box-body">
+											<div class="col-md-6">
+												<input class="form-control myinput image-upload" type="file" data-element="filehtml" data-position="{{$count}}" value="filehtml-{{$count}}" name="filehtml{{$count}}" id="filehtmlp-{{$count}}"/>
+												<input type="hidden" id="filehtml-{{$count}}" name="filehtml" value="filehtml-{{$count}}" class="componente">
+
+												<input type="hidden" name="data[{{$count}}][content]" value="filehtml{{$count}}" >
+												<input type="hidden" name="data[{{$count}}][type]" value='filehtml' >
+												<input type="hidden" name="data[{{$count}}][id]" value='{{$element->id}}' >
+												<input type="hidden" name="data[{{$count}}][pattern]" value="{{$element->pattern_pedagogicaltechno}}" >
+												<input type='hidden' name='data[{{$count}}][contentchild]' value="contentchild{{$count_element}}">
+											</div>
+											<buttton type="button" class="btn btn-info btn-sm btn-clear-input-image" data-content ="#filehtmlp-{{$count}}">{{trans('admin.btn-clear')}}</buttton>
+										</div>
+									</div>
+								</div>
+								<?php $count++;?>
+							@endif
+
+
 							@endforeach
 							<?php $count_element++; ?>
 						</div>
