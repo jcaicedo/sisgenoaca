@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 use App\Models\RegistroOaca;
 use App\Models\ElementsOaca;
 use App\Models\SelectSimpleElements;
+use App\Models\RegistryPattern;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -452,12 +453,26 @@ class GeneradorController extends AdminController
 
 	public function getPrueba($register_id){
 
-	$register= ElementsOaca::find($register_id);
-	$newRegister = $register->replicate();
-	$newRegister->save();
+		$register= RegistroOaca::find($register_id);
+		$register->load(['elements','colaborators']);
+		$newRegister = $register->replicate();
+		$newRegister->type = 'shared';
+		$newRegister->push();
 
-	dd($newRegister);
+		// $pattern =	RegistryPattern::createRelation($newRegister->id,$register->$id_pattern);
+		// $pattern->save();
+
+		foreach($register->getRelations() as $relation => $items){
+
+			foreach($items as $item){
+				unset($item->id);
+				$newRegister->{$relation}()->create($item->toArray());
+			}
+		}
+
+		dd($newRegister);
 	}
+
 
 
 	public function postPrueba(Request $request){

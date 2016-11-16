@@ -28,15 +28,16 @@ class ElementsOaca extends Model
 	const CLOSE_ARRAY = ["systematization","investigation","evaluation"];
 	const MOTIVATION_ARRAY = ["mental_images","attention"];
 	const MENTAL_IMAGES = "mental_images";
-	const ATTENTION = "attention"; 
-	
+	const ATTENTION = "attention";
+
 	protected $table = 'elements';
-	
+
 
 	protected $fillable = [
 	'type_element',
 	'content',
 	'area',
+	'moment',
 	'position_order',
 	'contentchild',
 	'register_id',
@@ -86,7 +87,7 @@ class ElementsOaca extends Model
 		$collect2 = [];
 
 		foreach ($all as $key => $value) {
-			
+
 			switch ($value->pattern_pedagogicaltechno) {
 				case 'explanation':
 				$collect['explanation'][]=$value;
@@ -120,7 +121,7 @@ class ElementsOaca extends Model
 				$collect['generalization'][]=$value;
 				$collect2['generalization'][$value->contentchild][]=$value;
 				break;
-				
+
 				default:
 						# code...
 				break;
@@ -148,7 +149,7 @@ class ElementsOaca extends Model
 		$collect2 = [];
 
 		foreach ($all as $key => $value) {
-			
+
 			switch ($value->pattern_pedagogicaltechno) {
 				case 'systematization':
 				$collect['systematization'][]=$value;
@@ -183,7 +184,7 @@ class ElementsOaca extends Model
 		$collect2 = [];
 
 		foreach ($all as $key => $value) {
-			
+
 			switch ($value->pattern_pedagogicaltechno) {
 				case 'mental_images':
 				$collect['mental_images'][]=$value;

@@ -36,7 +36,6 @@ class RegistryOacaController extends Controller
 		$content_register->user_id = $request->input('user_id');
 		$content_register->plantilla = $request->input('plantilla');
 		$content_register->licencia  = $request->input('licencia');
-
 		$content_register->save();
 
 		/*
@@ -44,7 +43,6 @@ class RegistryOacaController extends Controller
 		*/
 		$id_pattern = $request->input('pattern');
 
-		//dd($content_register->id);
 		$pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
 		$pattern->save();
 
@@ -167,7 +165,7 @@ class RegistryOacaController extends Controller
 	}
 
 
-	
+
 
 
 

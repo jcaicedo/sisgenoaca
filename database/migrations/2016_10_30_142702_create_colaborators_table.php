@@ -13,7 +13,7 @@ class CreateColaboratorsTable extends Migration
     public function up()
     {
         Schema::create('colaborators',function(Blueprint $table){
-          $table->uuid('id_registry');
+          $table->integer('id_registry')->unsigned();
           $table->increments('id');
           $table->string('name',255);
           $table->string('lastname',255);
@@ -24,7 +24,7 @@ class CreateColaboratorsTable extends Migration
 
           $table->foreign('id_registry')
           ->references('id')
-          ->on('registrooaca')
+          ->on('registro')
           ->onDelete('cascade')
           ->onUpdate('cascade');
         });

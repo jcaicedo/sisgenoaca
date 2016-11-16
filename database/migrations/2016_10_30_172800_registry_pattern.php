@@ -14,12 +14,12 @@ class RegistryPattern extends Migration
     {
         Schema::create('registry_pattern',function(Blueprint $table){
           $table->increments('id')->index();
-          $table->uuid('id_registry');
+          $table->integer('id_registry')->unsigned();
           $table->integer('id_pattern')->unsigned();
 
           $table->foreign('id_registry')
           ->references('id')
-          ->on('registrooaca')
+          ->on('registro')
           ->onDelete('cascade')
           ->onUpdate('cascade');
 

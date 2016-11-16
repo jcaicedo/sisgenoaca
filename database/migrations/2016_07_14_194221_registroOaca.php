@@ -13,9 +13,9 @@ class RegistroOaca extends Migration
   */
   public function up()
   {
-    Schema::create('registrooaca',function (Blueprint $table){
+    Schema::create('registro',function (Blueprint $table){
 
-      $table->uuid('id')->primary();
+      $table->increments('id');
       $table->text('content_register');
       $table->integer('user_id')->unsigned();
       $table->longText('title_oaca')->required();

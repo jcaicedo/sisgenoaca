@@ -24,7 +24,7 @@ class SelectSimpleElements extends Migration
             $table->foreign('id_element')
             ->references('id')
             ->on('elements')
-            ->onDelete('set null')
+            ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
 

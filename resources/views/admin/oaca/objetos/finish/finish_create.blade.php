@@ -32,7 +32,7 @@
                   <div class="col-md-6 text-center">
                     <h3>Si desea realizar algún cambio en el OACA, haga click en <strong>Editar</strong></h3>
                     <div class="text-center">
-                      <a href="admin/oaca/objetos/edit-motivation/{{$registry->id}}" class="btn btn-warning text-center" type="button" name="button_return" style="font-size:24px;">
+                      <a href="{{url("admin/oaca/objetos/edit-motivation/{$registry->id}")}}" class="btn btn-warning text-center" type="button" name="button_return" style="font-size:24px;">
                         <i class="fa fa-chevron-left fa-1x"></i>
                         Editar
                       </a>

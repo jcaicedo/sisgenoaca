@@ -8,11 +8,7 @@ use Ramsey\Uuid\Uuid;
 class RegistroOaca extends Model
 {
 
-	const REGISTROID = "26de1390-eb77-3ec7-8cc4-bc46578794e4";
-	const USERIDPRUEBA = "27";
-	protected $table = 'registrooaca';
-	protected $primaryKey = 'id';
-	public $incrementing = false;
+	protected $table = 'registro';
 
 	protected $fillable = [
 	'content_register',
@@ -22,15 +18,15 @@ class RegistroOaca extends Model
 	'licencia'
 	];
 
-	protected static function boot()
-	{
-		parent::boot();
-		self::creating(function ($registro) {
-				$uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $registro->title_oaca);// name-based uuid
-				$registro->id = $uuid->toString();
-				return true;
-			});
-	}
+	// protected static function boot()
+	// {
+	// 	parent::boot();
+	// 	self::creating(function ($registro) {
+	// 			$uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $registro->title_oaca);// name-based uuid
+	// 			$registro->id = $uuid->toString();
+	// 			return true;
+	// 		});
+	// }
 
 	public function parentRegistrooaca()
 	{
@@ -53,10 +49,6 @@ class RegistroOaca extends Model
 
 	public function colaborators(){
 		return $this->hasMany('App\Models\Colaborators','id_registry');
-	}
-
-	public function statusPublic(){
-		return $this->belongsTo('App\Models\PublicsOaca','register_id');
 	}
 
 }

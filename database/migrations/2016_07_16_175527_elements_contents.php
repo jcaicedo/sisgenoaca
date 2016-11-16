@@ -21,10 +21,10 @@ class ElementsContents extends Migration
             $table->string('pattern_pedagogicaltechno')->nullable();
             $table->integer('position_order');
             $table->string('contentchild')->nullable();
-            $table->uuid('register_id')->required();
+            $table->integer('register_id')->unsigned()->required();
             $table->foreign('register_id')
             ->references('id')
-            ->on('registrooaca')
+            ->on('registro')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
