@@ -93,14 +93,14 @@ $('.preview-oaca').click(function(e){
 	$(preview).show();
 	//console.log(content_preview);
 	// setTimeout(function(){
-	$(content_preview).slick({
-		dots: true,
-		infinite: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		adaptiveHeight: true,
-		arrows: false,
-	});
+	// $(content_preview).slick({
+	// 	dots: true,
+	// 	infinite: true,
+	// 	slidesToShow: 1,
+	// 	slidesToScroll: 1,
+	// 	adaptiveHeight: true,
+	// 	arrows: false,
+	// });
 
 	// },2000);
 
@@ -119,7 +119,7 @@ $('.btn-return-edit').click(function(e){
 	var content_btn = $(this).data('btn');
 	var content_preview = $(this).data('contentprev');
 
-	$(content_preview).slick('unslick');
+	// $(content_preview).slick('unslick');
 	$(content_preview).html("");
 	$(content_data).show();
 	$(content_btn).show();
