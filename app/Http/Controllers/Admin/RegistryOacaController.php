@@ -39,15 +39,6 @@ class RegistryOacaController extends Controller
 		$content_register->pattern_id  = $request->input('pattern');
 		$content_register->save();
 
-		/*
-		*Registro de pattern seleccionado
-		*/
-		// $id_pattern = $request->input('pattern');
-
-		// $pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
-		// $pattern->save();
-
-
 		foreach ($request->input('colaborator') as $key => $colaborator) {
 
 			$image = $request->file('colaborator')[$key]["image_organization"];
@@ -111,14 +102,6 @@ class RegistryOacaController extends Controller
 		* que ya no pertenecen al registry
 		*/
 		Colaborators::deleteNotColaborators($array_colaborators,$register_edited->id);
-
-		/*
-		*Se actualiza la informacion respecto al patron que esta utilizando el nuevo registro.
-		*/
-		// $id_pattern = $request->input('pattern');
-		// $relation_pattern = RegistryPattern::firstOrCreate(['id_registry'=>$register_edited->id]);
-		// $relation_pattern->id_pattern = $id_pattern;
-		// $relation_pattern->save();
 
 		return redirect('/admin/oaca/registry/registrys');
 

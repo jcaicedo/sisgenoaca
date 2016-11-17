@@ -23,7 +23,13 @@ class RegistroOaca extends Migration
       $table->string('plantilla')->nullable();
       $table->string('licencia')->nullable();
       $table->enum('type',['original','shared'])->default('original');
+      $table->integer('register_parent')->unsigned()->nullable();
       $table->integer('pattern_id')->unsigned();
+      $table->timestamps();
+
+    });
+
+    Schema::table('registro_oaca',function(Blueprint $table){
 
       $table->foreign('user_id')
       ->references('id')
@@ -37,11 +43,11 @@ class RegistroOaca extends Migration
       ->onDelete('cascade')
       ->onUpdate('cascade');
 
-      $table->timestamps();
-
-
-
-
+      $table->foreign('register_parent')
+      ->references('id')
+      ->on('registro_oaca')
+      ->onDelete('cascade')
+      ->onUpdate('cascade');
     });
 
 

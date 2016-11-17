@@ -451,6 +451,10 @@ class GeneradorController extends AdminController
 		return view('admin.oaca.objetos.edit');
 	}
 
+	public function sharedOaca($id){
+
+	}
+
 	public function getPrueba($register_id){
 
 		$register= RegistroOaca::find($register_id);
