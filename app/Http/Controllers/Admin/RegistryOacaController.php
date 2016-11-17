@@ -36,15 +36,16 @@ class RegistryOacaController extends Controller
 		$content_register->user_id = $request->input('user_id');
 		$content_register->plantilla = $request->input('plantilla');
 		$content_register->licencia  = $request->input('licencia');
+		$content_register->pattern_id  = $request->input('pattern');
 		$content_register->save();
 
 		/*
 		*Registro de pattern seleccionado
 		*/
-		$id_pattern = $request->input('pattern');
+		// $id_pattern = $request->input('pattern');
 
-		$pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
-		$pattern->save();
+		// $pattern =	RegistryPattern::createRelation($content_register->id,$id_pattern);
+		// $pattern->save();
 
 
 		foreach ($request->input('colaborator') as $key => $colaborator) {
@@ -90,6 +91,7 @@ class RegistryOacaController extends Controller
 		$register_edited->user_id = $request->input('user_id');
 		$register_edited->plantilla = $request->input('plantilla');
 		$register_edited->licencia  = $request->input('licencia');
+		$register_edited->pattern_id  = $request->input('pattern');
 		$register_edited->save();
 
 		/*
@@ -113,10 +115,10 @@ class RegistryOacaController extends Controller
 		/*
 		*Se actualiza la informacion respecto al patron que esta utilizando el nuevo registro.
 		*/
-		$id_pattern = $request->input('pattern');
-		$relation_pattern = RegistryPattern::firstOrCreate(['id_registry'=>$register_edited->id]);
-		$relation_pattern->id_pattern = $id_pattern;
-		$relation_pattern->save();
+		// $id_pattern = $request->input('pattern');
+		// $relation_pattern = RegistryPattern::firstOrCreate(['id_registry'=>$register_edited->id]);
+		// $relation_pattern->id_pattern = $id_pattern;
+		// $relation_pattern->save();
 
 		return redirect('/admin/oaca/registry/registrys');
 

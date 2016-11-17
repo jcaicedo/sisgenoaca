@@ -20,7 +20,7 @@ class PlantillaCreate extends Migration
             $table->timestamps();
             $table->foreign('register_id')
             ->references('id')
-            ->on('registro')
+            ->on('registro_oaca')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 

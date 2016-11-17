@@ -13,8 +13,8 @@ class RegistroOaca extends Migration
   */
   public function up()
   {
-    Schema::create('registro',function (Blueprint $table){
-
+    Schema::create('registro_oaca',function (Blueprint $table){
+      $table->engine = 'InnoDB';
       $table->increments('id');
       $table->text('content_register');
       $table->integer('user_id')->unsigned();
@@ -23,15 +23,28 @@ class RegistroOaca extends Migration
       $table->string('plantilla')->nullable();
       $table->string('licencia')->nullable();
       $table->enum('type',['original','shared'])->default('original');
-      $table->timestamps();
+      $table->integer('pattern_id')->unsigned();
+
       $table->foreign('user_id')
       ->references('id')
       ->on('users')
       ->onDelete('cascade')
       ->onUpdate('cascade');
 
+      $table->foreign('pattern_id')
+      ->references('id')
+      ->on('patterns')
+      ->onDelete('cascade')
+      ->onUpdate('cascade');
+
+      $table->timestamps();
+
+
+
 
     });
+
+
   }
 
   /**
@@ -41,6 +54,6 @@ class RegistroOaca extends Migration
   */
   public function down()
   {
-    Schema::dropIfExists('registrooaca');
+    Schema::dropIfExists('registro_oaca');
   }
 }

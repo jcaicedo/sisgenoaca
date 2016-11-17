@@ -24,7 +24,7 @@ class CreateColaboratorsTable extends Migration
 
           $table->foreign('id_registry')
           ->references('id')
-          ->on('registro')
+          ->on('registro_oaca')
           ->onDelete('cascade')
           ->onUpdate('cascade');
         });

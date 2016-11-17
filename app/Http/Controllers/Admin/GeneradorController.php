@@ -454,6 +454,8 @@ class GeneradorController extends AdminController
 	public function getPrueba($register_id){
 
 		$register= RegistroOaca::find($register_id);
+
+
 		$register->load(['elements','colaborators']);
 		$newRegister = $register->replicate();
 		$newRegister->type = 'shared';

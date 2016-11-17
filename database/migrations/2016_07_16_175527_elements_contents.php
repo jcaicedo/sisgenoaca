@@ -24,7 +24,7 @@ class ElementsContents extends Migration
             $table->integer('register_id')->unsigned()->required();
             $table->foreign('register_id')
             ->references('id')
-            ->on('registro')
+            ->on('registro_oaca')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();

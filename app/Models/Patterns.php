@@ -15,10 +15,10 @@ class Patterns extends Model
 	];
 
 	public $timestamps = false;
-	
-	public function registry_pattern()
+
+	public function registry()
 	{
-		return $this->hasMany('App\Models\RegistryPattern', 'id_pattern');
+		return $this->hasMany('App\Models\RegistroOaca');
 	}
 
 

@@ -8,14 +8,15 @@ use Ramsey\Uuid\Uuid;
 class RegistroOaca extends Model
 {
 
-	protected $table = 'registro';
+	protected $table = 'registro_oaca';
 
 	protected $fillable = [
 	'content_register',
 	'title_oaca',
 	'user_id',
 	'plantilla',
-	'licencia'
+	'licencia',
+	'pattern_id',
 	];
 
 	// protected static function boot()
@@ -42,13 +43,12 @@ class RegistroOaca extends Model
 		return $query;
 	}
 
-	public function registry_pattern()
-	{
-		 return $this->hasOne('App\Models\RegistryPattern', 'id_registry');
-	}
-
 	public function colaborators(){
 		return $this->hasMany('App\Models\Colaborators','id_registry');
+	}
+
+	public function pattern(){
+		return $this->belongsTo('App\Models\Patterns');
 	}
 
 }
