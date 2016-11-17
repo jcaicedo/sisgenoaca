@@ -39,7 +39,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-12 text-center" style="padding-top:10px;">
+                  <div class="col-md-6 text-center" style="padding-top:10px;">
                     <h3>Si desea hacer público su OACA, solo debe marcar la opción de <strong>Publicar OACA</strong> </h3>
                     <div class="col-md-12" style="padding-top:8px;">
                       <input type="hidden" name="registry_id" value="{{$registry->id}}">
@@ -48,6 +48,18 @@
                           <input type="checkbox" name="publicar" id="publicar" class="minimal" {{$registry->status=="1"?"checked":""}} >
                           Publicar OACA
                         </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 text-center" style="padding-top:10px;">
+                    <h3>Puede compartir su OACA para que otros puedan editar y agregar contenido. Solo debe hacer click en <strong>Compartir</strong>. </h3>
+                    <div class="col-md-12" style="padding-top:8px;">
+                      <div class="form-group">
+                        <button type="button" name="button-share" class="btn btn-warning text-center" style="font-size:24px;background-color:rgb(95, 86, 150);border-color:rgb(95, 86, 150);">
+                          <i class="fa fa-share-alt fa-1x"></i>
+                          Compartir
+                        </button>
                       </div>
                     </div>
                   </div>

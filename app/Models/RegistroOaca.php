@@ -19,16 +19,6 @@ class RegistroOaca extends Model
 	'pattern_id',
 	];
 
-	// protected static function boot()
-	// {
-	// 	parent::boot();
-	// 	self::creating(function ($registro) {
-	// 			$uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $registro->title_oaca);// name-based uuid
-	// 			$registro->id = $uuid->toString();
-	// 			return true;
-	// 		});
-	// }
-
 	public function parentRegistrooaca()
 	{
 		return $this->belongsTo('App\Models\RegistroOaca', 'parent');

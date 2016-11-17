@@ -438,6 +438,12 @@ class GeneradorController extends AdminController
 		}
 	}
 
+public function getFinish($registry){
+	$registry = RegistroOaca::find($registry);
+	return view('admin.oaca.objetos.finish.finish_create',[
+		'registry'=>$registry
+	]);
+}
 
 	public function getStatus($status,$register_id){
 		$register= RegistroOaca::find($register_id);
@@ -451,8 +457,24 @@ class GeneradorController extends AdminController
 		return view('admin.oaca.objetos.edit');
 	}
 
-	public function sharedOaca($id){
+	public function getShareOaca($register_id){
+		return "finish";
+		$register= RegistroOaca::find($register_id);
+		$register->load(['elements','colaborators']);
+		$newRegister = $register->replicate();
+		$newRegister->type = 'shared';
+		$newRegister->push();
 
+		// $pattern =	RegistryPattern::createRelation($newRegister->id,$register->$id_pattern);
+		// $pattern->save();
+
+		foreach($register->getRelations() as $relation => $items){
+
+			foreach($items as $item){
+				unset($item->id);
+				$newRegister->{$relation}()->create($item->toArray());
+			}
+		}
 	}
 
 	public function getPrueba($register_id){
