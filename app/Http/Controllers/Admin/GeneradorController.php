@@ -438,16 +438,16 @@ class GeneradorController extends AdminController
 		}
 	}
 
-public function getFinish($registry){
-	$registry = RegistroOaca::find($registry);
-	return view('admin.oaca.objetos.finish.finish_create',[
-		'registry'=>$registry
-	]);
-}
+	public function getFinish($registry){
+		$registry = RegistroOaca::find($registry);
+		return view('admin.oaca.objetos.finish.finish_create',[
+			'registry'=>$registry
+		]);
+	}
 
 	public function getStatus($status,$register_id){
 		$register= RegistroOaca::find($register_id);
-		$register->status = $status=="true"?'1':'0';
+		$register->status_public = $status=="true"?'1':'0';
 		$register->save();
 		return $register;
 	}
@@ -458,23 +458,35 @@ public function getFinish($registry){
 	}
 
 	public function getShareOaca($register_id){
-		return "finish";
+
 		$register= RegistroOaca::find($register_id);
-		$register->load(['elements','colaborators']);
-		$newRegister = $register->replicate();
-		$newRegister->type = 'shared';
-		$newRegister->push();
 
-		// $pattern =	RegistryPattern::createRelation($newRegister->id,$register->$id_pattern);
-		// $pattern->save();
+		if($register->status_share!='shared'){
+			$register->load(['elements','colaborators']);
+			$newRegister = $register->replicate();
+			$newRegister->type="shared";
+			$newRegister->push();
+			$register->status_share = 'shared';
+			$register->save();
 
-		foreach($register->getRelations() as $relation => $items){
+			foreach($register->getRelations() as $relation => $items){
 
-			foreach($items as $item){
-				unset($item->id);
-				$newRegister->{$relation}()->create($item->toArray());
+				foreach($items as $item){
+					unset($item->id);
+					$newRegister->{$relation}()->create($item->toArray());
+				}
 			}
+
+			return response()->json([
+				"msj_reponse"=>"El OACA se ha Compartido!"
+			]);
+		}else{
+			return response()->json([
+				"msj_reponse" => "El Oaca ya está compartido!"
+			]);
 		}
+
+
 	}
 
 	public function getPrueba($register_id){
@@ -507,15 +519,14 @@ public function getFinish($registry){
 
 	}
 
-
+/*
+* FUncionamiento del botón atrás en la Creación o Edición de un OACA
+*/
 
 	public function getBackOaca($id,$moment){
 
 		switch ($moment) {
 			case 'motivation':
-			// $collectChild =ElementsOaca::arrayContentChild(ElementsOaca::INTRODUCTION, $id);
-			// $registrys = RegistroOaca::contentRegistry(Auth::user()->id)->get();
-			// $content_Introduction= ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION, $id);
 			$contentgeneral = ElementsOaca::searchElementsMotivation($id);
 			$content = $contentgeneral[1];
 			$content2 = $contentgeneral[2];
@@ -543,6 +554,16 @@ public function getFinish($registry){
 			]);
 			break;
 		}
+	}
+
+
+	/*
+	*Funcionamiento de listado de compartir OACA
+	*/
+
+	public function getOacaShared(){
+		$register = RegistroOaca::where("type","shared")->get();
+		
 	}
 
 }

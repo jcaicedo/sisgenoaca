@@ -52,7 +52,7 @@
                     </div>
                   </div>
 
-                  <div class="col-md-6 text-center" style="padding-top:10px;">
+                  <div id="content_shared" class="col-md-6 text-center" style="padding-top:10px;">
                     <h3>Puede compartir su OACA para que otros puedan editar y agregar contenido. Solo debe hacer click en <strong>Compartir</strong>. </h3>
                     <div class="col-md-12" style="padding-top:8px;">
                       <div class="form-group">
@@ -111,10 +111,14 @@
       });
     });
 
-$("#btn-share").click(function(){
-  var register_id=$("#registry_id").val();
-  $.get("/admin/oaca/objetos/share-oaca/"+register_id,function(data){console.log('prueba');});
-});
+    $("#btn-share").click(function(){
+      var register_id=$("#registry_id").val();
+      $.getJSON("/admin/oaca/objetos/share-oaca/"+register_id).done(function(data){
+        alert(data.msj_reponse);
+      $("#content_shared h3").text(data.msj_reponse);
+      $("#btn-share").hide();
+      });
+    });
 
   });
 

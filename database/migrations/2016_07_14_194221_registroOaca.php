@@ -19,7 +19,8 @@ class RegistroOaca extends Migration
       $table->text('content_register');
       $table->integer('user_id')->unsigned();
       $table->longText('title_oaca')->required();
-      $table->enum('status',['0','1','2'])->default('0');
+      $table->enum('status_public',['0','1','2'])->default('0');
+      $table->enum('status_share',['shared','not-shared'])->default('not-shared');
       $table->string('plantilla')->nullable();
       $table->string('licencia')->nullable();
       $table->enum('type',['original','shared'])->default('original');

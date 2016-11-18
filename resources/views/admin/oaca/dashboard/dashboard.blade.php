@@ -9,7 +9,7 @@
 		<p>{{Session::get('flash_message')}}</p>
 	</div>
 	@endif
-	
+
 	<section class="content-header">
 		<h1>{{trans('admin.dashboard')}}</h1>
 		<ol class="breadcrumb">
@@ -50,19 +50,37 @@
 							<p>Listar mis Oacas</p>
 						</div>
 						<div class="icon">
-							
+
 							<i class="ion ion-plus-round"></i>
-							
+
 						</div>
 
 					</div>
 				</a>
-			</div>							
+			</div>
+
+			<div class="col-xs-12 col-md-4">
+				<a href={{url('/admin/oaca/objetos/oaca-shared')}}>
+					<div class="small-box bg-green">
+						<div class="inner">
+							<h3>OACAS Compartidos</h3>
+							<p>Listar OACAS Compartidos</p>
+						</div>
+						<div class="icon">
+
+							<i class="ion ion-plus-round"></i>
+
+						</div>
+
+					</div>
+				</a>
+			</div>
+
 		</div>
 
 	</section>
 
-	
+
 </div>
 
 @endsection
