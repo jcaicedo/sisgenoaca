@@ -117,7 +117,6 @@
     $("#btn-share").click(function(){
       var register_id=$("#registry_id").val();
       $.getJSON("/admin/oaca/objetos/share-oaca/"+register_id).done(function(data){
-        alert(data.msj_reponse);
       $("#content_shared h3").text(data.msj_reponse);
       $("#btn-share").hide();
       });
