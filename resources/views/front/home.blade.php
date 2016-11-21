@@ -136,228 +136,129 @@
       </div>
       <!-- end:header-top -->
       {{-- <div id="fh5co-features">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-4">
+      <div class="container">
+      <div class="row">
+      <div class="col-md-4">
 
-              <div class="feature-left">
-                <span class="icon">
-                  <i class="icon-search"></i>
-                </span>
-                <div class="feature-copy">
-                  <h3>SEO</h3>
-                  <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                </div>
-              </div>
+      <div class="feature-left">
+      <span class="icon">
+      <i class="icon-search"></i>
+    </span>
+    <div class="feature-copy">
+    <h3>SEO</h3>
+    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+  </div>
+</div>
 
-            </div>
+</div>
 
-            <div class="col-md-4">
-              <div class="feature-left">
-                <span class="icon">
-                  <i class="icon-mobile"></i>
-                </span>
-                <div class="feature-copy">
-                  <h3>Mobile Apps</h3>
-                  <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                </div>
-              </div>
-
-            </div>
-            <div class="col-md-4">
-              <div class="feature-left">
-                <span class="icon">
-                  <i class="icon-video"></i>
-                </span>
-                <div class="feature-copy">
-                  <h3>Art Direction</h3>
-                  <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> --}}
-
-      <div id="fh5co-feature-product" class="fh5co-section-gray">
-        <div class="container">
-          <div class="row row-bottom-padded-md">
-            <div class="col-md-12 text-center heading-section">
-              <h3>¡Bienvenidos a SISGEOACAA!</h3>
-              <p>  El Sistema de Gestión de Objetos de Aprendizaje de Contenidos Abiertos Accesibles,
-                SisGeOACAA es la integración de un conjunto de componentes denominados herramientas tecnológicas
-                que permiten la creación, gestión, evaluación, almacenamiento y uso de estos recursos para enriquecer
-                los procesos de enseñanza y aprendizaje, a nivel de educación media general, diversificada y universitaria.
-              </p>
-            </div>
-            <div class="col-md-12 text-center">
-              <p>
-                SisGeOACAA es un ambiente de trabajo caracterizado por:
-
-                Producción y distribución de contenidos abiertos.
-                Recursos tecnológicos pensados para garantizar la accesibilidad y fomentar la inclusión de las personas con discapacidad.
-                Implementa un método de construcción de OACAA sin requerir grandes conocimientos técnicos.
-                Poseer un mecanismo de evaluación integral y determinación de la calidad de los OACAA.
-                Composición de aspectos pedagógicos, tecnológicos, de interacción humano computador, usabilidad, accesibilidad y experiencia de usuarios para la producción de OACAA integrales.
-                Creación y uso de Patrones Tecnopedagógicos que guían al docente y facilitador en la construcción de los OACAA.
-                Especificación de la información descriptiva de los OACAA, metadatos del recurso, con el objetivo de caracterizarlo.
-
-              </p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-12 text-center animate-box">
-              <p><img src="assets/imgs/home/sistema.png" alt="Free HTML5 Bootstrap Template"></p>
-            </div>
-          </div>
-          {{-- <div class="row">
-            <div class="col-md-4">
-              <div class="feature-text">
-                <h3><span class="number">01.</span> Smart</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="feature-text">
-                <h3><span class="number">02.</span> Intuitive</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="feature-text">
-                <h3><span class="number">03.</span> Elegant</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              </div>
-            </div>
-          </div> --}}
-
-
+<div class="col-md-4">
+<div class="feature-left">
+<span class="icon">
+<i class="icon-mobile"></i>
+</span>
+<div class="feature-copy">
+<h3>Mobile Apps</h3>
+<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
 </div>
 </div>
 
+</div>
+<div class="col-md-4">
+<div class="feature-left">
+<span class="icon">
+<i class="icon-video"></i>
+</span>
+<div class="feature-copy">
+<h3>Art Direction</h3>
+<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div> --}}
 
-<div id="fh5co-portfolio">
+<div id="fh5co-feature-product" class="fh5co-section-gray">
   <div class="container">
-
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3 text-center heading-section animate-box">
-        <h3>Recent Work</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-      </div>
-    </div>
-
-
     <div class="row row-bottom-padded-md">
-      <div class="col-md-12">
-        <ul id="fh5co-portfolio-list">
-
-          <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/work-5.jpg); ">
-            <a href="#" class="color-3">
-              <div class="case-studies-summary">
-                <span>Illustration</span>
-                <h2>Useful baskets</h2>
-              </div>
-            </a>
-          </li>
-          <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/work-6.jpg); ">
-            <a href="#" class="color-4">
-              <div class="case-studies-summary">
-                <span>Web Design</span>
-                <h2>Skater man in the road</h2>
-              </div>
-            </a>
-          </li>
-
-          <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/work-1.jpg); ">
-            <a href="#" class="color-4">
-              <div class="case-studies-summary">
-                <span>Web Design</span>
-                <h2>Two Glas of Juice</h2>
-              </div>
-            </a>
-          </li>
-
-          <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/work-2.jpg); ">
-            <a href="#" class="color-5">
-              <div class="case-studies-summary">
-                <span>Web Design</span>
-                <h2>Timer starts now!</h2>
-              </div>
-            </a>
-          </li>
-          <li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url(images/work-3.jpg); ">
-            <a href="#" class="color-6">
-              <div class="case-studies-summary">
-                <span>Illustration</span>
-                <h2>Beautiful sunset</h2>
-              </div>
-            </a>
-          </li>
-        </ul>
+      <div class="col-md-12 text-center heading-section">
+        <h3>¡Bienvenidos a SISGEOACAA!</h3>
+        <p>  El Sistema de Gestión de Objetos de Aprendizaje de Contenidos Abiertos Accesibles,
+          SisGeOACAA es la integración de un conjunto de componentes denominados herramientas tecnológicas
+          que permiten la creación, gestión, evaluación, almacenamiento y uso de estos recursos para enriquecer
+          los procesos de enseñanza y aprendizaje, a nivel de educación media general, diversificada y universitaria.
+        </p>
       </div>
-    </div>
+      <div class="col-md-12 text-center">
+        <p>
+          SisGeOACAA es un ambiente de trabajo caracterizado por:
 
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-center animate-box">
-        <a href="#" class="btn btn-primary btn-lg">See All Our Works</a>
+          <p>
+
+            Producción y distribución de contenidos abiertos.</p>
+            <p>
+
+              Recursos tecnológicos pensados para garantizar la accesibilidad y fomentar la inclusión de las personas con discapacidad.</p>
+              <p>
+
+                Implementa un método de construcción de OACAA sin requerir grandes conocimientos técnicos.</p>
+                <p>
+
+                  Poseer un mecanismo de evaluación integral y determinación de la calidad de los OACAA.</p>
+                  <p>
+
+                    Composición de aspectos pedagógicos, tecnológicos, de interacción humano computador, usabilidad, accesibilidad y experiencia de usuarios para la producción de OACAA integrales.</p>
+                    <p>
+
+                      Creación y uso de Patrones Tecnopedagógicos que guían al docente y facilitador en la construcción de los OACAA.</p>
+                      <p>
+
+                        Especificación de la información descriptiva de los OACAA, metadatos del recurso, con el objetivo de caracterizarlo.</p>
+
+
+
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12 text-center animate-box">
+                      <p><img src="assets/imgs/home/sistema.png" alt="Free HTML5 Bootstrap Template"></p>
+                    </div>
+                  </div>
+                  {{-- <div class="row">
+                  <div class="col-md-4">
+                  <div class="feature-text">
+                  <h3><span class="number">01.</span> Smart</h3>
+                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+              <div class="feature-text">
+              <h3><span class="number">02.</span> Intuitive</h3>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+          <div class="feature-text">
+          <h3><span class="number">03.</span> Elegant</h3>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+        </div>
       </div>
-    </div>
+    </div> --}}
 
 
   </div>
 </div>
 
+<!--Recents Oacas-->
+	@include('front.includes.recents_oacas')
+
+  <!--Recents Oacas-->
+  	@include('front.includes.aboutus')
 
 
-<div id="fh5co-content-section" class="fh5co-section-gray">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-        <h3>What Others Say</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="fh5co-testimonial text-center animate-box">
-          <figure>
-            <img src="images/person_1.jpg" alt="user">
-          </figure>
-          <blockquote>
-            <p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
-          </blockquote>
-          <span>Steve Jobs, Envision.</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="fh5co-testimonial text-center animate-box">
-          <figure>
-            <img src="images/person_2.jpg" alt="user">
-          </figure>
-          <blockquote>
-            <p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
-          </blockquote>
-          <span>Steve Jobs, Apple Inc.</span>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="fh5co-testimonial text-center animate-box">
-          <figure>
-            <img src="images/person_3.jpg" alt="user">
-          </figure>
-          <blockquote>
-            <p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
-          </blockquote>
-          <span>Steve Jobs, Mailchimp.</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- fh5co-content-section -->
 
 <div id="fh5co-services-section">
   <div class="container">

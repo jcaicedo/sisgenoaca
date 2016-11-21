@@ -562,8 +562,11 @@ class GeneradorController extends AdminController
 	*/
 
 	public function getOacaShared(){
-		$register = RegistroOaca::where("type","shared")->get();
-		
+		$registrys = RegistroOaca::where("type","shared")->get();
+		return view('admin.oaca.dashboard.oacas_shared',[
+			'registrys'=>$registrys
+		]);
+
 	}
 
 }
