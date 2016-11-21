@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $registrys = RegistroOaca::where("type","shared")->get();
+      $registrys = RegistroOaca::where("status_public","1")->get();
         return view('front.home',[
           'registrys' => $registrys
         ]);

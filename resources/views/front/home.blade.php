@@ -135,299 +135,130 @@
 
       </div>
       <!-- end:header-top -->
-      {{-- <div id="fh5co-features">
-      <div class="container">
-      <div class="row">
-      <div class="col-md-4">
 
-      <div class="feature-left">
-      <span class="icon">
-      <i class="icon-search"></i>
-    </span>
-    <div class="feature-copy">
-    <h3>SEO</h3>
-    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-  </div>
-</div>
+    <!--  Welcome Oaca -->
+@include('front.includes.welcome')
+      <!--Recents Oacas-->
+      @include('front.includes.recents_oacas')
 
-</div>
-
-<div class="col-md-4">
-<div class="feature-left">
-<span class="icon">
-<i class="icon-mobile"></i>
-</span>
-<div class="feature-copy">
-<h3>Mobile Apps</h3>
-<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-</div>
-</div>
-
-</div>
-<div class="col-md-4">
-<div class="feature-left">
-<span class="icon">
-<i class="icon-video"></i>
-</span>
-<div class="feature-copy">
-<h3>Art Direction</h3>
-<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div> --}}
-
-<div id="fh5co-feature-product" class="fh5co-section-gray">
-  <div class="container">
-    <div class="row row-bottom-padded-md">
-      <div class="col-md-12 text-center heading-section">
-        <h3>¡Bienvenidos a SISGEOACAA!</h3>
-        <p>  El Sistema de Gestión de Objetos de Aprendizaje de Contenidos Abiertos Accesibles,
-          SisGeOACAA es la integración de un conjunto de componentes denominados herramientas tecnológicas
-          que permiten la creación, gestión, evaluación, almacenamiento y uso de estos recursos para enriquecer
-          los procesos de enseñanza y aprendizaje, a nivel de educación media general, diversificada y universitaria.
-        </p>
-      </div>
-      <div class="col-md-12 text-center">
-        <p>
-          SisGeOACAA es un ambiente de trabajo caracterizado por:
-
-          <p>
-
-            Producción y distribución de contenidos abiertos.</p>
-            <p>
-
-              Recursos tecnológicos pensados para garantizar la accesibilidad y fomentar la inclusión de las personas con discapacidad.</p>
-              <p>
-
-                Implementa un método de construcción de OACAA sin requerir grandes conocimientos técnicos.</p>
-                <p>
-
-                  Poseer un mecanismo de evaluación integral y determinación de la calidad de los OACAA.</p>
-                  <p>
-
-                    Composición de aspectos pedagógicos, tecnológicos, de interacción humano computador, usabilidad, accesibilidad y experiencia de usuarios para la producción de OACAA integrales.</p>
-                    <p>
-
-                      Creación y uso de Patrones Tecnopedagógicos que guían al docente y facilitador en la construcción de los OACAA.</p>
-                      <p>
-
-                        Especificación de la información descriptiva de los OACAA, metadatos del recurso, con el objetivo de caracterizarlo.</p>
+      <!--Recents Oacas-->
+      @include('front.includes.aboutus')
+      <!--Pilot Institutions-->
+      @include('front.includes.pilot_institutions')
 
 
 
-                      </p>
-                    </div>
+
+
+<!--
+      <div id="fh5co-blog-section" class="fh5co-section-gray">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+              <h3>Recent From Blog</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row row-bottom-padded-md">
+            <div class="col-lg-4 col-md-4">
+              <div class="fh5co-blog animate-box">
+                <a href="#"><img class="img-responsive" src="/themes/pentagon/images/blog-1.jpg" alt=""></a>
+                <div class="blog-text">
+                  <div class="prod-title">
+                    <h3><a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a></h3>
+                    <span class="posted_by">Sep. 15th</span>
+                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
                   </div>
-
-                  <div class="row">
-                    <div class="col-md-12 text-center animate-box">
-                      <p><img src="assets/imgs/home/sistema.png" alt="Free HTML5 Bootstrap Template"></p>
-                    </div>
-                  </div>
-                  {{-- <div class="row">
-                  <div class="col-md-4">
-                  <div class="feature-text">
-                  <h3><span class="number">01.</span> Smart</h3>
-                  <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                 </div>
               </div>
-              <div class="col-md-4">
-              <div class="feature-text">
-              <h3><span class="number">02.</span> Intuitive</h3>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <div class="fh5co-blog animate-box">
+                <a href="#"><img class="img-responsive" src="/themes/pentagon/images/blog-2.jpg" alt=""></a>
+                <div class="blog-text">
+                  <div class="prod-title">
+                    <h3><a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a></h3>
+                    <span class="posted_by">Sep. 15th</span>
+                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4">
+              <div class="fh5co-blog animate-box">
+                <a href="#"><img class="img-responsive" src="/themes/pentagon/images/blog-3.jpg" alt=""></a>
+                <div class="blog-text">
+                  <div class="prod-title">
+                    <h3><a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a></h3>
+                    <span class="posted_by">Sep. 15th</span>
+                    <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <a href="#" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-md-4">
-          <div class="feature-text">
-          <h3><span class="number">03.</span> Elegant</h3>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center animate-box">
+              <a href="#" class="btn btn-primary btn-lg">Our Blog</a>
+            </div>
+          </div>
+
         </div>
-      </div>
-    </div> --}}
-
-
-  </div>
-</div>
-
-<!--Recents Oacas-->
-	@include('front.includes.recents_oacas')
-
-  <!--Recents Oacas-->
-  	@include('front.includes.aboutus')
-
-
-
-<div id="fh5co-services-section">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-        <h3>What We Do</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row text-center">
-      <div class="col-md-4 col-sm-4">
-        <div class="services animate-box">
-          <span><i class="icon-browser"></i></span>
-          <h3>Web Development</h3>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="services animate-box">
-          <span><i class="icon-mobile"></i></span>
-          <h3>Mobile Apps</h3>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="services animate-box">
-          <span><i class="icon-tools"></i></span>
-          <h3>UX Design</h3>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="services animate-box">
-          <span><i class="icon-video"></i></span>
-          <h3>Video Editing</h3>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="services animate-box">
-          <span><i class="icon-search"></i></span>
-          <h3>SEO Ranking</h3>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-4">
-        <div class="services animate-box">
-          <span><i class="icon-cloud"></i></span>
-          <h3>Cloud Based Apps</h3>
-          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- END What we do -->
-
-
-<div id="fh5co-blog-section" class="fh5co-section-gray">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
-        <h3>Recent From Blog</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit est facilis maiores, perspiciatis accusamus asperiores sint consequuntur debitis.</p>
-      </div>
-    </div>
-  </div>
-  <div class="container">
-    <div class="row row-bottom-padded-md">
-      <div class="col-lg-4 col-md-4">
-        <div class="fh5co-blog animate-box">
-          <a href="#"><img class="img-responsive" src="images/blog-1.jpg" alt=""></a>
-          <div class="blog-text">
-            <div class="prod-title">
-              <h3><a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a></h3>
-              <span class="posted_by">Sep. 15th</span>
-              <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <a href="#" class="btn btn-primary">Read More</a>
+      </div>-->
+      <!-- fh5co-blog-section -->
+      <footer>
+        <div id="footer">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 col-md-offset-3 text-center">
+                <p class="fh5co-social-icons">
+                  <a href="#"><i class="icon-twitter2"></i></a>
+                  <a href="#"><i class="icon-facebook2"></i></a>
+                  <a href="#"><i class="icon-instagram"></i></a>
+                  <a href="#"><i class="icon-dribbble2"></i></a>
+                  <a href="#"><i class="icon-youtube"></i></a>
+                </p>
+                <p>Copyright 2016 Free Html5 <a href="#">Pentagon</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <div class="fh5co-blog animate-box">
-          <a href="#"><img class="img-responsive" src="images/blog-2.jpg" alt=""></a>
-          <div class="blog-text">
-            <div class="prod-title">
-              <h3><a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a></h3>
-              <span class="posted_by">Sep. 15th</span>
-              <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4">
-        <div class="fh5co-blog animate-box">
-          <a href="#"><img class="img-responsive" src="images/blog-3.jpg" alt=""></a>
-          <div class="blog-text">
-            <div class="prod-title">
-              <h3><a href=""#>45 Minimal Worksspace Rooms for Web Savvys</a></h3>
-              <span class="posted_by">Sep. 15th</span>
-              <span class="comment"><a href="">21<i class="icon-bubble2"></i></a></span>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-              <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </footer>
 
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4 text-center animate-box">
-        <a href="#" class="btn btn-primary btn-lg">Our Blog</a>
-      </div>
+
     </div>
+    <!-- END fh5co-page -->
 
   </div>
-</div>
-<!-- fh5co-blog-section -->
-<footer>
-  <div id="footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-md-offset-3 text-center">
-          <p class="fh5co-social-icons">
-            <a href="#"><i class="icon-twitter2"></i></a>
-            <a href="#"><i class="icon-facebook2"></i></a>
-            <a href="#"><i class="icon-instagram"></i></a>
-            <a href="#"><i class="icon-dribbble2"></i></a>
-            <a href="#"><i class="icon-youtube"></i></a>
-          </p>
-          <p>Copyright 2016 Free Html5 <a href="#">Pentagon</a>. All Rights Reserved. <br>Made with <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a> / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+  <!-- END fh5co-wrapper -->
+
+  <!-- jQuery -->
 
 
-</div>
-<!-- END fh5co-page -->
+  <script src="themes/pentagon/js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="themes/pentagon/js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="themes/pentagon/js/bootstrap.min.js"></script>
+  <!-- Waypoints -->
+  <script src="themes/pentagon/js/jquery.waypoints.min.js"></script>
+  <!-- Stellar -->
+  <script src="themes/pentagon/js/jquery.stellar.min.js"></script>
+  <!-- Superfish -->
+  <script src="themes/pentagon/js/hoverIntent.js"></script>
+  <script src="themes/pentagon/js/superfish.js"></script>
 
-</div>
-<!-- END fh5co-wrapper -->
-
-<!-- jQuery -->
-
-
-<script src="themes/pentagon/js/jquery.min.js"></script>
-<!-- jQuery Easing -->
-<script src="themes/pentagon/js/jquery.easing.1.3.js"></script>
-<!-- Bootstrap -->
-<script src="themes/pentagon/js/bootstrap.min.js"></script>
-<!-- Waypoints -->
-<script src="themes/pentagon/js/jquery.waypoints.min.js"></script>
-<!-- Stellar -->
-<script src="themes/pentagon/js/jquery.stellar.min.js"></script>
-<!-- Superfish -->
-<script src="themes/pentagon/js/hoverIntent.js"></script>
-<script src="themes/pentagon/js/superfish.js"></script>
-
-<!-- Main JS -->
-<script src="themes/pentagon/js/main.js"></script>
+  <!-- Main JS -->
+  <script src="themes/pentagon/js/main.js"></script>
 
 </body>
 </html>

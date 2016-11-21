@@ -15,6 +15,10 @@ class RegistroOaca extends Model
 	'title_oaca',
 	'user_id',
 	'plantilla',
+	'status_public',
+	'status_share',
+	'type',
+	'register_parent',
 	'licencia',
 	'pattern_id',
 	];

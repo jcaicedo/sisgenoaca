@@ -17,9 +17,6 @@
           <h2>Yosly Hernández Bieliukas</h2>
           <span>Coordinadora</span>
           <h2>Universidad Central de Venezuela</h2>
-          <p>
-            Unidad de Educación a Distancia y Escuela de Computación
-          </p>
 
           {{-- <blockquote>
           <p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
@@ -49,9 +46,6 @@
       <h2>Julio Caicedo</h2>
       <span>Programador - Tesista</span>
       <h2>Universidad Central de Venezuela</h2>
-      <p>
-        Estudiante Licenciatura en Computación, Facultad de Ciencias.
-      </p>
       {{-- <blockquote>
       <p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
     </blockquote> --}}
@@ -59,7 +53,7 @@
     </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-4 padding-top-second-level">
     <div class="fh5co-testimonial text-center animate-box">
       <figure>
         <img src="/themes/pentagon/images/person_2.jpg" alt="user">
@@ -74,22 +68,19 @@
   </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-4 padding-top-second-level">
     <div class="fh5co-testimonial text-center animate-box">
       <figure>
         <img src="/themes/pentagon/images/person_1.jpg" alt="user">
       </figure>
-      <h2>Yosly Hernández Bieliukas</h2>
-      <span>Coordinadora</span>
-      <h2>Universidad Central de Venezuela</h2>
-      <p>
-        Unidad de Educación a Distancia y Escuela de Computación
-      </p>
+      <h2>Gilberto Aranguren Peraza</h2>
+      <span>Profesor</span>
+      <h2> IPC-UPEL/UNESR</h2>
 
       {{-- <blockquote>
       <p>“Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn’t really do it, they just saw something. It seemed obvious to them after a while.”</p>
     </blockquote> --}}
-    <span>yoslyhernandez@gmail.com</span>
+    <span>gilberap@gmail.com</span>
   </div>
   </div>
 
