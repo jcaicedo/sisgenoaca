@@ -203,7 +203,7 @@ figure {
 }
 
 .sf-menu a {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(91, 91, 91);
   padding: 0.75em 1em !important;
   font-weight: normal;
   border-left: none;
@@ -243,7 +243,7 @@ figure {
 .sf-menu ul li:hover a,
 .sf-menu ul li.sfHover a,
 .sf-menu li.active a {
-  color: #fff;
+  color: #5a5a5a;
 }
 
 .sf-menu ul li:hover,
