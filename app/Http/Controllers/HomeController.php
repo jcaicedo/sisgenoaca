@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
       $registrys = RegistroOaca::where("status_public","1")->get();
-        return view('front.home',[
+        return view('front.home.index',[
           'registrys' => $registrys
         ]);
     }
@@ -36,5 +36,9 @@ class HomeController extends Controller
        $this->auth->logout();
        Session::flush();
        return redirect('/admin/oaca/objetos/create');
+   }
+
+   public function getDescriptionFront(){
+     return view('front.description.description');
    }
 }
