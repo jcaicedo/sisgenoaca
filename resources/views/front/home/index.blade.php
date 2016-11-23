@@ -66,7 +66,8 @@
 <body>
   <div id="fh5co-wrapper">
     <div id="fh5co-page">
-      
+
+      <!--Menu-->
       @include('front.partials.menu')
 
       <div class="fh5co-hero">
@@ -90,8 +91,8 @@
 
       <!--Recents Oacas-->
       @include('front.home.includes.aboutus')
-      <!--Pilot Institutions-->
-      @include('front.home.includes.pilot_institutions')
+      {{-- <!--Pilot Institutions-->
+      @include('front.home.includes.pilot_institutions') --}}
 
 
       <footer>

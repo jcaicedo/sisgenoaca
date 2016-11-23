@@ -8,7 +8,10 @@
         <nav id="fh5co-menu-wrap" role="navigation">
           <ul class="sf-menu" id="fh5co-primary-menu">
             <li>
-              <a href="index.html">Home</a>
+              <a href="{{url('/')}}">Home</a>
+            </li>
+            <li>
+              <a href="{{url('/description-front')}}">Descripción</a>
             </li>
             <li>
               <a href="portfolio.html" class="fh5co-sub-ddown">Projects</a>
