@@ -12,16 +12,19 @@
           <div class="row text-center">
             <div class="col-md-4 col-sm-4">
               <div class="services animate-box">
-                <span><i class="icon-browser"></i></span>
-                <h3>Web Development</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                {{-- <span><i class="icon-browser"></i></span> --}}
+                <figure>
+                  <img src="/assets/imgs/home/UBA_logo_COLOR.png" alt="" />
+                </figure>
+                <h3>Universidad Bicentenaria De Aragua</h3>
+              
               </div>
             </div>
             <div class="col-md-4 col-sm-4">
               <div class="services animate-box">
                 <span><i class="icon-mobile"></i></span>
                 <h3>Mobile Apps</h3>
-                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+
               </div>
             </div>
             <div class="col-md-4 col-sm-4">

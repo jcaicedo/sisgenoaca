@@ -38,6 +38,7 @@ Route::group(['middleware' => 'web'],function(){
     Route::auth();
 
     Route::get('/', 'HomeController@index');
+    Route::controller('/','HomeController');
 
 
     Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth']],function(){

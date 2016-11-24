@@ -98,7 +98,8 @@ figure {
   bottom: 0;
   right: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.8);
+  /*background: rgba(0, 0, 0, 0.8);*/
+  background: rgb(201, 219, 231);
 }
 
 .fh5co-overlay {
@@ -1059,15 +1060,16 @@ figure {
 }
 
 #footer {
-  background: #66D37E;
+  /*background: #66D37E; */
+  background: rgb(201, 219, 231);
   padding: 60px 0 40px;
 }
 #footer p {
-  color: white;
+  color: rgb(91, 91, 91);
   font-size: 14px;
 }
 #footer p a {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(91, 91, 91);
 }
 #footer p a:hover, #footer p a:active, #footer p a:focus {
   color: rgba(255, 255, 255, 0.9) !important;
