@@ -13,7 +13,7 @@
             <li>
               <a href="{{url('/description-front')}}">Descripción</a>
             </li>
-            <li>
+            {{-- <li>
               <a href="portfolio.html" class="fh5co-sub-ddown">Projects</a>
               <ul class="fh5co-sub-menu">
                 <li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template" target="_blank">Build</a></li>
@@ -23,8 +23,8 @@
                 <li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap" target="_blank">Display</a></li>
                 <li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap" target="_blank">Sprint</a></li>
               </ul>
-            </li>
-            <li>
+            </li> --}}
+            {{-- <li>
               <a href="services.html" class="fh5co-sub-ddown">Services</a>
               <ul class="fh5co-sub-menu">
                 <li><a href="left-sidebar.html">Web Development</a></li>
@@ -44,10 +44,11 @@
                 <li><a href="#">Copywriting</a></li>
                 <li><a href="#">Photography</a></li>
               </ul>
-            </li>
+            </li> --}}
             <li class="active"><a href="about.html">About</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="{{url('/login')}}">Ingresar</a></li>
           </ul>
         </nav>
       </div>
