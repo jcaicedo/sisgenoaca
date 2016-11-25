@@ -97,7 +97,7 @@ figure {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: -1;
   /*background: rgba(0, 0, 0, 0.8);*/
   background: rgb(201, 219, 231);
 }
@@ -109,7 +109,7 @@ figure {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: -1;
   /*background: rgba(66, 64, 64, 0.9);*/
   background: rgb(201, 219, 231);
 }

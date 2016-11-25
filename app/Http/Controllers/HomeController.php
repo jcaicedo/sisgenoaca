@@ -41,4 +41,7 @@ class HomeController extends Controller
    public function getDescriptionFront(){
      return view('front.description.description');
    }
+   public function getInstitutionsFront(){
+     return view('front.institutions-pilot.institutions');
+   }
 }
