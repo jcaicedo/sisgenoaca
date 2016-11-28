@@ -44,4 +44,7 @@ class HomeController extends Controller
    public function getInstitutionsFront(){
      return view('front.institutions-pilot.institutions');
    }
+   public function getContactFront(){
+     return view('front.contact.contact');
+   }
 }

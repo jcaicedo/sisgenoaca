@@ -45,9 +45,9 @@
                 <li><a href="#">Photography</a></li>
               </ul>
             </li> --}}
-            <li class="active"><a href="about.html">About</a></li>
+            <li><a href="{{url('/institutions-front')}}">Instituciones</a></li>
             <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="{{url('/contact-front')}}">Contact</a></li>
             <li><a href="{{url('/login')}}">Ingresar</a></li>
           </ul>
         </nav>
