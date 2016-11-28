@@ -21,7 +21,7 @@ class AdminController extends Controller
 	}
 
 	function index (){
-		session(['prueba' => 'prueba']);
+		
 
 		return view('admin.oaca.dashboard.dashboard');
 

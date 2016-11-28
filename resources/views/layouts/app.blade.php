@@ -13,7 +13,7 @@
 
     <!-- Styles -->
     <!--<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">-->
-    <link rel="stylesheet" href="/vendor/AdminLTE/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{url('/vendor/AdminLTE/bootstrap/css/bootstrap.min.css')}}" />
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>

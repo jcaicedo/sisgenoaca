@@ -10,10 +10,10 @@
 		</div>
 		<!--./login-logo-->
 		<div class="login-box-body">
-			<p class="login-box-msg">Incie Sesión</p>
+			<p class="login-box-msg">Incie Sesiónnnnnnnnnnnnnnn</p>
 			{!!Form::open(['route'=>'log.store','method'=>'POST'])!!}
 
-	
+
 						<div class="form-group has-feedback">
 							<input type="email" class="form-control" name="email" placeholder="Email">
 							  <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -38,7 +38,7 @@
 					        </div>
 					        <!-- /.col -->
 					      </div>
-			
+
 			{!!Form::close()!!}
 					<div class="social-auth-links text-center">
 				      <p>- OR -</p>
@@ -50,7 +50,7 @@
 		    <!-- /.social-auth-links -->
 		     <a href="#">I forgot my password</a><br>
     		<a href="register.html" class="text-center">Register a new membership</a>
-		
+
 		</div>
   <!-- /.login-box-body -->
   <div><br>
