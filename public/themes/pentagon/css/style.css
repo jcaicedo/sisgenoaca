@@ -97,7 +97,7 @@ figure {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: -1;
   /*background: rgba(0, 0, 0, 0.8);*/
   background: rgb(201, 219, 231);
 }
@@ -109,7 +109,7 @@ figure {
   left: 0;
   bottom: 0;
   right: 0;
-  z-index: 1;
+  z-index: -1;
   /*background: rgba(66, 64, 64, 0.9);*/
   background: rgb(201, 219, 231);
 }
@@ -1384,11 +1384,15 @@ figure {
 /*# sourceMappingURL=style.css.map */
 
 
-/*Styles propios sisgeoaca*/
+/*////////////////////////////
+Styles propios sisgeoaca
+******************************/
 .padding-top-second-level{
   padding-top: 70px;
 }
 
+
+/*List Welcome*/
 
 .list-type5{
 width:800px;
@@ -1434,7 +1438,7 @@ line-height: 1.2;
 font-weight: bold;
 text-align: center;
 color: white;
-background-color: rgb(201, 219, 231);
+background-color: rgb(75, 159, 215);
 transform: rotate(-20deg);
 -ms-transform: rotate(-20deg);
 -webkit-transform: rotate(-20deg);

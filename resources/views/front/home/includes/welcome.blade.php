@@ -13,7 +13,7 @@
 
 
 
-                  <div class="col-md-12 text-center">
+                  <div class="col-md-12 col-sm-12 text-center">
                         <p>SisGeOACAA es un ambiente de trabajo caracterizado por:</p>
                         <div class="list-type5">
                               <ol>
