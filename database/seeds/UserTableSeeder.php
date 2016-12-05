@@ -19,7 +19,8 @@ class UserTableSeeder extends Seeder
     		'username'=>'admin',
     		'email'=>'admin@sisgeoaca.com',
     		'password' => bcrypt('adminadmin'),
-        'avatar_image'=>'/assets/imgs/profiles/image_profile.jpg'
+            'role'=>1,
+            'avatar_image'=>'/assets/imgs/profiles/image_profile.jpg'
 
     	];
     }
@@ -28,6 +29,6 @@ class UserTableSeeder extends Seeder
     {
     	$this->initialize();
     	Users::insert($this->records);
-    	factory(App\Users::class,10)->create();
+    	//factory(App\Users::class,10)->create();
     }
 }
