@@ -32,13 +32,25 @@
 |
 */
 
+Route::group(['middleware'=>'guest'],function(){
+
+  Route::get('/', 'HomeController@index');
+  Route::get('/description-front', 'HomeController@getDescriptionFront');
+  Route::get('/institutions-front', 'HomeController@getInstitutionsFront');
+  Route::get('/contact-front', 'HomeController@getContactFront');
+
+  Route::get('usuario/registro/',['uses'=>'UsersController@index']);
+  Route::post('usuario/registro/',['uses'=>'UsersController@createUser']);
+
+});
+
 Route::group(['middleware' => 'web'],function(){
     Route::auth();
 
-    Route::get('/', 'HomeController@index');
-    Route::get('/description-front', 'HomeController@getDescriptionFront');
-    Route::get('/institutions-front', 'HomeController@getInstitutionsFront');
-    Route::get('/contact-front', 'HomeController@getContactFront');
+    // Route::get('/', 'HomeController@index');
+    // Route::get('/description-front', 'HomeController@getDescriptionFront');
+    // Route::get('/institutions-front', 'HomeController@getInstitutionsFront');
+    // Route::get('/contact-front', 'HomeController@getContactFront');
     // Route::controller('/', 'HomeController');
 
     Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth']],function(){
@@ -63,9 +75,9 @@ Route::group(['middleware' => 'web'],function(){
     });
 });
 
-Route::get('usuario/registro/',['uses'=>'UsersController@index']);
-
-Route::post('usuario/registro/',['uses'=>'UsersController@createUser']);
+// Route::get('usuario/registro/',['uses'=>'UsersController@index']);
+//
+// Route::post('usuario/registro/',['uses'=>'UsersController@createUser']);
 
 Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
 
