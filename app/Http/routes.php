@@ -10,17 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-
-
-
-
-
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -42,8 +31,8 @@ Route::group(['middleware' => 'web'],function(){
     // Route::controller('/', 'HomeController');
 
     Route::group(['middleware'=>'auth'],function(){
-        
-        Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => 'usuarioAdmin'],function(){
+
+        Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
             Route::get('/',['uses'=>'AdminController@index']);
 
             Route::group(['prefix'=>'oaca'],function(){
@@ -57,7 +46,18 @@ Route::group(['middleware' => 'web'],function(){
                 Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
                 Route::controller('objetos','GeneradorController');
             });
+
+            Route::group(['namespace'=>'Admin','prefix'=>'profesor','middleware'=>'usuarioProfesor'],function(){
+
+
+            });
+            Route::group(['namespace'=>'Admin','prefix'=>'superadmin','middleware'=>'usuarioAdmin'],function(){
+
+
+            });
         });
+
+
     });
 
     // Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth']],function(){
