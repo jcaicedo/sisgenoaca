@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Users;
 use Session;
 
 class AdminController extends Controller
@@ -21,9 +22,13 @@ class AdminController extends Controller
 	}
 
 	function index (){
-		
+
 
 		return view('admin.oaca.dashboard.dashboard');
+
+	}
+
+	public function getListUsers(){
 
 	}
 }

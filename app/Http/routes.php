@@ -52,7 +52,7 @@ Route::group(['middleware' => 'web'],function(){
 
             });
             Route::group(['namespace'=>'Admin','prefix'=>'superadmin','middleware'=>'usuarioAdmin'],function(){
-
+              Route::get('list-usuarios',['uses'=>'AdminController@getListUsers']);
 
             });
         });
