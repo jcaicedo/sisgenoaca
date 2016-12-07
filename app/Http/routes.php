@@ -22,64 +22,49 @@
 */
 
 Route::group(['middleware' => 'web'],function(){
-    Route::auth();
+  Route::auth();
 
-    Route::get('/', 'HomeController@index');
-    Route::get('/description-front', 'HomeController@getDescriptionFront');
-    Route::get('/institutions-front', 'HomeController@getInstitutionsFront');
-    Route::get('/contact-front', 'HomeController@getContactFront');
-    // Route::controller('/', 'HomeController');
+  Route::get('/', 'HomeController@index');
+  Route::get('/description-front', 'HomeController@getDescriptionFront');
+  Route::get('/institutions-front', 'HomeController@getInstitutionsFront');
+  Route::get('/contact-front', 'HomeController@getContactFront');
+  // Route::controller('/', 'HomeController');
 
-    Route::group(['middleware'=>'auth'],function(){
+  Route::group(['middleware'=>'auth'],function(){
 
-        Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
-            Route::get('/',['uses'=>'AdminController@index']);
+    Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
+      Route::get('/',['uses'=>'AdminController@index']);
 
-            Route::group(['prefix'=>'oaca'],function(){
-                //Controladores del Registro del OACA
-                Route::get('registry/edit/{id}',['uses'=>'RegistryOacaController@getEdit']);
-                Route::get('registry/{id}/delete','RegistryOacaController@delete')
-                ->where(['id' => '[a-f0-9\-]+']);
-                Route::controller('registry','RegistryOacaController');
+      Route::group(['prefix'=>'oaca'],function(){
+        //Controladores del Registro del OACA
+        Route::get('registry/edit/{id}',['uses'=>'RegistryOacaController@getEdit']);
+        Route::get('registry/{id}/delete','RegistryOacaController@delete')
+        ->where(['id' => '[a-f0-9\-]+']);
+        Route::controller('registry','RegistryOacaController');
 
-                //Controladores de los elementos de los OACA
-                Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
-                Route::controller('objetos','GeneradorController');
-            });
+        //Controladores de los elementos de los OACA
+        Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
+        Route::controller('objetos','GeneradorController');
+      });
 
-            Route::group(['namespace'=>'Admin','prefix'=>'profesor','middleware'=>'usuarioProfesor'],function(){
-
-
-            });
-            Route::group(['namespace'=>'Admin','prefix'=>'superadmin','middleware'=>'usuarioAdmin'],function(){
-              Route::get('list-usuarios',['uses'=>'AdminController@getListUsers']);
-
-            });
-        });
+      Route::group(['prefix'=>'profesor','middleware'=>'usuarioProfesor'],function(){
 
 
+      });
+      Route::group(['prefix'=>'superadmin','middleware'=>'usuarioAdmin'],function(){
+        Route::get('list-usuarios',['uses'=>'AdminController@getListUsers']);
+
+      });
     });
 
-    // Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth']],function(){
-    //
-    //     Route::get('/',['uses'=>'AdminController@index']);
-    //
-    //     Route::group(['prefix'=>'oaca'],function(){
-    //         //Controladores del Registro del OACA
-    //         Route::get('registry/edit/{id}',['uses'=>'RegistryOacaController@getEdit']);
-    //         Route::get('registry/{id}/delete','RegistryOacaController@delete')
-    //         ->where(['id' => '[a-f0-9\-]+']);
-    //         Route::controller('registry','RegistryOacaController');
-    //
-    //         //Controladores de los elementos de los OACA
-    //         Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
-    //         Route::controller('objetos','GeneradorController');
-    //     });
-    // });
-    Route::group(['namespace'=>'Oaca','prefix'=>'oaca'],function(){
-        Route::get('view/{id}',['uses'=>'OacaController@viewOaca']);
-        Route::controller('/','OacaController');
-    });
+
+  });
+
+
+  Route::group(['namespace'=>'Oaca','prefix'=>'oaca'],function(){
+    Route::get('view/{id}',['uses'=>'OacaController@viewOaca']);
+    Route::controller('/','OacaController');
+  });
 });
 
 Route::get('usuario/registro/',['uses'=>'UsersController@index']);
@@ -91,53 +76,3 @@ Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
 Route::resource('log','LogController');
 
 Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);
-
-
-// Route::group(['middleware' => 'web'],function(){
-//     Route::auth();
-//
-//     Route::get('/', 'HomeController@index');
-//     Route::controller('/','HomeController');
-//
-//
-//     Route::group(['namespace'=>'Admin','prefix'=>'admin','middleware' => ['auth']],function(){
-//
-//         Route::get('/',['uses'=>'AdminController@index']);
-//
-//
-//         Route::group(['prefix'=>'oaca'],function(){
-//
-//             //Controladores del Registro del OACA
-//             Route::get('registry/edit/{id}',['uses'=>'RegistryOacaController@getEdit']);
-//             Route::get('registry/{id}/delete','RegistryOacaController@delete')
-//             ->where(['id' => '[a-f0-9\-]+']);
-//             Route::controller('registry','RegistryOacaController');
-//
-//             //Controladores de los elementos de los OACA
-//
-//             Route::get('objetos/edit-introduction/{id}',['uses'=>'GeneradorController@getEditIntroduction']);
-//             Route::controller('objetos','GeneradorController');
-//
-//
-//
-//
-//         });
-//
-//     });
-//
-//     Route::group(['namespace'=>'Oaca','prefix'=>'oaca'],function(){
-//
-//         Route::get('view/{id}',['uses'=>'OacaController@viewOaca']);
-//         Route::controller('/','OacaController');
-//
-//
-//     });
-// });
-//
-// Route::get('usuario/registro/',['uses'=>'UsersController@index']);
-// Route::post('usuario/registro/',['uses'=>'UsersController@createUser']);
-// Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
-//
-// Route::resource('log','LogController');
-//
-// Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);

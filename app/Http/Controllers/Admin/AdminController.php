@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Users;
+use Illuminate\Support\Facades\Auth;
 use Session;
 
 class AdminController extends Controller
@@ -30,5 +31,8 @@ class AdminController extends Controller
 
 	public function getListUsers(){
 
+		$myuser = Auth::user()->id;
+	//	$users = Users::whereNotIn('id',$myuser)->get();
+		dd($users);
 	}
 }
