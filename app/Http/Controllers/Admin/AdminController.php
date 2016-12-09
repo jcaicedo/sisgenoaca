@@ -32,7 +32,7 @@ class AdminController extends Controller
 	public function getListUsers(){
 
 		$myuser = Auth::user()->id;
-	//	$users = Users::whereNotIn('id',$myuser)->get();
-		dd($users);
+		$users = Users::whereNotIn('id',[$myuser])->get();
+		return view('admin.administrator.list-user');
 	}
 }
