@@ -12,7 +12,8 @@ class Roles extends Model
     'nombre'
   ];
 
-
+  public $timestamps = false;
+  
   public function users()
   {
     return $this->belongsToMany('App\Models\User');

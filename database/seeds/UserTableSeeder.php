@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
       'password' => bcrypt('adminadmin'),
       'role'=>1,
       'avatar_image'=>'/assets/imgs/profiles/image_profile.jpg'
+
     ],
     [
       'id'=>2,

@@ -13,10 +13,9 @@ class CreateUser extends Migration
   public function up()
   {
 
-    Schema::create('roles_usuarios',function(Blueprint $table){
+    Schema::create('roles_users',function(Blueprint $table){
       $table->increments('id');
       $table->string('name',20);
-      $table->timestamps();
     });
 
     Schema::create('users',function (Blueprint $table){
@@ -29,10 +28,10 @@ class CreateUser extends Migration
       $table->integer('role')->unsigned();
       $table->string('avatar_image',255);
       $table->rememberToken();
-      $table->timestamps();
+      $table->nullableTimestamps();
       $table->foreign('role')
       ->references('id')
-      ->on('roles_usuarios')
+      ->on('roles_users')
       ->onDelete('cascade')
       ->onUpdate('cascade');
     });
@@ -47,6 +46,6 @@ class CreateUser extends Migration
 public function down()
 {
   Schema::dropIfExists('users');
-  Schema::dropIfExists('roles_usuarios');
+  Schema::dropIfExists('roles_users');
 }
 }
