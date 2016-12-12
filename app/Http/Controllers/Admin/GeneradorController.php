@@ -465,6 +465,7 @@ class GeneradorController extends AdminController
 			$register->load(['elements','colaborators']);
 			$newRegister = $register->replicate();
 			$newRegister->type="shared";
+			$newRegister->status_public = '0';
 			$newRegister->push();
 			$register->status_share = 'shared';
 			$register->save();

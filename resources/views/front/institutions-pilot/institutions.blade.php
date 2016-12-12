@@ -18,7 +18,9 @@
 				<div class="row text-center">
 					<div class="col-md-12 col-sm-12">
 						<div class="services animate-box">
-							<span><i class="icon-browser"></i></span>
+							{{-- <span><i class="icon-browser"></i></span> --}}
+							<img src="{{url("/assets/imgs/home/bandera-aragua.jpg")}}" alt="" class="img-flat" />
+							<br>
 							<h3>Estado Aragua</h3>
 							<p>
 								Universidad Bicentenaria de Aragua
@@ -29,7 +31,9 @@
 					</div>
 					<div class="col-md-12 col-sm-12">
 						<div class="services animate-box">
-							<span><i class="icon-mobile"></i></span>
+							{{-- <span><i class="icon-mobile"></i></span> --}}
+								<img src="{{url("/assets/imgs/home/bandera-cojedes.jpg")}}" alt="" class="img-flat" />
+								<br>
 							<h3>Estado Cojedes</h3>
 							<p>Universidad Deportiva del Sur</p>
 							<p>Universidad Experimental Simón Rodríguez</p>
@@ -37,7 +41,9 @@
 					</div>
 					<div class="col-md-12 col-sm-12">
 						<div class="services animate-box">
-							<span><i class="icon-tools"></i></span>
+							{{-- <span><i class="icon-tools"></i></span> --}}
+								<img src="{{url("/assets/imgs/home/bandera-dtto-capital.jpg")}}" alt="" class="img-flat" />
+								<br>
 							<h3>Distrito Capital</h3>
 							<p>Universidad Bolivariana de Venezuela</p>
 							<p>Universidad Central de Venezuela</p>
@@ -46,7 +52,9 @@
 					</div>
 					<div class="col-md-12 col-sm-12">
 						<div class="services animate-box">
-							<span><i class="icon-video"></i></span>
+							{{-- <span><i class="icon-video"></i></span> --}}
+								<img src="{{url("/assets/imgs/home/bandera-merida.jpg")}}" alt="" class="img-flat" />
+								<br>
 							<h3>Estado Mérida</h3>
 							<p>Colegio Universitario Hotel Escuela de los Andes Venezolanos</p>
 							<p>Universidad Nacional Experimental Politécnica de la Fuerza Armada Bolivariana</p>
@@ -69,7 +77,9 @@
 				<div class="row text-center">
 					<div class="col-md-12 col-sm-12">
 						<div class="services animate-box">
-							<span><i class="icon-browser"></i></span>
+							{{-- <span><i class="icon-browser"></i></span> --}}
+							<img src="{{url("/assets/imgs/home/bandera-cojedes.jpg")}}" alt="" class="img-flat" />
+							<br>
 							<h3>Estado Cojedes</h3>
 							<p>Liceo Bolivariano Batalla de Carabobo</p>
 							<p>Escuela Técnica Industrial Robinsioniana Natalicio Libertador</p>
@@ -81,7 +91,9 @@
 					</div>
 					<div class="col-md-12 col-sm-12">
 						<div class="services animate-box">
-							<span><i class="icon-mobile"></i></span>
+							{{-- <span><i class="icon-mobile"></i></span> --}}
+							<img src="{{url("/assets/imgs/home/bandera-merida.jpg")}}" alt="" class="img-flat" />
+							<br>
 							<h3>Estado Mérida</h3>
 							<p>Complejo Educativo General Eleazar López Contreras</p>
 							<p>U. E. Vitalia Gutierrez de Rincón</p>
@@ -98,3 +110,14 @@
 
 
 	@endsection
+	@push('styles')
+		<style media="screen">
+			.img-flat{
+				width:124px !important;
+				height:auto;
+				margin-bottom: 18px;
+
+			}
+		</style>
+
+	@endpush

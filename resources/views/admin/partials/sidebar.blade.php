@@ -43,7 +43,7 @@
 			</li>
 			@if(Auth::user()->role==1)
 				<li>
-					<a href="{{url('admin/superadmin/list-usuarios')}}">
+					<a href="{{url('admin/superadmin/list-users')}}">
 						<i class="fa fa-book"></i>
 						<span>Control de Usuarios</span>
 					</a>

@@ -19,16 +19,16 @@
 		@stack('styles')
 	</head>
 	<body class="hold-transition skin-blue sidebar-mini">
-		
+
 		<div class="wrapper">
-			
+
 
 			@include('admin.partials.header')
-			
+		
 			@include('admin.partials.sidebar')
 
-			
-			@yield('content')	
+
+			@yield('content')
 
 
 			@include('admin.partials.footer')
@@ -48,7 +48,7 @@
 		<script src="/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
 		<script src="/vendor/jquery-validation/src/additional/lettersonly.js"></script>
 		<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js" ></script>
-		
+
 		@stack('scripts')
 
 	</body>

@@ -52,7 +52,9 @@ Route::group(['middleware' => 'web'],function(){
 
       });
       Route::group(['prefix'=>'superadmin','middleware'=>'usuarioAdmin'],function(){
-        Route::get('list-usuarios',['uses'=>'AdminController@getListUsers']);
+        Route::get('list-users',['uses'=>'AdminController@getListUsers']);
+        Route::get('edit-user/{id}',['uses'=>'AdminController@getUserEdit']);
+        Route::post('edit-user',['uses'=>'AdminController@postUserEdit']);
 
       });
     });

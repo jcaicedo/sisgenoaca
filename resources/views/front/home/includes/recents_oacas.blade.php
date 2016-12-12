@@ -28,7 +28,7 @@
 
     <div class="row">
       <div class="col-md-4 col-md-offset-4 text-center animate-box">
-        <a href="#" class="btn btn-primary btn-lg">See All Our Works</a>
+        <a href="#" class="btn btn-primary btn-lg">Ver Más</a>
       </div>
     </div>
 
