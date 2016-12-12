@@ -137,7 +137,6 @@ class ElementsOaca extends Model
 
 	}
 
-
 	public static function searchElementsClose($id){
 
 		$all = self::where('register_id','=',$id)

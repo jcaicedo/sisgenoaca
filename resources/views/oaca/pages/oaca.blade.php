@@ -4,11 +4,52 @@
 
 <div class="content-wrapper">
 
-	<!--INTRODUCTION-->
+	<!--MOTIVATION-->
+	@foreach($content_develop as $key=>$content_child)
 
-	<section class="content introduction moment">
+	<section class="content motivation-{{$key}} moment" style="display:none;">
+		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<div class="flexslider flexslider_deelop">
+			<ul class="slides">
+				@foreach($content_child as $key_child=>$content)
+				<li>
+					@foreach($content as $key=>$element)
 
-		
+					@if($element->type_element == 'title')
+					<div class="row">
+						<div class="col-md-12 title">
+							<h1 class="content-oaca-font-size">{{$element->content}}</h1>
+						</div>
+					</div>
+					@endif
+
+					@if($element->type_element == 'textarea')
+					<div class="row">
+						<div class="col-md-12 textarea">
+							<p>{{ print_r ($element->content)}}</p>
+						</div>
+					</div>
+					@endif
+
+					@if($element->type_element == 'image')
+					<div class="row">
+						<div class="col-md-12 image">
+							<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
+						</div>
+					</div>
+					@endif
+
+
+					@endforeach
+				</li>
+				@endforeach
+			</ul>
+		</div>
+	</section>
+	@endforeach
+	{{-- <section class="content introduction moment">
+
+
 		<div class="flexslider">
 			<ul class="slides">
 				@foreach($collectChild_introduction as $key=>$collect)
@@ -25,7 +66,7 @@
 
 					@if($element_introduction->type_element == 'textarea')
 					<div class="row ">
-						<div class="col-md-12 textarea">	
+						<div class="col-md-12 textarea">
 							<p>{{print_r($element_introduction->content) }}</p>
 						</div>
 					</div>
@@ -46,9 +87,9 @@
 			</ul>
 		</div>
 
-	</section>
+	</section> --}}
 
-	<!--./INTRODUCTION-->
+	<!--./MOTIVATION-->
 	<!--DEVELOP-->
 
 
@@ -205,10 +246,7 @@
 			smoothHeight: true,
 
 		});
-		
+
 
 	});
 </script>
-
-
-

@@ -20,15 +20,18 @@ class OacaController extends Controller
 		$collectChild_introduction =ElementsOaca::arrayContentChild(ElementsOaca::INTRODUCTION, $id);
 
 		$content_develop = ElementsOaca::searchElementsDevelop($id);
+		$content_motivation = ElementsOaca::searchElementsMotivation($id);
 		$content_close = ElementsOaca::searchElementsClose($id);
 		//dd( $collectChild_introduction);
 		return view('oaca.pages.oaca',[
 			'oaca'=>$oaca,
 			'collectChild_introduction' => $collectChild_introduction,
 			"pattern_array" => ElementsOaca::DEVELOP_ARRAY,
-			"content_develop" => $content_develop[2],	
+			"content_develop" => $content_develop[2],
 			"pattern_array" => ElementsOaca::CLOSE_ARRAY,
-			"content_close" => $content_close[2]
+			"content_close" => $content_close[2],
+			"content_motivation" => $content_motivation[2]
+
 			]);
 	}
 

@@ -7,7 +7,22 @@
 				<li class="treeview">
 					<a href="#" class="btn-element-sidebar" data-element="introduction" data-title="Motivación" data-subtitle="Motivación">
 						<span class="content-oaca-font-size">{{trans('admin.motivation')}}</span>
+						<i class="fa fa-angle-left pull-right"></i>
 					</a>
+					<ul class="treeview-menu">
+						<li>
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="motivation-mental_images" data-title="{{trans('admin.motivation')}}" data-subtitle="{{trans('admin.mental_images')}}">
+								<i class="fa fa-circle-o"></i>
+								{{trans('admin.mental_images')}}
+							</a>
+						</li>
+						<li>
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="motivation-mental_atention" data-title="{{trans('admin.motivation')}}" data-subtitle="{{trans('admin.mental_atention')}}">
+								<i class="fa fa-circle-o"></i>
+								{{trans('admin.mental_atention')}}
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li class="treeview" >
 					<a href="#">

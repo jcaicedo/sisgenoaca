@@ -27,8 +27,11 @@ class GeneradorController extends AdminController
 	function postMotivation(Request $request){
 
 		//dd($request->input('data'));
-		$Arr = explode(",",$request->input('elementos-delete'));
-		$collection = ElementsOaca::destroy($Arr);
+
+		if($request->input('elementos-delete')){
+			$Arr = explode(",",$request->input('elementos-delete'));
+			$collection = ElementsOaca::destroy($Arr);
+		}
 
 		$position = 0;
 
@@ -190,8 +193,10 @@ class GeneradorController extends AdminController
 	function postDevelopment(Request $request){
 
 		//dd($request->input('data'));
-		$Arr = explode(",",$request->input('elementos-delete'));
-		$collection = ElementsOaca::destroy($Arr);
+		if($request->input('elementos-delete')){
+			$Arr = explode(",",$request->input('elementos-delete'));
+			$collection = ElementsOaca::destroy($Arr);
+		}
 
 		$position = 0;
 
@@ -329,8 +334,10 @@ class GeneradorController extends AdminController
 	function postClose(Request $request){
 
 		//dd($request->input('data'));
-		$Arr = explode(",",$request->input('elementos-delete'));
-		$collection = ElementsOaca::destroy($Arr);
+		if($request->input('elementos-delete')){
+			$Arr = explode(",",$request->input('elementos-delete'));
+			$collection = ElementsOaca::destroy($Arr);
+		}
 
 		$position = 0;
 
@@ -520,9 +527,9 @@ class GeneradorController extends AdminController
 
 	}
 
-/*
-* FUncionamiento del botón atrás en la Creación o Edición de un OACA
-*/
+	/*
+	* FUncionamiento del botón atrás en la Creación o Edición de un OACA
+	*/
 
 	public function getBackOaca($id,$moment){
 

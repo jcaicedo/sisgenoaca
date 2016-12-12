@@ -113,6 +113,8 @@ return [
     'investigation' => 'Investigación',
     'evaluation' => 'Evaluación',
     'motivation' => 'Motivación',
+    'mental_images'=>'Imágenes Mentales',
+    'mental_atention'=>'Atención',
     'plantilla' => 'Plantilla',
     'create_plantilla' => 'Crear Plantilla',
     'select_plantilla' => 'Seleccionar Plantilla',
