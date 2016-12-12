@@ -35,10 +35,10 @@ class GeneradorController extends AdminController
 		if ($request->input('data')) {
 			foreach ($request->input('data') as $key => $value) {
 				$type_element_input = $value['type'];
-
+				$id_element = $value['id']?$value['id']:'0';
 				switch ($type_element_input) {
 					case 'title':
-					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element  = ElementsOaca::firstOrNew(['id' => $id_element]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
 					$element->moment = ElementsOaca::MOTIVATION;
@@ -51,7 +51,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case'textarea':
-					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element  = ElementsOaca::firstOrNew(['id' => $id_element]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
 					$element->moment = ElementsOaca::MOTIVATION;
@@ -64,7 +64,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case 'image':
-					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element = ElementsOaca::firstOrNew(['id'=>$id_element]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::MOTIVATION;
 					$element->pattern_pedagogicaltechno = $value['pattern'];
@@ -92,7 +92,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case 'filehtml':
-					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element = ElementsOaca::firstOrNew(['id'=>$id_element]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::MOTIVATION;
 					$element->pattern_pedagogicaltechno = $value['pattern'];
@@ -198,10 +198,10 @@ class GeneradorController extends AdminController
 		if ($request->input('data')) {
 			foreach ($request->input('data') as $key => $value) {
 				$type_element_input = $value['type'];
-
+				$id_element = $value['id']?$value['id']:'0';
 				switch ($type_element_input) {
 					case 'title':
-					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element  = ElementsOaca::firstOrNew(['id' => $id_element]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
 					$element->moment = ElementsOaca::DEVELOPMENT;
@@ -214,7 +214,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case'textarea':
-					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element  = ElementsOaca::firstOrNew(['id' => $id_element]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
 					$element->moment = ElementsOaca::DEVELOPMENT;
@@ -227,7 +227,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case 'image':
-					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element = ElementsOaca::firstOrNew(['id'=>$id_element]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::DEVELOPMENT;
 					$element->pattern_pedagogicaltechno = $value['pattern'];
@@ -255,7 +255,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case 'filehtml':
-					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element = ElementsOaca::firstOrNew(['id'=>$id_element]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::DEVELOPMENT;
 					$element->pattern_pedagogicaltechno = $value['pattern'];
@@ -337,10 +337,10 @@ class GeneradorController extends AdminController
 		if ($request->input('data')) {
 			foreach ($request->input('data') as $key => $value) {
 				$type_element_input = $value['type'];
-
+				$id_element = $value['id']?$value['id']:'0';
 				switch ($type_element_input) {
 					case 'title':
-					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element  = ElementsOaca::firstOrNew(['id' => $id_element]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
 					$element->moment = ElementsOaca::CLOSE;
@@ -353,7 +353,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case'textarea':
-					$element  = ElementsOaca::firstOrNew(['id' => $value['id']]);
+					$element  = ElementsOaca::firstOrNew(['id' => $id_element]);
 					$element->type_element = $value['type'];
 					$element->content = $value['content'];
 					$element->moment = ElementsOaca::CLOSE;
@@ -366,7 +366,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case 'image':
-					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element = ElementsOaca::firstOrNew(['id'=>$id_element]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::CLOSE;
 					$element->pattern_pedagogicaltechno = $value['pattern'];
@@ -394,7 +394,7 @@ class GeneradorController extends AdminController
 					break;
 
 					case 'filehtml':
-					$element = ElementsOaca::firstOrNew(['id'=>$value['id']]);
+					$element = ElementsOaca::firstOrNew(['id'=>$id_element]);
 					$element->type_element = $value['type'];
 					$element->moment = ElementsOaca::CLOSE;
 					$element->pattern_pedagogicaltechno = $value['pattern'];

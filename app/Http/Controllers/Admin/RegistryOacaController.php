@@ -126,8 +126,8 @@ class RegistryOacaController extends Controller
 	////////////////////////////////////////////////////////////
 
 	public function saveColaborators($colaborator, $id_registry, $image){
-
-		$newcolaborator = Colaborators::firstOrNew(['id'=>$colaborator['id']]);
+		$id_colaborator = $colaborator['id']?$colaborator['id']:'0';
+		$newcolaborator = Colaborators::firstOrNew(['id'=>$id_colaborator]);
 		$newcolaborator->id_registry = $id_registry;
 		$newcolaborator->name = $colaborator['name'];
 		$newcolaborator->lastname = $colaborator['lastname'];
