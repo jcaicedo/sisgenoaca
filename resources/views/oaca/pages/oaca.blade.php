@@ -5,10 +5,9 @@
 <div class="content-wrapper">
 
 	<!--MOTIVATION-->
-	@foreach($content_develop as $key=>$content_child)
-
+	@foreach($content_motivation as $key=>$content_child)
 	<section class="content motivation-{{$key}} moment" style="display:none;">
-		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<h2 class="content-oaca-font-size">{{trans('admin.'.$key)}}</h2>
 		<div class="flexslider flexslider_deelop">
 			<ul class="slides">
 				@foreach($content_child as $key_child=>$content)
@@ -47,47 +46,6 @@
 		</div>
 	</section>
 	@endforeach
-	{{-- <section class="content introduction moment">
-
-
-		<div class="flexslider">
-			<ul class="slides">
-				@foreach($collectChild_introduction as $key=>$collect)
-				<li>
-					@foreach($collect as $key=>$element_introduction)
-
-					@if($element_introduction->type_element == 'title')
-					<div class="row">
-						<div class="col-md-12 title">
-							<h1 class="content-oaca-font-size">{{ $element_introduction->content }}</h1>
-						</div>
-					</div>
-					@endif
-
-					@if($element_introduction->type_element == 'textarea')
-					<div class="row ">
-						<div class="col-md-12 textarea">
-							<p>{{print_r($element_introduction->content) }}</p>
-						</div>
-					</div>
-					@endif
-
-					@if($element_introduction->type_element == 'image')
-					<div class="row">
-						<div class="col-md-12 image">
-							<img src="{{ $element_introduction->content }}" alt="" style="width:50%; height:auto">
-						</div>
-					</div>
-					@endif
-
-					@endforeach
-				</li>
-				@endforeach
-
-			</ul>
-		</div>
-
-	</section> --}}
 
 	<!--./MOTIVATION-->
 	<!--DEVELOP-->
@@ -96,7 +54,7 @@
 	@foreach($content_develop as $key=>$content_child)
 
 	<section class="content develop-{{$key}} moment" style="display:none;">
-		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<h2 class="content-oaca-font-size">{{trans('admin.'.$key)}}</h2>
 		<div class="flexslider flexslider_deelop">
 			<ul class="slides">
 				@foreach($content_child as $key_child=>$content)
@@ -144,7 +102,7 @@
 
 	@foreach($content_close as $key=>$content_child)
 	<section class="content close-{{$key}} moment"  style="display:none;">
-		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<h2 class="content-oaca-font-size">{{trans('admin.'.$key)}}</h2>
 		<div class="flexslider">
 			<ul class="slides">
 				@foreach($content_child as $key_child=>$content)
@@ -204,13 +162,13 @@
 <!--Styles-->
 @push('styles')
 
-<link rel="stylesheet" type="text/css" href="/vendor/flexslider/flexslider.css">
+{{-- <link rel="stylesheet" type="text/css" href="/vendor/flexslider/flexslider.css"> --}}
 
 <!--Scripts-->
 @push('scripts')
 <script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- FlexSlider -->
-<script defer src="/vendor/flexslider/jquery.flexslider.js"></script>
+<script  src="/vendor/flexslider/jquery.flexslider.js"></script>
 
 
 <script>
