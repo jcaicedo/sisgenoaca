@@ -17,9 +17,9 @@
 							</a>
 						</li>
 						<li>
-							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="motivation-mental_atention" data-title="{{trans('admin.motivation')}}" data-subtitle="{{trans('admin.mental_atention')}}">
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="motivation-attention" data-title="{{trans('admin.motivation')}}" data-subtitle="{{trans('admin.mental_atention')}}">
 								<i class="fa fa-circle-o"></i>
-								{{trans('admin.mental_atention')}}
+								{{trans('admin.attention')}}
 							</a>
 						</li>
 					</ul>

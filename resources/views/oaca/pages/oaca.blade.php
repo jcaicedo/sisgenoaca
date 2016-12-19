@@ -161,6 +161,13 @@
 
 <!--Styles-->
 @push('styles')
+	<style media="screen">
+		ul.slides li {
+			background-color: rgb(161, 213, 227);
+			margin: 20px;
+			padding: 12px;
+		}
+	</style>
 
 {{-- <link rel="stylesheet" type="text/css" href="/vendor/flexslider/flexslider.css"> --}}
 
@@ -168,7 +175,7 @@
 @push('scripts')
 <script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- FlexSlider -->
-<script  src="/vendor/flexslider/jquery.flexslider.js"></script>
+{{-- <script  src="/vendor/flexslider/jquery.flexslider.js"></script> --}}
 
 
 <script>
@@ -191,19 +198,20 @@
 			$('.title-pattern').text(subtitle);
 
 			$(".moment").hide();
+			console.log(content_section);
 			$(content_section).show();
 
 			console.log($(this).data('element'));
 		});
 
 
-		$('.flexslider, .flexslider_deelop').flexslider({
-			animation: "slide",
-			animationLoop:true,
-			slideshow: false,
-			smoothHeight: true,
-
-		});
+		// $('.flexslider, .flexslider_deelop').flexslider({
+		// 	animation: "slide",
+		// 	animationLoop:true,
+		// 	slideshow: false,
+		// 	smoothHeight: true,
+		//
+		// });
 
 
 	});
