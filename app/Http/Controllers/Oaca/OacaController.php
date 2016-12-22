@@ -15,6 +15,7 @@ class OacaController extends Controller
 
 	function viewOaca($id = 0){
 		$oaca = RegistroOaca::find($id);
+		$references = $oaca::getReferences();
 
 		$content_introduction = ElementsOaca::contentOaca(ElementsOaca::INTRODUCTION, $id);
 		$collectChild_introduction =ElementsOaca::arrayContentChild(ElementsOaca::INTRODUCTION, $id);
@@ -30,7 +31,8 @@ class OacaController extends Controller
 			"content_develop" => $content_develop[2],
 			"pattern_array" => ElementsOaca::CLOSE_ARRAY,
 			"content_close" => $content_close[2],
-			"content_motivation" => $content_motivation[2]
+			"content_motivation" => $content_motivation[2],
+			"references"=>$references
 
 			]);
 	}

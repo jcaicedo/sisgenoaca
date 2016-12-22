@@ -3,7 +3,11 @@
 @section('content')
 
 <div class="content-wrapper">
-
+<section class="content">
+	<p>
+		{{$references}}
+	</p>
+</section>
 	<!--MOTIVATION-->
 	@foreach($content_motivation as $key=>$content_child)
 	<section class="content motivation-{{$key}} moment" style="display:none;">
