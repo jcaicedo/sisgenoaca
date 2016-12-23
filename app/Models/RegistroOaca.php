@@ -45,4 +45,11 @@ class RegistroOaca extends Model
 		return $this->belongsTo('App\Models\Patterns');
 	}
 
+	public static function getReferences(){
+		$query = self::first();
+		$references = json_decode($query->content_register);
+		return $references->references_bibliographies;
+
+	}
+
 }
