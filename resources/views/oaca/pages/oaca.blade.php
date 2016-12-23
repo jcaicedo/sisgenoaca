@@ -145,6 +145,11 @@
 
 	<!--./CLOSE-->
 
+	<!--References-->
+	<section class="content moment" id="content-references"  style="display:none;">
+		<h2 class="content-oaca-font-size">Referencias</h2>
+	</section>
+	<!--./References-->
 
 </div>
 
@@ -202,6 +207,11 @@
 			$(content_section).show();
 
 			console.log($(this).data('element'));
+		});
+
+		$(".btn-element-sidebar-references").click(function(){
+			$(".moment").hide();
+			$("#content-references").show();
 		});
 
 

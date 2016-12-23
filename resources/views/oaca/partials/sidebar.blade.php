@@ -108,6 +108,12 @@
 
 
 				</li>
+				<li class="treeview">
+					<a href="#" class="btn-element-sidebar-references content-oaca-font-size" data-element="close-evaluation" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.evaluation')}}">
+						<i class="fa fa-circle-o"></i>
+						 Referencias
+					</a>
+				</li>
 			</ul>
 		</section>
 	</aside>
