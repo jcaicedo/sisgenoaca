@@ -77,4 +77,7 @@ Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
 
 Route::resource('log','LogController');
 
-Route::get('pruebas',['uses'=>'GeneradorController@pruebas']);
+
+Route::get('/prueba', function () {
+    return view('oaca.layouts.main');
+});
