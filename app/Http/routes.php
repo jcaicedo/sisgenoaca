@@ -79,5 +79,5 @@ Route::resource('log','LogController');
 
 
 Route::get('/prueba', function () {
-    return view('oaca.layouts.main');
+    return view('oaca.fullscreen_pageflip.layouts.main');
 });

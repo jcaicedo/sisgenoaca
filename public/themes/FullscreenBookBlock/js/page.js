@@ -11,8 +11,9 @@ var Page = (function() {
 			shadowSides	: 0.8,
 			shadowFlip	: 0.4,
 			onEndFlip : function(old, page, isLimit) {
-				
+
 				current = page;
+				console.log(page);
 				// update TOC current
 				updateTOC();
 				// updateNavigation
@@ -45,7 +46,7 @@ var Page = (function() {
 		initEvents();
 
 	}
-	
+
 	function initEvents() {
 
 		// add navigation events
@@ -58,7 +59,7 @@ var Page = (function() {
 			bb.prev();
 			return false;
 		} );
-		
+
 		// add swipe events
 		$items.on( {
 			'swipeleft'		: function( event ) {
@@ -82,17 +83,21 @@ var Page = (function() {
 
 		// click a menu item
 		$menuItems.on( 'click', function() {
+console.log($(this).data('elements'));
+var moment = $(this).data('elements');
+$.get("/oaca/elements-moment/",{moment:moment}, function(data){
+	console.log(data);
+});
+			// var $el = $( this ),
+			// 	idx = $el.index(),
+			// 	jump = function() {
+			// 		bb.jump( idx + 1 );
+			// 	};
+			//
+			// current !== idx ? closeTOC( jump ) : closeTOC();
+			//
+			// return false;
 
-			var $el = $( this ),
-				idx = $el.index(),
-				jump = function() {
-					bb.jump( idx + 1 );
-				};
-			
-			current !== idx ? closeTOC( jump ) : closeTOC();
-
-			return false;
-			
 		} );
 
 		// reinit jScrollPane on window resize
@@ -104,11 +109,11 @@ var Page = (function() {
 	}
 
 	function setJSP( action, idx ) {
-		
+
 		var idx = idx === undefined ? current : idx,
 			$content = $items.eq( idx ).children( 'div.content' ),
 			apiJSP = $content.data( 'jsp' );
-		
+
 		if( action === 'init' && apiJSP === undefined ) {
 			$content.jScrollPane({verticalGutter : 0, hideFocus : true });
 		}
@@ -126,7 +131,7 @@ var Page = (function() {
 	}
 
 	function updateNavigation( isLastPage ) {
-		
+
 		if( current === 0 ) {
 			$navNext.show();
 			$navPrev.hide();

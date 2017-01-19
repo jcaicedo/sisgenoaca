@@ -37,6 +37,17 @@ class OacaController extends Controller
 			]);
 	}
 
+	public function getElementsMoment (Request $request){
+
+		$moment = $request->input('moment');
+
+		$elements = ElementsOaca::where('moment',$moment)->get();
+
+		return response()->json([
+			'elements' => $elements
+		]);
+	}
+
 
 
 }
