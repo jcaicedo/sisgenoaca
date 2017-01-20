@@ -43,9 +43,13 @@ class OacaController extends Controller
 
 		$elements = ElementsOaca::where('moment',$moment)->get();
 
-		return response()->json([
-			'elements' => $elements
+		return view('oaca.fullscreen_pageflip.partials.load_element_moment',[
+			'moment'=> $moment
 		]);
+
+		// return response()->json([
+		// 	'elements' => $elements
+		// ]);
 	}
 
 

@@ -13,7 +13,6 @@ var Page = (function() {
 			onEndFlip : function(old, page, isLimit) {
 
 				current = page;
-				console.log(page);
 				// update TOC current
 				updateTOC();
 				// updateNavigation
@@ -83,11 +82,16 @@ var Page = (function() {
 
 		// click a menu item
 		$menuItems.on( 'click', function() {
-console.log($(this).data('elements'));
-var moment = $(this).data('elements');
-$.get("/oaca/elements-moment/",{moment:moment}, function(data){
-	console.log(data);
-});
+
+			var moment = $(this).data('elements');
+			console.log(moment);
+
+			// $("#bb-bookblock").load('/oaca/elements-moment/?moment='+moment+'&mensaje=hola');
+		$("#item1 div.content div.scroller h2").text('hola');
+
+		// initialize jScrollPane on the content div of the first item
+
+
 			// var $el = $( this ),
 			// 	idx = $el.index(),
 			// 	jump = function() {
@@ -99,6 +103,9 @@ $.get("/oaca/elements-moment/",{moment:moment}, function(data){
 			// return false;
 
 		} );
+
+
+
 
 		// reinit jScrollPane on window resize
 		$( window ).on( 'debouncedresize', function() {
