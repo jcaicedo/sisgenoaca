@@ -368,6 +368,12 @@
                   </div>
                 </div>
                 @endif
+
+                @if ($element->type_element == 'filehtml')
+                  <div class="row">
+                    <iframe src="{{url($element->content)}}" width="100%" height="2em"></iframe>
+                  </div>
+                @endif
                 @endforeach
             </div>
           </div>
