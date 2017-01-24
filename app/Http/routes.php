@@ -78,6 +78,6 @@ Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
 Route::resource('log','LogController');
 
 
-Route::get('/prueba', function () {
-    return view('oaca.fullscreen_pageflip.layouts.main');
-});
+// Route::get('/prueba', function () {
+//     return view('oaca.fullscreen_pageflip.layouts.main');
+// });

@@ -23,7 +23,7 @@ class OacaController extends Controller
 		$content_develop = ElementsOaca::searchElementsDevelop($id);
 		$content_motivation = ElementsOaca::searchElementsMotivation($id);
 		$content_close = ElementsOaca::searchElementsClose($id);
-		//dd( $collectChild_introduction);
+		dd( $collectChild_introduction);
 		return view('oaca.pages.oaca',[
 			'oaca'=>$oaca,
 			'collectChild_introduction' => $collectChild_introduction,
@@ -37,19 +37,23 @@ class OacaController extends Controller
 			]);
 	}
 
-	public function getElementsMoment (Request $request){
+	public function getElementsMoment (){
+		$id=5;
+		$content_develop = ElementsOaca::searchElementsDevelop($id);
+		$content_motivation = ElementsOaca::searchElementsMotivation($id);
+		$content_close = ElementsOaca::searchElementsClose($id);
 
-		$moment = $request->input('moment');
+		$content['Motivation'] = $content_motivation[2];
+		$content['Develop'] = $content_develop[2];
+		$content['Close'] = $content_close[2];
 
-		$elements = ElementsOaca::where('moment',$moment)->get();
+	//	dd($content);
 
-		return view('oaca.fullscreen_pageflip.partials.load_element_moment',[
-			'moment'=> $moment
+
+		return view('oaca.fullscreen_pageflip.layouts.main',[
+			'content' => $content
 		]);
 
-		// return response()->json([
-		// 	'elements' => $elements
-		// ]);
 	}
 
 
