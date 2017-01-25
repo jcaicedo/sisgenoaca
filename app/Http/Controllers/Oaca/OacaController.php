@@ -43,9 +43,9 @@ class OacaController extends Controller
 		$content_motivation = ElementsOaca::searchElementsMotivation($id);
 		$content_close = ElementsOaca::searchElementsClose($id);
 
-		$content['Motivation'] = $content_motivation[2];
-		$content['Develop'] = $content_develop[2];
-		$content['Close'] = $content_close[2];
+		$content['motivation'] = $content_motivation[2];
+		$content['development'] = $content_develop[2];
+		$content['close'] = $content_close[2];
 
 	//	dd($content);
 

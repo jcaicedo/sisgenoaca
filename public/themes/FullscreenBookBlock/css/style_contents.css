@@ -1,0 +1,9 @@
+
+  .row, .textarea p{
+    text-align: center;
+  }
+
+  .title, .textarea, .image, .filehtml{
+    margin-top: 36px;
+
+  }

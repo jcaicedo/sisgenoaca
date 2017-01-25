@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="{{url('/themes/FullscreenBookBlock/css/jquery.jscrollpane.custom.css')}}" />
 	<link rel="stylesheet" type="text/css" href="{{url('/themes/FullscreenBookBlock/css/bookblock.css')}}" />
 	<link rel="stylesheet" type="text/css" href="{{url('/themes/FullscreenBookBlock/css/custom.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url('/themes/FullscreenBookBlock/css/style_contents.css')}}" />
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="{{url('/themes/FullscreenBookBlock/js/modernizr.custom.79639.js')}}"></script>
 
