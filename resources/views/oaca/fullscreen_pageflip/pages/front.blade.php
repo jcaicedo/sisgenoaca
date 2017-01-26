@@ -8,7 +8,7 @@
       @foreach ($moment as $key2 => $group)
         @foreach ($group as $key3 => $children)
 
-          <div class="bb-item" id="item{{$count_item}}">
+          <div class="bb-item {{$key}}" id="item{{$count_item}}">
             <div class="content">
               <div class="scroller">
 

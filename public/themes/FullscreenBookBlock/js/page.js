@@ -1,42 +1,42 @@
 var Page = (function() {
 
 	var $container = $( '#container' ),
-		$bookBlock = $( '#bb-bookblock' ),
-		$items = $bookBlock.children(),
-		itemsCount = $items.length,
-		current = 0,
-		bb = $( '#bb-bookblock' ).bookblock( {
-			speed : 800,
-			perspective : 2000,
-			shadowSides	: 0.8,
-			shadowFlip	: 0.4,
-			onEndFlip : function(old, page, isLimit) {
+	$bookBlock = $( '#bb-bookblock' ),
+	$items = $bookBlock.children(),
+	itemsCount = $items.length,
+	current = 0,
+	bb = $( '#bb-bookblock' ).bookblock( {
+		speed : 800,
+		perspective : 2000,
+		shadowSides	: 0.8,
+		shadowFlip	: 0.4,
+		onEndFlip : function(old, page, isLimit) {
 
-				current = page;
-				// update TOC current
-				updateTOC();
-				// updateNavigation
-				updateNavigation( isLimit );
-				// initialize jScrollPane on the content div for the new item
-				setJSP( 'init' );
-				// destroy jScrollPane on the content div for the old item
-				setJSP( 'destroy', old );
+			current = page;
+			// update TOC current
+			updateTOC();
+			// updateNavigation
+			updateNavigation( isLimit );
+			// initialize jScrollPane on the content div for the new item
+			setJSP( 'init' );
+			// destroy jScrollPane on the content div for the old item
+			setJSP( 'destroy', old );
 
-			}
-		} ),
-		$navNext = $( '#bb-nav-next' ),
-		$navPrev = $( '#bb-nav-prev' ).hide(),
-		$menuItems = $container.find( 'ul.menu-toc > li' ),
-		$tblcontents = $( '#tblcontents' ),
-		transEndEventNames = {
-			'WebkitTransition': 'webkitTransitionEnd',
-			'MozTransition': 'transitionend',
-			'OTransition': 'oTransitionEnd',
-			'msTransition': 'MSTransitionEnd',
-			'transition': 'transitionend'
-		},
-		transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
-		supportTransitions = Modernizr.csstransitions;
+		}
+	} ),
+	$navNext = $( '#bb-nav-next' ),
+	$navPrev = $( '#bb-nav-prev' ).hide(),
+	$menuItems = $container.find( 'ul.menu-toc > li' ),
+	$tblcontents = $( '#tblcontents' ),
+	transEndEventNames = {
+		'WebkitTransition': 'webkitTransitionEnd',
+		'MozTransition': 'transitionend',
+		'OTransition': 'oTransitionEnd',
+		'msTransition': 'MSTransitionEnd',
+		'transition': 'transitionend'
+	},
+	transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+	supportTransitions = Modernizr.csstransitions;
 
 	function init() {
 
@@ -84,23 +84,22 @@ var Page = (function() {
 		$menuItems.on( 'click', function() {
 
 			var moment = $(this).data('elements');
-			console.log(moment);
-
-			// $("#bb-bookblock").load('/oaca/elements-moment/?moment='+moment+'&mensaje=hola');
-		$("#item1 div.content div.scroller h2").text('hola');
-
-		// initialize jScrollPane on the content div of the first item
 
 
-			// var $el = $( this ),
-			// 	idx = $el.index(),
-			// 	jump = function() {
-			// 		bb.jump( idx + 1 );
-			// 	};
-			//
-			// current !== idx ? closeTOC( jump ) : closeTOC();
-			//
-			// return false;
+			// initialize jScrollPane on the content div of the first item
+
+			var $el = $( this ),
+			element = $el.data('elements'),
+			idx = $("."+element).first().index(); //Access to first element of moment to do link
+
+			jump = function() { //jump to page of elemento from moment
+				bb.jump( idx+1  );
+
+			};
+
+			current !== idx ? closeTOC( jump ) : closeTOC();
+
+			return false;
 
 		} );
 
@@ -118,8 +117,8 @@ var Page = (function() {
 	function setJSP( action, idx ) {
 
 		var idx = idx === undefined ? current : idx,
-			$content = $items.eq( idx ).children( 'div.content' ),
-			apiJSP = $content.data( 'jsp' );
+		$content = $items.eq( idx ).children( 'div.content' ),
+		apiJSP = $content.data( 'jsp' );
 
 		if( action === 'init' && apiJSP === undefined ) {
 			$content.jScrollPane({verticalGutter : 0, hideFocus : true });
