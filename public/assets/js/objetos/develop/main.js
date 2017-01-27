@@ -1,11 +1,12 @@
 
 //Boton captura evento para mostrar los preview
 var countImage = 0;
+var countHtml = 0;
 var count_childrenpreview =0;
 
 $('.preview-oaca').click(function(e){
 	e.preventDefault();
-	
+
 	var preview = $(this).data('prev');
 	var content_data = $(this).data('content');
 	var content_btn = $(this).data('btn');
@@ -26,7 +27,7 @@ $('.preview-oaca').click(function(e){
 		childrencontent_preview.find('div.box-header').remove();
 
 		count_childrenpreview++;
-		
+
 		var id_contentpreview = $(childrencontent_preview).attr('id');
 		$(childrencontent_preview).appendTo(content_preview);
 
@@ -55,13 +56,7 @@ $('.preview-oaca').click(function(e){
 					$("#"+$(el).attr('id')).html(function(){
 						readImage(el,countImage);
 						countImage ++;
-						/*$(content_preview).append('<div class="image-preview-content"><img src="" alt="'+$(this).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>');
-
-						$("#"+$(this).attr('id')).html(function(){
-
-							readImage(this,countImage);
-							countImage ++;*/
-						});
+					});
 				}else{
 
 					var id_image = $(el).attr('id')+'-original';
@@ -69,6 +64,24 @@ $('.preview-oaca').click(function(e){
 					$('#'+id_contentpreview).append(image);
 				}
 				break;
+
+				case 'filehtml':
+				if($(el).val()!=''){
+					$('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>').appendTo('#'+id_contentpreview);
+
+					$("#"+$(el).attr('id')).html(function(){
+						readHtml(el,countHtml);
+						countHtml ++;
+					});
+				}else{
+					var id_html = $(el).attr('id')+'-original';
+					var name_html = $('#'+id_html).data('content');
+					var html = '<div class="html-preview-content"><iframe src="'+name_html+'" class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>'
+					$('#'+id_contentpreview).append(html);
+
+				}
+				break;
+
 
 			}
 
@@ -79,15 +92,19 @@ $('.preview-oaca').click(function(e){
 
 	$(content_data).hide();
 	$(preview).show();
-	console.log(content_preview);
-	$(content_preview).slick({
-		dots: true,
-		infinite: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		adaptiveHeight: true,
-		arrows: false,
-	});
+	//console.log(content_preview);
+	// setTimeout(function(){
+	// $(content_preview).slick({
+	// 	dots: true,
+	// 	infinite: true,
+	// 	slidesToShow: 1,
+	// 	slidesToScroll: 1,
+	// 	adaptiveHeight: true,
+	// 	arrows: false,
+	// });
+	//
+	// },2000);
+
 	$(content_btn).hide();
 
 
@@ -103,12 +120,12 @@ $('.btn-return-edit').click(function(e){
 	var content_btn = $(this).data('btn');
 	var content_preview = $(this).data('contentprev');
 
-	$(content_preview).slick('unslick');
+	// $(content_preview).slick('unslick');
 	$(content_preview).html("");
 	$(content_data).show();
 	$(content_btn).show();
 	$(preview).hide();
-//	count_childrenpreview = 0;
+	//	count_childrenpreview = 0;
 
 
 
@@ -125,8 +142,23 @@ function readImage (input, id) {
 
 		reader.onload = function (e){
 			$('#loadimage'+id).attr('src', e.target.result);
-
+			console.log(e.target.result);
 		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
+
+function readHtml (input, id) {
+
+	if(input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function (e){
+			$('#loadhtml'+id).attr('src', e.target.result);
+			console.log(e.target.result);
+		}
+
 		reader.readAsDataURL(input.files[0]);
 	}
 }
@@ -144,8 +176,8 @@ $(".btn-clear-input-image").click(function(e){
 
 $(document).ready(function(){
 
-	
-	
+
+
 	$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs',onTabShow: function(tab, navigation, index) {
 		var $total = navigation.find('li').length;
 		var $current = index+1;
@@ -153,11 +185,13 @@ $(document).ready(function(){
 		$('#rootwizard .progress-bar').css({width:$percent+'%'});
 	}});
 
+	$("ul.bootstrapWizard li.active").removeClass("active");
+	$("ul.bootstrapWizard li#development").addClass("active");
 
 	var count= $('input[name=count_elements_old]').val();
 
 
-	$( "#title, #textarea, #uploadimage, #contenedor" ).draggable({
+	$( "#title, #textarea, #uploadimage, #contenedor, #uploadhotpotatoes" ).draggable({
 		appendTo: "body",
 		helper: "clone"
 	});
@@ -189,7 +223,7 @@ $(document).ready(function(){
 			});
 
 			$(content).appendTo('#'+$(this).attr('id'));
-			
+
 			$(".contentchild").droppable({
 				accept:'.option',
 				drop:function(event, ui){
@@ -244,11 +278,11 @@ $(document).ready(function(){
 
 
 				$('#textarea'+count).summernote({
-					height: 300,               
-					minHeight: null,             
-					maxHeight: null,             
+					height: 300,
+					minHeight: null,
+					maxHeight: null,
 					focus: true,
-					maximumImageFileSize: 512*1024  
+					maximumImageFileSize: 512*1024
 				});
 
 
@@ -258,7 +292,7 @@ $(document).ready(function(){
 
 				case 'uploadimage':
 				var uploadimage = $("div.uploadimage-clone").clone();
-				$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo('#'+id_content)
+				$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo('#'+id_content);
 
 				$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
 				$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
@@ -273,11 +307,25 @@ $(document).ready(function(){
 
 				break;
 
+				case 'uploadhotpotatoes':
+				var uploadhotpotatoes = $("div.uploadhotpotatoes-clone").clone();
+				$(uploadhotpotatoes).removeClass("nomostrar").removeClass("uploadhotpotatoes-clone").addClass("remove-div-"+count).appendTo("#"+id_content);
+				$(".remove-div-"+count).find('input').attr({"data-element":"filehtml","data-position":count,'value':'filehtml-'+count,"name":"filehtml"+count,"id":'filehtmlp-'+count}).addClass("myinput");
+				$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+				$("#filehtmlp-"+count).addClass("componente");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][content]' value='filehtml"+count+"'>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][type]' value='filehtml'>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][id]' value=''>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][pattern]' value='"+$('#'+id_content).data('pattern')+"'>");
+				$("#filehtmlp-"+count).after("<input type='hidden' name='data["+count+"][contentchild]' value='"+id_content+"'>");
+				count ++;
+				break;
+
 
 			}
 		}
 	};
-	
+
 
 
 
@@ -288,5 +336,8 @@ $(document).ready(function(){
 		handle: ".box-header"
 
 	});
+
+
+
 
 });

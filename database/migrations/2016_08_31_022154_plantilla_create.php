@@ -16,11 +16,11 @@ class PlantillaCreate extends Migration
 
             $table->increments('id');
             $table->integer('plantilla')->required();
-            $table->uuid('register_id')->required();
+            $table->integer('register_id')->unsigned()->required();
             $table->timestamps();
             $table->foreign('register_id')
             ->references('id')
-            ->on('registrooaca')
+            ->on('registro_oaca')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
@@ -35,6 +35,6 @@ class PlantillaCreate extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('plantillas');
     }
 }

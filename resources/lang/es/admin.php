@@ -113,8 +113,16 @@ return [
     'investigation' => 'Investigación',
     'evaluation' => 'Evaluación',
     'motivation' => 'Motivación',
+    'mental_images'=>'Imágenes Mentales',
+    'mental_atention'=>'Atención',
     'plantilla' => 'Plantilla',
     'create_plantilla' => 'Crear Plantilla',
     'select_plantilla' => 'Seleccionar Plantilla',
+    'mental_images' => 'Imágenes Mentales',
+    'attention' => 'Atención',
+    'select_pattern' => 'Seleccione Patrón',
+    'image_organization' => 'Imagen de la Organización',
+    'finish_create_oaca_title'=>'Finalizar Creación',
+    'exit'=>'Salir',
 
     ];

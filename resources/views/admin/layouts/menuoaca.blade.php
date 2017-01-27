@@ -13,7 +13,7 @@
 		<link rel="stylesheet" href="/vendor/AdminLTE/dist/css/AdminLTE.min.css" />
 		<link rel="stylesheet" href="/vendor/AdminLTE/dist/css/skins/_all-skins.min.css" />
 		<link rel="stylesheet" href="/vendor/jquery-ui-1.11.4.custom/jquery-ui.css">
-		
+
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="//oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -26,6 +26,8 @@
 
 		<!-- bootstrap wysihtml5 - text editor -->
 		<link rel="stylesheet" href="/vendor/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+		<!-- iCheck for checkboxes and radio inputs -->
+		<link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
 
 		@stack('styles')
 
@@ -38,7 +40,7 @@
 		@include('admin.partials.sidebar_oaca')
 
 
-		@yield('content')	
+		@yield('content')
 
 
 		@include('admin.partials.footer')
@@ -52,6 +54,8 @@
 		<script src="/vendor/AdminLTE/dist/js/app.min.js"></script>
 		<script src="/vendor/AdminLTE/dist/js/demo.js"></script>
 		<script src="/vendor/jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+		<!-- iCheck 1.0.1 -->
+		<script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
 
 		@stack('scripts')
 	</body>

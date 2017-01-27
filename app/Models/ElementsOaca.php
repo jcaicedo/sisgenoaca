@@ -8,8 +8,9 @@ class ElementsOaca extends Model
 {
 
 	const USER_ID = '1';
-	const UUID_REGISTER = '4ab1a90f-3dc9-30a8-9a9d-a6caa7b21a5f';
+	const UUID_REGISTER = '17d850f4-8e16-3f5a-aaf1-58e9f418b292';
 	const INTRODUCTION = "introduction";
+	const MOTIVATION = "motivation";
 	const DEVELOPMENT = "development";
 	const CLOSE = "close";
 	const EXPLANATION = "explanation";
@@ -25,14 +26,18 @@ class ElementsOaca extends Model
 	const INVESTIGATION = "investigation";
 	const EVALUATION = "evaluation";
 	const CLOSE_ARRAY = ["systematization","investigation","evaluation"];
-	
+	const MOTIVATION_ARRAY = ["mental_images","attention"];
+	const MENTAL_IMAGES = "mental_images";
+	const ATTENTION = "attention";
+
 	protected $table = 'elements';
-	
+
 
 	protected $fillable = [
 	'type_element',
 	'content',
 	'area',
+	'moment',
 	'position_order',
 	'contentchild',
 	'register_id',
@@ -82,7 +87,7 @@ class ElementsOaca extends Model
 		$collect2 = [];
 
 		foreach ($all as $key => $value) {
-			
+
 			switch ($value->pattern_pedagogicaltechno) {
 				case 'explanation':
 				$collect['explanation'][]=$value;
@@ -116,7 +121,7 @@ class ElementsOaca extends Model
 				$collect['generalization'][]=$value;
 				$collect2['generalization'][$value->contentchild][]=$value;
 				break;
-				
+
 				default:
 						# code...
 				break;
@@ -132,7 +137,6 @@ class ElementsOaca extends Model
 
 	}
 
-
 	public static function searchElementsClose($id){
 
 		$all = self::where('register_id','=',$id)
@@ -144,7 +148,7 @@ class ElementsOaca extends Model
 		$collect2 = [];
 
 		foreach ($all as $key => $value) {
-			
+
 			switch ($value->pattern_pedagogicaltechno) {
 				case 'systematization':
 				$collect['systematization'][]=$value;
@@ -168,6 +172,35 @@ class ElementsOaca extends Model
 
 	}
 
-	
+	public static function searchElementsMotivation($id){
+
+		$all = self::where('register_id','=',$id)
+		->where('moment','=','motivation')
+		->orderBy('position_order','asc')
+		->get();
+
+		$collect = [];
+		$collect2 = [];
+
+		foreach ($all as $key => $value) {
+
+			switch ($value->pattern_pedagogicaltechno) {
+				case 'mental_images':
+				$collect['mental_images'][]=$value;
+				$collect2['mental_images'][$value->contentchild][]=$value;
+				break;
+				case 'attention':
+				$collect['attention'][]=$value;
+				$collect2['attention'][$value->contentchild][]=$value;
+				break;
+			}
+
+
+		}
+		$collectgeneral[1]=$collect;
+		$collectgeneral[2]=$collect2;
+		return $collectgeneral;
+
+	}
 
 }

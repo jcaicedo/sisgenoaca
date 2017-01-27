@@ -16,21 +16,18 @@ class ElementsContents extends Migration
 
             $table->increments('id');
             $table->string('type_element');
-            $table->longText('content');
+            $table->longText('content')->nullable();
             $table->string('moment');
             $table->string('pattern_pedagogicaltechno')->nullable();
             $table->integer('position_order');
-            $table->uuid('register_id')->required();
+            $table->string('contentchild')->nullable();
+            $table->integer('register_id')->unsigned()->required();
             $table->foreign('register_id')
             ->references('id')
-            ->on('registrooaca')
+            ->on('registro_oaca')
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->timestamps();
-
-
-
-
         });
     }
 
@@ -41,6 +38,6 @@ class ElementsContents extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('elements');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Models\RegistroOaca;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -24,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.oaca.create_oaca');
+      $registrys = RegistroOaca::where("status_public","1")->get();
+        return view('front.home.index',[
+          'registrys' => $registrys
+        ]);
     }
 
     public function getLogout()
@@ -32,5 +36,15 @@ class HomeController extends Controller
        $this->auth->logout();
        Session::flush();
        return redirect('/admin/oaca/objetos/create');
+   }
+
+   public function getDescriptionFront(){
+     return view('front.description.description');
+   }
+   public function getInstitutionsFront(){
+     return view('front.institutions-pilot.institutions');
+   }
+   public function getContactFront(){
+     return view('front.contact.contact');
    }
 }

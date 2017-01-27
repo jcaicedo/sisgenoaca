@@ -4,59 +4,72 @@
 
 <div class="content-wrapper">
 
+<<<<<<< HEAD
 	<!--INTRODUCTION-->
 
 	<section class="content introduction moment">
 
 		
 		<div class="flexslider flexslider-motivation">
+=======
+	<!--MOTIVATION-->
+	@foreach($content_motivation as $key=>$content_child)
+	<section class="content motivation-{{$key}} moment" style="display:none;">
+		<h2 class="content-oaca-font-size">{{trans('admin.'.$key)}}</h2>
+		<div class="flexslider flexslider_deelop">
+>>>>>>> origin/develop/fullscream
 			<ul class="slides">
-				@foreach($collectChild_introduction as $key=>$collect)
+				@foreach($content_child as $key_child=>$content)
 				<li>
-					@foreach($collect as $key=>$element_introduction)
+					@foreach($content as $key=>$element)
 
-					@if($element_introduction->type_element == 'title')
+					@if($element->type_element == 'title')
 					<div class="row">
 						<div class="col-md-12 title">
-							<h1 class="content-oaca-font-size">{{ $element_introduction->content }}</h1>
+							<h1 class="content-oaca-font-size">{{$element->content}}</h1>
 						</div>
 					</div>
 					@endif
 
-					@if($element_introduction->type_element == 'textarea')
-					<div class="row ">
-						<div class="col-md-12 textarea">	
-							<p>{{print_r($element_introduction->content) }}</p>
+					@if($element->type_element == 'textarea')
+					<div class="row">
+						<div class="col-md-12 textarea">
+							<p>{{ print_r ($element->content)}}</p>
 						</div>
 					</div>
 					@endif
 
-					@if($element_introduction->type_element == 'image')
+					@if($element->type_element == 'image')
 					<div class="row">
 						<div class="col-md-12 image">
-							<img src="{{ $element_introduction->content }}" alt="" style="width:50%; height:auto">
+							<img src="{{ $element->content }}" alt="" style="width:50%; height:auto">
 						</div>
 					</div>
 					@endif
+
 
 					@endforeach
 				</li>
 				@endforeach
-
 			</ul>
 		</div>
-
 	</section>
+	@endforeach
 
-	<!--./INTRODUCTION-->
+	<!--./MOTIVATION-->
 	<!--DEVELOP-->
 
 
 	@foreach($content_develop as $key=>$content_child)
 
 	<section class="content develop-{{$key}} moment" style="display:none;">
+<<<<<<< HEAD
 		<h2 class="content-oaca-font-size">{{$key}}</h2>
 		<div class="flexslider flexslider_develop">
+=======
+		<h2 class="content-oaca-font-size">{{trans('admin.'.$key)}}</h2>
+		<div class="flexslider flexslider_deelop">
+>>>>>>> origin/develop/fullscream
 			<ul class="slides">
 				@foreach($content_child as $key_child=>$content)
 				<li>
@@ -103,7 +116,7 @@
 
 	@foreach($content_close as $key=>$content_child)
 	<section class="content close-{{$key}} moment"  style="display:none;">
-		<h2 class="content-oaca-font-size">{{$key}}</h2>
+		<h2 class="content-oaca-font-size">{{trans('admin.'.$key)}}</h2>
 		<div class="flexslider">
 			<ul class="slides">
 				@foreach($content_child as $key_child=>$content)
@@ -146,6 +159,16 @@
 
 	<!--./CLOSE-->
 
+	<!--References-->
+	<section class="content moment" id="content-references"  style="display:none;">
+		<h2 class="content-oaca-font-size">Referencias</h2>
+	</section>
+	<!--./References-->
+	<section class="content">
+		<p>
+			{{$references}}
+		</p>
+	</section>
 
 </div>
 
@@ -162,14 +185,21 @@
 
 <!--Styles-->
 @push('styles')
+	<style media="screen">
+		ul.slides li {
+			background-color: rgb(161, 213, 227);
+			margin: 20px;
+			padding: 12px;
+		}
+	</style>
 
-<link rel="stylesheet" type="text/css" href="/vendor/flexslider/flexslider.css">
+{{-- <link rel="stylesheet" type="text/css" href="/vendor/flexslider/flexslider.css"> --}}
 
 <!--Scripts-->
 @push('scripts')
 <script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
 <!-- FlexSlider -->
-<script defer src="/vendor/flexslider/jquery.flexslider.js"></script>
+{{-- <script  src="/vendor/flexslider/jquery.flexslider.js"></script> --}}
 
 
 <script>
@@ -201,6 +231,7 @@
 			$('.title-pattern').text(subtitle);
 
 			$(".moment").hide();
+			console.log(content_section);
 			$(content_section).show();
 
 			if($(this).data('flexslider')=='0'){
@@ -218,12 +249,26 @@
 			console.log($(this).data('element'));
 		});
 
+<<<<<<< HEAD
 
 		
 		
+=======
+		$(".btn-element-sidebar-references").click(function(){
+			$(".moment").hide();
+			$("#content-references").show();
+		});
+>>>>>>> origin/develop/fullscream
+
+
+		// $('.flexslider, .flexslider_deelop').flexslider({
+		// 	animation: "slide",
+		// 	animationLoop:true,
+		// 	slideshow: false,
+		// 	smoothHeight: true,
+		//
+		// });
+
 
 	});
 </script>
-
-
-

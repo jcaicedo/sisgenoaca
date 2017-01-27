@@ -1,0 +1,117 @@
+.nomostrar{display:none;}
+.mostrar{display: block;}
+.btn-proccess{margin:0 auto; width: 200px;align:left;}
+.preview{display: none; min-height:304px;}
+.mark_background{background: #88AAAA}
+.content-preview{padding:15px;}
+.content-preview h2{
+  color: blue;
+  text-align: center;
+}
+
+.pager{
+  padding-left: 28px;
+  padding-right: 28px;
+  padding-bottom: 8px;
+}
+
+
+.callout{margin: 0 !important; min-height:0;}
+
+.options-textarea{
+  padding-bottom: 10px;
+}
+.box-header-btn{
+  background: #CCCBCB;
+}
+
+.content-header{margin-bottom: 14px;}
+.content-btn-preview{text-align: center;}
+.box-header-principal{text-align: center;}
+.image-preview-content{text-align: center;}
+.image-preview-content img{width: 50%; height: auto;}
+
+/*#processit{float:right;}*/
+.processit h3{float: left;margin-top: 11px;}
+.processit .fa-3x{margin-left: 7px;}
+
+.back-momento h3{float:right;margin-top: 11px;}
+.back-momento .fa-3x{margin-right: 7px;}
+
+.back-momento{margin-right: 10px;}
+.processit {margin-left: 10px !important;}
+
+.preview-oaca h3, .btn-return-edit h3{float: left; margin-top: 11px;margin-left: 7px;}
+.preview-oaca .fa-3x, .btn-return-edit .fa-3x{float: left;}
+
+.contentchild{
+  border-radius: 25px;
+  border:2px solid #C8DAF0;
+  margin: 33px 3px;
+  background:#C8DAF0;
+}
+
+.box-tools-content{
+  top: -10px !important;
+}
+
+.box{
+  border-radius:5px;
+}
+* {
+  box-sizing: border-box;
+}
+.slider {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.slick-slide {
+  margin: 0px 20px;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+}
+
+.iframe_hotpotato{
+  width: 100%;
+  height: 500px;
+
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.btn-circle.btn-lg {
+  width: 38px;
+  height: 38px;
+  padding: 7px 14px;
+  font-size: 25px;
+  line-height: 0.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
+
+.modal-dialog{
+  width: 1200px !important;
+}

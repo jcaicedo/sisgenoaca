@@ -8,29 +8,20 @@ use Ramsey\Uuid\Uuid;
 class RegistroOaca extends Model
 {
 
-	const REGISTROID = "26de1390-eb77-3ec7-8cc4-bc46578794e4";
-	const USERIDPRUEBA = "27";
-	protected $table = 'registrooaca';
-	protected $primaryKey = 'id';
-	public $incrementing = false;
+	protected $table = 'registro_oaca';
 
 	protected $fillable = [
 	'content_register',
 	'title_oaca',
 	'user_id',
 	'plantilla',
-	'licencia'
+	'status_public',
+	'status_share',
+	'type',
+	'register_parent',
+	'licencia',
+	'pattern_id',
 	];
-
-	protected static function boot()
-	{
-		parent::boot();
-		self::creating(function ($registro) {
-				$uuid = Uuid::uuid3(Uuid::NAMESPACE_DNS, $registro->title_oaca);// name-based uuid
-				$registro->id = $uuid->toString();
-				return true;
-			});
-	}
 
 	public function parentRegistrooaca()
 	{
@@ -44,6 +35,21 @@ class RegistroOaca extends Model
 	public static function contentRegistry($id){
 		$query= self:: where('user_id',$id);
 		return $query;
+	}
+
+	public function colaborators(){
+		return $this->hasMany('App\Models\Colaborators','id_registry');
+	}
+
+	public function pattern(){
+		return $this->belongsTo('App\Models\Patterns');
+	}
+
+	public static function getReferences(){
+		$query = self::first();
+		$references = json_decode($query->content_register);
+		return $references->references_bibliographies;
+
 	}
 
 }

@@ -7,7 +7,22 @@
 				<li class="treeview">
 					<a href="#" class="btn-element-sidebar" data-element="introduction" data-title="Motivación" data-subtitle="Motivación" data-flexslider="1">
 						<span class="content-oaca-font-size">{{trans('admin.motivation')}}</span>
+						<i class="fa fa-angle-left pull-right"></i>
 					</a>
+					<ul class="treeview-menu">
+						<li>
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="motivation-mental_images" data-title="{{trans('admin.motivation')}}" data-subtitle="{{trans('admin.mental_images')}}">
+								<i class="fa fa-circle-o"></i>
+								{{trans('admin.mental_images')}}
+							</a>
+						</li>
+						<li>
+							<a href="#" class="btn-element-sidebar content-oaca-font-size" data-element="motivation-attention" data-title="{{trans('admin.motivation')}}" data-subtitle="{{trans('admin.mental_atention')}}">
+								<i class="fa fa-circle-o"></i>
+								{{trans('admin.attention')}}
+							</a>
+						</li>
+					</ul>
 				</li>
 				<li class="treeview" >
 					<a href="#">
@@ -90,8 +105,27 @@
 							</a>
 						</li>
 					</ul>
+				</li>
 
-
+				<li class="treeview">
+					<a href="#">
+						<span class="content-oaca-font-size">
+							Colaboradores
+						</span>
+					</a>
+				</li>
+				<li class="treeview">
+					<a href="#" class="btn-element-sidebar ">
+						<span class="content-oaca-font-size">
+							Referencias
+						</span>
+					</a>
+				</li>
+				<li class="treeview">
+					<a href="#" class="btn-element-sidebar-references content-oaca-font-size" data-element="close-evaluation" data-title="{{trans('admin.close')}}" data-subtitle="{{trans('admin.evaluation')}}">
+						<i class="fa fa-circle-o"></i>
+						 Referencias
+					</a>
 				</li>
 			</ul>
 		</section>

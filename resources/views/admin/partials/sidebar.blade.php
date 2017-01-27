@@ -1,6 +1,6 @@
 <aside class="main-sidebar">
 	<section class="sidebar">
-		
+
 		<!--Panel izquierdo-->
 
 
@@ -28,7 +28,7 @@
 		<!-- /.search form -->
 
 		<ul class="sidebar-menu">
-			
+
 
 			<li class="header">NAVEGACIÓN</li>
 
@@ -39,8 +39,17 @@
 
 				</a>
 
-				
+
 			</li>
+			@if(Auth::user()->role==1)
+				<li>
+					<a href="{{url('admin/superadmin/list-users')}}">
+						<i class="fa fa-book"></i>
+						<span>Control de Usuarios</span>
+					</a>
+
+				</li>
+			@endif
 
 			<li>
 				<a href="{{url('admin')}}">
