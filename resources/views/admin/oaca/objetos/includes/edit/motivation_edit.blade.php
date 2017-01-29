@@ -58,7 +58,7 @@
 													<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$count}} id="textarea{{$count}}" name="textarea" data-content="content-textarea{{$count}}">
 
 													</div>
-
+						
 													<input type="hidden" name="textarea" id="input-textarea{{$count}}" value="{{$element->content}}" class="componente" >
 													<input type="hidden" name="data[{{$count}}][content]" id="content-textarea{{$count}}" value="pruab">
 													<input type="hidden" name="data[{{$count}}][type]" value="textarea">

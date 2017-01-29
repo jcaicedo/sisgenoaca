@@ -156,7 +156,7 @@
 		$('div#content-form .edit-textarea').each(function(index, element){
 			var textarea_id = $(this).attr('id');
 
-
+console.log(textarea_id);
 			$('#'+textarea_id).summernote({
 				height: 300,
 				minHeight: null,
