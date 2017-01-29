@@ -14,6 +14,7 @@
 
 										</div>
 									</div>
+
 									@foreach($data as $key=> $element)
 
 										@if($element->type_element == 'title')
@@ -21,6 +22,7 @@
 												<div class="box">
 													<div class="box-header with-border">
 														<h3 class="box-title">{{trans('admin.title')}}</h3>
+														<h3>{{$count}}</h3>
 														<div class="box-tools pull-right">
 															<button  class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}">
 																<i class="fa fa-close"></i>
@@ -46,6 +48,7 @@
 												<div class="box">
 													<div class="box-header with-border">
 														<h3 class="box-title">Textarea</h3>
+														<h3>{{$count}}</h3>
 														<div class="box-tools pull-right">
 															<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}" >
 																<i class="fa  fa-close"></i>
@@ -55,10 +58,10 @@
 															</button>
 														</div>
 													</div>
-													<div class="box-body edit-textarea myinput" data-element="textarea" data-position={{$count}} id="textarea{{$count}}" name="textarea" data-content="content-textarea{{$count}}">
+													<div class="box-body edit-textarea myinput" data-element="textarea" data-position="{{$count}}" id="textarea{{$count}}" name="textarea" data-content="content-textarea{{$count}}">
 
 													</div>
-						
+
 													<input type="hidden" name="textarea" id="input-textarea{{$count}}" value="{{$element->content}}" class="componente" >
 													<input type="hidden" name="data[{{$count}}][content]" id="content-textarea{{$count}}" value="pruab">
 													<input type="hidden" name="data[{{$count}}][type]" value="textarea">
@@ -79,6 +82,7 @@
 												<div class="box">
 													<div class="box-header with-border">
 														<h3 class="box-title">Image</h3>
+														<h3>{{$count}}</h3>
 														<div class="image-preview-content" id="imagep-{{$count}}-original">
 															<img src="{{$element->content}}" alt=""  >
 														</div>
@@ -115,6 +119,7 @@
 												<div class="box">
 													<div class="box-header with-border">
 														<h3 class="box-title">Actividad Hot Potatoes</h3>
+														<h3>{{$count}}</h3>
 														<div class="filehtml-preview-content" id="filehtmlp-{{$count}}-original" data-content="{{$element->content}}">
 															<h2>Html Actual: {{$element->content}}</h2>
 														</div>
@@ -146,6 +151,7 @@
 
 
 									@endforeach
+
 									<?php $count_element++; ?>
 								</div>
 							@endforeach
