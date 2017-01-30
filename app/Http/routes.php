@@ -64,7 +64,7 @@ Route::group(['middleware' => 'web'],function(){
 
 
   Route::group(['namespace'=>'Oaca','prefix'=>'oaca'],function(){
-    Route::get('view/{id}',['uses'=>'OacaController@viewOaca']);
+    Route::get('view/{id}',['uses'=>'OacaController@getElementsMoment']);
     Route::controller('/','OacaController');
   });
 });

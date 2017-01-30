@@ -23,7 +23,7 @@ class OacaController extends Controller
 		$content_develop = ElementsOaca::searchElementsDevelop($id);
 		$content_motivation = ElementsOaca::searchElementsMotivation($id);
 		$content_close = ElementsOaca::searchElementsClose($id);
-		dd( $collectChild_introduction);
+		//dd( $collectChild_introduction);
 		return view('oaca.pages.oaca',[
 			'oaca'=>$oaca,
 			'collectChild_introduction' => $collectChild_introduction,
@@ -37,8 +37,8 @@ class OacaController extends Controller
 			]);
 	}
 
-	public function getElementsMoment (){
-		$id=6;
+	public function getElementsMoment ($id = 0){
+	
 		$content_develop = ElementsOaca::searchElementsDevelop($id);
 		$content_motivation = ElementsOaca::searchElementsMotivation($id);
 		$content_close = ElementsOaca::searchElementsClose($id);
