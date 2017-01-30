@@ -28,7 +28,7 @@
 <body class="skin-default sidebar-mini">
 
 	<div class="wrapper">
-		
+
 		@include('oaca.partials.header')
 
 		@include('oaca.partials.sidebar')

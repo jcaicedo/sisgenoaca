@@ -18,6 +18,15 @@
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="/assets/css/oaca/materialize.css"  media="screen,projection"/>
+
+
+	{{-- <link rel="stylesheet" href="/assets/css/oaca/oaca_style.css"> --}}
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+	<!-- Ionicons -->
+	<link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+
+
 	<script src="{{url('/themes/FullscreenBookBlock/js/modernizr.custom.79639.js')}}"></script>
 
 	<script src="{{url('/themes/FullscreenBookBlock/js/jquery.mousewheel.js')}}"></script>
@@ -33,7 +42,7 @@
 
 		<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
 			<a class="btn-floating btn-large blue">
-				<i style="font-size:7.6rem" class="fa fa-universal-access fa-5x"></i>
+				<i style="font-size:4.6rem" class="fa fa-universal-access fa-5x"></i>
 			</a>
 			<ul>
 				<li><a class="btn-floating red btn-floating-universal-access" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-universal-access"></i></a></li>
@@ -57,7 +66,7 @@
 	}
 
 	.btn-floating i{
-		font-size: 2.6rem;
+		font-size: 1.6rem;
 		line-height: 39px;
 	}
 	.btn-floating-universal-access{

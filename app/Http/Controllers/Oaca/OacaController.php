@@ -13,7 +13,7 @@ class OacaController extends Controller
 {
 
 
-	function viewOaca($id = 0){
+	function getPrueba($id = 0){
 		$oaca = RegistroOaca::find($id);
 		$references = $oaca::getReferences();
 
@@ -37,8 +37,8 @@ class OacaController extends Controller
 			]);
 	}
 
-	public function getElementsMoment ($id = 0){
-	
+	public function getViewOaca ($id = 0){
+
 		$content_develop = ElementsOaca::searchElementsDevelop($id);
 		$content_motivation = ElementsOaca::searchElementsMotivation($id);
 		$content_close = ElementsOaca::searchElementsClose($id);
