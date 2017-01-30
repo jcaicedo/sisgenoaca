@@ -40,71 +40,10 @@
 
 					<div class="tab-content" id="content-form">
 
-						<?php $count=0;$count_element=0;?>
+						
 
-						@for($i=1;$i<9;$i++)
+						@include('admin.oaca.objetos.includes.edit.development_edit')
 
-							<div class="tab-pane" id="tab{{$i}}">
-								{{-- botones de preview --}}
-								<div  class="box-header box-header-principal box-btn-header-principal{{$i}}">
-									<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
-										<i class="fa fa-eye fa-3x"></i>
-										<h3>Preview</h3>
-									</a>
-								</div>
-
-								{{-- CONTENEDOR PRINCIPAL --}}
-								<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
-
-									@include('admin.oaca.objetos.includes.edit.development_edit')
-
-								</div>
-
-								{{-- botones de preview --}}
-								<div  class="box-header box-header-principal box-btn-header-principal{{$i}}">
-									<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/motivation')}}" class="btn btn-default text-center back-momento" >
-										<i class="fa  fa-hand-o-left fa-3x"></i>
-										<h3>{{trans('admin.motivation')}}</h3>
-									</a>
-									<button type="submit" class="btn btn-success text-center processit" >
-										<h3>{{trans('admin.close')}}</h3>
-										<i class="fa fa-hand-o-right fa-3x"></i>
-									</button>
-								</div>
-
-								{{-- CONTENEDOR PREVIEW --}}
-								<div class="preview" id="prev{{$i}}">
-									<div class="box-header">
-										<div class="content-btn-preview">
-											<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
-												<i class="fa fa-edit fa-3x"></i>
-												<h3>Seguir Editando</h3>
-											</a>
-										</div>
-									</div>
-
-									<div class="content content-preview" id="content-prev{{$i}}">
-										<!--Contenedor del preview-->
-									</div>
-
-									{{-- bontones de preview --}}
-									<div class="box-header">
-										<div class="content-btn-preview">
-											<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/motivation')}}" class="btn btn-default text-center back-momento" >
-												<i class="fa  fa-hand-o-left fa-3x left"></i>
-												<h3>{{trans('admin.motivation')}}</h3>
-											</a>
-											<button type="submit" class="btn btn-success processit">
-												<h3>{{trans('admin.close')}}</h3>
-												<i class="fa fa-hand-o-right fa-3x"></i>
-											</button>
-										</div>
-									</div>
-
-								</div>  {{--./Contenedor Preview--}}
-							</div> {{--./Content Tab--}}
-
-						@endfor
 
 
 
