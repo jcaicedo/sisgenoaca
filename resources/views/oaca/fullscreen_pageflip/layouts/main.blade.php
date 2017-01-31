@@ -30,6 +30,14 @@
 	<script src="{{url('/themes/FullscreenBookBlock/js/modernizr.custom.79639.js')}}"></script>
 
 	<script src="{{url('/themes/FullscreenBookBlock/js/jquery.mousewheel.js')}}"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="{{url('/themes/FullscreenBookBlock/modal-bootstrap/css/bootstrap.min.css')}}" >
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="{{url('/themes/FullscreenBookBlock/modal-bootstrap/css/bootstrap-theme.css')}}" >
+
+
 	@stack('styles')
 </head>
 <body>
@@ -38,19 +46,29 @@
 		@include('oaca.fullscreen_pageflip.partials.sidebar')
 		@include('oaca.fullscreen_pageflip.pages.front')
 
+		<!--Boton flotante de opciones de accesibilidad-->
+		@include('oaca.fullscreen_pageflip.partials.button_floating')
 
 
-		<div class="fixed-action-btn horizontal" style="bottom: 45px; right: 24px;">
-			<a class="btn-floating btn-large blue">
-				<i style="font-size:4.6rem" class="fa fa-universal-access fa-5x"></i>
-			</a>
-			<ul>
-				<li><a class="btn-floating red btn-floating-universal-access" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal2"><i class="fa fa-universal-access"></i></a></li>
-				<li><a class="btn-floating brown lighten-1 btn-floating-universal-access" tabindex="0" type="button" href="#" data-toggle="modal" data-target="#myModal"><i class="material-icons">invert_colors</i></a></li>
-				<li><a class="btn-minus-font btn-floating green btn-floating-universal-access"><i class="fa fa-minus"></i></a></li>
-				<li><a class="btn-floating blue btn-plus-font btn-floating-universal-access"><i class="fa fa-plus"></i></a></li>
-			</ul>
+		<!-- Modal Estilo de Colores -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Combinación de colores</h4>
+					</div>
+					<div class="modal-body">
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+					</div>
+				</div>
+			</div>
 		</div>
+
 	</div><!-- /container -->
 	<style>
 	.btn-floating.btn-large{
@@ -83,6 +101,13 @@
 	<script src="{{url('/themes/FullscreenBookBlock/js/jquerypp.custom.js')}}"></script>
 	<script src="{{url('/themes/FullscreenBookBlock/js/jquery.bookblock.js')}}"></script>
 	<script src="{{url('/themes/FullscreenBookBlock/js/page.js')}}"></script>
+	<script src="{{url('/themes/FullscreenBookBlock/js/main.js')}}"></script> <!--archivo js propio del sistema-->
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="{{url('/themes/FullscreenBookBlock/modal-bootstrap/js/bootstrap.min.js')}}" ></script>
+
+
+	<!--Inicializa las accciones del theme de la pagina para mostrar el oaca-->
 	<script>
 	$(function() {
 
