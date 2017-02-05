@@ -37,7 +37,6 @@
 									<div class="box">
 										<div class="box-header with-border">
 											<h3 class="box-title">{{trans('admin.title')}}</h3>
-											<h3>{{$count}}</h3>
 											<div class="box-tools pull-right">
 												<button  class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}">
 													<i class="fa fa-close"></i>
@@ -63,7 +62,6 @@
 									<div class="box">
 										<div class="box-header with-border">
 											<h3 class="box-title">Textarea</h3>
-											<h3>{{$count}}</h3>
 											<div class="box-tools pull-right">
 												<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}" >
 													<i class="fa  fa-close"></i>
@@ -97,7 +95,6 @@
 									<div class="box">
 										<div class="box-header with-border">
 											<h3 class="box-title">Image</h3>
-											<h3>{{$count}}</h3>
 											<div class="image-preview-content" id="imagep-{{$count}}-original">
 												<img src="{{$element->content}}" alt=""  >
 											</div>
@@ -134,7 +131,6 @@
 									<div class="box">
 										<div class="box-header with-border">
 											<h3 class="box-title">Actividad Hot Potatoes</h3>
-											<h3>{{$count}}</h3>
 											<div class="filehtml-preview-content" id="filehtmlp-{{$count}}-original" data-content="{{$element->content}}">
 												<h2>Html Actual: {{$element->content}}</h2>
 											</div>
