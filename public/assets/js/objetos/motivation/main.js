@@ -323,9 +323,6 @@ $(document).ready(function(){
 		}
 	};
 
-
-
-
 	$( ".sortable:not(div.box-footer)" ).sortable({
 		axis: 'y',
 		opacity: 0.5,
@@ -333,5 +330,7 @@ $(document).ready(function(){
 		handle: ".box-header"
 
 	});
+
+
 
 });

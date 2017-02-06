@@ -4,10 +4,10 @@
 	<div class="tab-pane" id="tab{{$i}}">
 		{{-- botones de preview --}}
 		<div  class="box-header box-header-principal box-btn-header-principal{{$i}}">
-			<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
+			{{-- <a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
 				<i class="fa fa-eye fa-3x"></i>
 				<h3>Preview {{$count}}</h3>
-			</a>
+			</a> --}}
 		</div>
 
 		{{-- CONTENEDOR PRINCIPAL --}}

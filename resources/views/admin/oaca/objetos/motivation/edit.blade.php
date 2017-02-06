@@ -83,8 +83,14 @@
 
 
 		<script>
-		var array_elements_delete = [];
 
+
+
+			$("#form-create-oaca-motivation").on('change',".content-image-prev",function(){
+			console.log($(this).attr('id'));
+			});
+
+		var array_elements_delete = [];
 		$('#form-create-oaca-motivation').submit(function(event) {
 
 			$("#form-create-oaca-motivation [name='textarea']").each(function(index) {

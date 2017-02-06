@@ -67,7 +67,9 @@
 			</div>
 		</div>
 		<div class=" box-body">
-			<input class="form-control" type="file" accept="image/*" />
+
+			<input class="form-control content-image-prev" type="file" accept="image/*" />
+			<img src="#" alt=""  style="display:none;">
 		</div>
 	</div>
 </div>
