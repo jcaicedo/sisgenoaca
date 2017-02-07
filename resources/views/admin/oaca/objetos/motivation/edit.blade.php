@@ -68,6 +68,14 @@
 	<link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
 	<link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/oaca/motivation/edit/master.css" media="screen" title="no title">
+	<style media="screen">
+	.content-wrapper .box-body img.imgcontent{
+		width: 25%;
+		height: auto;
+		display: block;
+		margin: 30px auto;
+	}
+	</style>
 @endpush
 
 <!--Scripts-->
