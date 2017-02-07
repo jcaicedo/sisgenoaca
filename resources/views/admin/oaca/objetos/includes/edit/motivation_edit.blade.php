@@ -96,7 +96,7 @@
 										<div class="box-header with-border">
 											<h3 class="box-title">Image</h3>
 											<div class="image-preview-content" id="imagep-{{$count}}-original">
-												<img src="{{$element->content}}" alt=""  >
+												<img src="{{$element->content}}" alt="" id="imgcontent{{$count}}" class="imgcontent" >
 											</div>
 
 											<div class="box-tools pull-right">
@@ -107,7 +107,7 @@
 										</div>
 										<div class=" box-body">
 											<div class="col-md-6">
-												<input class="form-control myinput image-upload" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" />
+												<input class="form-control myinput image-upload content-image-prev" data-image-content="#imgcontent{{$count}}" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" />
 
 
 												<input type="hidden" id="image-{{$count}}" name="image" value="imagep-{{$count}}" class="componente">

@@ -290,9 +290,10 @@ $(document).ready(function(){
 				case 'uploadimage':
 				var uploadimage = $("div.uploadimage-clone").clone();
 				$(uploadimage).removeClass("nomostrar").removeClass("uploadimage-clone").addClass("remove-div-"+count).appendTo('#'+id_content);
-
-				$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
+				$(".remove-div-"+count).find('img').attr({"id":"imagecontent"+count});
+				$(".remove-div-"+count).find('input').attr({"data-element":"image","data-position":count,"data-image-content":"#imagecontent"+count,'value':'image-'+count,"name":"image"+count,"id":'imagep-'+count}).addClass("myinput");
 				$(".remove-div-"+count).find('button').attr({"data-parent":"remove-div-"+count}).addClass('remove-div');
+
 				$("#imagep-"+count).addClass("componente");
 				$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][content]' value='image"+count+"'>");
 				$("#imagep-"+count).after("<input type='hidden' name='data["+count+"][type]' value='image'>");
