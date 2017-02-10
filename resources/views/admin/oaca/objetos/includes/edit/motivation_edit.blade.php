@@ -96,7 +96,15 @@
 										<div class="box-header with-border">
 											<h3 class="box-title">Image</h3>
 											<div class="image-preview-content" id="imagep-{{$count}}-original">
-												<img src="{{$element->content}}" alt="" id="imgcontent{{$count}}" class="imgcontent" >
+												<div class="col-md-6">
+													<h3>Imagen Guardada</h3>
+													<img src="{{$element->content}}" alt="" class="imgcontent" >
+												</div>
+												<div class="col-md-6">
+													<h3>Imagen Nueva</h3>
+													<img src="http://placehold.it/900x400" id="imgcontent{{$count}}" class="imgcontent"  alt="Imagen Nueva">
+												</div>
+
 											</div>
 
 											<div class="box-tools pull-right">
@@ -107,11 +115,9 @@
 										</div>
 										<div class=" box-body">
 											<div class="col-md-6">
+												<!-- Input donde se guarda la imagen -->
 												<input class="form-control myinput image-upload content-image-prev" data-image-content="#imgcontent{{$count}}" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" />
-
-
 												<input type="hidden" id="image-{{$count}}" name="image" value="imagep-{{$count}}" class="componente">
-
 												<input type="hidden" name="data[{{$count}}][content]" value="image{{$count}}" >
 												<input type="hidden" name="data[{{$count}}][type]" value='image' >
 												<input type="hidden" name="data[{{$count}}][id]" value='{{$element->id}}' >
