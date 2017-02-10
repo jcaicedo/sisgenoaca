@@ -165,10 +165,17 @@ function readHtml (input, id) {
 
 
 $(".btn-clear-input-image").click(function(e){
-
+console.log('aqui toy');
 	e.preventDefault();
 	var id_image_input = $(this).data('content');
 	$(id_image_input).val('');
+
+	var id_prev_image = $(id_image_input).data('image-content');
+console.log(id_prev_image);
+	$(id_prev_image).attr('src','http://placehold.it/900x400');
+
+
+
 
 });
 
