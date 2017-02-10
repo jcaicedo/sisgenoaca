@@ -1,177 +1,13 @@
 
-//Boton captura evento para mostrar los preview
-var countImage = 0;
-var countHtml = 0;
-var count_childrenpreview =0;
-
-$('.preview-oaca').click(function(e){
-	e.preventDefault();
-
-	var preview = $(this).data('prev');
-	var content_data = $(this).data('content');
-	var content_btn = $(this).data('btn');
-	var content_preview = $(this).data('contentprev');
-
-	$(content_data + " .contentchild").each(function(index,el){
-
-		var childrencontent_preview = $(".contentfather-clone").clone().removeClass('contentfather-clone')
-		.addClass('contentchild')
-		.removeClass('nomostrar')
-		.css({
-			'display':'inherit'
-		})
-		.attr({
-			'id':'contentchild-preview'+count_childrenpreview
-		});
-
-		childrencontent_preview.find('div.box-header').remove();
-
-		count_childrenpreview++;
-
-		var id_contentpreview = $(childrencontent_preview).attr('id');
-		$(childrencontent_preview).appendTo(content_preview);
-
-		$(".myinput",el).each(function(index, el){
-
-			var element = $(el).data('element');
-
-			switch(element){
-
-				case 'title':
-				$('<h2>'+$(el).val()+'</h2>').appendTo('#'+id_contentpreview);
-				break;
-
-				case 'textarea':
-				var content_textarea = $('#'+$(el).attr('id')).summernote('code');
-				$('<br>'+content_textarea+'<br>').appendTo('#'+id_contentpreview);
-				var idContent = $(el).data('content');
-				$("#"+idContent).val(content_textarea);
-				break;
-
-				case 'image':
-				if($(el).val()!=''){
-
-					$('<div class="image-preview-content"><img src="" alt="'+$(el).attr('id')+'" id="loadimage'+countImage+'" height="100" width="100"><div>').appendTo('#'+id_contentpreview);
-
-					$("#"+$(el).attr('id')).html(function(){
-						readImage(el,countImage);
-						countImage ++;
-					});
-				}else{
-
-					var id_image = $(el).attr('id')+'-original';
-					var image = $('#'+id_image).clone();
-					$('#'+id_contentpreview).append(image);
-				}
-				break;
-
-				case 'filehtml':
-				if($(el).val()!=''){
-					$('<div class="html-preview-content"><iframe class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>').appendTo('#'+id_contentpreview);
-
-					$("#"+$(el).attr('id')).html(function(){
-						readHtml(el,countHtml);
-						countHtml ++;
-					});
-				}else{
-					var id_html = $(el).attr('id')+'-original';
-					var name_html = $('#'+id_html).data('content');
-					var html = '<div class="html-preview-content"><iframe src="'+name_html+'" class="iframe_hotpotato" src="" alt="'+$(el).attr('id')+'" id="loadhtml'+countHtml+'" height="100" width="100"></iframe><div>'
-					$('#'+id_contentpreview).append(html);
-				}
-				break;
-
-
-			}
-
-		});
-
-	});
-
-
-	$(content_data).hide();
-	$(preview).show();
-	//console.log(content_preview);
-	// setTimeout(function(){
-	// $(content_preview).slick({
-	// 	dots: true,
-	// 	infinite: true,
-	// 	slidesToShow: 1,
-	// 	slidesToScroll: 1,
-	// 	adaptiveHeight: true,
-	// 	arrows: false,
-	// });
-
-	// },2000);
-
-	$(content_btn).hide();
-
-
-});
-
-//Boton captura evento para retornar a la edicion de contenido.
-
-$('.btn-return-edit').click(function(e){
-	e.preventDefault();
-
-	var preview = $(this).data('prev');
-	var content_data = $(this).data('content');
-	var content_btn = $(this).data('btn');
-	var content_preview = $(this).data('contentprev');
-
-	// $(content_preview).slick('unslick');
-	$(content_preview).html("");
-	$(content_data).show();
-	$(content_btn).show();
-	$(preview).hide();
-	//	count_childrenpreview = 0;
-
-
-
-
-
-
-});
-
-
-function readImage (input, id) {
-
-	if(input.files && input.files[0]) {
-		var reader = new FileReader();
-
-		reader.onload = function (e){
-			$('#loadimage'+id).attr('src', e.target.result);
-			// console.log(e.target.result);
-		}
-
-		reader.readAsDataURL(input.files[0]);
-	}
-}
-
-function readHtml (input, id) {
-
-	if(input.files && input.files[0]) {
-		var reader = new FileReader();
-
-		reader.onload = function (e){
-			$('#loadhtml'+id).attr('src', e.target.result);
-			// console.log(e.target.result);
-		}
-
-		reader.readAsDataURL(input.files[0]);
-	}
-}
-
-
+//btn to clear inputs of images and inputs html
 
 $(".btn-clear-input-image").click(function(e){
-	console.log('aqui toy');
 	e.preventDefault();
 	var id_image_input = $(this).data('content');
 	$(id_image_input).val('');
-
+	// clear input image
 	var id_prev_image = $(id_image_input).data('image-content');
-
+	// clear img preview to image
 	$(id_prev_image).attr('src','http://placehold.it/900x400');
 
 
@@ -215,7 +51,7 @@ $("#form-create-oaca-motivation").on('click','button.remove-content',function (e
 });
 
 
-// Preview input image edit
+//FUNCTION TO PREVIEW IMAGE IN CONTENTS ELEMENTS IMAGES ON EDIT AND NEW ELEMENTS
 
 $("#form-create-oaca-motivation").on('change',".content-image-prev",function(){
 
@@ -242,20 +78,72 @@ function readURL(input,id_content_image) {
 }
 
 
-$(document).ready(function(){
-
-
-
+//FUNCTION INIT TABS MOMENTS
+function initRootWizard(){
 	$('#rootwizard').bootstrapWizard({'tabClass': 'nav nav-tabs',onTabShow: function(tab, navigation, index) {
 		var $total = navigation.find('li').length;
 		var $current = index+1;
 		var $percent = ($current/$total) * 100;
 		$('#rootwizard .progress-bar').css({width:$percent+'%'});
 	}});
+}
 
 
-	var count= $('input[name=count_elements_old]').val();
+//FUNCTION TO summernote
 
+function initTexareasSummernote(){
+	$('div#content-form .edit-textarea').each(function(index, element){
+		var textarea_id = $(this).attr('id');
+
+		$( $(this)).summernote({
+			height: 300,
+			minHeight: null,
+			maxHeight: null,
+			focus: true,
+			maximumImageFileSize: 512*1024
+		});
+
+		var content = $('#input-'+textarea_id).val();
+		//$('#input-'+textarea_id).val(textarea_id);
+
+
+		$( $(this)).summernote('code',content);
+
+	});
+}
+
+
+//SUBMIT TO GET TEXT OF THE ALL TEXAREAS SUMMERNOTE
+
+$('#form-create-oaca-motivation').submit(function(event) {
+
+	$("#form-create-oaca-motivation [name='textarea']").each(function(index) {
+		var idcontent = $(this).data('content');
+
+		var content = $(this).summernote('code');
+
+		$('#'+idcontent).val(content);
+	});
+
+});
+
+	var array_elements_delete = [];
+
+$(document).ready(function(){
+console.log('iniciando aqui');
+	//Inicialización de tab de momentos
+	initRootWizard();
+	//Inicialización de los texareas con summernote
+	initTexareasSummernote();
+
+	//Variables
+	var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
+
+
+	//Se obtienen la cantidad de elementos existentes en la base de datos.
+	$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
+
+	//JQuery UI para el Drag and Drop
 
 	$( "#title, #textarea, #uploadimage, #contenedor, #uploadhotpotatoes" ).draggable({
 		appendTo: "body",
@@ -400,7 +288,5 @@ $(document).ready(function(){
 		handle: ".box-header"
 
 	});
-
-
 
 });
