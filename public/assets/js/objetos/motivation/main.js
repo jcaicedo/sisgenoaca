@@ -165,19 +165,81 @@ function readHtml (input, id) {
 
 
 $(".btn-clear-input-image").click(function(e){
-console.log('aqui toy');
+	console.log('aqui toy');
 	e.preventDefault();
 	var id_image_input = $(this).data('content');
 	$(id_image_input).val('');
 
 	var id_prev_image = $(id_image_input).data('image-content');
-console.log(id_prev_image);
+
 	$(id_prev_image).attr('src','http://placehold.it/900x400');
 
 
 
 
 });
+
+// function to delete element
+$("#form-create-oaca-motivation").on('click','button.remove-div',function (e){
+	e.preventDefault();
+	var divDelete = $(this).data('parent');
+
+	if($(this).data('idelement')){
+		array_elements_delete.push($(this).data('idelement'));
+		$('#elementos-delete').val(array_elements_delete);
+		console.log($('#elementos-delete').val());
+	}
+
+
+	$("."+divDelete).remove();
+
+});
+
+
+
+// function to delete div content of elements
+$("#form-create-oaca-motivation").on('click','button.remove-content',function (e){
+	var divDelete = $(this).data('content');
+
+	$(divDelete+' button.remove-div').each(function(index, el){
+
+		if($(el).data('idelement')){
+			array_elements_delete.push($(el).data('idelement'));
+			$('#elementos-delete').val(array_elements_delete);
+			console.log($('#elementos-delete').val());
+		}
+	});
+
+	$(divDelete).remove();
+
+});
+
+
+// Preview input image edit
+
+$("#form-create-oaca-motivation").on('change',".content-image-prev",function(){
+
+	var id_content_image = $(this).data("image-content");
+
+	readURL(this,id_content_image);
+
+});
+
+function readURL(input,id_content_image) {
+
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
+
+		reader.onload = function (e) {
+			// $('#blah').attr('src', e.target.result);
+			console.log(id_content_image);
+			$(id_content_image).attr('src',e.target.result);
+
+		}
+
+		reader.readAsDataURL(input.files[0]);
+	}
+}
 
 
 $(document).ready(function(){
