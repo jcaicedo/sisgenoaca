@@ -1,5 +1,4 @@
 <?php $count=0;$count_element=0;?>
-
 @for($i=1;$i<9;$i++)
 
 	<div class="tab-pane" id="tab{{$i}}">

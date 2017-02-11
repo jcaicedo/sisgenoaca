@@ -127,10 +127,13 @@ $('#form-create-oaca-motivation').submit(function(event) {
 
 });
 
-	var array_elements_delete = [];
+
+
+
+var array_elements_delete = [];
 
 $(document).ready(function(){
-console.log('iniciando aqui');
+
 	//Inicialización de tab de momentos
 	initRootWizard();
 	//Inicialización de los texareas con summernote

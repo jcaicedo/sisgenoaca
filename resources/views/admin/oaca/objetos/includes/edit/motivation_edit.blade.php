@@ -102,7 +102,7 @@
 												</div>
 												<div class="col-md-6">
 													<h3>Imagen Nueva</h3>
-													<img src="http://placehold.it/900x400" id="imgcontent{{$count}}" class="imgcontent"  alt="Imagen Nueva">
+													<img src="http://placehold.it/900x500" id="imgcontent{{$count}}" class="imgcontent"  alt="Imagen Nueva">
 												</div>
 
 											</div>
