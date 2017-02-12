@@ -139,12 +139,12 @@ $(document).ready(function(){
 	//Inicialización de los texareas con summernote
 	initTexareasSummernote();
 
-	//Variables
-	var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
-
-
-	//Se obtienen la cantidad de elementos existentes en la base de datos.
-	$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
+	// //Variables
+	// var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
+	//
+	//
+	// //Se obtienen la cantidad de elementos existentes en la base de datos.
+	// $('input[name=count_elements_old]').val($('#content-form .old').size()+1);
 
 	//JQuery UI para el Drag and Drop
 

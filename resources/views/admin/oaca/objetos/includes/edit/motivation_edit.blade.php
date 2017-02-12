@@ -116,7 +116,7 @@
 										<div class=" box-body">
 											<div class="col-md-6">
 												<!-- Input donde se guarda la imagen -->
-												<input class="form-control myinput image-upload content-image-prev" data-image-content="#imgcontent{{$count}}" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" />
+												<input class="form-control myinput image-upload content-image-prev" data-image-content="#imgcontent{{$count}}" type="file" data-element="image" data-position="{{$count}}" value="image-{{$count}}" name="image{{$count}}" id="imagep-{{$count}}" accept="image/*"/>
 												<input type="hidden" id="image-{{$count}}" name="image" value="imagep-{{$count}}" class="componente">
 												<input type="hidden" name="data[{{$count}}][content]" value="image{{$count}}" >
 												<input type="hidden" name="data[{{$count}}][type]" value='image' >
@@ -189,7 +189,6 @@
 		<div class="preview" id="prev{{$i}}">
 			<div class="box-header">
 				<div class="content-btn-preview">
-
 					<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
 						<i class="fa fa-edit fa-3x"></i>
 						<h3>Seguir Editando</h3>
