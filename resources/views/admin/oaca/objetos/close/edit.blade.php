@@ -82,8 +82,7 @@
 		<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js"></script>
 		<script src="/vendor/slick-carousel/slick/slick.min.js"></script>
 		<script type="text/javascript">
-		//Variables
-		var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
+		var array_elements_delete = [];
 
 		//Se obtienen la cantidad de elementos existentes en la base de datos.
 		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
