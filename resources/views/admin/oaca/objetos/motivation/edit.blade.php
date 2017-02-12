@@ -68,14 +68,6 @@
 	<link href="/vendor/slick-carousel/slick/slick.css" rel="stylesheet">
 	<link href="/vendor/slick-carousel/slick/slick-theme.css" rel="stylesheet">
 	<link rel="stylesheet" href="/assets/css/oaca/motivation/edit/master.css" media="screen" title="no title">
-	<style media="screen">
-	.content-wrapper .box-body img.imgcontent{
-		width: 25%;
-		height: auto;
-		display: block;
-		margin: 30px auto;
-	}
-	</style>
 @endpush
 
 <!--Scripts-->
@@ -90,8 +82,8 @@
 	<script src="/vendor/slick-carousel/slick/slick.min.js"></script>
 	<script type="text/javascript">
 	//Variables
-	var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
 
+	var array_elements_delete = [];
 
 	//Se obtienen la cantidad de elementos existentes en la base de datos.
 	$('input[name=count_elements_old]').val($('#content-form .old').size()+1);

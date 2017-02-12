@@ -17,9 +17,10 @@ $(".btn-clear-input-image").click(function(e){
 
 // function to delete element
 $("#form-create-oaca-motivation").on('click','button.remove-div',function (e){
+	console.log('hols');
 	e.preventDefault();
 	var divDelete = $(this).data('parent');
-
+console.log($(this).data('idelement'));
 	if($(this).data('idelement')){
 		array_elements_delete.push($(this).data('idelement'));
 		$('#elementos-delete').val(array_elements_delete);
@@ -130,10 +131,11 @@ $('#form-create-oaca-motivation').submit(function(event) {
 
 
 
-var array_elements_delete = [];
+
 
 $(document).ready(function(){
 
+	var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
 	//Inicialización de tab de momentos
 	initRootWizard();
 	//Inicialización de los texareas con summernote

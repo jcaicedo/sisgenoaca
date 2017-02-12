@@ -81,85 +81,11 @@
 		<script type="text/javascript" src="/assets/js/objetos/close/main.js" ></script>
 		<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js"></script>
 		<script src="/vendor/slick-carousel/slick/slick.min.js"></script>
+		<script type="text/javascript">
+		//Variables
+		var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
 
-		<script>
-		var array_elements_delete = [];
-
-		$('#form-create-oaca-close').submit(function(event) {
-
-			$("#form-create-oaca-close [name='textarea']").each(function(index) {
-				var idcontent = $(this).data('content');
-
-				var content = $(this).summernote('code');
-
-				$('#'+idcontent).val(content);
-			});
-
-		});
-
-		$('div#content-form .edit-textarea').each(function(index, element){
-			var textarea_id = $(this).attr('id');
-
-
-			$('#'+textarea_id).summernote({
-				height: 300,
-				minHeight: null,
-				maxHeight: null,
-				focus: true,
-				maximumImageFileSize: 512*1024
-			});
-
-			var content = $('#input-'+textarea_id).val();
-			$('#input-'+textarea_id).val(textarea_id);
-
-
-			$('#'+textarea_id).summernote('code',content);
-
-
-
-		});
-
-		$("#form-create-oaca-close").on('click','button.remove-div',function (e){
-
-			e.preventDefault();
-
-
-			var divDelete = $(this).data('parent');
-
-			if($(this).data('idelement')){
-				array_elements_delete.push($(this).data('idelement'));
-				$('#elementos-delete').val(array_elements_delete);
-				console.log($('#elementos-delete').val());
-			}
-
-
-			$("."+divDelete).remove();
-
-		});
-
-		$("#form-create-oaca-close").on('click','button.remove-content',function (e){
-
-			var divDelete = $(this).data('content');
-
-			$(divDelete+' button.remove-div').each(function(index, el){
-
-				if($(el).data('idelement')){
-					array_elements_delete.push($(el).data('idelement'));
-					$('#elementos-delete').val(array_elements_delete);
-					console.log($('#elementos-delete').val());
-				}
-			});
-
-			$(divDelete).remove();
-
-		});
-
-
+		//Se obtienen la cantidad de elementos existentes en la base de datos.
 		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
-
-
-
-
-
 		</script>
 	@endpush

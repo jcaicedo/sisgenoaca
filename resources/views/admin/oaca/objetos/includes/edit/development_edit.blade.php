@@ -140,7 +140,7 @@
 												<h2>Html Actual: {{$element->content}}</h2>
 											</div>
 											<div class="box-tools pull-right">
-												<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" datal-idelement="{{$element->id}}">
+												<button type="button" class="btn btn-box-tool remove-div" data-parent="remove-div-{{$count}}" data-idelement="{{$element->id}}">
 													<i class="fa fa-close"></i>
 												</button>
 											</div>
