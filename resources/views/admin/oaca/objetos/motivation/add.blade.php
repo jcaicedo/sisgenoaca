@@ -136,7 +136,7 @@
 		<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js"></script>
 		<script src="/vendor/slick-carousel/slick/slick.min.js"></script>
 
-		<script>
+		{{-- <script>
 		$('#form-create-oaca-motivation').submit(function(event) {
 
 			$("#form-create-oaca-motivation [name='textarea']").each(function(index) {
@@ -165,5 +165,5 @@
 
 		});
 
-		</script>
+		</script> --}}
 	@endpush

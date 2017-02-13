@@ -29,7 +29,12 @@
 .content-btn-preview{text-align: center;}
 .box-header-principal{text-align: center;}
 .image-preview-content{text-align: center;}
-.image-preview-content img{width: 50%; height: auto;}
+.image-preview-content img.imgcontent{
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 30px auto;
+}
 
 /*#processit{float:right;}*/
 .processit h3{float: left;margin-top: 11px;}

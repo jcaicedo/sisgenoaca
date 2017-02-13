@@ -50,6 +50,8 @@
 		@include('oaca.fullscreen_pageflip.partials.button_floating')
 
 
+
+		<!--ELEMENTOS MODALES---------------------------------------------------------------->
 		<!-- Modal Estilo de Colores -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			<div class="modal-dialog" role="document">
@@ -69,7 +71,13 @@
 			</div>
 		</div>
 
+		<!-------------------------------------------------------------------------------->
+
+@include('oaca.fullscreen_pageflip.partials.footer')
+
 	</div><!-- /container -->
+
+
 	<style>
 	.btn-floating.btn-large{
 		width: 90.5px;
@@ -90,7 +98,77 @@
 	.btn-floating-universal-access{
 		transform: scaleY(1.2) scaleX(1.2) translateY(1px) translateX(1px) !important;
 	}
+
+	.container{
+		height: 81%;
+		min-height: calc(100vh - 87px);
+	}
+
+	.footer{
+		height: 100%;
+		background: black;
+		padding: 11px 15px 0 15px;
+	}
+
+	.col-5{
+		width: 50%;
+		float:left;
+		height:auto;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+.img-logos-institution{
+	width: 22px;
+	height: auto;
+}
+.post-thumb{
+	float: left;
+	margin-left: 20px;
+}
+.post-thumb img{
+	display: block;
+	width: 74px;
+	float: left;
+}
+.post-thumb img.ciencias{
+width: 59px;
+height: 59px;
+margin-top: 7px;
+}
+
+.post-thumb img.licence{
+width: 135px;
+margin-top: 9px;
+}
+
+.post-thumb img.ucv{
+width: 80px;
+margin-top: 3px;
+margin-left: 12px;
+}
+
+.post-content{
+	float: left;
+}
+
+.post-thumb.content-right{
+	float: right;
+	margin-right: 200px;
+}
+.post-thumb.content-right img{
+	float: right !important;
+}
+
+
+.post-content h4{
+	font-size: 14px;
+	line-height: 0.7;
+}
+
 	/*.blue{
+
 	background-color: #054c5f !important;
 	}*/
 	</style>
@@ -103,8 +181,8 @@
 	<script src="{{url('/themes/FullscreenBookBlock/js/page.js')}}"></script>
 	<script src="{{url('/themes/FullscreenBookBlock/js/main.js')}}"></script> <!--archivo js propio del sistema-->
 
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="{{url('/themes/FullscreenBookBlock/modal-bootstrap/js/bootstrap.min.js')}}" ></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="{{url('/themes/FullscreenBookBlock/modal-bootstrap/js/bootstrap.min.js')}}" ></script>
 
 
 	<!--Inicializa las accciones del theme de la pagina para mostrar el oaca-->

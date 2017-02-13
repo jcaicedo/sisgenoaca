@@ -61,7 +61,6 @@
 
 
   </div>
-
   <nav>
     <span id="bb-nav-prev">&larr;</span>
     <span id="bb-nav-next">&rarr;</span>
