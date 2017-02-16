@@ -56,6 +56,9 @@
 
 			<div class="col-md-12">
 				<label for="image_organization">{{trans('admin.image_organization')}}</label>
+				<div class="col-md-12 text-center">
+					<img src="https://placehold.it/900x500" alt="Imagen Institución">
+				</div>
 				<input type="file" name="colaborator[][image_organization]" id="image_organization" class="form-control image_colaborator_file" >
 				{{-- <input type="hidden" name="colaborator[][image_organization_colaborator]" id="image_organization_colaborator" class="form-control image_organization_colaborator" > --}}
 			</div>

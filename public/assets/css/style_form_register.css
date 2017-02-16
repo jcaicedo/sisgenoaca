@@ -8,6 +8,4 @@
 
 #loginForm .has-success .control-label,
 #loginForm .has-success .help-block,
-#loginForm .has-success .form-control-feedback {
-	color: #18bc9c;
-}
+#loginForm .has-success .form-control-feedback {color: #18bc9c;}

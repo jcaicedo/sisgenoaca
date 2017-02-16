@@ -154,6 +154,12 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="/assets/css/registry/master.css">
     <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
+    <style media="screen">
+    div.div_content_image_organization_colaborators div img{
+      width: 50%;
+      margin: 30px;
+    }
+    </style>
 
   @endpush
   @push('scripts')
