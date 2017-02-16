@@ -71,12 +71,14 @@
 							<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
 							<input type="text" name="colaborator[0][organization]" id="organization0" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
 						</div>
-						<div class="col-md-12 div_content_image_organization_colaborators">
-							<label for="image_organization">{{trans('admin.image_organization')}}</label>
-							<div class="col-md-12 text-center">
-								<img src="https://placehold.it/900x500" alt="Imagen Institución">
+						<div class="col-md-12 text-center div_content_image_organization_colaborators">
+							<label class="col-md-12" for="image_organization">{{trans('admin.image_organization')}}</label>
+							<div class="col-md-12">
+								<img src="https://placehold.it/200x200" alt="Imagen Institución" id="image_content_prev">
 							</div>
-							<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control image_colaborator_file" >
+								<div class="col-md-6 col-md-offset-3">
+									<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control image_colaborator_file" data-content-preview="#image_content_prev">
+							</div>
 
 							{{-- <input type="hidden" name="colaborator[0][image_organization_colaborator]" id="image_organization_colaborator0" class="form-control image_organization_colaborator" > --}}
 						</div>
