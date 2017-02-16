@@ -1,13 +1,12 @@
 <!--CICLO DE VIDA -->
-
 <div class="box-body " id="lifecycle">
-	{{-- <h4>{{trans('admin.lifecycle')}}</h4> --}}
+	{{--
+	<h4>{{trans('admin.lifecycle')}}</h4> --}}
 	<br>
 	<div class="form-group col-xs-12 col-sm-6">
 		<label for="version">{{trans('admin.version')}}<span> *</span></label>
 		<input type="text" class="form-control" id="version" name="version" placeholder="{{trans('admin.placeholderVersion')}}">
 	</div>
-
 	<div class="form-group col-xs-12 col-sm-6">
 		<label for="state">{{trans('admin.state')}}<span> *</span></label>
 		<div>
@@ -26,9 +25,8 @@
 			<i class="fa fa-plus"></i>
 		</button>
 		<br>
-
 		<div class="content-box-colaborators">
-			<div class="box box-colaborator" >
+			<div class="box box-colaborator">
 				<div class="box-header">
 					<h6 class="box-title">{{trans('admin.colaborator')}} 0</h6>
 					<div class="box-tools pull-right">
@@ -53,7 +51,6 @@
 								<option value="writer">{{trans('admin.writer')}}</option>
 							</select>
 						</div>
-
 						<div class="col-md-4">
 							<label for="name">{{trans('admin.name')}} <span>*</span> </label>
 							<input type="text" name="colaborator[0][name]" id="name0" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
@@ -66,7 +63,6 @@
 							<label for="email">{{trans('admin.email')}} <span>*</span> </label>
 							<input type="email" name="colaborator[0][email]" id="email0" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
 						</div>
-
 						<div class="col-md-6">
 							<label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
 							<input type="text" name="colaborator[0][organization]" id="organization0" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
@@ -74,24 +70,18 @@
 						<div class="col-md-12 text-center div_content_image_organization_colaborators">
 							<label class="col-md-12" for="image_organization">{{trans('admin.image_organization')}}</label>
 							<div class="col-md-12">
-								<img src="https://placehold.it/200x200" alt="Imagen Institución" id="image_content_prev">
+								<img src="https://placehold.it/200x200" alt="Imagen Institución" id="image_content_prev0">
 							</div>
-								<div class="col-md-6 col-md-offset-3">
-									<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control image_colaborator_file" data-content-preview="#image_content_prev">
+							<div class="col-md-6 col-md-offset-3">
+								<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control image_colaborator_file" data-content-preview="#image_content_prev0">
 							</div>
-
-							{{-- <input type="hidden" name="colaborator[0][image_organization_colaborator]" id="image_organization_colaborator0" class="form-control image_organization_colaborator" > --}}
+							{{-- <input type="hidden" name="colaborator[0][image_organization_colaborator]" id="image_organization_colaborator0"
+							    class="form-control image_organization_colaborator"> --}}
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-
-
-
-
 	</div>
-
-
 </div>
 <!--/-box-body CICLO DE VIDA -->

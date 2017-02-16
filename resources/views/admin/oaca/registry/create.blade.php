@@ -155,10 +155,10 @@
     <link rel="stylesheet" href="/assets/css/registry/master.css">
     <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
     <style media="screen">
-    div.div_content_image_organization_colaborators div img{
+  /*  div.div_content_image_organization_colaborators div img{
       width: 30%;
       margin: 30px;
-    }
+    }*/
     </style>
 
   @endpush

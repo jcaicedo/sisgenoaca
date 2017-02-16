@@ -3,16 +3,21 @@ jQuery(document).ready(function ($) {
 	var count_words_key = 2;
 
 
-addcolaboratorimage();
+	addColaboratorImage();
 
 	/*add Words Key*/
 
 	$('.btn-wordskey-plus').click(function (e) {
 		e.preventDefault();
 
-		var input_wordKey = $('.box-wordkey-clone').clone().addClass('box-wordkey').removeClass('box-wordkey-clone').removeClass('nomostrar').attr({ 'id': 'divwordkey' + count_words_key });
+		var input_wordKey = $('.box-wordkey-clone').clone().addClass('box-wordkey').removeClass('box-wordkey-clone').removeClass('nomostrar').attr({
+			'id': 'divwordkey' + count_words_key
+		});
 		input_wordKey.find('button.btn-remove').data('parent', 'divwordkey' + count_words_key);
-		input_wordKey.find('input').attr({ 'name': 'words_key[]', 'id': 'words_key' + count_words_key });
+		input_wordKey.find('input').attr({
+			'name': 'words_key[]',
+			'id': 'words_key' + count_words_key
+		});
 		count_words_key++;
 		$('.box-wordskeys').append(input_wordKey);
 
@@ -27,13 +32,37 @@ addcolaboratorimage();
 		var colaboratorbox = $('.box-colaborator-clone').clone().removeClass('box-colaborator-clone').removeClass('nomostrar').addClass('box-colaborator').attr('id', 'divcolaborator' + count);
 		colaboratorbox.find('.box-title').text('Colaborador ' + count);
 		colaboratorbox.find('button.btn-remove').data('parent', 'divcolaborator' + count);
-		colaboratorbox.find("input[id='name']").attr({ 'id': 'name' + count, 'name': 'colaborator[' + count + '][name]' });
-		colaboratorbox.find("input[id='lastname']").attr({ 'id': 'lastname' + count, 'name': 'colaborator[' + count + '][lastname]' });
-		colaboratorbox.find("input[id='email']").attr({ 'id': 'email' + count, 'name': 'colaborator[' + count + '][email]' });
-		colaboratorbox.find("input[id='organization']").attr({ 'id': 'organization' + count, 'name': 'colaborator[' + count + '][organization]' });
-		colaboratorbox.find("select[id='typecontribution']").attr({ 'id': 'typecontribution' + count, 'name': 'colaborator[' + count + '][typecontribution]' });
-		colaboratorbox.find("input[id='image_organization']").attr({ 'id': 'image_organization' + count, 'name': 'colaborator[' + count + '][image_organization]' });
-		colaboratorbox.find("input[id='id_colaborator']").attr({ 'id': 'id_colaborator' + count, 'name': 'colaborator[' + count + '][id]' });
+		colaboratorbox.find("input[id='name']").attr({
+			'id': 'name' + count,
+			'name': 'colaborator[' + count + '][name]'
+		});
+		colaboratorbox.find("input[id='lastname']").attr({
+			'id': 'lastname' + count,
+			'name': 'colaborator[' + count + '][lastname]'
+		});
+		colaboratorbox.find("input[id='email']").attr({
+			'id': 'email' + count,
+			'name': 'colaborator[' + count + '][email]'
+		});
+		colaboratorbox.find("input[id='organization']").attr({
+			'id': 'organization' + count,
+			'name': 'colaborator[' + count + '][organization]'
+		});
+		colaboratorbox.find("select[id='typecontribution']").attr({
+			'id': 'typecontribution' + count,
+			'name': 'colaborator[' + count + '][typecontribution]'
+		});
+		colaboratorbox.find("input[id='image_organization']").attr({
+			'id': 'image_organization' + count,
+			'name': 'colaborator[' + count + '][image_organization]'
+		}).data('content-preview', '#image_content_prev' + count);
+		colaboratorbox.find("input[id='id_colaborator']").attr({
+			'id': 'id_colaborator' + count,
+			'name': 'colaborator[' + count + '][id]'
+		});
+		colaboratorbox.find("img.content-image-preview").attr({
+			'id': 'image_content_prev' + count
+		});
 
 
 		count++;
@@ -105,18 +134,21 @@ addcolaboratorimage();
 function nextTab(elem) {
 	$(elem).next().find('a[data-toggle="tab"]').click();
 }
+
 function prevTab(elem) {
 	$(elem).prev().find('a[data-toggle="tab"]').click();
 }
 
 
-function addcolaboratorimage(){
+///////////////////////////////////////////////////
+//////Function to preview image colaborators///////
+///////////////////////////////////////////////////
+
+function addColaboratorImage() {
 	$("#form_register").on('change', ".image_colaborator_file", function () {
-
-console.log('hola');
-		//var id_content_image = $(this).data("image-content");
-
-		//readURL(this, id_content_image);
+		var id_content_image = $(this).data("content-preview");
+		console.log(id_content_image);
+		readURL(this, id_content_image);
 
 	});
 
@@ -126,18 +158,18 @@ console.log('hola');
 
 
 
-	function readURL(input, id_content_image) {
+function readURL(input, id_content_image) {
 
-		if (input.files && input.files[0]) {
-			var reader = new FileReader();
+	if (input.files && input.files[0]) {
+		var reader = new FileReader();
 
-			reader.onload = function (e) {
-				// $('#blah').attr('src', e.target.result);
-				console.log(id_content_image);
-				$(id_content_image).attr('src', e.target.result);
+		reader.onload = function (e) {
+			// $('#blah').attr('src', e.target.result);
+			console.log(id_content_image);
+			$(id_content_image).attr('src', e.target.result);
 
-			}
-
-			reader.readAsDataURL(input.files[0]);
 		}
+
+		reader.readAsDataURL(input.files[0]);
 	}
+}
