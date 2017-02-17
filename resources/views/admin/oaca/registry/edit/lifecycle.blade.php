@@ -75,17 +75,26 @@
                 <input type="text" name="colaborator[{{$key}}][organization]" id="organization{{$key}}" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}" value="{{$colaborator->organization}}">
               </div>
 
-              <div class="col-md-12 div_content_image_organization_colaborators">
-                <label for="image_organization">{{trans('admin.image_organization')}}</label>
+              <div class="col-md-12 text-center div_content_image_organization_colaborators">
+                <div class="col-md-12">
+                    <label for="image_organization">{{trans('admin.image_organization')}}</label>
+                </div>
                 @if (!empty($colaborator->image_organization))
+                <div class="col-md-6 text-center">
                   <img src="{{$colaborator->image_organization}}" class="form-control" alt="" style="height:auto !important;width:13em !important; margin-bottom:15px;"/>
+                </div>
+                <div class="col-md-6 text-center">
+                   <img src="http://placehold.it/900x900" class="form-control" id="image_content_prev{{$key}}" alt="" style="height:auto !important;width:13em !important; margin-bottom:15px;"/>
+                </div>
+
                 @else
                   <p>
                     no contiene imagen de la organización
                   </p>
                 @endif
-
-                <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control" style="width:37%;" >
+                <div class="col-md-12">
+                  <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control image_colaborator_file" style="width:37%;" data-content-preview="#image_content_prev{{$key}}" >
+                </div>
               </div>
             </div>
           </div>

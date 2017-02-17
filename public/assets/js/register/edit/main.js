@@ -153,7 +153,6 @@ function prevTab(elem) {
 function addColaboratorImage() {
   $("#form_register").on('change', ".image_colaborator_file", function () {
     var id_content_image = $(this).data("content-preview");
-    console.log(id_content_image);
     readURL(this, id_content_image);
 
   });
@@ -166,8 +165,6 @@ function readURL(input, id_content_image) {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      // $('#blah').attr('src', e.target.result);
-      console.log(id_content_image);
       $(id_content_image).attr('src', e.target.result);
 
     }
