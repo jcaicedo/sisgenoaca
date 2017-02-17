@@ -8,9 +8,8 @@
     <i class="fa fa-close"></i>
   </button>
 </div>
-
 {{-- Container Colaborators --}}
-<div class="box box-colaborator-clone nomostrar" >
+<div class="box box-colaborator-clone nomostrar">
   <div class="box-header">
     <h6 class="box-title">{{trans('admin.colaborator')}}</h6>
     <div class="box-tools pull-right">
@@ -21,7 +20,7 @@
   </div>
   <br>
   <div class="box-body">
-      <input type="hidden" name="colaborator[][id]" value="" id="id_colaborator">
+    <input type="hidden" name="colaborator[][id]" value="" id="id_colaborator">
     <div class="form-group">
       <div class="col-md-4">
         <label for="">{{trans('admin.typecontribution')}}</label>
@@ -35,7 +34,6 @@
           <option value="writer">{{trans('admin.writer')}}</option>
         </select>
       </div>
-
       <div class="col-md-4">
         <label for="name">{{trans('admin.name')}} <span>*</span> </label>
         <input type="text" name="colaborator[][name]" id="name" class="form-control" placeholder="{{trans('admin.placeholdername')}}">
@@ -48,18 +46,20 @@
         <label for="email">{{trans('admin.email')}} <span>*</span> </label>
         <input type="email" name="colaborator[][email]" id="email" class="form-control" placeholder="{{trans('admin.placeholderemail')}}">
       </div>
-
       <div class="col-md-6">
         <label for="organization">{{trans('admin.organization')}} <span>*</span> </label>
         <input type="text" name="colaborator[][organization]" id="organization" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
       </div>
-
-      <div class="col-md-12">
-        <label for="image_organization">{{trans('admin.image_organization')}}</label>
-        <input type="file" name="colaborator[][image_organization]" id="image_organization" class="form-control image_colaborator_file" >
-
+      <div class="col-md-12 text-center div_content_image_organization_colaborators">
+        <label class="col-md-12" for="image_organization">{{trans('admin.image_organization')}}</label>
+        <div class="col-md-12">
+          <img src="https://placehold.it/200x200" alt="Imagen Institución" class="content-image-preview">
+        </div>
+        <div class="col-md-6 col-md-offset-3">
+          <input type="file" name="colaborator[][image_organization]" id="image_organization" class="form-control image_colaborator_file"
+            data-content-preview="">
+        </div>
       </div>
-
     </div>
   </div>
 </div>

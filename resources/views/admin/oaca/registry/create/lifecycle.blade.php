@@ -75,8 +75,6 @@
 							<div class="col-md-6 col-md-offset-3">
 								<input type="file" name="colaborator[0][image_organization]" id="image_organization0" class="form-control image_colaborator_file" data-content-preview="#image_content_prev0">
 							</div>
-							{{-- <input type="hidden" name="colaborator[0][image_organization_colaborator]" id="image_organization_colaborator0"
-							    class="form-control image_organization_colaborator"> --}}
 						</div>
 					</div>
 				</div>
