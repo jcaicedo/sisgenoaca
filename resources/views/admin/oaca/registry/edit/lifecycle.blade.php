@@ -93,7 +93,7 @@
                   </p>
                 @endif
                 <div class="col-md-12">
-                  <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control image_colaborator_file" data-content-preview="#image_content_prev{{$key}}" >
+                  <input type="file" name="colaborator[{{$key}}][image_organization]" id="image_organization{{$key}}" class="form-control image_colaborator_file" style="width:37%;" data-content-preview="#image_content_prev{{$key}}" >
                 </div>
               </div>
             </div>
