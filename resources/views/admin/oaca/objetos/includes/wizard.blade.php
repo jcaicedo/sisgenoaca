@@ -6,7 +6,7 @@
         <li class="" id="registro">
          <span class="step"> <i class="fa fa-check fa-lg"></i> </span> <span class="title">Registro</span>
         </li>
-        <li class="active" id="motivation">
+        <li class="" id="motivation">
          <span class="step"> <i class="fa  fa-hand-pointer-o fa-3x"></i> </span> <span class="title">Motivación</span>
         </li>
         <li  class="" id="development">
