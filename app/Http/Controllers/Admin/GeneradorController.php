@@ -167,7 +167,7 @@ class GeneradorController extends AdminController
 		$contentgeneral = ElementsOaca::searchElementsMotivation($id);
 		$content = $contentgeneral[1];
 		$content2 = $contentgeneral[2];
-			//dd($content2);
+		//dd($contentgeneral);
 
 		return view('admin.oaca.objetos.motivation.edit',[
 			"register_id" =>$id,
