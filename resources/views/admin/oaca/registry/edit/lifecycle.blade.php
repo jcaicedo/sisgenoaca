@@ -81,10 +81,10 @@
                 </div>
                 @if (!empty($colaborator->image_organization))
                 <div class="col-md-6 text-center">
-                  <img src="{{$colaborator->image_organization}}" class="form-control" alt="" style="height:auto !important;margin-bottom:15px;"/>
+                  <img src="{{$colaborator->image_organization}}" class="form-control center-edit" alt=""/>
                 </div>
                 <div class="col-md-6 text-center">
-                   <img src="http://placehold.it/900x900" class="form-control" id="image_content_prev{{$key}}" alt="" style="height:auto !important; margin-bottom:15px;"/>
+                   <img src="http://placehold.it/900x900" class="form-control center-edit" id="image_content_prev{{$key}}" alt="" />
                 </div>
 
                 @else

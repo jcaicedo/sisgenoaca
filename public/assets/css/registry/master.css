@@ -209,4 +209,11 @@ div.div_content_image_organization_colaborators {
 div.div_content_image_organization_colaborators div img {
   width: 200px;
   margin: 30px;
+  height: auto;
+}
+
+div.div_content_image_organization_colaborators div img.center-edit {
+margin-left: auto;
+margin-right: auto;
+display: block;
 }
