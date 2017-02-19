@@ -139,14 +139,11 @@ $('#form-create-oaca-motivation').submit(function (event) {
 
 $(document).ready(function () {
 
+	var count = $('input[name=count_elements_old]').val(); //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
 	//Inicialización de tab de momentos
 	initRootWizard();
 	//Inicialización de los texareas con summernote
 	initTexareasSummernote();
-
-	var count = $('input[name=count_elements_old]').val(); //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
-
-	$("div#bootstrap-wizard-1 div.form-bootstrapWizard ul.bootstrapWizard li#motivation").addClass('active');
 
 	// //Variables
 	// var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
