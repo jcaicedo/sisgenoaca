@@ -96,13 +96,15 @@
 @push('scripts')
   <script type="text/javascript">
   $(document).ready(function() {
+
+
+    	$('ul.form-wizard li#finish').addClass('active');
+
     //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
       radioClass: 'iradio_minimal-blue'
     });
-
-
 
     $('input#publicar').on('ifChanged', function(event){
 

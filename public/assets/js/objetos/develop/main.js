@@ -142,6 +142,7 @@ $(document).ready(function(){
 	//Variables
 	var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
 
+	$('ul.form-wizard li#development').addClass('active');
 	//
 	// //Se obtienen la cantidad de elementos existentes en la base de datos.
 	// $('input[name=count_elements_old]').val($('#content-form .old').size()+1);

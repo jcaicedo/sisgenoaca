@@ -145,6 +145,7 @@ $(document).ready(function () {
 	//Inicialización de los texareas con summernote
 	initTexareasSummernote();
 
+	$('ul.form-wizard li#motivation').addClass('active');
 	// //Variables
 	// var count= $('input[name=count_elements_old]').val();  //variable de contador de los elementos para la creacion y continuación de los nuevos elementos
 	//
