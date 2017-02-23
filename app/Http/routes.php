@@ -33,6 +33,11 @@ Route::group(['middleware' => 'web'],function(){
   Route::group(['middleware'=>'auth'],function(){
 
     Route::group(['namespace'=>'Admin','prefix'=>'admin'],function(){
+
+      Route::get('/prueba', function () {
+          return view('admin.oaca.registry.prueba');
+      });
+
       Route::get('/',['uses'=>'AdminController@index']);
 
       Route::group(['prefix'=>'oaca'],function(){
@@ -76,8 +81,3 @@ Route::post('usuario/registro/',['uses'=>'UsersController@createUser']);
 Route::get('usuario/admin',['uses'=>'UsersController@viewAdmin']);
 
 Route::resource('log','LogController');
-
-
-// Route::get('/prueba', function () {
-//     return view('oaca.fullscreen_pageflip.layouts.main');
-// });
