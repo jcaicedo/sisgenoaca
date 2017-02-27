@@ -1,7 +1,7 @@
 <!--///////////////////////////ELEMENTOS OCULTOS PARA CLONAR ////////////////////////////-->
 {{-- Input Word Key --}}
 <div class="form-group col-md-12 box-wordkey-clone nomostrar">
-	<div class="col-md-6">
+	<div class="col-md-6 col-xs-10">
 		<input type="text" class="form-control" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
 	</div>
 	<button type="button" class="btn btn-box-tool btn-remove">
