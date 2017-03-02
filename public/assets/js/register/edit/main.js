@@ -3,6 +3,10 @@ $(document).ready(function () {
 
 addColaboratorImage();
 
+selectCopyring();
+
+
+
   var count = $('div.box-colaborator').size() + 1;
 
   $(".ui-state-default").each(function () {
@@ -98,22 +102,6 @@ addColaboratorImage();
     radioClass: 'iradio_minimal-blue'
   });
 
-  // $('ol').selectable({
-  //   selected: function (event, ui) {
-  //     $('.input_plantilla').each(function () {
-  //       $(this).remove();
-  //     });
-  //     var idPlantilla = $(".ui-selected", this).find('img').attr('name');
-  //     $(".ui-selected", this).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='" + idPlantilla + "'>");
-  //
-  //   },
-  //   stop: function (event, ui) {
-  //     $(".ui-selected:first", this).each(function () {
-  //       $(this).siblings().removeClass("ui-selected");
-  //
-  //     });
-  //   }
-  // });
 
   $(".next-step").click(function (e) {
     console.log('hola');
@@ -171,4 +159,31 @@ function readURL(input, id_content_image) {
 
     reader.readAsDataURL(input.files[0]);
   }
+}
+
+
+function selectCopyring(){
+  var titulos_licencias = [],
+  descripciones_licencias =[],
+  count_licencias = 1;
+
+  titulos_licencias[1]="Reconocimiento-NoComercial CC BY-NC";
+  titulos_licencias[2]="Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA";
+  titulos_licencias[3]="Reconocimiento-NoComercial-SinObraDerivada CC BY-NC-ND";
+
+  descripciones_licencias[1]="Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, y aunque en sus nuevas creaciones deban reconocerle su autoría y no puedan ser utilizadas de manera comercial, no tienen que estar bajo una licencia con los mismos términos.";
+  descripciones_licencias[2]="Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, siempre y cuando le reconozcan la autoría y sus nuevas creaciones estén bajo una licencia con los mismos términos.";
+  descripciones_licencias[3]="Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente.";
+
+
+
+  $("select#licencia").imagepicker({
+    show_label  : true
+  });
+
+  $("div.thumbnail").each(function(){
+    $(this).find('img').before('<h3>'+titulos_licencias[count_licencias]+'</h3>');
+    $(this).append('<p>'+	descripciones_licencias[count_licencias]+'</p>');
+    count_licencias++;
+  });
 }
