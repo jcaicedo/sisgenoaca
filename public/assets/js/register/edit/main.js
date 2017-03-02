@@ -98,22 +98,22 @@ addColaboratorImage();
     radioClass: 'iradio_minimal-blue'
   });
 
-  $('ol').selectable({
-    selected: function (event, ui) {
-      $('.input_plantilla').each(function () {
-        $(this).remove();
-      });
-      var idPlantilla = $(".ui-selected", this).find('img').attr('name');
-      $(".ui-selected", this).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='" + idPlantilla + "'>");
-
-    },
-    stop: function (event, ui) {
-      $(".ui-selected:first", this).each(function () {
-        $(this).siblings().removeClass("ui-selected");
-
-      });
-    }
-  });
+  // $('ol').selectable({
+  //   selected: function (event, ui) {
+  //     $('.input_plantilla').each(function () {
+  //       $(this).remove();
+  //     });
+  //     var idPlantilla = $(".ui-selected", this).find('img').attr('name');
+  //     $(".ui-selected", this).find('img').after("<input type='hidden' class='input_plantilla' name='plantilla' value='" + idPlantilla + "'>");
+  //
+  //   },
+  //   stop: function (event, ui) {
+  //     $(".ui-selected:first", this).each(function () {
+  //       $(this).siblings().removeClass("ui-selected");
+  //
+  //     });
+  //   }
+  // });
 
   $(".next-step").click(function (e) {
     console.log('hola');

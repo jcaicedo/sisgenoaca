@@ -32,24 +32,14 @@
 						{!! csrf_field() !!}
 						<div class="box-body">
 							<h4>{{trans('admin.select_plantilla')}}</h4>
-							<br>
-							{{-- <ol id="selectable">
-							<li class="ui-widget-content">Item 1</li>
-							<li class="ui-widget-content">Item 2</li>
-							<li class="ui-widget-content">Item 3</li>
-							<li class="ui-widget-content">Item 4</li>
-							<li class="ui-widget-content">Item 5</li>
-							<li class="ui-widget-content">Item 6</li>
-							<li class="ui-widget-content">Item 7</li>
-						</ol> --}}
 
-						<select class="image-picker  show-labels show-html" name="">
+						<select class="image-picker show-html" name="">
 
-							<option data-img-label="Reconocimiento NoComercial" data-img-src="/assets/imgs/licencias_creative_commons/by-nc-nd.png" data-img-class="first" data-img-alt="Page 1" value="1">  Page 1  </option>
+							<option  data-img-src="/assets/imgs/licencias_creative_commons/by-nc-nd.png" value="1"></option>
 
-							<option data-img-label="Reconocimiento NoComercial-CompartirIgual" data-img-src="/assets/imgs/licencias_creative_commons/by-nc-sa.png" data-img-alt="Page 2" value="2">  Page 2  </option>
+							<option  data-img-src="/assets/imgs/licencias_creative_commons/by-nc-sa.png"  value="2"></option>
 
-							<option data-img-label="Reconocimiento NoComercial SinObraDerivada" data-img-src="/assets/imgs/licencias_creative_commons/by-nc.png" data-img-alt="Page 3" value="3">  Page 3  </option>
+							<option  data-img-src="/assets/imgs/licencias_creative_commons/by-nc.png"  value="3"></option>
 
 
 						</select>
@@ -89,13 +79,29 @@
 		<script>
 
 		$(document).ready(function ($) {
+
+			var titulos_licencias = [],
+			descripciones_licencias =[],
+			count_licencias = 1;
+
+			titulos_licencias[1]="Reconocimiento-NoComercial CC BY-NC";
+			titulos_licencias[2]="Reconocimiento-NoComercial-CompartirIgual CC BY-NC-SA";
+			titulos_licencias[3]="Reconocimiento-NoComercial-SinObraDerivada CC BY-NC-ND";
+
+			descripciones_licencias[1]="Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, y aunque en sus nuevas creaciones deban reconocerle su autoría y no puedan ser utilizadas de manera comercial, no tienen que estar bajo una licencia con los mismos términos.";
+			descripciones_licencias[2]="Esta licencia permite a otros entremezclar, ajustar y construir a partir de su obra con fines no comerciales, siempre y cuando le reconozcan la autoría y sus nuevas creaciones estén bajo una licencia con los mismos términos.";
+			descripciones_licencias[3]="Esta licencia es la más restrictiva de las seis licencias principales, sólo permite que otros puedan descargar las obras y compartirlas con otras personas, siempre que se reconozca su autoría, pero no se pueden cambiar de ninguna manera ni se pueden utilizar comercialmente.";
+
+
+
 			$("select").imagepicker({
 				show_label  : true
 			});
 
 			$("div.thumbnail").each(function(){
-				$(this).find('img').before('<h3>Titulo TituloTitulo TituloTitulo TituloTitulo TituloTitulo TituloTitulo Titulo</h3>');
-				$(this).append('<p>dsdadsdadaadadsdaddadad  dodpaskdpjps  pfspfjspfjf fpsfjspdjfpfsd fsdopfjsdpfjspof fposdfjpsdjfpojfs jshfhhfaiha  fhaoidhfa oaihf aso</p>');
+				$(this).find('img').before('<h3>'+titulos_licencias[count_licencias]+'</h3>');
+				$(this).append('<p>'+	descripciones_licencias[count_licencias]+'</p>');
+				count_licencias++;
 			});
 
 		});
