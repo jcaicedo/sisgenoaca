@@ -154,11 +154,12 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="/assets/css/registry/master.css">
     <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
-    <style media="screen">
-  /*  div.div_content_image_organization_colaborators div img{
-      width: 30%;
-      margin: 30px;
-    }*/
+    <link rel="stylesheet" href="/assets/css/registry/image-picker-sisgeoaca.css">
+    <style>
+    ul.thumbnails.image_picker_selector li .thumbnail img {
+      width: 300px;
+    }
+
     </style>
 
   @endpush
@@ -169,4 +170,5 @@
 
     <!-- iCheck 1.0.1 -->
     <script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
+      <script type="text/javascript" src="/vendor/image-picker/image-picker/image-picker.js"></script>
   @endpush
