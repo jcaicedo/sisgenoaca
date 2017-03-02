@@ -2,6 +2,29 @@
   display: none;
 }
 
+/*Styles for Copyright*/
+#copyright ul.thumbnails.image_picker_selector {
+    width: 50%;
+    margin: auto;
+}
+
+#copyright ul.thumbnails.image_picker_selector li{
+  float: none;
+}
+
+#copyright ul.thumbnails.image_picker_selector li .thumbnail h3 {
+  text-align: center;}
+#copyright ul.thumbnails.image_picker_selector li .thumbnail img {
+    width: 300px;
+  }
+#copyright ul.thumbnails.image_picker_selector li .thumbnail {
+    border: 5px solid #55606e;
+}
+#copyright ul.thumbnails.image_picker_selector li .thumbnail.selected {
+ background: rgba(243, 156, 18, 0.82); }
+/* ////////////////////////////////////// */
+
+
 #feedback {
   font-size: 1.4em;
 }

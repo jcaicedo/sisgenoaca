@@ -154,21 +154,14 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="/assets/css/registry/master.css">
     <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
-    <link rel="stylesheet" href="/assets/css/registry/image-picker-sisgeoaca.css">
-    <style>
-    ul.thumbnails.image_picker_selector li .thumbnail img {
-      width: 300px;
-    }
-
-    </style>
+    <link rel="stylesheet" href="/vendor/image-picker/image-picker/image-picker.css">
 
   @endpush
   @push('scripts')
-    {{-- <script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script> --}}
     <script type="text/javascript"  src="/assets/js/register/create/main.js" ></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
     <!-- iCheck 1.0.1 -->
     <script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
-      <script type="text/javascript" src="/vendor/image-picker/image-picker/image-picker.js"></script>
+    <script type="text/javascript" src="/vendor/image-picker/image-picker/image-picker.js"></script>
   @endpush
