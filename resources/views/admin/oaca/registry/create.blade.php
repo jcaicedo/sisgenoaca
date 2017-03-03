@@ -85,7 +85,7 @@
                           </div>
                           <div class="tab-pane" id="tab7">
                             <br>
-                            <h3><strong>7</strong> - Derechos de Autor</h3>
+                            <h3><strong>7</strong> - Plantilla</h3>
 
                             @include('admin.oaca.registry.create.selectable_plantilla')
 

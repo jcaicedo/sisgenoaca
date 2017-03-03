@@ -24,6 +24,16 @@
  background: rgba(243, 156, 18, 0.82); }
 /* ////////////////////////////////////// */
 
+/*Styles fot Plantillas*/
+
+#selectable_plantilla ul.thumbnails.image_picker_selector li{  width: 40%;}
+#selectable_plantilla ul.thumbnails.image_picker_selector li div.thumbnail p{
+  text-align: center;
+  font-size: xx-large;
+}
+
+/* ///////////////////////////////////////*/
+
 
 #feedback {
   font-size: 1.4em;

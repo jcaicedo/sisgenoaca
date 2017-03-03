@@ -46,7 +46,7 @@
 		@include('admin.partials.footer')
 
 
-		<script src="/vendor/AdminLTE/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+		<script src="/vendor/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>
 		<!-- <script   src="https://code.jquery.com/jquery-2.2.2.min.js"   integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI="   crossorigin="anonymous"></script> -->
 		<script src="/vendor/AdminLTE/bootstrap/js/bootstrap.min.js"></script>
 		<script src="/vendor/AdminLTE/plugins/slimScroll/jquery.slimscroll.min.js"></script>

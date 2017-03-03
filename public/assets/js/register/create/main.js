@@ -5,6 +5,7 @@ jQuery(document).ready(function ($) {
 
 	addColaboratorImage();
 	selectCopyring();
+	selectPlantilla();
 
 	/*add Words Key*/
 
@@ -175,6 +176,7 @@ function readURL(input, id_content_image) {
 	}
 }
 
+/*Select Copyright*/
 function selectCopyring(){
   var titulos_licencias = [],
   descripciones_licencias =[],
@@ -199,4 +201,13 @@ function selectCopyring(){
     $(this).append('<p>'+	descripciones_licencias[count_licencias]+'</p>');
     count_licencias++;
   });
+}
+
+
+/*Select Plantilla*/
+
+function selectPlantilla(){
+	$("div#selectable_plantilla select").imagepicker({
+		show_label  : true
+	});
 }

@@ -2,8 +2,8 @@ $(document).ready(function () {
 
 
 addColaboratorImage();
-
 selectCopyring();
+selectPlantilla();
 
 
 
@@ -186,4 +186,12 @@ function selectCopyring(){
     $(this).append('<p>'+	descripciones_licencias[count_licencias]+'</p>');
     count_licencias++;
   });
+}
+
+/*Select Plantilla*/
+
+function selectPlantilla(){
+	$("div#selectable_plantilla select").imagepicker({
+		show_label  : true
+	});
 }
