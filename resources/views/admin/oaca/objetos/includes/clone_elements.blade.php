@@ -66,8 +66,11 @@
 				</button>
 			</div>
 		</div>
-		<div class=" box-body">
-			<input class="form-control" type="file" accept="image/*" />
+		<div class="box-body">
+			<div class="image-preview-content">
+				<img src="https://placehold.it/900x500" alt="" class="imgcontent">
+			</div>
+			<input class="form-control content-image-prev" type="file" accept="image/*" />
 		</div>
 	</div>
 </div>

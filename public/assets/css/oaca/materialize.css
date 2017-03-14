@@ -2657,9 +2657,9 @@ nav ul a span.badge {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  width: 37px;
-  height: 37px;
-  line-height: 37px;
+  width: 39px;
+  height: 38px;
+  line-height: 43px;
   padding: 0;
   background-color: #26a69a;
   border-radius: 50%;

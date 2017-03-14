@@ -1,7 +1,7 @@
 <!--///////////////////////////ELEMENTOS OCULTOS PARA CLONAR ////////////////////////////-->
 {{-- Input Word Key --}}
 <div class="form-group col-md-12 box-wordkey-clone nomostrar">
-	<div class="col-md-6">
+	<div class="col-md-6 col-xs-10">
 		<input type="text" class="form-control" name="words_key[]" placeholder="{{trans('admin.placeholderWordKey')}}">
 	</div>
 	<button type="button" class="btn btn-box-tool btn-remove">
@@ -54,10 +54,15 @@
 				<input type="text" name="colaborator[][organization]" id="organization" class="form-control" placeholder="{{trans('admin.placeholderorganization')}}">
 			</div>
 
-			<div class="col-md-12">
-				<label for="image_organization">{{trans('admin.image_organization')}}</label>
-				<input type="file" name="colaborator[][image_organization]" id="image_organization" class="form-control image_colaborator_file" >
+			<div class="col-md-12 text-center div_content_image_organization_colaborators">
+				<label class="col-md-12" for="image_organization">{{trans('admin.image_organization')}}</label>
+				<div class="col-md-12">
+					<img src="https://placehold.it/200x200" alt="Imagen Institución" class="content-image-preview">
+				</div>
+				<div class="col-md-6 col-md-offset-3">
+				<input type="file" name="colaborator[][image_organization]" id="image_organization" class="form-control image_colaborator_file" data-content-preview="" >
 				{{-- <input type="hidden" name="colaborator[][image_organization_colaborator]" id="image_organization_colaborator" class="form-control image_organization_colaborator" > --}}
+				</div>
 			</div>
 
 		</div>

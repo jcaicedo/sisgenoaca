@@ -6,10 +6,10 @@
 
     <div class="form-group">
 
-      <div class="col-md-1 col-md-offset-2">
+      <div class="col-md-1 col-md-offset-2 col-xs-2">
         <input class="minimal" name="pattern" value="1" type="radio" {{$registro->pattern_id == 1?'checked':''}}>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 col-xs-10">
         <div class="box box-default collapsed-box">
           <div class="box-header with-border">
             <h3 class="box-title">DARC</h3>

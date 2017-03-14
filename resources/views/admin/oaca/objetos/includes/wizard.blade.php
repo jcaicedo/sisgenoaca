@@ -6,7 +6,7 @@
         <li class="" id="registro">
          <span class="step"> <i class="fa fa-check fa-lg"></i> </span> <span class="title">Registro</span>
         </li>
-        <li class="active" id="motivation">
+        <li class="" id="motivation">
          <span class="step"> <i class="fa  fa-hand-pointer-o fa-3x"></i> </span> <span class="title">Motivación</span>
         </li>
         <li  class="" id="development">
@@ -15,7 +15,7 @@
         <li  class="" id="close">
         <span class="step"> <i class="fa  fa-hand-rock-o fa-3x"></i> </span> <span class="title">Cierre Integrador</span>
         </li>
-        <li data-target="finalizar" id="finalizar" class="">
+        <li data-target="finalizar" id="finish" class="">
         <span class="step"> <i class="fa fa-cubes fa-3x"></i></span> <span class="title">Finalizar</span>
         </li>
       {{-- <li data-target="#step4">

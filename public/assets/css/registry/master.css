@@ -1,21 +1,106 @@
-.nomostrar{display: none;}
+.nomostrar {
+  display: none;
+}
 
-#feedback { font-size: 1.4em; }
-#selectable .ui-selecting { background: #FECA40; }
-#selectable .ui-selected { background: #F39814; color: white; }
-#selectable {  margin: 0 auto; list-style-type: none; padding: 0; width: 1050px; }
-#selectable li { padding: 15px; float: left; width: 500px; height: auto; font-size: 4em; text-align: center; margin:10px; }
+/*Styles for Copyright*/
+#copyright ul.thumbnails.image_picker_selector {
+    width: 50%;
+    margin: auto;
+}
 
-#selectable-copyright .ui-selecting { background: #FECA40; }
-#selectable-copyright .ui-selected { background: #F39814; color: white; }
-#selectable-copyright { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-#selectable-copyright li { margin: 3px; padding: 0.4em; font-size: 1.4em; height: 241px; }
-#selectable-copyright li img{ height: auto; width:180px; }
-.content-img-copyright{ overflow: hidden; line-height: 200px; }
+#copyright ul.thumbnails.image_picker_selector li{
+  float: none;
+}
+
+#copyright ul.thumbnails.image_picker_selector li .thumbnail h3 {
+  text-align: center;}
+#copyright ul.thumbnails.image_picker_selector li .thumbnail img {
+    width: 300px;
+  }
+#copyright ul.thumbnails.image_picker_selector li .thumbnail {
+    border: 5px solid #55606e;
+}
+#copyright ul.thumbnails.image_picker_selector li .thumbnail.selected {
+ background: rgba(243, 156, 18, 0.82); }
+/* ////////////////////////////////////// */
+
+/*Styles fot Plantillas*/
+
+#selectable_plantilla ul.thumbnails.image_picker_selector li{  width: 40%;}
+#selectable_plantilla ul.thumbnails.image_picker_selector li div.thumbnail p{
+  text-align: center;
+  font-size: xx-large;
+}
+
+/* ///////////////////////////////////////*/
+
+
+#feedback {
+  font-size: 1.4em;
+}
+
+#selectable .ui-selecting {
+  background: #FECA40;
+}
+
+#selectable .ui-selected {
+  background: #F39814;
+  color: white;
+}
+
+#selectable {
+  margin: 0 auto;
+  list-style-type: none;
+  padding: 0;
+  width: 1050px;
+}
+
+#selectable li {
+  padding: 15px;
+  float: left;
+  width: 500px;
+  height: auto;
+  font-size: 4em;
+  text-align: center;
+  margin: 10px;
+}
+
+#selectable-copyright .ui-selecting {
+  background: #FECA40;
+}
+
+#selectable-copyright .ui-selected {
+  background: #F39814;
+  color: white;
+}
+
+#selectable-copyright {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 60%;
+}
+
+#selectable-copyright li {
+  margin: 3px;
+  padding: 0.4em;
+  font-size: 1.4em;
+  height: 241px;
+}
+
+#selectable-copyright li img {
+  height: auto;
+  width: 180px;
+}
+
+.content-img-copyright {
+  overflow: hidden;
+  line-height: 200px;
+}
 
 ///////////////////
-/*Start Wizard*/
 
+/*Start Wizard*/
 
 .bootstrapWizard {
   display: block;
@@ -25,7 +110,9 @@
   width: 100%
 }
 
-.bootstrapWizard a:hover,.bootstrapWizard a:active,.bootstrapWizard a:focus {
+.bootstrapWizard a:hover,
+.bootstrapWizard a:active,
+.bootstrapWizard a:focus {
   text-decoration: none
 }
 
@@ -90,7 +177,8 @@
   transition: all .1s linear 0s
 }
 
-.bootstrapWizard li.active .step,.bootstrapWizard li.active.complete .step {
+.bootstrapWizard li.active .step,
+.bootstrapWizard li.active.complete .step {
   background: #0091d9;
   color: #fff;
   font-weight: 700;
@@ -100,7 +188,8 @@
   border: 3px solid #55606E
 }
 
-.bootstrapWizard li.complete .title,.bootstrapWizard li.active .title {
+.bootstrapWizard li.complete .title,
+.bootstrapWizard li.active .title {
   color: #2B3D53
 }
 
@@ -133,13 +222,31 @@
 .tab-content.transparent {
   background-color: transparent
 }
-.tab-content{
-  padding-left: 2em;padding-right: 2em;
+
+.tab-content {
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 
-
 /*End Wizard*/
-.form-actions-btn{
+
+.form-actions-btn {
   padding: 20px;
+}
+
+div.div_content_image_organization_colaborators {
+  margin: 30px 0;
+}
+
+div.div_content_image_organization_colaborators div img {
+  width: 200px;
+  margin: 30px;
+  height: auto;
+}
+
+div.div_content_image_organization_colaborators div img.center-edit {
+margin-left: auto;
+margin-right: auto;
+display: block;
 }

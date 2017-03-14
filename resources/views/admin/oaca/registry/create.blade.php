@@ -85,7 +85,7 @@
                           </div>
                           <div class="tab-pane" id="tab7">
                             <br>
-                            <h3><strong>7</strong> - Derechos de Autor</h3>
+                            <h3><strong>7</strong> - Plantilla</h3>
 
                             @include('admin.oaca.registry.create.selectable_plantilla')
 
@@ -154,13 +154,14 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="/assets/css/registry/master.css">
     <link rel="stylesheet" href="/vendor/AdminLTE/plugins/iCheck/all.css">
+    <link rel="stylesheet" href="/vendor/image-picker/image-picker/image-picker.css">
 
   @endpush
   @push('scripts')
-    {{-- <script src="/vendor/bootstrapvalidator/dist/js/bootstrapValidator.min.js"></script> --}}
     <script type="text/javascript"  src="/assets/js/register/create/main.js" ></script>
     <script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
 
     <!-- iCheck 1.0.1 -->
     <script src="/vendor/AdminLTE/plugins/iCheck/icheck.min.js"></script>
+    <script type="text/javascript" src="/vendor/image-picker/image-picker/image-picker.js"></script>
   @endpush

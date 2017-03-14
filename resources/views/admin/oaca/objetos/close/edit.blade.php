@@ -34,71 +34,10 @@
 
 					<div class="tab-content" id="content-form">
 
-						<?php $count=0;$count_element=0;?>
-
-						@for($i=1;$i<4;$i++)
-
-							<div class="tab-pane" id="tab{{$i}}">
-								{{-- botones de preview --}}
-								<div class="box-header box-header-principal box-btn-header-principal{{$i}}">
-									<a  class="btn btn-warning preview-oaca" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
-										<i class="fa fa-eye fa-3x"></i>
-										<h3>Preview</h3>
-									</a>
-								</div>
-
-								{{-- CONTENEDOR PRINCIPAL --}}
-								<div class="content content-principal" id="content-form{{$i}}" data-pattern='{{$pattern_array[$i-1]}}'>
 
 									@include('admin.oaca.objetos.includes.edit.close_edit')
 
-								</div>
 
-								{{-- botones de preview --}}
-								<div  class="box-header box-header-principal box-btn-header-principal{{$i}}">
-									<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/development')}}" class="btn btn-default text-center back-momento" >
-										<i class="fa  fa-hand-o-left fa-3x"></i>
-										<h3>{{trans('admin.development')}}</h3>
-									</a>
-									<button type="submit" class="btn btn-success text-center processit" >
-										<h3>TERMINAR</h3>
-										<i class="fa fa-hand-o-right fa-3x"></i>
-									</button>
-								</div>
-
-								{{-- CONTENEDOR PREVIEW --}}
-								<div class="preview" id="prev{{$i}}">
-									<div class="box-header">
-										<div class="content-btn-preview">
-											<a class="btn btn-warning btn-return-edit" id="preview" data-prev="#prev{{$i}}" data-content="#content-form{{$i}}" data-btn=".box-btn-header-principal{{$i}}" data-contentprev="#content-prev{{$i}}">
-												<i class="fa fa-edit fa-3x"></i>
-												<h3>Seguir Editando</h3>
-											</a>
-										</div>
-									</div>
-
-									<div class="content content-preview" id="content-prev{{$i}}">
-										<!--Contenedor del preview-->
-									</div>
-
-									{{-- bontones de preview --}}
-									<div class="box-header">
-										<div class="content-btn-preview">
-											<a href="{{url('/admin/oaca/objetos/back-oaca/'.$register_id.'/development')}}" class="btn btn-default text-center back-momento" >
-												<i class="fa  fa-hand-o-left fa-3x left"></i>
-												<h3>{{trans('admin.development')}}</h3>
-											</a>
-											<button type="submit" class="btn btn-success" id="processit" >
-												<h3>FINALIZAR</h3>
-												<i class="fa fa-hand-o-right fa-3x"></i>
-											</button>
-										</div>
-									</div>
-
-								</div> {{--./Contenedor Preview--}}
-							</div> {{--./Content Tab--}}
-
-						@endfor
 
 
 						<ul class="pager wizard">
@@ -142,85 +81,10 @@
 		<script type="text/javascript" src="/assets/js/objetos/close/main.js" ></script>
 		<script src="/vendor/jQuery.serializeObject/jquery.serializeObject.js"></script>
 		<script src="/vendor/slick-carousel/slick/slick.min.js"></script>
-
-		<script>
+		<script type="text/javascript">
 		var array_elements_delete = [];
 
-		$('#form-create-oaca-close').submit(function(event) {
-
-			$("#form-create-oaca-close [name='textarea']").each(function(index) {
-				var idcontent = $(this).data('content');
-
-				var content = $(this).summernote('code');
-
-				$('#'+idcontent).val(content);
-			});
-
-		});
-
-		$('div#content-form .edit-textarea').each(function(index, element){
-			var textarea_id = $(this).attr('id');
-
-
-			$('#'+textarea_id).summernote({
-				height: 300,
-				minHeight: null,
-				maxHeight: null,
-				focus: true,
-				maximumImageFileSize: 512*1024
-			});
-
-			var content = $('#input-'+textarea_id).val();
-			$('#input-'+textarea_id).val(textarea_id);
-
-
-			$('#'+textarea_id).summernote('code',content);
-
-
-
-		});
-
-		$("#form-create-oaca-close").on('click','button.remove-div',function (e){
-
-			e.preventDefault();
-
-
-			var divDelete = $(this).data('parent');
-
-			if($(this).data('idelement')){
-				array_elements_delete.push($(this).data('idelement'));
-				$('#elementos-delete').val(array_elements_delete);
-				console.log($('#elementos-delete').val());
-			}
-
-
-			$("."+divDelete).remove();
-
-		});
-
-		$("#form-create-oaca-close").on('click','button.remove-content',function (e){
-
-			var divDelete = $(this).data('content');
-
-			$(divDelete+' button.remove-div').each(function(index, el){
-
-				if($(el).data('idelement')){
-					array_elements_delete.push($(el).data('idelement'));
-					$('#elementos-delete').val(array_elements_delete);
-					console.log($('#elementos-delete').val());
-				}
-			});
-
-			$(divDelete).remove();
-
-		});
-
-
+		//Se obtienen la cantidad de elementos existentes en la base de datos.
 		$('input[name=count_elements_old]').val($('#content-form .old').size()+1);
-
-
-
-
-
 		</script>
 	@endpush
