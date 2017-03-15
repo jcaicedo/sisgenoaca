@@ -1,12 +1,12 @@
 ------------------------------------------
  VHOST
- URL  : sisgenoaca.app
+ URL  : sisgenoaca.dev
  Path : /var/www/sisgenoaca
  Env: LAMP
 -------------------------------------------
  MySQL
- DB Host : sisgenoaca.app / localhost
- DB Name : sisgenoaca
+ DB Host : sisgenoaca.dev / localhost
+ DB Name : 
  DB User : sisgenoaca
- DB Pass : secret
+ DB Pass : sisgenoaca
 -------------------------------------------
